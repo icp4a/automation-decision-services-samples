@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PMML xmlns="http://www.dmg.org/PMML-4_4" xmlns:data="http://jpmml.org/jpmml-model/InlineTable" version="4.3">
+	<Header>
+		<Application name="JPMML-SkLearn" version="1.6.1"/>
+		<Timestamp>2020-06-16T07:50:36Z</Timestamp>
+	</Header>
+	<MiningBuildTask>
+		<Extension>PMMLPipeline(steps=[('standardize', StandardScaler(copy=True, with_mean=True, with_std=True)),
+       ('classifier', SGDClassifier(alpha=0.0001, average=False, class_weight=None,
+              early_stopping=False, epsilon=0.1, eta0=0.0, fit_intercept=True,
+              l1_ratio=0.15, learning_rate='optimal', loss='log', max_iter=1000,
+              n_iter_no_change=5, n_jobs=None, penalty='l2', power_t=0.5,
+              random_state=42, shuffle=True, tol=0.001, validation_fraction=0.1,
+              verbose=0, warm_start=False))])</Extension>
+	</MiningBuildTask>
+	<DataDictionary>
+		<DataField name="paymentDefault" optype="categorical" dataType="integer">
+			<Value value="0"/>
+			<Value value="1"/>
+		</DataField>
+		<DataField name="creditScore" optype="continuous" dataType="double"/>
+		<DataField name="income" optype="continuous" dataType="double"/>
+		<DataField name="loanAmount" optype="continuous" dataType="double"/>
+		<DataField name="monthDuration" optype="continuous" dataType="double"/>
+		<DataField name="rate" optype="continuous" dataType="double"/>
+		<DataField name="yearlyReimbursement" optype="continuous" dataType="double"/>
+	</DataDictionary>
+	<TransformationDictionary/>
+	<RegressionModel functionName="classification" normalizationMethod="logit">
+		<MiningSchema>
+			<MiningField name="paymentDefault" usageType="target"/>
+			<MiningField name="creditScore"/>
+			<MiningField name="income"/>
+			<MiningField name="loanAmount"/>
+			<MiningField name="monthDuration"/>
+			<MiningField name="rate"/>
+			<MiningField name="yearlyReimbursement"/>
+		</MiningSchema>
+		<Output>
+			<OutputField name="probability_no_paymentDefault" optype="continuous" dataType="double" feature="probability" value="0"/>
+			<OutputField name="probability_paymentDefault" optype="continuous" dataType="double" feature="probability" value="1"/>
+		</Output>
+		<LocalTransformations>
+			<DerivedField name="standard_scaler(creditScore)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="creditScore"/>
+						<Constant dataType="double">583.4775</Constant>
+					</Apply>
+					<Constant dataType="double">155.27853841967342</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standard_scaler(income)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="income"/>
+						<Constant dataType="double">188260.22375</Constant>
+					</Apply>
+					<Constant dataType="double">70554.65329537936</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standard_scaler(loanAmount)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="loanAmount"/>
+						<Constant dataType="double">280234.19375</Constant>
+					</Apply>
+					<Constant dataType="double">214638.93169207143</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standard_scaler(monthDuration)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="monthDuration"/>
+						<Constant dataType="double">18.78</Constant>
+					</Apply>
+					<Constant dataType="double">7.36828338217254</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standard_scaler(rate)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="rate"/>
+						<Constant dataType="double">0.07584999999999999</Constant>
+					</Apply>
+					<Constant dataType="double">0.010736736003087716</Constant>
+				</Apply>
+			</DerivedField>
+			<DerivedField name="standard_scaler(yearlyReimbursement)" optype="continuous" dataType="double">
+				<Apply function="/">
+					<Apply function="-">
+						<FieldRef field="yearlyReimbursement"/>
+						<Constant dataType="double">30814.5725</Constant>
+					</Apply>
+					<Constant dataType="double">22035.98295265595</Constant>
+				</Apply>
+			</DerivedField>
+		</LocalTransformations>
+		<RegressionTable intercept="-16.457367126587524" targetCategory="1">
+			<NumericPredictor name="standard_scaler(creditScore)" coefficient="-0.5140307349191215"/>
+			<NumericPredictor name="standard_scaler(income)" coefficient="-18.228758085028968"/>
+			<NumericPredictor name="standard_scaler(loanAmount)" coefficient="20.954253097745923"/>
+			<NumericPredictor name="standard_scaler(monthDuration)" coefficient="1.6935296502471924"/>
+			<NumericPredictor name="standard_scaler(rate)" coefficient="0.033287763048954234"/>
+			<NumericPredictor name="standard_scaler(yearlyReimbursement)" coefficient="4.644660608819932"/>
+		</RegressionTable>
+		<RegressionTable intercept="0.0" targetCategory="0"/>
+	</RegressionModel>
+</PMML>
