@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <properties>
+        <archive.repository.host.name>nexus.ci-cd.apps.adsrelease.os.fyre.ibm.com</archive.repository.host.name>
+        <ads-mojo.version>2.3.3</ads-mojo.version>
+    </properties>
+
+    <groupId>ads.samples</groupId>
+    <artifactId>externalLibrary</artifactId>
+    <version>1.0.1</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>sampleLibrary</module>
+        <module>adsSampleLibrary</module>
+    </modules>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <url>http://${archive.repository.host.name}/repository/maven-snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>maven-releases</id>
+            <url>http://${archive.repository.host.name}/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
+
+</project>
