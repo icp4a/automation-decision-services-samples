@@ -33,27 +33,6 @@ public class Person {
         parseName();
     }
 
-    private void parseName() {
-        String[] names = inputName.trim().split("\\s+");
-        firstName = "";
-        lastName = "";
-        middleNames = new ArrayList<>();
-        for (int i = 0; i < names.length; i++) {
-            String capitalName = capitalize(names[i]);
-           if (i == 0)
-            firstName = capitalName;
-           else if (i == names.length - 1)
-            lastName = capitalName;
-           else
-            middleNames.add(capitalName);
-        }
-    }
-
-    @PureFunction
-    public String capitalize(String name) {
-        return name.substring(0,1).toUpperCase() + name.substring(1).toLowerCase();
-    }
-
     @PureFunction
     @JsonIgnore
     public String fullName() {
@@ -69,10 +48,10 @@ public class Person {
     @PureFunction
     @JsonIgnore
     public String initials() {
-        String initials = firstName().substring(0,1);
+        String initials = StringUtilities.firstLetter(firstName());
         if (lastName().isEmpty())
             return initials;
-        return initials + lastName().substring(0,1);
+        return StringUtilities.firstLetter(firstName()) + StringUtilities.firstLetter(lastName());
     }
 
     @PureFunction
@@ -145,5 +124,23 @@ public class Person {
         return "Person{" +
             "inputName='" + inputName + '\'' +
             '}';
+    }
+
+    // Utilities
+
+    private void parseName() {
+        String[] names = inputName.trim().split("\\s+");
+        firstName = "";
+        lastName = "";
+        middleNames = new ArrayList<>();
+        for (int i = 0; i < names.length; i++) {
+            String capitalName = StringUtilities.capitalize(names[i]);
+            if (i == 0)
+                firstName = capitalName;
+            else if (i == names.length - 1)
+                lastName = capitalName;
+            else
+                middleNames.add(capitalName);
+        }
     }
 }

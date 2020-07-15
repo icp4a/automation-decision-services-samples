@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <!-- use our own local repository allows checks if needed  -->
+<localRepository>LOCAL REPOSITORY TO BE SET</localRepository>
+<profiles>
+<profile>
+    <id>mavenRepos</id>
+    <repositories>
+        <repository>
+            <id>maven-snapshots</id>
+            <name>Maven snapshot repo</name>
+            <url>MAVEN SNAPSHOT TO BE SET</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>maven-releases</id>
+            <name>Maven release repo</name>
+            <url>MAVEN RELEASE TO BE SET</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>maven-public</id>
+            <name>Maven group repo</name>
+            <url>MAVEN PUBLIC TO BE SET</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>maven-plugins</id>
+            <name>Maven group repo</name>
+            <url>MAVEN PUBLIC TO BE SET</url>
+        </pluginRepository>
+    </pluginRepositories>
+</profile>
+</profiles>
+<activeProfiles>
+<activeProfile>mavenRepos</activeProfile>
+</activeProfiles>
+<servers>
+<server>
+    <id>maven-releases</id>
+    <username>USER TO BE SET</username>
+    <password>PASSWORD TO BE SET</password>
+</server>
+<server>
+    <id>maven-snapshots</id>
+    <username>USER TO BE SET</username>
+    <password>PASSWORD TO BE SET</password>
+</server>
+<server>
+    <id>maven-public</id>
+    <username>USER TO BE SET</username>
+    <password>PASSWORD TO BE SET</password>
+</server>
+</servers>
+        </settings>

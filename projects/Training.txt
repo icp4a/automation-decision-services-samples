@@ -1,1 +1,1 @@
-Learn key ADS features through practical examples.
+Learn key features in Automation Decision Services through practical examples.

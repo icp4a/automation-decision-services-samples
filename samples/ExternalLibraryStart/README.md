@@ -33,6 +33,10 @@ You must have the following environments:
 - **Deployment services**: Your IT developers must provide a CI/CD stack that is connected to Decision Designer. They must give you the host name of a runtime archive repository where you can deploy the external library.
 - **Apache Maven**: You can download it from https://maven.apache.org.
 
+Download a compressed file of the `automation-decision-services-samples` Git repository to your machine.
+Open this [link](https://github.com/icp4a/automation-decision-services-samples) and choose `Download Zip` in the `Code` menu.
+The task refers to **automation-decision-services-samples** as the directory where you decompress the repository.
+
 # Task 1: Building an external library
 
 You use an editor and Maven to build the external library.
@@ -46,55 +50,73 @@ In this task, you...
 
 This task should be done by an integrator.
 
-First, download a compressed file of the `automation-decision-services-samples` Git repository to your machine.
-The task refers to **automation-decision-services-samples** as the directory where you decompress the repository.
-
-
 ## Step 1: Importing and exploring the code
 
 You explore the sources.
 
 1. Go to the **automation-decision-services-samples/samples/ExternalLibraryStart** directory on your machine.
 2. Explore the sources. There are two directories:
- - `sampleLibrary`: Contains the Java classes Person and Country. Browse through them to see the usage of annotations that define pure functions that are ready to be used in the decision models.
- - `adsSampleLibrary`: Contains the custom vocabulary in `reference/bom/model_en_US.voc`. This file is set up to define, for example, the navigation sentence of the capitalize function. 
+ - `sampleLibrary`: Contains the Java classes StringUtilities, Person and Country. Browse through them to see the usage of annotations that define pure functions that are ready to be used in the decision models.
+ The StringUtilities class defines two static functions to be used on string.
+ - `adsSampleLibrary`: Contains the custom vocabulary in `reference/bom/model_en_US.voc`. This file is set up to define, for example, the navigation sentence of the StringUtilities.capitalize static function. 
  
 Each repository contains a `pom.xml` file to build and deploy the library. Open the `adsSampleLibrary/pom.xml` file. The description of this artifact is shown in the decision library. It has the packaging decision-library, which is defined by the Automation Decision Services mojo. The library depends on the sampleLibrary artifact.
 
-## Step 2: Setting the property to define the deployment of your external library
+## Step 2: Configure the Maven settings to build your external library
 
-Ask your IT developers for the host name of the machine that is running the repository manager where you deploy your external library (for example, Nexus or Artifactory). 
+If your Maven settings file is configured to access the Automation Decision Services artefacts, you can skip this step.
+Else you have to define a Maven settings file by completing the template settings.xml file provided in this sample:
+1. Open **automation-decision-services-samples/samples/ExternalLibraryStart/settings.xml**.
+2. Replace all `TO BE SET` tags by the appropriate values:
+   * `LOCAL REPOSITORY TO BE SET`: a directory on your machine where the artefacts will be downloaded.
+   * `MAVEN SNAPSHOT TO BE SET`: the URL of the repository manager snapshot repository.
+   * `MAVEN RELEASE TO BE SET`: the URL of the repository manager release repository.
+   * `MAVEN PUBLIC TO BE SET`: the URL of the repository manager public repository.
+   * `USER TO BE SET`: a user name that can access the repository manager.
+   * `PASSWORD TO BE SET`: the corresponding password to access the repository manager.
+3. Save the `settings.xml` file.
+
+## Step 3: Setting the property to deploy your external library
+
+To be able to deploy the library, you have to know:
+   * the snapshot URL of the repository manager where you deploy your external library (for example, Nexus or Artifactory). 
+   * the release URL of the repository manager where you deploy your external library.
 
 **Note**: It can be the same repository manager where decision services are deployed.
 
 1. Open **automation-decision-services-samples/samples/ExternalLibraryStart/pom.xml**.
 2. Look at the property definitions:
+    * `revision` is the version of the library to build. It is set to 1.0.0. If this version is already deployed, you can change the revision.
     * `ads-mojo.version` is the version used to build the library. This sample was tested with the version 2.3.3.
-    * `archive.repository.host.name` is the host name of the machine where you deploy. This value is used in the distribution management part. Replace `TO BE SET` with the host name given to you by your IT. 
+    * `archive.repository.snapshot.url` is the URL where you deploy snapshots. This value is used in the distribution management part. 
+    * `archive.repository.release.url` is the URL where you deploy snapshots. This value is used in the distribution management part. 
 
 The properties look as follows:
 ```
    <properties>
-        <archive.repository.host.name>TO BE SET</archive.repository.host.name>
+       <revision>1.0.0</revision>
+       <archive.repository.snapshot.url>SNAPSHOT URL TO BE SET</archive.repository.snapshot.url>
+       <archive.repository.release.url>RELEASE URL TO BE SET</archive.repository.release.url>
         <ads-mojo.version>2.3.3</ads-mojo.version>
     </properties>
 ```
-3. Save the `pom.xml` file. 
+3. Replace the `TO BE SET` by the appropriate values.
+4. Save the `pom.xml` file. 
 
-## Step 3: Building and deploying the library
+## Step 4: Building and deploying the library
 
-In this step, you deploy the external library to a repository manager. Before doing so, you should check whether a version of the library is already deployed in `ads/samples/adsSampleLibrary`. If so, you can use it and skip this step or change the version to deploy.
-
-Be sure to configure the repository manager credentials in your `.m2 Maven settings.xml`.
+In this step, you deploy the external library to a repository manager. Before doing so, you should check whether a version of the library is already deployed in `ads/samples/adsSampleLibrary`. 
+If so, you can use it and skip this step. You can also change the revision property as decribed in Step 1.
 
 Run the following command in the **automation-decision-services-samples/samples/ExternalLibraryStart** directory:
 ```
-mvn clean deploy
+mvn clean deploy  -s settings.xml
 ```
 This command...
 
-- Creates the `sampleLibrary.jar` file.
-- Creates the `adsSampleLibrary.jar` file that is imported into Decision Designer.
+- Creates the `sampleLibrary.jar` file: it contains the Java classes of your library.
+- Run the unit tests on this jar.
+- Creates the `adsSampleLibrary.jar` file: it encapsulates the Java library to be able to use it into Decision Designer.
 - Deploys the two jars in the repository manager.
 You can go to the next task to import the external library when you see the message BUILD SUCCESS.
 
@@ -132,7 +154,7 @@ This step lets you understand where the external library is searched for. It is 
 9. Enter the following values:
   - Group ID: ads.samples
   - Artifact ID: adsSampleLibrary
-  - Version: 1.0.0
+  - Version: 1.0.0 (this should be the version you deployed)
   
  Click **OK** and wait for the library to be imported.
 
@@ -141,9 +163,9 @@ In this step, you look at the external library that is loaded into Decision Desi
 
 1. Click **adsSampleLibrary** to open the library. You see all the types.
 2. Click **person**. You see the vocabulary that can be used with this new type.
-3. Check the properties given to build a person:  an input name and a country.
-4. Check the functions that you can use in your rules, for example, the greeting of a person.
-5. Click your solution name in the breadcrumbs to continue by importing a decision project.
+Check the properties given to build a person:  an input name and a country. Check the functions that you can use in your rules, for example, the greeting of a person.
+3. Click **string**. You see the functions declared in the StringUtilities class using the vocabulary you set up.
+4. Click your solution name in the breadcrumbs to continue by importing a decision project.
 
 # Task 3: Using an external library in a decision project
 You import the external library in Decision Designer.
@@ -162,7 +184,7 @@ In this step, you import the decision project where you will use the external li
 
 1. In your solution, be sure to be in the **Explore projects** tab.
 2. Click **Import** and choose **Import sample projects**.
-3. Select **GettingStarted** in the menu and wait for the project to be imported.
+3. Select **GettingStarted** in the menu, click on Import and wait for the project to be imported.
 4. Click **Getting Started** to open the project. It contains five decision models that correspond to the Getting started tutorial. 
 You work on the final answer, which is named Daily advice.
 
@@ -186,19 +208,19 @@ You change the beginning of this advice by replacing Hello by the greeting provi
 **Note:** In the custom types, you see the new types that are defined in your external libraries as well as the type that are defined in the data model of this decision project.
 
 5. Click the **Daily advice** node. In the **Logic** tab, select the **advice** rule.
-6. Change the rule as follows:
+6. Change the rule to use the functions provided in the adsSampleLibrary:
 ```
 if
     Person is defined
 then
-    set decision to the greeting of Person + " " + the initials of Person + "! " + 'Weather advice';
+    set decision to the greeting of Person capitalized + " " + the initials of Person + "! " + 'Weather advice';
 ```
 
 **Note:** You can use the rule completion menu to select the functions. You can use another function from the library for the name of the Person such as the first name.
 
 ## Step 4: Validating your changes
-1. Click the **Validation** tab. The Avery data set shows an error because you changed its type.
-2. Click the three dots next to the data set and select **Delete** in the menu.
+1. Click the **Validation** tab. The Avery data set shows an error because you changed one input data type.
+2. Click the three dots next to Person and select **Delete** in the menu.
 Now, you can enter a new value.
 3. Expand **Person**: 
     - Set the country value to FRANCE.
@@ -209,7 +231,7 @@ Now, you can enter a new value.
 if
     Person is defined
 then
-    set decision to the greeting of Person + " " + the full name of Person + "! " + 'Weather advice';
+    set decision to the greeting of Person capitalized + " " + the full name of Person + "! " + 'Weather advice';
 ```
 6. Back to the **Validation** tab, run your data set. You get the following output: 
 `"Salut Dominique Dupond! Cold day! Take a coat."`

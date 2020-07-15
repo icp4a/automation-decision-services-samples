@@ -1,10 +1,12 @@
+# ads.samples.externalLibrary.StringUtilities
+ads.samples.externalLibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation = {0} capitalized
+ads.samples.externalLibrary.StringUtilities.firstLetter(java.lang.String)#phrase.navigation = the firstLetter of {0}
 
 # ads.samples.externalLibrary.Person
-ads.samples.externalLibrary.Person.capitalize(java.lang.String)#phrase.navigation = {this} capitalize {0}
-ads.samples.externalLibrary.Person.equals(java.lang.Object)#phrase.navigation = {this} is the same as {0}
 ads.samples.externalLibrary.Person.firstName()#phrase.navigation = the first name of {this}
 ads.samples.externalLibrary.Person.fullName()#phrase.navigation = the full name of {this}
 ads.samples.externalLibrary.Person.greeting()#phrase.navigation = the greeting of {this}
 ads.samples.externalLibrary.Person.initials()#phrase.navigation = the initials of {this}
 ads.samples.externalLibrary.Person.lastName()#phrase.navigation = the last name of {this}
 ads.samples.externalLibrary.Person.shortName()#phrase.navigation = the short name of {this}
+
