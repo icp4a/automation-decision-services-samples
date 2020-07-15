@@ -84,7 +84,7 @@ Follow these instructions to rebuild the sample.
 
 1.  To stop the Liberty server, run the following command in the `samples/LoanApplication` directory:
 ```
-mvn liberty:stop-server -DserverName=testADS -DserverHome=<path to Liberty> 
+mvn liberty:stop -DserverName=testADS -DserverHome=<path to Liberty> 
 ```
 To remove the Liberty server, delete the directory ```<path to Liberty>/usr/servers/testADS```.
 

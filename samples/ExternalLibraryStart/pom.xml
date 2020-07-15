@@ -5,13 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <archive.repository.host.name>nexus.ci-cd.apps.adsrelease.os.fyre.ibm.com</archive.repository.host.name>
+        <revision>1.0.0</revision>
+        <archive.repository.snapshot.url>SNAPSHOT URL TO BE SET</archive.repository.snapshot.url>
+        <archive.repository.release.url>RELEASE URL TO BE SET</archive.repository.release.url>
         <ads-mojo.version>2.3.3</ads-mojo.version>
     </properties>
 
     <groupId>ads.samples</groupId>
     <artifactId>externalLibrary</artifactId>
-    <version>1.0.1</version>
+    <version>${revision}</version>
     <packaging>pom</packaging>
 
     <modules>
@@ -22,11 +24,11 @@
     <distributionManagement>
         <snapshotRepository>
             <id>maven-snapshots</id>
-            <url>http://${archive.repository.host.name}/repository/maven-snapshots/</url>
+            <url>${archive.repository.snapshot.url}</url>
         </snapshotRepository>
         <repository>
             <id>maven-releases</id>
-            <url>http://${archive.repository.host.name}/repository/maven-releases/</url>
+            <url>${archive.repository.release.url}</url>
         </repository>
     </distributionManagement>
 

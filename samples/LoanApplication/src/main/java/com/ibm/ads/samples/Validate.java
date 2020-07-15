@@ -323,8 +323,8 @@ public class Validate extends HttpServlet {
 
 	private String buildSummaryMessage(JsonObject jsonInput, JsonObject output) {
 				String reason = output.getJsonObject("approval").getString("message");
-		String message = jsonInput.getString("firstName") + " " + jsonInput.getString("lastName") + " loan request of "
-				+ jsonInput.getInt("amount") + "$ on " + jsonInput.getInt("duration") + " monthes is ";
+		String message = jsonInput.getString("firstName") + " " + jsonInput.getString("lastName") + " loan request of $"
+				+ jsonInput.getInt("amount") + " on " + jsonInput.getInt("duration") + " monthes is ";
 		if (!output.getJsonObject("approval").getBoolean("approved")) return message + "rejected: " + reason +".";
 		String insurance = " No insurance is required.";
 		JsonObject insuranceObject = output.getJsonObject("insurance");

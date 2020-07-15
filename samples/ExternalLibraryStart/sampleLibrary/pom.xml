@@ -5,11 +5,10 @@
     <parent>
         <artifactId>externalLibrary</artifactId>
         <groupId>ads.samples</groupId>
-        <version>1.0.1</version>
+        <version>${revision}</version>
     </parent>
 
     <artifactId>sampleLibrary</artifactId>
-    <version>1.0.1</version>
     <packaging>jar</packaging>
 
     <build>
