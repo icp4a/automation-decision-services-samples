@@ -45,7 +45,9 @@ You use an editor and Maven to build the external library.
 
 In this task, you...
 - Explore the sample code.
-- Edit the property for deployment.
+- Check if the sample library has already been deployed.
+- Configure the Maven settings.
+- Edit the properties for deployment.
 - Build an external library for use in Decision Designer.
 
 This task should be done by an integrator.
@@ -62,7 +64,17 @@ You explore the sources.
  
 Each repository contains a `pom.xml` file to build and deploy the library. Open the `adsSampleLibrary/pom.xml` file. The description of this artifact is shown in the decision library. It has the packaging decision-library, which is defined by the Automation Decision Services mojo. The library depends on the sampleLibrary artifact.
 
-## Step 2: Configure the Maven settings to build your external library
+## Step 2: Checking deployed artefacts
+
+You check if the sample library has already been deployed in your repository manager.
+
+1. Browse your repository manager release repository.
+2. Look for `ads/samples/adsSampleLibrary/1.0.0`. If it exists, the sample library has already been deployed, you can directly go to Task2. If it does not exist, you have to deploy the sample library.
+
+Note: if you wish to deploy another version, change the version from `1.0.0` to the version you want, for instance `1.0.myInitials`, in `automation-decision-services-samples/samples/ExternalLibraryStart/pom.xml`, 
+`automation-decision-services-samples/samples/ExternalLibraryStart/sampleLibrary/pom.xml` and `automation-decision-services-samples/samples/ExternalLibraryStart/adsSampleLibrary/pom.xml`. In the last pom file, there are two occurences of the version number, one for the parent and one for the dependency.
+
+## Step 3: Configure the Maven settings to build your external library
 
 If your Maven settings file is configured to access the Automation Decision Services artefacts, you can skip this step.
 Else you have to define a Maven settings file by completing the template settings.xml file provided in this sample:
@@ -76,7 +88,7 @@ Else you have to define a Maven settings file by completing the template setting
    * `PASSWORD TO BE SET`: the corresponding password to access the repository manager.
 3. Save the `settings.xml` file.
 
-## Step 3: Setting the property to deploy your external library
+## Step 4: Setting the properties to deploy your external library
 
 To be able to deploy the library, you have to know:
    * the snapshot URL of the repository manager where you deploy your external library (for example, Nexus or Artifactory). 
@@ -86,15 +98,13 @@ To be able to deploy the library, you have to know:
 
 1. Open **automation-decision-services-samples/samples/ExternalLibraryStart/pom.xml**.
 2. Look at the property definitions:
-    * `revision` is the version of the library to build. It is set to 1.0.0. If this version is already deployed, you can change the revision.
-    * `ads-mojo.version` is the version used to build the library. This sample was tested with the version 2.3.3.
     * `archive.repository.snapshot.url` is the URL where you deploy snapshots. This value is used in the distribution management part. 
     * `archive.repository.release.url` is the URL where you deploy snapshots. This value is used in the distribution management part. 
+    * `ads-mojo.version` is the version used to build the library. This sample was tested with the version 2.3.3.
 
 The properties look as follows:
 ```
    <properties>
-       <revision>1.0.0</revision>
        <archive.repository.snapshot.url>SNAPSHOT URL TO BE SET</archive.repository.snapshot.url>
        <archive.repository.release.url>RELEASE URL TO BE SET</archive.repository.release.url>
         <ads-mojo.version>2.3.3</ads-mojo.version>
@@ -103,10 +113,9 @@ The properties look as follows:
 3. Replace the `TO BE SET` by the appropriate values.
 4. Save the `pom.xml` file. 
 
-## Step 4: Building and deploying the library
+## Step 5: Building and deploying the library
 
-In this step, you deploy the external library to a repository manager. Before doing so, you should check whether a version of the library is already deployed in `ads/samples/adsSampleLibrary`. 
-If so, you can use it and skip this step. You can also change the revision property as decribed in Step 1.
+In this step, you deploy the external library to a repository manager. 
 
 Run the following command in the **automation-decision-services-samples/samples/ExternalLibraryStart** directory:
 ```
@@ -154,7 +163,7 @@ This step lets you understand where the external library is searched for. It is 
 9. Enter the following values:
   - Group ID: ads.samples
   - Artifact ID: adsSampleLibrary
-  - Version: 1.0.0 (this should be the version you deployed)
+  - Version: 1.0.0 (this should be the version you want to use, it may be different if you deployed a new version)
   
  Click **OK** and wait for the library to be imported.
 
