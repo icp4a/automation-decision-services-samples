@@ -1,6 +1,9 @@
 # ads.samples.externalLibrary.StringUtilities
 ads.samples.externalLibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation = {0} capitalized
-ads.samples.externalLibrary.StringUtilities.firstLetter(java.lang.String)#phrase.navigation = the firstLetter of {0}
+ads.samples.externalLibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation.precedence = 1-1:nonassoc:102
+
+ads.samples.externalLibrary.StringUtilities.firstLetter(java.lang.String)#phrase.navigation = the first letter of {0}
+ads.samples.externalLibrary.StringUtilities.firstLetter(java.lang.String)#phrase.navigation.precedence = 0-3:nonassoc:101
 
 # ads.samples.externalLibrary.Person
 ads.samples.externalLibrary.Person.firstName()#phrase.navigation = the first name of {this}

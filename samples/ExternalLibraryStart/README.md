@@ -59,8 +59,8 @@ You explore the sources.
 1. Go to the **automation-decision-services-samples/samples/ExternalLibraryStart** directory on your machine.
 2. Explore the sources. There are two directories:
  - `sampleLibrary`: Contains the Java classes StringUtilities, Person and Country. Browse through them to see the usage of annotations that define pure functions that are ready to be used in the decision models.
- The StringUtilities class defines two static functions to be used on string.
- - `adsSampleLibrary`: Contains the custom vocabulary in `reference/bom/model_en_US.voc`. This file is set up to define, for example, the navigation sentence of the StringUtilities.capitalize static function. 
+ The StringUtilities class defines two static functions to be used on string. To get more information on the annotations, look into [Annotations](https://www.ibm.com/support/knowledgecenter/SSYHZ8_20.0.x/com.ibm.dba.aid/external_lib_topics/con_annotation_api.html).
+ - `adsSampleLibrary`: Contains the custom vocabulary in `reference/bom/model_en_US.voc`. This file defines, for example, the navigation sentence of the StringUtilities.capitalize static function and its precedence policy. To get more information on the vocabulary, look into [Vocabulary](https://www.ibm.com/support/knowledgecenter/SSYHZ8_20.0.x/com.ibm.dba.aid/external_lib_topics/con_voc_intro.html).
  
 Each repository contains a `pom.xml` file to build and deploy the library. Open the `adsSampleLibrary/pom.xml` file. The description of this artifact is shown in the decision library. It has the packaging decision-library, which is defined by the Automation Decision Services mojo. The library depends on the sampleLibrary artifact.
 
@@ -209,14 +209,14 @@ In this step, you enable your decision project to use the external library.
  
 1. Click the **Decision models** tab.
 2. Click **Daily advice** to open the decision model solution of the getting started tutorial. It builds a daily advice decision that is based on weather data and a name.       
-3. Click **Validate**. Three data sets are provided. Run the Avery data set. It gives the following output:
+3. Click on the **Validation** tab. Three data sets are provided. Run the Avery data set. It gives the following output:
 "Hello Avery! Cold day! Take a coat."
 You change the beginning of this advice by replacing Hello by the greeting provided in the library and by the initials of the person.
 4. Click **Modeling** and select the **Name** input node. Change the node name to **Person**. Change the node output type to the **person** custom type.
 
 **Note:** In the custom types, you see the new types that are defined in your external libraries as well as the type that are defined in the data model of this decision project.
 
-5. Click the **Daily advice** node. In the **Logic** tab, select the **advice** rule.
+5. Click the **Daily advice** node. In the **Logic** tab, select **Advice rule**.
 6. Change the rule to use the functions provided in the adsSampleLibrary:
 ```
 if
@@ -235,7 +235,7 @@ Now, you can enter a new value.
     - Set the country value to FRANCE.
     - Set `dominique dupont` as the input name.
 4. Click **Run**. You get the following output: `"Salut DD! Cold day! Take a coat."`
-5. Click **Modeling** and again edit the **advice** rule to use the full name of the person:
+5. Click **Modeling** and edit **Advice rule** again to use the full name of the person:
 ```
 if
     Person is defined
