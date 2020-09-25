@@ -12,7 +12,6 @@ For more information on decision models and machine learning, see [Modeling deci
 
 ## Learning objectives
 
-   - Import a decision project into Decision Designer, the decision project editor in Automation Decision Services.
    - Create and validate a predictive model that uses a machine learning model.
    - Use this predictive model in a decision model.
    - (Optional) Build a decision service archive and run it with a CI/CD stack.
@@ -33,7 +32,7 @@ Prepare with the following resources:
 
 You must have the following environments:
 - **Decision Designer**: A web-based user interface for developing decision projects in IBM Business Automation Studio. You work with the sample decision project by importing it into a decision solution and opening it in Decision Designer.
-- **Watson Machine Learning provider**: To deploy the pmml file that is included in this sample, you must have access to a Watson Machine Learning provider on IBM Cloud. Your IT developers must add the provider to your Automation Decision Services installation (see [Managing machine learning providers](https://www.ibm.com/support/knowledgecenter/SSYHZ8_20.0.x/com.ibm.dba.aid/ml_topics/tsk_manage_providers.html)).
+- **Watson Studio**: A web-based user interface for developing and deploying ML models. 
 - **(Optional) Deployment services**: For the optional part of this sample, your IT developers must provide a CI/CD stack to run the decision service. They must give you the URL to a Git repository in which you can store the decision project. They must also provide a build plan to create a decision service archive, and make the plan available to the runtime environment that uses the decision service.
 
 Download a compressed file of the `automation-decision-services-samples` Git repository to your machine.
@@ -52,24 +51,22 @@ In this task, you...
 - Associate a machine learning provider to a decision solution.
 
 ## Step 1: Deploying the Watson Machine Learning model in Watson Studio
-You create and deploy the machine learning model, and your IT developers add a machine learning provider. Knowledge of Watson Studio is helpful.
 
-**Procedure**
+You need to have a deployed machine learning model. For this, you use in Watson Studio either the notebook either the PMML file provided in **automation-decision-services-samples/samples/MLStart/model**. 
+* if you use the PMML file, follow the documentation in [Deployment spaces](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-spaces_local.html?audience=wdp)
+* if you use the notebook, follow the documentation [Creating a project](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/projects.html?audience=wdp) and [Samples](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-samples-overview.html).
+ 
+Once the model is deployed, you get the following data from Watson Studio to define this ML provider in your ADS Designer solution:
+* the space id which is defined in the deployment space settings.
+* the URL where the model is deployed. For instance `https://<location>.ml.cloud.ibm.com/ml/v4`.
+* the authentication URL. For instance `https://iam.bluemix.net/identity/token`.
 
-1. Log in to Watson Studio and create a new project.
-2. Add a new Watson Machine Learning model to your project:
-
-   a. Name it **Loan Risk Score**, and select your **Machine Learning Service**.    
-   b. Select **From file** in the model type and browse to **automation-decision-services-samples/samples/MLStart/model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml**.
-   
-3. Deploy the new model with the name **loan_risk_score**. For more information, see [Move your Machine Learning insights into production](https://developer.ibm.com/tutorials/ml-into-production/).
-
+You also require an API key that you take from the [cloud](https://cloud.ibm.com/iam/apikeys).
 
 ## Step 2: Importing the sample decision project in Decision Designer
 
 You import the sample decision project into a decision solution. This decision project applies several criteria in determining a borrower’s eligibility for a loan.
 One of the key factors is risk which is provided as an input parameter. In the following tasks, you will replace this input parameter by calling the ML model.
-
 
 **Procedure**
 
@@ -89,18 +86,17 @@ Take some time to browse through the data model and the decision model. The deci
 
 You associate to your solution a new machine learning provider to get your model deployment.See [Managing machine learning providers](https://www.ibm.com/support/knowledgecenter/SSYHZ8_20.0.x/com.ibm.dba.aid/ml_topics/tsk_manage_providers.html) for more information.
 1.  Click the three dots next to your solution name to open the contextual menu and select **Settings**.
-2. Open the Machine learning providers tab. Check if a provider ml-sample is already defined. If so you can directly use it and skip this step.
-3. If not, click on New to define a provider:
+2. Open the Machine learning providers tab. 
+3. Click on New to define a provider:
    * Keep Watson ML as the type.
    * Set ml-sample as the name.
    * Enter the description: Provider for the MLStart tutorial.
-   * Enter the following service credentials to authenticate with your Watson Machine Learning service instance:
+   * Enter the following service credentials you get in Step 1 from Watson Studio to authenticate with your Watson Machine Learning service instance:
      * API key.
-     * Instance ID.
+     * Space ID.
      * URL.
+     * Authentication URL.
      
-You can find information to get the credentials in the [Watson ML documentation](https://dataplatform.cloud.ibm.com/docs/content/DO/WML_Deployment/WMLAuthentication.html?context=analytics).
-
 # Task 2: Defining a predictive model
 
 You define a predictive model to use your ML model in your solution.
@@ -120,7 +116,7 @@ You create a predictive model in your decision project to encapsulate your machi
 
 1. Open the **Predictive models** tab, and then click **Create** to make your predictive model.
 2. Select the provider where your model deployment is stored. It should be **ml-sample**.
-3. Select the deployment that you created to generate the predictive model. It should be **loan_risk_score** under the machine learning model name **Loan Risk Score**.
+3. Select the machine learning model: expand the ML model name and click on the deployment name you want to use. 
 4. Click **Next** to define the model input schema. It should already be complete, so no action is required.
 5. Click **Next** to define the test invocation. Click **Run** at the bottom of the wizard to validate the model. You get the following output:
 ```json
@@ -137,8 +133,9 @@ You create a predictive model in your decision project to encapsulate your machi
     ]
 }
 ```
-6. Click **Next** to define the model output schema. It should already be complete, so no action is required.
+6. Click **Next** to define the model output schema. Select **Generate from test output**. Wait for the output schema to be generated and click on **OK**.
 7. Click **Create** to create the predictive model.
+8. Click on your predictive model name to edit it.
 
 ## Step 2: Editing the input and output mapping.
 
@@ -245,7 +242,7 @@ The computed prediction value is stored in a variable so that it can be used in 
 
 1. In the breadcrumbs, click **ML-based Loan Approval** to go back to the project view. Click the decision model **Loan Validation Decision Model**.
 2. Remove the **Loan Risk Score** node.
-3. Add a new function node. Click **Select a model** to select the **Loan Risk Score** predictive model.
+3. Add a new prediction node. Click **Select a predictive model** to select your predictive model.
 4. Connect the new function node to the **Risk score** node.
 5. Select the **Risk Score Node**. Go to the **Logic** tab and edit the **loan risk score** rule. Enter the following rule:
     ```
@@ -275,10 +272,10 @@ In this task, you...
 1. Ask your IT developers to configure the machine learning provider in the decision runtime (see [Configuring the decision runtime](https://www.ibm.com/support/knowledgecenter/SSYHZ8_20.0.x/com.ibm.dba.install/op_topics/tsk_adsconfig_dr.html)).
 2.	In Decision Designer, click the name of your solution, **ML Loan Sample**, in the breadcrumbs to edit your solution. 
 3. Connect your decision solution to the Git repository that is provided by your IT developers. 
-4.	In the **Publish changes** tab, select the **ML-based Loan Approval** decision project.
+4. In the **Publish changes** tab, select the **ML-based Loan Approval** decision project.
 5. Click **Publish** to publish your changes to the Git repository.
-6.	 Ask your IT developers to make a build plan to build and deploy your decision service as described in task 5 of [Getting started in Automation Decision Services](https://www.ibm.com/support/knowledgecenter/SSYHZ8_20.0.x/com.ibm.dba.aid/gs_ddesigner_topics/dba_ddesigner_intro.html).
-7.	After building and deploying the decision service, run it in the Swagger UI tool (see [Executing decision services](https://www.ibm.com/support/knowledgecenter/SSYHZ8_20.0.x/com.ibm.dba.aid/topics/con_execute.html)): 
+6. Ask your IT developers to make a build plan to build and deploy your decision service as described in task 5 of [Getting started in Automation Decision Services](https://www.ibm.com/support/knowledgecenter/SSYHZ8_20.0.x/com.ibm.dba.aid/gs_ddesigner_topics/dba_ddesigner_intro.html).
+7. After building and deploying the decision service, run it in the Swagger UI tool (see [Executing decision services](https://www.ibm.com/support/knowledgecenter/SSYHZ8_20.0.x/com.ibm.dba.aid/topics/con_execute.html)): 
     
     a. Get the decision ID of your decision service from the runtime archive repository.
     

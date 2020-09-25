@@ -20,7 +20,7 @@ This sample is for anyone who wants to run a decision service that is generated 
 
 ## Prerequisites
 - Automation Decision Services: Your instance of the services must have a runtime that supports basic authentication. You must have the host name and login credentials (user name and password) to call the runtime.
-- Websphere Application Server Liberty: A Java application server that you can download from [Download WAS Liberty](https://developer.ibm.com/wasdev/downloads/). This sample was tested on **WAS Liberty with Java EE 8 Full Platform V20.0.0.6**.
+- Websphere Application Server Liberty: A Java application server that you can download from [Download WAS Liberty](https://developer.ibm.com/wasdev/downloads/). This sample was tested on **WAS Liberty with Java EE 8 Full Platform V20.0.0.9**.
 - Apache Maven: A software project management tool that you can download from [Welcome to Apache Maven](https://maven.apache.org).
 
 It is recommended that you do the tutorial [Getting started in Automation Decision Services](https://www.ibm.com/support/knowledgecenter/SSYHZ8_20.0.x/com.ibm.dba.aid/gs_ddesigner_topics/dba_ddesigner_intro.html) before using this sample.
@@ -80,16 +80,10 @@ You can use the application when you see the message ``` BUILD SUCCESS```.
 
 # Clean this sample
 
-Follow these instructions to rebuild the sample.
+When you stop using the application or want to rebuild it, follow these instructions:
 
-1.  To stop the Liberty server, run the following command in the `samples/LoanApplication` directory:
-```
-mvn liberty:stop -DserverName=testADS -DserverHome=<path to Liberty> 
-```
-To remove the Liberty server, delete the directory ```<path to Liberty>/usr/servers/testADS```.
+- To stop the Liberty server, run the following command in the ```<path to Liberty>/bin``` directory: ```./server stop testADS ```
+- To remove the Liberty server, delete the directory ```<path to Liberty>/usr/servers/testADS```.
 
-Now, you can rebuild the sample by again running the following command in the `samples/LoanApplication` directory:
-   ```
-   mvn clean install
-   ```         
+- To rebuild the sample and create the Liberty server again, run the following command in the `samples/LoanApplication` directory: ```mvn clean install```         
             
