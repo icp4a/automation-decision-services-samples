@@ -30,6 +30,8 @@ Prepare with the following resources:
 - [Getting started in Automation Decision Services](https://www.ibm.com/support/knowledgecenter/SSYHZ8_20.0.x/com.ibm.dba.aid/gs_ddesigner_topics/dba_ddesigner_intro.html): This tutorial introduces you to Automation Decision Services.
 - [Watson Machine Learning](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-overview.html?audience=wdp&context=wdp): This service lets you build analytical models and neural networks for use in applications. 
 
+This tutorial requires the level IF001 of Automation Decision Service. You find information on how to install this fix pack in this [documentation](https://www.ibm.com/support/pages/node/6333583).
+
 You must have the following environments:
 - **Decision Designer**: A web-based user interface for developing decision projects in IBM Business Automation Studio. You work with the sample decision project by importing it into a decision solution and opening it in Decision Designer.
 - **Watson Studio**: A web-based user interface for developing and deploying ML models. 
@@ -52,9 +54,8 @@ In this task, you...
 
 ## Step 1: Deploying the Watson Machine Learning model in Watson Studio
 
-You need to have a deployed machine learning model. For this, you use in Watson Studio either the notebook either the PMML file provided in **automation-decision-services-samples/samples/MLStart/model**. 
-* if you use the PMML file, follow the documentation in [Deployment spaces](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-spaces_local.html?audience=wdp)
-* if you use the notebook, follow the documentation [Creating a project](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/projects.html?audience=wdp) and [Samples](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-samples-overview.html).
+You need to have a deployed machine learning model. For this, you use in Watson Studio the PMML file provided in **automation-decision-services-samples/samples/MLStart/model**. 
+You can follow the documentation in [Deployment spaces](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-spaces_local.html?audience=wdp).
  
 Once the model is deployed, you get the following data from Watson Studio to define this ML provider in your ADS Designer solution:
 * the space id which is defined in the deployment space settings.
