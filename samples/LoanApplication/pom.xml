@@ -29,30 +29,37 @@
 
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>io.openliberty.tools</groupId>
-                <artifactId>liberty-maven-plugin</artifactId>
-                <version>3.1</version>
-                <executions>
-                <execution>
-                    <configuration>
-                        <installDirectory>${liberty-path}</installDirectory>
-                        <serverName>testADS</serverName>
-                        <timeout>60</timeout>
-                    </configuration>
-                    <id>create-server</id>
-                    <phase>pre-integration-test</phase>
-                    <goals>
-                        <goal>create</goal>
-                        <goal>start</goal>
-                        <goal>deploy</goal>
-                    </goals>
-                </execution>
-                 </executions>
-            </plugin>
-
-        </plugins>
-    </build>
+    <profiles>
+        <profile>
+            <id>start-application</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.openliberty.tools</groupId>
+                        <artifactId>liberty-maven-plugin</artifactId>
+                        <version>3.1</version>
+                        <executions>
+                        <execution>
+                            <configuration>
+                                <installDirectory>${liberty-path}</installDirectory>
+                                <serverName>testADS</serverName>
+                                <timeout>60</timeout>
+                            </configuration>
+                            <id>create-server</id>
+                            <phase>pre-integration-test</phase>
+                            <goals>
+                                <goal>create</goal>
+                                <goal>start</goal>
+                                <goal>deploy</goal>
+                            </goals>
+                        </execution>
+                         </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
