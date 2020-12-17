@@ -1,0 +1,35 @@
+{
+    "fields": [
+        {
+            "name": "creditScore",
+            "nullable": true,
+            "type": "double"
+        },
+        {
+            "name": "income",
+            "nullable": true,
+            "type": "double"
+        },
+        {
+            "name": "loanAmount",
+            "nullable": true,
+            "type": "double"
+        },
+        {
+            "name": "monthDuration",
+            "nullable": true,
+            "type": "double"
+        },
+        {
+            "name": "rate",
+            "nullable": true,
+            "type": "double"
+        },
+        {
+            "name": "yearlyReimbursement",
+            "nullable": true,
+            "type": "double"
+        }
+    ],
+    "id": "in_1"
+}

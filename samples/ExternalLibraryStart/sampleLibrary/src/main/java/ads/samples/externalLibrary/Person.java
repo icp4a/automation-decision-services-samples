@@ -13,6 +13,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ibm.rules.engine.annotations.PureFunction;
+import ilog.rules.bom.annotations.BeanConstructor;
 import ilog.rules.bom.annotations.NotBusiness;
 
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class Person {
     private List<String> middleNames;
     private Country country;
 
+    @BeanConstructor
     @JsonCreator
     public Person(@JsonProperty("inputName") String inputName, @JsonProperty("country") Country country) {
         this.inputName = inputName;

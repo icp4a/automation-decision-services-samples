@@ -96,24 +96,26 @@ public class Validate extends HttpServlet {
 	public String validate(JsonObject jsonInput) {
 		AdsResponse response = null;
 		boolean showTrace  = (boolean) jsonInput.getBoolean("showTrace");
-		JsonObject payload = getJSONPayload(jsonInput, showTrace);
-		System.out.println("**Payload " + payload);
-		String userName = jsonInput.getString("user");
-		String password = jsonInput.getString("password");
-
 		try {
+			JsonObject payload = getJSONPayload(jsonInput, showTrace);
+			System.out.println("**Payload " + payload);
+			String userName = jsonInput.getString("user");
+			String password = jsonInput.getString("password");
 			RestJavaClient restClient = new RestJavaClient();
 			response = restClient.executeDecision(jsonInput.getString("server"), jsonInput.getString("decisionId"),
 					jsonInput.getString("operation"),
 					userName, password, payload.toString());
-			System.out.println("**Response status" + response.status + " payload "+ response.payload);
-		}catch (ClassCastException e) {
+			System.out.println("**Response status" + response.status + " payload " + response.payload);
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return parseErrorToJSON(e);
+		} catch (ClassCastException e) {
 			e.printStackTrace();
 			return castErrorToJSON(e);
-		}  catch (RuntimeException e) {
+		} catch (RuntimeException e) {
 			e.printStackTrace();
 			return runtimeErrorToJSON(e);
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			return errorToJSON(e);
 		}
@@ -129,7 +131,7 @@ public class Validate extends HttpServlet {
 	 * @return
 	 */
 	private JsonObject getJSONPayload(JsonObject jsonInput,
-									  boolean showTrace) {
+									  boolean showTrace) throws Exception{
 		SSN ssnObject = new SSN(jsonInput.getString("SSNCode"));
 		JsonObject jsonSSN = Json.createObjectBuilder()
 				.add(areaNumber, ssnObject.getAreaNumber())
@@ -220,17 +222,12 @@ public class Validate extends HttpServlet {
 		return traceObject;
 	}
 
-	private String prepareDate(String dateString) {
+	private String prepareDate(String dateString) throws Exception{
 		// change the date format to the appropriate format
 		SimpleDateFormat inputDateFormat = new SimpleDateFormat(inputDateFormatTemplate);
 		SimpleDateFormat outputDateFormat = new SimpleDateFormat(outputDateFormatTemplate);
-		try {
-			Date date = inputDateFormat.parse(dateString);
-			return outputDateFormat.format(date);
-		} catch (ParseException e) {
-			e.printStackTrace();
-			return parseErrorToJSON(e);
-		}
+		Date date = inputDateFormat.parse(dateString);
+		return outputDateFormat.format(date);
 	}
 	private String prepareCurrentDate() {
 		// change the date format to the appropriate format
@@ -337,8 +334,7 @@ public class Validate extends HttpServlet {
 	private String parseErrorToJSON(Exception e) {
 		JsonObject value = Json.createObjectBuilder()
 				.add("validData", false)
-				.add("dataMessage", "Check you provide valid dates.")
-				.add("text", e.toString())
+				.add("message", "Check you provide valid dates.")
 				.build();
 		return value.toString();
 	}
@@ -359,8 +355,7 @@ public class Validate extends HttpServlet {
 	private String castErrorToJSON(Exception e) {
 		JsonObject value = Json.createObjectBuilder()
 				.add("validData", false)
-				.add("dataMessage", "Check you provide numbers when required.")
-				.add("text", e.toString())
+				.add("message", "Check you provide numbers when required.")
 				.build();
 		return value.toString();
 	}

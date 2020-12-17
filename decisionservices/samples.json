@@ -1,0 +1,101 @@
+{
+  "Banking": {
+    "displayName": "Banking",
+    "description": "Decisions for the banking industry.",
+    "type": 1,
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "Finance",
+    "iconColor": "purple"
+  },
+  "Compensation": {
+    "displayName": "Compensation",
+    "description": "Decisions for compensation policies.",
+    "type": 1,
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "Receipt",
+    "iconColor": "magenta"
+  },
+  "NLanguage": {
+    "displayName": "Language",
+    "description": "Decisions in French.",
+    "type": 0,
+    "nbProjects": 2,
+    "level": 0,
+    "iconName": "Education",
+    "iconColor": "blue"
+  },
+  "GettingStarted": {
+    "displayName": "Getting started",
+    "description": "Getting started tutorial answer decision services.",
+    "type": 0,
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "Education",
+    "iconColor": "teal"
+  },
+  "MachineLearningStart": {
+    "displayName": "Machine learning short",
+    "description": "ML Start tutorial short path decision service.",
+    "type": 0,
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "WatsonMachineLearning",
+    "iconColor": "yellow"
+  },
+  "Pricing": {
+    "displayName": "Pricing",
+    "description": "Decisions to reflect pricing policies.",
+    "type": 1,
+    "nbProjects": 1,
+    "level": 1,
+    "iconName": "Money",
+    "iconColor": "cool-gray"
+  },
+  "Retail": {
+    "displayName": "Retail",
+    "description": "Decisions for the retail industry, for example, loyalty programs and shopping carts.",
+    "type": 1,
+    "nbProjects": 2,
+    "level": 1,
+    "iconName": "ShoppingCart",
+    "iconColor": "cyan"
+  },
+  "Telecom": {
+    "displayName": "Telecom",
+    "description": "Decisions for the telecom industry.",
+    "type": 1,
+    "nbProjects": 1,
+    "level": 2,
+    "iconName": "PhoneFilled",
+    "iconColor": "red"
+  },
+  "HTraining": {
+    "displayName": "Training",
+    "description": "Learn key features in Automation Decision Services through practical examples.",
+    "type": 0,
+    "nbProjects": 5,
+    "level": 0,
+    "iconName": "Education",
+    "iconColor": "warm-gray"
+  },
+  "Transportation": {
+    "displayName": "Transportation",
+    "description": "Decisions for the transportation industry.",
+    "type": 1,
+    "nbProjects": 3,
+    "level": 1,
+    "iconName": "Bus",
+    "iconColor": "green"
+  },
+  "MchineLearningCustomerLoyalty": {
+    "displayName": "Machine learning customer loyalty",
+    "description": "Decision for customer churn including machine learning.",
+    "type": 0,
+    "nbProjects": 1,
+    "level": 1,
+    "iconName": "WatsonMachineLearning",
+    "iconColor": "yellow"
+  }
+}

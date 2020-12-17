@@ -61,11 +61,8 @@
 
                             <filter>
                                 <includes>
-                                    <include>ads.samples.externalLibrary.**</include>
+                                    <include>ads.samples.externalLibrary</include>
                                 </includes>
-                                <excludes>
-                                    <exclude>**</exclude>
-                                </excludes>
                             </filter>
                             <referenceFolder>reference</referenceFolder>
                         </configuration>
