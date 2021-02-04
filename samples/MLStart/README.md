@@ -54,8 +54,8 @@ In this path, you...
 ## Step 1: Deploying the Watson Machine Learning model in Watson Studio
 
 You need to have a deployed machine learning model. For this, you use in Watson Studio:
-- either the notebook provided in [`automation-decision-services-samples/samples/MLStart/model/Predict loan default with PMML in WML.ipynb`](https://raw.githubusercontent.com/icp4a/automation-decision-services-samples/20.0.3/samples/MLStart/model/Predict%20loan%20default%20with%20PMML%20in%20WML). 
-- either the PMML file provided in [`automation-decision-services-samples/samples/MLStart/model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml`](https://raw.githubusercontent.com/icp4a/automation-decision-services-samples/20.0.3/samples/MLStart/model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml). 
+- either the notebook provided in [`automation-decision-services-samples/samples/MLStart/model/Predict loan default with PMML in WML.ipynb`](https://raw.githubusercontent.com/icp4a/automation-decision-services-samples/tree/20.0.3/samples/MLStart/model/Predict%20loan%20default%20with%20PMML%20in%20WML.ipynb). 
+- either the PMML file provided in [`automation-decision-services-samples/samples/MLStart/model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml`](https://raw.githubusercontent.com/icp4a/automation-decision-services-samples/tree/20.0.3/samples/MLStart/model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml). 
 
 You can follow the documentation in [Deployment spaces](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-spaces_local.html?audience=wdp).
  
@@ -205,7 +205,7 @@ In this task, you...
 ### Step 1: Deploying the Watson Machine Learning model in Watson Studio
 
  You need to have a deployed machine learning model. For this, you use in Watson Studio:
-- either the notebook provided in [`automation-decision-services-samples/samples/MLStart/model/Predict loan default with PMML in WML.ipynb`](https://raw.githubusercontent.com/icp4a/automation-decision-services-samples/tree/20.0.3/samples/MLStart/model/Predict%20loan%20default%20with%20PMML%20in%20WML). 
+- either the notebook provided in [`automation-decision-services-samples/samples/MLStart/model/Predict loan default with PMML in WML.ipynb`](https://raw.githubusercontent.com/icp4a/automation-decision-services-samples/tree/20.0.3/samples/MLStart/model/Predict%20loan%20default%20with%20PMML%20in%20WML.ipynb). 
 - either the PMML file provided in [`automation-decision-services-samples/samples/MLStart/model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml`](https://raw.githubusercontent.com/icp4a/automation-decision-services-samples/tree/20.0.3/samples/MLStart/model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml). 
 
 You can follow the documentation in [Deployment spaces](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-spaces_local.html?audience=wdp).
