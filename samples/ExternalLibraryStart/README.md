@@ -102,7 +102,7 @@ To be able to deploy the library, you have to know:
 2. Look at the property definitions:
     * `archive.repository.snapshot.url` is the URL where you deploy snapshots. This value is used in the distribution management part. 
     * `archive.repository.release.url` is the URL where you deploy snapshots. This value is used in the distribution management part. 
-    * `ads-mojo.version` is the version used to build the library. This sample was tested with the version 3.1.8.
+    * `ads-mojo.version` is the version used to build the library. This sample was tested with the version 3.1.8.1.
 
 The properties look as follows:
 ```

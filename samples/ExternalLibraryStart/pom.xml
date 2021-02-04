@@ -7,7 +7,7 @@
     <properties>
         <archive.repository.snapshot.url>SNAPSHOT URL TO BE SET</archive.repository.snapshot.url>
         <archive.repository.release.url>RELEASE URL TO BE SET</archive.repository.release.url>
-        <ads-mojo.version>3.1.8</ads-mojo.version>
+        <ads-mojo.version>3.1.8.1</ads-mojo.version>
     </properties>
 
     <groupId>ads.samples</groupId>
