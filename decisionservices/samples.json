@@ -1,4 +1,67 @@
 {
+  "GettingStarted": {
+    "displayName": "Getting started",
+    "description": "Getting started tutorial answer decision services.",
+    "type": 0,
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "Education",
+    "iconColor": "teal"
+  },
+  "Training": {
+    "displayName": "Training",
+    "description": "Learn key features in Automation Decision Services through practical examples.",
+    "type": 0,
+    "nbProjects": 5,
+    "level": 0,
+    "iconName": "Education",
+    "iconColor": "warm-gray"
+  },
+  "MachineLearningStart": {
+    "displayName": "Machine learning short",
+    "description": "ML Start tutorial short path decision service.",
+    "type": 0,
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "WatsonMachineLearning",
+    "iconColor": "yellow"
+  },
+  "MachineLearningCustomerLoyalty": {
+    "displayName": "Machine learning customer loyalty",
+    "description": "Decision for customer churn including machine learning.",
+    "type": 0,
+    "nbProjects": 1,
+    "level": 1,
+    "iconName": "WatsonMachineLearning",
+    "iconColor": "yellow"
+  },
+  "French": {
+    "displayName": "French - Français",
+    "description": "Decisions en français.",
+    "type": 0,
+    "nbProjects": 2,
+    "level": 0,
+    "iconName": "Education",
+    "iconColor": "blue"
+  },
+  "German": {
+    "displayName": "German - Deutsch",
+    "description": "Entscheidungen in deutscher Sprache.",
+    "type": 0,
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "Education",
+    "iconColor": "blue"
+  },
+  "Italian": {
+    "displayName": "Italian - Italiano",
+    "description": "Decisioni in italiano.",
+    "type": 0,
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "Education",
+    "iconColor": "blue"
+  },
   "Banking": {
     "displayName": "Banking",
     "description": "Decisions for the banking industry.",
@@ -17,34 +80,7 @@
     "iconName": "Receipt",
     "iconColor": "magenta"
   },
-  "NLanguage": {
-    "displayName": "Language",
-    "description": "Decisions in French.",
-    "type": 0,
-    "nbProjects": 2,
-    "level": 0,
-    "iconName": "Education",
-    "iconColor": "blue"
-  },
-  "GettingStarted": {
-    "displayName": "Getting started",
-    "description": "Getting started tutorial answer decision services.",
-    "type": 0,
-    "nbProjects": 1,
-    "level": 0,
-    "iconName": "Education",
-    "iconColor": "teal"
-  },
-  "MachineLearningStart": {
-    "displayName": "Machine learning short",
-    "description": "ML Start tutorial short path decision service.",
-    "type": 0,
-    "nbProjects": 1,
-    "level": 0,
-    "iconName": "WatsonMachineLearning",
-    "iconColor": "yellow"
-  },
-  "Pricing": {
+   "Pricing": {
     "displayName": "Pricing",
     "description": "Decisions to reflect pricing policies.",
     "type": 1,
@@ -71,15 +107,6 @@
     "iconName": "PhoneFilled",
     "iconColor": "red"
   },
-  "HTraining": {
-    "displayName": "Training",
-    "description": "Learn key features in Automation Decision Services through practical examples.",
-    "type": 0,
-    "nbProjects": 5,
-    "level": 0,
-    "iconName": "Education",
-    "iconColor": "warm-gray"
-  },
   "Transportation": {
     "displayName": "Transportation",
     "description": "Decisions for the transportation industry.",
@@ -88,14 +115,5 @@
     "level": 1,
     "iconName": "Bus",
     "iconColor": "green"
-  },
-  "MchineLearningCustomerLoyalty": {
-    "displayName": "Machine learning customer loyalty",
-    "description": "Decision for customer churn including machine learning.",
-    "type": 0,
-    "nbProjects": 1,
-    "level": 1,
-    "iconName": "WatsonMachineLearning",
-    "iconColor": "yellow"
   }
 }

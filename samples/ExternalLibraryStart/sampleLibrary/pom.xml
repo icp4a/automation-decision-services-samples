@@ -47,7 +47,7 @@
         <dependency>
             <groupId>com.ibm.decision</groupId>
             <artifactId>annotations</artifactId>
-            <version>1.0.6</version>
+            <version>${ads-annotations.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>

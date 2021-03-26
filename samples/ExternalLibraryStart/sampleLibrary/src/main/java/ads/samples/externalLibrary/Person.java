@@ -4,7 +4,7 @@
  * Copyright IBM Corp. 2018 - 2020. All Rights Reserved.
  * U.S. Government Users Restricted Rights:
  * Use, duplication or disclosure restricted by GSA ADP Schedule
- * Contract with IBM Corp.package com.ibm.ads.samples;
+ * Contract with IBM Corp.
  */
 
 package ads.samples.externalLibrary;
@@ -37,42 +37,46 @@ public class Person {
 
     @PureFunction
     @JsonIgnore
-    public String fullName() {
+    public String getFullName() {
         if (middleNames.size() == 0)
-            return firstName() + " " + lastName();
-        StringBuilder middle = new StringBuilder(firstName());
+            return getFirstName() + " " + getLastName();
+        StringBuilder middle = new StringBuilder(getFirstName());
         middle.append(' ');
         for (String middleName : middleNames) middle.append(middleName).append(' ');
-        middle.append(lastName());
+        middle.append(getLastName());
         return middle.toString();
     }
 
     @PureFunction
     @JsonIgnore
-    public String initials() {
-        String initials = StringUtilities.firstLetter(firstName());
-        if (lastName().isEmpty())
+    public String getInitials() {
+        String initials = StringUtilities.firstLetter(getFirstName());
+        if (getLastName().isEmpty())
             return initials;
-        return StringUtilities.firstLetter(firstName()) + StringUtilities.firstLetter(lastName());
+        return StringUtilities.firstLetter(getFirstName()) + StringUtilities.firstLetter(getLastName());
     }
 
     @PureFunction
     @JsonIgnore
-    public String greeting() {
+    public String getGreeting() {
         if (country == Country.FRANCE)
             return "Salut";
+        if (country == Country.GERMANY)
+            return "Hallo";
+        if (country == Country.ITALY)
+            return "Ciao";
         return "Hello";
     }
 
     @PureFunction
     @JsonIgnore
-    public String shortName() {
+    public String getShortName() {
         if (middleNames.size() == 0)
-            return firstName() + " " + lastName();
-        StringBuilder middle = new StringBuilder(firstName());
+            return getFirstName() + " " + getLastName();
+        StringBuilder middle = new StringBuilder(getFirstName());
         middle.append(' ');
         for (String middleName : middleNames) middle.append(middleName, 0, 1).append(' ');
-        middle.append(lastName());
+        middle.append(getLastName());
         return middle.toString();
     }
 
@@ -87,13 +91,13 @@ public class Person {
 
     @PureFunction
     @JsonIgnore
-    public String firstName() {
+    public String getFirstName() {
         return firstName;
     }
 
     @PureFunction
     @JsonIgnore
-    public String lastName() {
+    public String getLastName() {
         return lastName;
     }
 

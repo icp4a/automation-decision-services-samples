@@ -23,10 +23,10 @@ Some knowledge of the CI/CD stack is required.
 ## Prerequisites
 
 Prepare with the following resources:
-- [Getting started in Automation Decision Services](https://www.ibm.com/support/knowledgecenter/SSYHZ8_20.0.x/com.ibm.dba.aid/gs_ddesigner_topics/dba_ddesigner_intro.html): This tutorial introduces you to Automation Decision Services.
+- [Getting started in Automation Decision Services](https://www.ibm.com/support/knowledgecenter/SSYHZ8_21.0.x/com.ibm.dba.aid/gs_ddesigner_topics/dba_ddesigner_intro.html): This tutorial introduces you to Automation Decision Services.
 
 You must have the following environments:
-- **Decision Designer**: A web-based user interface for developing decision services in IBM Business Automation Studio. You work with the sample decision service by importing it into a decision project and opening it in Decision Designer.
+- **Decision Designer**: A web-based user interface for developing decision services in Business Automation Studio. You work with the sample decision service by importing it into a decision project and opening it in Decision Designer.
 - **Deployment services**:  Your IT developers must provide a CI/CD stack to run the decision service. They must provide you the URLs and credentials to the instances of Gitea, Jenkins, Nexus, and the instance of the Swagger UI for the Automation Decision Services runtime service.
 
 
@@ -44,13 +44,14 @@ In this task, you...
  **Procedure**
  
 1. Sign in to your instance of Business Automation Studio to access Decision Designer. Use the credentials provided for your instance.
-2. Click the **Automation** box and select **Decision**.
-3. Click **Create** and select **Decision automations** to make a project.
-4. Enter a unique name for the project. Do not reuse the name of a decision project that already exists in your instance of Business Automation Studio. For simplicity, we use `My Project` in this sample documentation. After entering your name for the decision project, enter the following description:
+2. Click on the navigation menu at the top left of the page, expand Design and select **Business automations**.
+3. Click Decision to see the decision automations.
+4. Click **Create** and select **Decision automations** to make a project.
+5. Enter a unique name for the project. Do not reuse the name of a decision project that already exists in your instance of Business Automation Studio. For simplicity, we use `My Project` in this sample documentation. After entering your name for the decision project, enter the following description:
 ```
 Automated Decision Service sample deployed using the CI/CD stack.
 ```
-5. Click **Create** to make your decision project.
+6. Click **Create** to make your decision project.
 
 ## Step 2: Importing sample projects
 In this step, you import the decision project that you deploy later in this tutorial. You import the Loan Validation decision service, which validates loans based on data from the borrower and computes insurance rates for the requested loan amount.
@@ -65,14 +66,14 @@ In this step, you import the decision project that you deploy later in this tuto
 
 ## Step 3: Sharing your decision service
 
-In this step, you share your decision service in your instance of Business Automation Studio.
+In this step, you share your decision service in your instance of Automation Decision Services.
 
 **Procedure**
 
 1. Click the name of your project in the breadcrumbs.
 2. Open the **Share changes** tab. It shows the changes that you can share. The Loan Validation decision service is selected.
 3. Click **Share**, and enter the comment `Loan Validation first version`.
-4. Click **Share**. Now, your collaborators in your instance of Business Automation Studio can see your decision service.
+4. Click **Share**. Now, your collaborators in your instance of Automation Decision Services can see your decision service.
 
 # Task 2: Connecting to a  Gitea repository
 **About this task**
@@ -81,6 +82,7 @@ In this task, you...
 - Create a Gitea repository.
 - Connect your decision project to it.
 - Prepare the decision service for deployment.
+- Load the changes you made in Designer.
 
 You must have the URI and security credentials for the Git. You must also have the URL to the Nexus where you can deploy decision service archives.
 
@@ -133,6 +135,16 @@ Replace `<Nexus URL>` by entering the value that corresponds to the Maven reposi
     </distributionManagement>
 ```
 3. Commit the changes, adding the following message: `Added a distribution management part.`
+
+## Step 4: Loading your changes in Designer
+
+In this step, you load the changes you made in Step 3 in your Designer project to get the latest version. Then, you will be able to go on changing the project as described in Task 4.
+**Procedure**
+
+1. Open `My Project` in Decision designer.
+2. Click on the **Load changes** button in the **Load changes** tab to retrieve the changes. A line appears for the `Loan Validation` decision service.
+3. Click on the **View details** link: you see that the maven build files have been modified. Close the details window.
+4. Click on the **Load changes** button to get those changes. Click on the **Load** button. There are no more incoming changes. You can go on working on your project in Designer.
 
 # Task 3: Building and deploying the decision service archive
 **About this task**
@@ -211,7 +223,7 @@ In this task, you...
 
 ## Step 1: Validating the decision service archive in Swagger
 
-In this step, you use the Swagger REST API tool to validate the decision service archive.  For more information, see [Swagger UI](https://www.ibm.com/support/knowledgecenter/SSYHZ8_20.0.x/com.ibm.dba.aid/topics/con_swagger_ui.html).
+In this step, you use the Swagger REST API tool to validate the decision service archive.  For more information, see [Swagger UI](https://www.ibm.com/support/knowledgecenter/SSYHZ8_21.0.x/com.ibm.dba.aid/topics/con_swagger_ui.html).
 To run the archive, you must have the URL and security credentials for the Swagger REST API tool.
 
 **Procedure**
