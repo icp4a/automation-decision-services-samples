@@ -1,0 +1,17 @@
+
+ads.samples.geoLibrary.Location#concept.documentation = a city described with a name, a longitude and a latitude
+ads.samples.geoLibrary.Country#concept.documentation = a country described with a name and its capital
+
+# ads.samples.geoLibrary.Location
+ads.samples.geoLibrary.Location.getDistance(ads.samples.geoLibrary.Location)#phrase.navigation = the distance between {this} and {0}
+
+# ads.samples.geoLibrary.LocationsUtilities
+ads.samples.geoLibrary.LocationsUtilities.getDistance(java.lang.String,java.lang.String)#phrase.navigation = the distance between {0} and {1}
+ads.samples.geoLibrary.LocationsUtilities.knownCity(java.lang.String)#phrase.navigation = {0} is a known city
+ads.samples.geoLibrary.LocationsUtilities.unknownCity(java.lang.String)#phrase.navigation = {0} is not a known city
+ads.samples.geoLibrary.LocationsUtilities.knownCountry(java.lang.String)#phrase.navigation = {0} is a known country
+ads.samples.geoLibrary.LocationsUtilities.unknownCountry(java.lang.String)#phrase.navigation = {0} is not a known country
+ads.samples.geoLibrary.LocationsUtilities.getCountry(java.lang.String)#phrase.navigation = {country} named {0}
+ads.samples.geoLibrary.LocationsUtilities.getCountry(java.lang.String)#phrase.navigation.documentation = Finds the country with the given name
+ads.samples.geoLibrary.LocationsUtilities.getLocation(java.lang.String)#phrase.navigation = {location} named {0}
+ads.samples.geoLibrary.LocationsUtilities.getLocation(java.lang.String)#phrase.navigation.documentation = Finds the city with the given name

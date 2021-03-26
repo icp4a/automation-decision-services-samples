@@ -12,7 +12,7 @@ This tutorial shows you how to use a decision service in an automation service.
 ## Audience
 
 This tutorial is for business users who want to run an application that uses a decision service built in Automation Decision Services.
-Some knowledge of IBM Business Automation Studio is required.
+Some knowledge of Business Automation Studio is required.
 
 ## Time required
 
@@ -20,10 +20,12 @@ Some knowledge of IBM Business Automation Studio is required.
 
 ## Prerequisites
 
-You must have the following environments:
-- **Decision Designer**: A web-based user interface for developing decision services in IBM Business Automation Studio. You work with a sample decision service that you import into a decision project and open in Decision Designer.
-- **Application Designer**:  A web-based user interface for developing applications in Business Automation Studio. 
-
+You must have access to  the following environments in Business Automation Studio:
+- **Decision Designer**: A web-based user interface for developing decision services in Business Automation Studio. You work with a sample decision service that you import into a decision project and open in Decision Designer.
+- **Application Designer**:  A web-based user interface for developing applications in Business Automation Studio.
+ 
+If you do not have access to these environments, see [Managing access to the Business Automation Studio repository documentation](https://www.ibm.com/support/knowledgecenter/SSYHZ8_21.0.x/com.ibm.dba.bas/topics/managinglib_users_B.html).
+For more information about Business Automation Studio and the designers it integrates, see the [Business Automation Studio documentation](https://www.ibm.com/support/knowledgecenter/SSYHZ8_21.0.x/com.ibm.dba.bas/topics/cbuilding.html).
 # Task 1: Creating and deploying a decision service
 **About this task**
 
@@ -38,9 +40,10 @@ In this task, you...
  **Procedure**
  
 1. Sign in to your instance of Business Automation Studio to access Decision Designer. Use the security credentials that were given to you for this instance.
-2. Click the **Automations** tile.
-3. Click **Create** and select **Decision automations** to make a project.
-4. Enter a unique name for the project. Do not reuse the name of a decision project that already exists in your instance of Business Automation Studio. For simplicity, we use `My Project` in this tutorial. After entering your name for the decision project, enter the following description:
+2. Click on the navigation menu at the top left of the page, expand Design and select **Business automations**.
+3. Select Decision in the list.
+4. Click **Create** and select **Decision automations** to make a project.
+5. Enter a unique name for the project. Do not reuse the name of a decision project that already exists in your instance of Business Automation Studio. For simplicity, we use `My Project` in this tutorial. After entering your name for the decision project, enter the following description:
 ```
 Automated Decision Services sample to use in an application.
 ```
@@ -59,8 +62,8 @@ In this step, you import the decision service that you later deploy. You import 
 
 ## Step 3: Deploying your decision service
 
-In this step, you deploy your decision service within your instance of Business Automation Studio. The instructions are summarized, but you can find more detailed instructions in the 
-[Getting started in Automation Decision Services Task5 Step 1 to Step5](https://www.ibm.com/support/knowledgecenter/SSYHZ8_20.0.x/com.ibm.dba.aid/gs_ddesigner_topics/tut_dd_t5_lsn.html).
+In this step, you deploy your decision service within your instance of Automation Decision Services. The instructions are summarized, but you can find more detailed instructions in the 
+[Getting started in Automation Decision Services Task5 Step 1 to Step5](https://www.ibm.com/support/knowledgecenter/SSYHZ8_21.0.x/com.ibm.dba.aid/gs_ddesigner_topics/tut_dd_t5_lsn.html).
 
 **Procedure**
 
@@ -76,7 +79,7 @@ Enter the name `FirstVersion` and click the **Create** button.
 6. Click **Connect** in the upper right corner of Decision Designer. Then, enter the GitHub repository URI and credentials, and click **Connect**.
 7. Click the name of your project in the breadcrumbs, open the **Deploy** tab, and expand FirstVersion. Click **Deploy** to the right of the Getting started decision service.
 Wait for the decision service to be deployed to the embedded runtime archive repository. Now, you make the decision service available as an automation service.
-8. Click **Projects** in the breadcrumbs to go back to the list of projects.
+8. Click **Business Automations** in the breadcrumbs to go back to the list of projects.
 
 # Task 2: Publishing and using a decision service in an application
 **About this task**
@@ -105,7 +108,7 @@ In this step, you create an application.
 
 **Procedure**
 
-1. In Business Automation Studio, click the menu in the top left corner and select **Applications**.
+1. In Business Automation Studio, click the menu in the top left corner, expand Design and select **Business applications**.
 2. Click **Create** and select **Application**.
 3. Enter a unique name such as `My Application`. Then, enter the following purpose and click **Create**:
 ```

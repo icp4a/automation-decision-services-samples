@@ -23,7 +23,7 @@ This sample is for anyone who wants to execute a decision service archive built 
 - Websphere Application Server Liberty: A Java application server that you can download from [Download WAS Liberty](https://developer.ibm.com/wasdev/downloads/). This sample was tested on **WAS Liberty with Java EE 8 Full Platform V20.0.0.12**.
 - Apache Maven: A software project management tool that you can download from [Welcome to Apache Maven](https://maven.apache.org).
 
-It is recommended that you do the tutorial [Getting started in Automation Decision Services](https://www.ibm.com/support/knowledgecenter/SSYHZ8_20.0.x/com.ibm.dba.aid/gs_ddesigner_topics/dba_ddesigner_intro.html) before using this sample.
+It is recommended that you do the tutorial [Getting started in Automation Decision Services](https://www.ibm.com/support/knowledgecenter/SSYHZ8_21.0.x/com.ibm.dba.aid/gs_ddesigner_topics/dba_ddesigner_intro.html) before using this sample.
 
 # Setting up the sample
 ## Deploying the decision service
@@ -33,7 +33,7 @@ Otherwise, you must deploy a Loan Validation decision service archive to the run
 
 To deploy the decision service archive on a Nexus repository:
 
-1. Download the archive [loanValidationDecisionService](https://github.com/icp4a/automation-decision-services-samples/tree/20.0.3/archives/loanValidationDecisionService-1.0.0.jar)  in a local directory.
+1. Download the archive [loanValidationDecisionService](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.1/archives/loanValidationDecisionService-1.0.0.jar)  in a local directory.
 2. Sign in to your instance of Nexus.
 3. On the left part, click Upload, select maven-releases.
 3. Browse to the archive file you downloaded in point 1.
@@ -66,7 +66,7 @@ mvn clean install
 
 You can use the application when you see the message ``` BUILD SUCCESS```.
 
-**Note:** If you want to modify and build the application again, follow the instructions in the section [Clean this sample](https://github.com/dba/automation-decision-services-samples/tree/20.0.3/samples/LoanApplication#clean-this-sample) at the end of this readme.
+**Note:** If you want to modify and build the application again, follow the instructions in the section [Clean this sample](https://github.com/dba/automation-decision-services-samples/tree/21.0.1/samples/LoanApplication#clean-this-sample) at the end of this readme.
 
 # Sample details
 1. In a browser, open the URL ```http://localhost:9080/loanApplication-1.0-SNAPSHOT/```:

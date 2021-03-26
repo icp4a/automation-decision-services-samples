@@ -1,0 +1,57 @@
+# Term: Person
+@Person#gender = FEMALE
+
+# Term: Vorname
+@Vorname#gender = MALE
+
+# Term: vollständige Name
+@vollständige\ Name#gender = MALE
+@vollständige\ Name#plural = vollständigen Namen
+
+# Term: Anrede
+@Anrede#gender = FEMALE
+
+# Term: Initialen
+@Initialen#gender = FEMALE
+
+# Term: Eingabename
+@Nachname#gender = MALE
+
+# Term: Nachname
+@Nachname#gender = MALE
+
+# Term: Kurzform
+@Kurzform#gender = FEMALE
+
+# Term: Anfangsbuchstabe
+@Anfangsbuchstabe#gender = MALE
+
+# ads.samples.externalLibrary.Country
+ads.samples.externalLibrary.Country#concept.label = Land
+ads.samples.externalLibrary.Country.FRANCE#instance.label = Frankreich
+ads.samples.externalLibrary.Country.GERMANY#instance.label = Deutschland
+ads.samples.externalLibrary.Country.ITALY#instance.label = Italien
+ads.samples.externalLibrary.Country.UK#instance.label = Großbritannien
+ads.samples.externalLibrary.Country.US#instance.label = USA
+
+# ads.samples.externalLibrary.Person
+ads.samples.externalLibrary.Person#concept.label = Person
+ads.samples.externalLibrary.Person.Person(java.lang.String,ads.samples.externalLibrary.Country)#phrase.navigation = eine neue {Person} namens {0, Eingabename} aus {1, Land}
+ads.samples.externalLibrary.Person.country#phrase.action = set das Land von {this} auf {Land}
+ads.samples.externalLibrary.Person.country#phrase.navigation = {Land} von {this}
+ads.samples.externalLibrary.Person.equals(java.lang.Object)#phrase.navigation = {this} ist gleich {0}
+ads.samples.externalLibrary.Person.firstName#phrase.navigation = {Vorname} von {this}
+ads.samples.externalLibrary.Person.fullName#phrase.navigation = {vollständige Name} von {this}
+ads.samples.externalLibrary.Person.greeting#phrase.navigation = {Anrede} von {this}
+ads.samples.externalLibrary.Person.initials#phrase.navigation = {Initialen} von {this}
+ads.samples.externalLibrary.Person.inputName#phrase.action = setze den Eingabenamen von {this} auf {Eingabename}
+ads.samples.externalLibrary.Person.inputName#phrase.navigation = {Eingabename} von {this}
+ads.samples.externalLibrary.Person.lastName#phrase.navigation = {Nachname} von {this}
+ads.samples.externalLibrary.Person.shortName#phrase.navigation = {Kurzform} von {this}
+
+# ads.samples.externalLibrary.StringUtilities
+ads.samples.externalLibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation = {0} in Großbuchstaben
+ads.samples.externalLibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation.precedence = 1-2:nonassoc:102
+ads.samples.externalLibrary.StringUtilities.firstLetter(java.lang.String)#phrase.navigation = der Anfangsbuchstabe von {0}
+ads.samples.externalLibrary.StringUtilities.firstLetter(java.lang.String)#phrase.navigation.precedence = 0-2:nonassoc:101
+

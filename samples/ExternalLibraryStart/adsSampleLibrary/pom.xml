@@ -53,7 +53,9 @@
                             <!-- Optional, by default: en_US -->
                             <locales>
                                 <locale>en_US</locale>
-                        
+                                <locale>fr_FR</locale>
+                                <locale>de_DE</locale>
+                                <locale>it_IT</locale>
                             </locales>
                             <!-- Optional, by default: true -->
                             <importMethods>true</importMethods>
