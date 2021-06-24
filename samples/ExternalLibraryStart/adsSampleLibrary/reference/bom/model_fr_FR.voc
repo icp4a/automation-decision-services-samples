@@ -5,11 +5,15 @@ ads.samples.externalLibrary.Country.GERMANY#instance.label = Allemagne
 ads.samples.externalLibrary.Country.ITALY#instance.label = Italie
 ads.samples.externalLibrary.Country.UK#instance.label = Royaume Uni
 ads.samples.externalLibrary.Country.US#instance.label = Etats Unis
+ads.samples.externalLibrary.Country.SPAIN#instance.label = Espagne
+ads.samples.externalLibrary.Country.CHINA#instance.label = Chine
 
 # Term: personne
 @personne#gender = FEMALE
 @initiales#gender = FEMALE
 @initiales#article.definite = les
+
+@manière\ de\ saluer#gender = FEMALE
 
 # ads.samples.externalLibrary.Person
 ads.samples.externalLibrary.Person#concept.label = personne
@@ -19,7 +23,7 @@ ads.samples.externalLibrary.Person.country#phrase.navigation = {pays} {this,PART
 ads.samples.externalLibrary.Person.equals(java.lang.Object)#phrase.navigation = {this} est identique à {0}
 ads.samples.externalLibrary.Person.firstName#phrase.navigation = {prénom} {this,PARTITIVE_ARTICLE}
 ads.samples.externalLibrary.Person.fullName#phrase.navigation = {nom complet} {this,PARTITIVE_ARTICLE}
-ads.samples.externalLibrary.Person.greeting#phrase.navigation = la manière de saluer {this,PARTITIVE_ARTICLE}
+ads.samples.externalLibrary.Person.greeting#phrase.navigation = {manière de saluer} {this,PARTITIVE_ARTICLE}
 ads.samples.externalLibrary.Person.initials#phrase.navigation = {initiales} {this,PARTITIVE_ARTICLE}
 ads.samples.externalLibrary.Person.inputName#phrase.action = assigner le nom d'entrée {this, PARTITIVE_ARTICLE} à {nom d'entrée}
 ads.samples.externalLibrary.Person.inputName#phrase.navigation = {nom d'entrée} {this,PARTITIVE_ARTICLE}

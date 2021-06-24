@@ -2,7 +2,7 @@
 
 ## Description
 This sample defines an external library that provides geolocalization functions that are ready for use in Automation Decision Services.
-For more information about decision models and external libraries, see [Working with external libraries](https://www.ibm.com/support/knowledgecenter/SSYHZ8_21.0.x/com.ibm.dba.aid/external_lib_topics/con_ext_lib_intro.html).
+For more information about decision models and external libraries, see [Working with external libraries](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.x?topic=decisions-working-external-libraries).
 
 ## Learning objectives
 - Build an external library from a Java library.
@@ -16,11 +16,11 @@ This sample is for anyone who wants to use a Java library in Automation Decision
 
 ## Time required
 
-5 minutes
+10 minutes
 
 ## Prerequisites
 
-To become familiar with the development environment, do the tutorial [Getting started in Automation Decision Services](https://www.ibm.com/support/knowledgecenter/SSYHZ8_21.0.x/com.ibm.dba.aid/gs_ddesigner_topics/dba_ddesigner_intro.html). It introduces you to Automation Decision Services.
+To become familiar with the development environment, do the tutorial [Getting started in Automation Decision Services](https://www.ibm.com/docs/SSYHZ8_21.0.x/com.ibm.dba.aid/gs_ddesigner_topics/dba_ddesigner_intro.html). It introduces you to Automation Decision Services.
 
 Some basic knowledge of Java is required.
 
@@ -35,13 +35,13 @@ The sample refers to **automation-decision-services-samples** as the directory w
 
 # Setting up the sample
 
-- Follow the instructions in [Task 1: Building an external library](https://github.com/icp4a/automation-decision-services-samples/tree/master/samples/ExternalLibraryStart#task-1-building-an-external-library) of the tutorial [Using an external library](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.1/samples/ExternalLibraryStart) to build and deploy the external library.
-- Check the credentials for the repository manager as described in [Task2, Step1: Checking the credentials for the repository manager](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.1/samples/ExternalLibraryStart#optional-step-1-checking-the-credentials-for-the-repository-manager).
+- Follow the instructions in Task 1: Building an external library of the tutorial [Using an external library](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/ExternalLibraryStart) to build and deploy the external library.
+- Check the credentials for the repository manager as described in [Task2, Step1: Checking the credentials for the repository manager](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/ExternalLibraryStart#optional-step-1-checking-the-credentials-for-the-repository-manager).
 - Create a new project in Decision Designer. Import the compressed file for this sample: `automation-decision-services-samples/samples/ExternalLibGeo/project/PricingWithGeo.zip`.
 - Open the settings of your project to define the external library:
   - Group ID: ads.samples
   - Artifact ID: adsGeoLibrary
-  - Version: 1.0.8
+  - Version: 1.0.13
   
 # Sample details
 

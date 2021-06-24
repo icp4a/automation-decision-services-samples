@@ -65,6 +65,10 @@ public class Person {
             return "Hallo";
         if (country == Country.ITALY)
             return "Ciao";
+        if (country == Country.SPAIN)
+            return "¡Hola";
+        if (country == Country.CHINA)
+            return "你好";
         return "Hello";
     }
 

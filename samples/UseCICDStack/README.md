@@ -6,28 +6,27 @@ This tutorial shows you how to use the custom CI/CD stack to build and deploy a 
 
 ## Learning objectives
 - Connect a decision project to a Gitea repository.
-- Add the required instructions to deploy the archive on Nexus.
-- Make a build plan in Jenkins to build a decision service.
-- Execute the decision service archive with the Swagger UI.
+- Build a decision service archive by using Maven.
+- Deploy a decision service archive to the Automation Decision Services runtime by using a curl command.
+- Generate a decision by using a Swagger UI tool.
 
   
 ## Audience
 
-This sample is for technical and business users who want to understand the usage of the custom CI/CD stack in Automation Decision Services.
+This tutorial is for technical and business users who want to understand the usage of the custom CI/CD stack in Automation Decision Services.
 Some knowledge of the CI/CD stack is required.
 
 ## Time required
 
-20 minutes
+15 minutes
 
 ## Prerequisites
 
-Prepare with the following resources:
-- [Getting started in Automation Decision Services](https://www.ibm.com/support/knowledgecenter/SSYHZ8_21.0.x/com.ibm.dba.aid/gs_ddesigner_topics/dba_ddesigner_intro.html): This tutorial introduces you to Automation Decision Services.
+Prepare by doing the [Getting started in Automation Decision Services](https://www.ibm.com/docs/SSYHZ8_21.0.x/com.ibm.dba.aid/gs_ddesigner_topics/dba_ddesigner_intro.html) tutorial. It introduces you to Automation Decision Services.
 
 You must have the following environments:
-- **Decision Designer**: A web-based user interface for developing decision services in Business Automation Studio. You work with the sample decision service by importing it into a decision project and opening it in Decision Designer.
-- **Deployment services**:  Your IT developers must provide a CI/CD stack to run the decision service. They must provide you the URLs and credentials to the instances of Gitea, Jenkins, Nexus, and the instance of the Swagger UI for the Automation Decision Services runtime service.
+- **Decision Designer**: A web-based user interface for developing decision services in Business Automation Studio. You work with a sample decision service by importing it into a decision project and opening it in Decision Designer.
+- **Deployment services**: Your IT developers must provide a CI/CD stack to run the decision service. They must give you the URLs and credentials for both the Gitea repository and the Swagger UI of the Automation Decision Services runtime service.
 
 
 # Task 1: Creating and sharing a decision service
@@ -44,26 +43,57 @@ In this task, you...
  **Procedure**
  
 1. Sign in to your instance of Business Automation Studio to access Decision Designer. Use the credentials provided for your instance.
-2. Click on the navigation menu at the top left of the page, expand Design and select **Business automations**.
-3. Click Decision to see the decision automations.
+2. Click the navigation menu at the top left of the page. Expand **Design** and select **Business automations**.
+3. Click **Decision** to see the decision automations.
 4. Click **Create** and select **Decision automations** to make a project.
-5. Enter a unique name for the project. Do not reuse the name of a decision project that already exists in your instance of Business Automation Studio. For simplicity, we use `My Project` in this sample documentation. After entering your name for the decision project, enter the following description:
+5. Enter a unique name for the project. Do not reuse the name of a decision project that already exists in your instance of Business Automation Studio. In this tutorial we use `My Project` as the name of the project. After entering your name for the decision project, enter the following description:
 ```
-Automated Decision Service sample deployed using the CI/CD stack.
+Automated Decision Service sample deployed by using the CI/CD stack.
 ```
 6. Click **Create** to make your decision project.
 
 ## Step 2: Importing sample projects
-In this step, you import the decision project that you deploy later in this tutorial. You import the Loan Validation decision service, which validates loans based on data from the borrower and computes insurance rates for the requested loan amount.
+In this step, you import the decision project that you deploy later in this tutorial. You import the Loan Validation decision service, which validates loans by using data from the borrower, and computes insurance rates for the requested loan amount.
 
 **Procedure**
 
 1. In the **Decision services** tab, click **Browse samples**.
 2. Choose **Banking** in the Business domains section, and click **Import** to import the decision service.
-3. Click **Loan Validation** to open the decision service. It contains a data model and a decision model. 
-4. Click **Loan Validation Decision Model** to open it and explore the diagram.
-5. Click the **Run** tab to run the model with the provided test data.
-
+3. Click **Loan Validation** to open the decision service. It contains a decision model, a data model, and a decision operation.
+4. Click the **Decision operations** tab. One operation is defined. Copy its name, `loan-validation-decision-model`, to use it to run the decision service archive.
+5. Click the **Modeling** tab, and click **Loan Validation Decision Model** to open the model and explore its diagram.
+6. Click the **Run** tab. Four data sets are defined. Open the `MrDoeLoan` data set and edit it as .json code to copy its contents:
+```
+{
+  "loan": {
+    "number of monthly payments": 72,
+    "start date": "2005-06-01T00:00:00Z",
+    "amount": 185000,
+    "loan to value": 0.7
+  },
+  "borrower": {
+    "first name": "John",
+    "last name": "Doe",
+    "birth date": "1968-05-12T00:00:00Z",
+    "SSN": {
+      "area number": "123",
+      "group code": "45",
+      "serial number": "6789"
+    },
+    "yearly income": 100000,
+    "zip code": "91320",
+    "credit score": 500
+  },
+  "currentTime": "2020-02-03T16:43:04.609Z"
+}
+```
+7. Run the data set. You get the following response:
+```
+{
+  "approved": true,
+  "message": "Congratulations! Your loan has been approved"
+}
+```
 ## Step 3: Sharing your decision service
 
 In this step, you share your decision service in your instance of Automation Decision Services.
@@ -71,7 +101,7 @@ In this step, you share your decision service in your instance of Automation Dec
 **Procedure**
 
 1. Click the name of your project in the breadcrumbs.
-2. Open the **Share changes** tab. It shows the changes that you can share. The Loan Validation decision service is selected.
+2. Open the **Share changes** tab. It shows the changes that you can share. 
 3. Click **Share**, and enter the comment `Loan Validation first version`.
 4. Click **Share**. Now, your collaborators in your instance of Automation Decision Services can see your decision service.
 
@@ -80,26 +110,24 @@ In this step, you share your decision service in your instance of Automation Dec
 
 In this task, you... 
 - Create a Gitea repository.
-- Connect your decision project to it.
-- Prepare the decision service for deployment.
-- Load the changes you made in Designer.
+- Connect your decision project to the repository.
 
-You must have the URI and security credentials for the Git. You must also have the URL to the Nexus where you can deploy decision service archives.
+You must have the URI and security credentials for the Git. 
 
 ## Step 1: Creating a Gitea repository
 
-In this step, you create a Gitea repository. Your IT developers must give you a URI and security credentials for it. 
+In this step, you create a Gitea repository. Your IT developers must give you a URI and security credentials for the repository. 
 
 **Procedure**
 
-1. Log in to Gitea using your security credentials.
+1. Log in to Gitea by using your security credentials.
 2. Click the **+** button, and select **New Repository** in the menu that opens.
 3. Enter a unique name and a description. For this example, we use `My Project` and the description `ADS project using the custom CI/CD stack`.
 4. Click the **Create Repository** button.
-5. If you are logged in to Gitea as the user of the Decision Designer specified at installation time, you can skip the following steps: 
-a. Click **Settings**, and select the **Collaborators** tab.
-b. Enters the user's name as a Git user, and then click the **Add Collaborator** button.
-6. In the **Code** tab, click the **Copy** button to get the URL of the Git repository, which you use in next step.
+5. If you are logged in to Gitea as the user of the Decision Designer specified at installation time, you can skip the following steps:<br /> 
+    a. Click **Settings**, and select the **Collaborators** tab.<br />
+    b. Enter the user's name as a Git user, and then click the **Add Collaborator** button.
+6. In the **Code** tab, click the **Copy** button to get the URL of the Git repository, which you use in the next step.
 
 ## Step 2: Connecting your project to the Git repository
 
@@ -109,215 +137,131 @@ In this step, you connect your project to a Git repository in Decision Designer.
 
 1. Check the status of your Git repository connection in the upper right corner of Decision Designer. The broken link icon shows that the project is not connected to a remote Git repository.
 2. Click **Connect** to make a connection.
-3. Enter the Git URI and security credentials from Step 1, and then click **Connect**. A message tells you that the connection completed successfully. Your decision service is written to the repository when you connect to it.
+3. Enter the Git URI and security credentials from step 1, and then click **Connect**. A message tells you when the connection completes successfully. Your decision service is written to the repository when you connect to it.
 4. Click **My Project** in the breadcrumbs to return to your service. The link icon shows that your project is now connected to the Git repository.
 5. Refresh your Gitea page to see the Loan Validation decision service in your repository.
 
-## Step 3: Preparing your decision service for deployment
 
-In this step, you add the instructions to deploy a decision service archive. This step references the Nexus, archive repository tool in the sample CI/CD stack.
-
-**Procedure**
-
-1. Open your decision service in the Git repository.
-2. Edit the `pom.xml` file in the repository. Before the `end` tag, add the following instructions for deploying your project. 
-Replace `<Nexus URL>` by entering the value that corresponds to the Maven repository server:
-```
-  <distributionManagement>
-        <snapshotRepository>
-            <id>maven-snapshots</id>
-            <url><Nexus URL>/repository/maven-snapshots/</url>
-        </snapshotRepository>
-        <repository>
-            <id>maven-releases</id>
-            <url><Nexus URL>/repository/maven-releases/</url>
-        </repository>
-    </distributionManagement>
-```
-3. Commit the changes, adding the following message: `Added a distribution management part.`
-
-## Step 4: Loading your changes in Designer
-
-In this step, you load the changes you made in Step 3 in your Designer project to get the latest version. Then, you will be able to go on changing the project as described in Task 4.
-**Procedure**
-
-1. Open `My Project` in Decision designer.
-2. Click on the **Load changes** button in the **Load changes** tab to retrieve the changes. A line appears for the `Loan Validation` decision service.
-3. Click on the **View details** link: you see that the maven build files have been modified. Close the details window.
-4. Click on the **Load changes** button to get those changes. Click on the **Load** button. There are no more incoming changes. You can go on working on your project in Designer.
-
-# Task 3: Building and deploying the decision service archive
+# Task 3: Building the decision service archive and deploying it
 **About this task**
 
-In this task, you... 
-- Create a build plan in Jenkins to build and deploy your decision service archive.
-- Execute this build plan.
-- Look at the deployed decision service archive.
+In this task, you...
+- Build the decision service archive with Maven.
+- Deploy the decision service archive to the Automation Decision Services runtime.
 
-## Step 1: Creating a Jenkins build plan
+## Step 1: Configuring the Maven settings to build your decision service archive
 
-In this step, you create a plan in Jenkins to build and deploy an archive that is based on your decision service. 
-You must have the URL and security credentials for Jenkins.
+If your Maven settings are configured to access the Automation Decision Services artifacts, you can skip this step.
+Otherwise, you must define a file of Maven settings by completing the template *settings.xml*, which is included in this sample:
+1. Open **automation-decision-services-samples/samples/UseCICDStack/settings.xml**.
+2. Replace all the `TO BE SET` tags by entering the appropriate values:
+   * `LOCAL REPOSITORY TO BE SET`: The directory on your computer to which the artifacts are downloaded.
 
-**Procedure**
+   * `MAVEN SNAPSHOT TO BE SET`: The URL of the repository for manager snapshots.
+   * `MAVEN RELEASE TO BE SET`: The URL of the manager release repository.
+   * `MAVEN PUBLIC TO BE SET`: The URL of the manager public repository.
+   * `USER TO BE SET`: A username that can access the repository manager.
+   * `PASSWORD TO BE SET`: The password that corresponds with the username.
+3. Save the `settings.xml` file.
 
-1. Log in to Jenkins with your credentials.
-2. Click **New Item** to create a build plan.
-3. Enter `Loan Validation` as the name, and the following description:
-`Build plan to build and deploy the Loan Validation decision service archive.`
-5. In the Source Code Management part, select **Git**, and enter the URI and your security credentials for the Git repository.
-6. In the Build Triggers part, choose the appropriate trigger policy. For example, select **Poll SCM** and enter `* * * * *` in the Schedule part. This policy produces a check for modifications in the Git repository every minute. This one-minute delay is for this example. A different delay time can be selected for a real application.
-7. Update the Build part by adding the following information:
-- Root POM: `Loan Validation/pom.xml`
-- Goals and options: `clean deploy -U`
-8. Click **Save** to save the plan.
+## Step 2: Building the decision service archive
 
-## Step 2: Building the Jenkins build plan
-
-In this step, you run the Jenkins build plan to build and deploy the decision service archive.
+In this step, you build the decision service archive with Maven. 
 
 **Procedure**
 
-1. In Jenkins, select the Maven project **Loan Validation**.
-2. Run the plan by clicking **Build now** in the left part. When the build finishes, the log shows that the decision service archive is deployed:
+1. Clone the Gitea repository defined in Task 2 on your computer.
+2. Copy the file `settings.xml` defined in Step 1 in the `Loan Validation` directory.
+3. Run the following command in the `Loan Validation` directory: 
 ```
-[INFO] Uploaded to maven-snapshots: <archiverepo URL>/repository/maven-snapshots/decisions/my_project/loan_validation/loanValidationDecisionService/maven-metadata.xml
-[INFO] ------------------------------------------------------------------------
-[INFO] Reactor Summary:
-[INFO] 
-[INFO] loanValidation 1.0.0-SNAPSHOT ...................... SUCCESS [ 29.653 s]
-[INFO] loanValidationData LATEST-SNAPSHOT ................. SUCCESS [ 50.416 s]
-[INFO] loanValidationDecisionModel LATEST-SNAPSHOT ........ SUCCESS [ 51.337 s]
-[INFO] loanValidationDecisionService 1.0.0-SNAPSHOT ....... SUCCESS [ 55.626 s]
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-... 
-Finished: SUCCESS 
+mvn clean install -s settings.xml
 ```
+This command builds a decision service archive that is ready to run your decision service. Named `loanValidationDecisionService-1.0.0-SNAPSHOT.jar`, the archive is created in the `Loan Validation/.decisionservice/target/` directory.
 
-## Step 3: Looking at the decision service archive
+## Step 3: Deploying the archive to your space ID.
 
-In this step, you get the decision ID of your decision service archive from the runtime archive repository.
-You need to have the URL of your Nexus archive repository.
+In this step, you deploy the decision service archive to the Automation Decision Services runtime in a deployment space that is dedicated to samples. The runtime manages several deployment spaces, which are created the first time they are used.
+You use a curl command instead of the Swagger UI tool because it can be easily integrated into a script.
+Your IT developers must give you a URI for the runtime, and security credentials to manage the runtime. 
 
 **Procedure**
 
-1. Open the runtime archive repository.
-2. Click **Browse** in the left part and select **maven-snaphots**.
-2. Expand **decisions** to find the deployed decision service archive. Its path name starts with the name of the decision project, for instance, `my_project`.
-3. Expand all the subfolders in the decision service archive, for example:
+In the following curl command, replace all the variables with the appropriate values:<br />
+   * `USERNAME` and `PASSWORD`: The credentials for accessing the runtime.<br />
+   * `FILEPATH`: The full path to the generated archive.<br />
+   * `URL`: The URL to transfer the archive. It has the following pattern: `https://HOSTNAME/ads/runtime/api/v1/deploymentSpaces/ADSsample/decisions/loanValidationDecisionModel/archive`.
+The URL uses the following variables:
+      * `HOSTNAME`: Replace this placeholder with the name of the host that is running Automation Decision Services runtime.
+      * `ADSsample`: Used to give the name of the deployment space. You can use a different name. The runtime manages several deployment spaces that are created the first time they are used.
+      * `loanValidationDecisionModel`: Shows the decision ID of the decision service archive.
+      
+The command looks as follows:
+
 ```
-decisions/my_project/loan_validation/loanValidationDecisionService/1.0.0-SNAPSHOT/loanValidationDecisionService-1.0.0-<timestamp>-1.jar
+curl -u USERNAME:PASSWORD -vi -k -X POST -H "accept: */*" -H "Content-Type: application/octet-stream" \
+     --data-binary @FILEPATH \
+     URL
 ```
 
-This path is called the decision ID, and it is used to run the decision service archive. Copy the part beginning with  `decisions`  to run the decision service archive in the next step.
+After modifying the command, run it. When you do, you get the following response:
+```
+...
+* We are completely uploaded and fine
+< HTTP/1.1 200 OK
+...
+```
+The archive has been deployed. In the next task, you run it by using the Swagger UI tool.
 
-# Task 4: Executing the decision service archive
+# Task 4: Running the decision service archive
 **About this task**
 
-In this task, you... 
-- Use the Swagger REST API tool to validate the decision service archive.
-- Modify the decision service in Decision Designer.
-- Uses the Swagger REST API tool to validate the decision service archive changes.
-
-## Step 1: Validating the decision service archive in Swagger
-
-In this step, you use the Swagger REST API tool to validate the decision service archive.  For more information, see [Swagger UI](https://www.ibm.com/support/knowledgecenter/SSYHZ8_21.0.x/com.ibm.dba.aid/topics/con_swagger_ui.html).
-To run the archive, you must have the URL and security credentials for the Swagger REST API tool.
+In this task, you use the Swagger REST API tool to run your decision service archive. You must have its URL and the credentials to the runtime for running a decision service archive. For more information, see [User roles and authentication modes](https://www.ibm.com/docs/SSYHZ8_21.0.x/com.ibm.dba.aid/topics/con_user_roles.html).
 
 **Procedure**
 
-1. Open the Swagger REST API tool.
-2. In the Decision runtime part, open the `POST /decision/{decisionId}/operations/{operation} Execute decision` method.
-3. Click **Try it out**, and enter the decision ID from the previous step.
-4. Enter `loanValidationDecisionModel` for the operation.
-5. Edit the Request body to enter the following input data:
+1. Open the Swagger UI for the runtime.
+2. Click **Authorize** and enter your credentials to be able to run the decision service.
+3. In the Decision runtime part, expand `GET /deploymentSpaces/{deploymentSpaceId}/decisions/{decisionId}/operations/{operation}/execute`, enter the following input values:
+   - deploymentSpaceId: embedded
+   - decisionID: `loanValidationDecisionModel`.
+   - operation: `loan-validation-decision-model`: you got it in Task 1 Step 2.
+   - Use the schema you copied in Task 1 in the request body:
 ```
-  "input": {
-             "loan": {
-               "number of monthly payments": 72,
-               "start date": "2020-12-20T00:00:00Z",
-               "amount": 185000,
-               "loan to value": 0.7
-             },
-             "borrower": {
-               "first name": "John",
-               "last name": "Doe",
-               "birth date": "1968-05-12T00:00:00Z",
-               "SSN": {
-                 "area number": "123",
-                 "group code": "45",
-                 "serial number": "6789"
-               },
-               "yearly income": 100000,
-               "zip code": "91320",
-               "credit score": 500
-             },
-             "currentTime": "2020-12-07T16:43:04.609Z"
-           }
+{
+  "loan": {
+    "number of monthly payments": 72,
+    "start date": "2005-06-01T00:00:00Z",
+    "amount": 185000,
+    "loan to value": 0.7
+  },
+  "borrower": {
+    "first name": "John",
+    "last name": "Doe",
+    "birth date": "1968-05-12T00:00:00Z",
+    "SSN": {
+      "area number": "123",
+      "group code": "45",
+      "serial number": "6789"
+    },
+    "yearly income": 100000,
+    "zip code": "91320",
+    "credit score": 500
+  },
+  "currentTime": "2020-02-03T16:43:04.609Z"
+}
 ```
+4. Click **Execute**. 
+The server returns the 200 response code, and the response body shows the following output:
 
-**Tip:**
-You can get the input as JSON data in Decision Designer. In the **Run** tab in the decision model, click the three points next to the name of the data set and select **Edit as JSON**. Then, copy the JSON code.
-
-6. Click **Execute** to run the archive. Security authentication might be required to complete this operation.
-The return code is `200`, and the response body shows the following output:
-`Congratulations! Your loan has been approved`
-
-## Step 2: Adding changes to a shared decision service
-In this step, you update a rule in your model. Then, you share the changes and check the build of the new version of the decision service archive.
-
-**Procedure**
-
-1. In Decision Designer, open **Loan Validation Decision Model**.
-2. Select the Approval node, and open the `age not valid` rule in the Logic tab. In the definitions part, change minAge to 18 and maxAge to 100.
 ```
-definitions
-    set 'minAge' to 18;
-    set 'maxAge' to 100;
+{
+  "insurance": {
+    "rate": 0.006,
+    "required": true
+  },
+  "approval": {
+    "approved": true,
+    "message": "Congratulations! Your loan has been approved"
+  }
+}
 ```
-3. Open the **Run** tab and select the dataset `MrDoeLoan`. Change the year of birth to 1910.
-4. Click **Run**. You get the following answer:
-`The borrower's age is not valid.`
-
-## Step 3: Sharing and validating the changes 
-In this step, you  share the changes and check the build of the new version of the decision service archive.
-
-**Procedure**
-
-1. Click **My Project** in the breadcrumbs to open your project.
-2. Open the **Share changes** tab. You see the changes that you can share. The Loan Validation decision service is selected.
-3. Click **Share**. Enter the following comment, and then click **Share**.
-`Update limits in the age not valid rule.`
-4. Open Jenkins and check that the `Loan Validation` plan runs. Changes are checked every minute by the poll policy set earlier in for the tutorial.
-5. Open the recent changes. You see your commit message, and the details in the files for the changed rule and the data set.
-6. Wait for the build finish and look for the new version of the decision service archive in Nexus. Copy the new decision ID.
-7. Open the Swagger REST API tool as shown in Step 1, and run the following input data:
-```
-  "input": {
-             "loan": {
-               "number of monthly payments": 72,
-               "start date": "2020-12-20T00:00:00Z",
-               "amount": 185000,
-               "loan to value": 0.7
-             },
-             "borrower": {
-               "first name": "John",
-               "last name": "Doe",
-               "birth date": "1910-05-12T00:00:00Z",
-               "SSN": {
-                 "area number": "123",
-                 "group code": "45",
-                 "serial number": "6789"
-               },
-               "yearly income": 100000,
-               "zip code": "91320",
-               "credit score": 500
-             },
-             "currentTime": "2020-12-07T16:43:04.609Z"
-           }
-```
-
-The return code is `200`, and the response body shows the following output:
-`The borrower's age is not valid.`

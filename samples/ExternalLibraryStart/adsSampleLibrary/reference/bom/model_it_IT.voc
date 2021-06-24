@@ -5,6 +5,8 @@ ads.samples.externalLibrary.Country.GERMANY#instance.label = Germania
 ads.samples.externalLibrary.Country.ITALY#instance.label = Italia
 ads.samples.externalLibrary.Country.UK#instance.label = Regno Unito
 ads.samples.externalLibrary.Country.US#instance.label = Stati Uniti
+ads.samples.externalLibrary.Country.SPAIN#instance.label = Spagna
+ads.samples.externalLibrary.Country.CHINA#instance.label = Cina
 
 # Term: persona
 @persona#gender = FEMALE
