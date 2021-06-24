@@ -1,7 +1,7 @@
 {
   "GettingStarted": {
     "displayName": "Getting started",
-    "description": "Getting started tutorial answer decision services.",
+    "description": "Learn how to build a decision service.",
     "type": 0,
     "nbProjects": 1,
     "level": 0,
@@ -10,16 +10,34 @@
   },
   "Training": {
     "displayName": "Training",
-    "description": "Learn key features in Automation Decision Services through practical examples.",
+    "description": "Learn the basics of Automation Decision Services through practical examples.",
     "type": 0,
     "nbProjects": 5,
     "level": 0,
     "iconName": "Education",
     "iconColor": "warm-gray"
   },
-  "MachineLearningStart": {
-    "displayName": "Machine learning short",
-    "description": "ML Start tutorial short path decision service.",
+  "MachineLearningQuick": {
+    "displayName": "Machine learning quick tutorial - Loan approval",
+    "description": "Import a machine learning model (PMML format), and store and invoke it through Open Prediction Service.",
+    "type": 0,
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "WatsonMachineLearning",
+    "iconColor": "yellow"
+  },
+  "MachineLearningShort": {
+    "displayName": "Machine learning short tutorial - Loan approval",
+    "description": "Connect a predictive model to a machine learning model (PMML format) hosted on Watson Machine Learning.",
+    "type": 0,
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "WatsonMachineLearning",
+    "iconColor": "yellow"
+  },
+  "MachineLearningComplete": {
+    "displayName": "Machine learning complete tutorial - Loan approval",
+    "description": "Build a predictive model, connect it to a machine learning model hosted on Watson Machine Learning, and deploy it.",
     "type": 0,
     "nbProjects": 1,
     "level": 0,
@@ -27,13 +45,22 @@
     "iconColor": "yellow"
   },
   "MachineLearningCustomerLoyalty": {
-    "displayName": "Machine learning customer loyalty",
-    "description": "Decision for customer churn including machine learning.",
+    "displayName": "Machine learning sample - Customer loyalty",
+    "description": "Use machine learning to reduce customer churn rate.",
     "type": 0,
     "nbProjects": 1,
     "level": 1,
     "iconName": "WatsonMachineLearning",
     "iconColor": "yellow"
+  },
+  "Chinese": {
+    "displayName": "Chinese - 中文",
+    "description": "以中文书写的决策",
+    "type": 0,
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "Education",
+    "iconColor": "blue"
   },
   "French": {
     "displayName": "French - Français",
@@ -62,9 +89,18 @@
     "iconName": "Education",
     "iconColor": "blue"
   },
+  "Spanish": {
+    "displayName": "Spanish - Español",
+    "description": "Decisiones en Español.",
+    "type": 0,
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "Education",
+    "iconColor": "blue"
+  },
   "Banking": {
     "displayName": "Banking",
-    "description": "Decisions for the banking industry.",
+    "description": "Validate loans and compute insurance rates for the requested loan.",
     "type": 1,
     "nbProjects": 1,
     "level": 0,
@@ -73,7 +109,7 @@
   },
   "Compensation": {
     "displayName": "Compensation",
-    "description": "Decisions for compensation policies.",
+    "description": "Calculate sales commissions based on compensation policies.",
     "type": 1,
     "nbProjects": 1,
     "level": 0,
@@ -82,7 +118,7 @@
   },
    "Pricing": {
     "displayName": "Pricing",
-    "description": "Decisions to reflect pricing policies.",
+    "description": "Calculate shipping price after applicable discount.",
     "type": 1,
     "nbProjects": 1,
     "level": 1,
@@ -91,7 +127,7 @@
   },
   "Retail": {
     "displayName": "Retail",
-    "description": "Decisions for the retail industry, for example, loyalty programs and shopping carts.",
+    "description": "Calculate loyalty discount and shopping cart total.",
     "type": 1,
     "nbProjects": 2,
     "level": 1,
@@ -100,7 +136,7 @@
   },
   "Telecom": {
     "displayName": "Telecom",
-    "description": "Decisions for the telecom industry.",
+    "description": "Determine the best offer to make to customers to reduce churn rate.",
     "type": 1,
     "nbProjects": 1,
     "level": 2,
@@ -109,7 +145,7 @@
   },
   "Transportation": {
     "displayName": "Transportation",
-    "description": "Decisions for the transportation industry.",
+    "description": "Provide maintenance recommendations, determine baggage compliance, and clean an address record.",
     "type": 1,
     "nbProjects": 3,
     "level": 1,

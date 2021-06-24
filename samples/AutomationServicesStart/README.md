@@ -6,8 +6,8 @@ This tutorial shows you how to use a decision service in an automation service.
 
 ## Learning objectives
 - Deploy a decision service archive to the embedded runtime.
-- Deploy an automation service.
-- Build and run an application that calls a decision service archive.
+- Publish an automation service ready to be used in Business Automation components.
+- Build and run in Application Designer an application  executing an automation service.
  
 ## Audience
 
@@ -16,7 +16,7 @@ Some knowledge of Business Automation Studio is required.
 
 ## Time required
 
-10 minutes
+15 minutes
 
 ## Prerequisites
 
@@ -24,15 +24,15 @@ You must have access to  the following environments in Business Automation Studi
 - **Decision Designer**: A web-based user interface for developing decision services in Business Automation Studio. You work with a sample decision service that you import into a decision project and open in Decision Designer.
 - **Application Designer**:  A web-based user interface for developing applications in Business Automation Studio.
  
-If you do not have access to these environments, see [Managing access to the Business Automation Studio repository documentation](https://www.ibm.com/support/knowledgecenter/SSYHZ8_21.0.x/com.ibm.dba.bas/topics/managinglib_users_B.html).
-For more information about Business Automation Studio and the designers it integrates, see the [Business Automation Studio documentation](https://www.ibm.com/support/knowledgecenter/SSYHZ8_21.0.x/com.ibm.dba.bas/topics/cbuilding.html).
+If you do not have access to these environments, see [Managing access to Business Automation Studio projects documentation](https://www.ibm.com/docs/SSYHZ8_21.0.x/com.ibm.dba.aid/topics/tsk_configure_permissions.html).
+For more information about Business Automation Studio and the designers it integrates, see the [Business Automation Studio documentation](https://www.ibm.com/docs/SSYHZ8_21.0.x/com.ibm.dba.offerings/topics/con_bas.html).
 # Task 1: Creating and deploying a decision service
 **About this task**
 
 In this task, you... 
 - Create a new project.
 - Import a sample.
-- Deploy your project.
+- Deploy your decision service archive.
   
  ## Step 1: Creating a new project
  In this step, you create a new project.
@@ -59,11 +59,12 @@ In this step, you import the decision service that you later deploy. You import 
 3. Click **Getting started** to open the decision service after it is imported. It contains a data model and five decision models. Each decision model corresponds to a task in the getting started tutorial.
 4. Click the **Daily advice** decision model to open it, and explore the diagram. It is the final version of the getting started tutorial.
 5. Click the **Run** tab and run the provided test data to see how the decision service works.
+6. Click on **Getting started** in the breadcrumbs and select the **Decision operations** tab. There is one operation `daily-advice`. Click on its name to explore its parameters.
 
 ## Step 3: Deploying your decision service
 
 In this step, you deploy your decision service within your instance of Automation Decision Services. The instructions are summarized, but you can find more detailed instructions in the 
-[Getting started in Automation Decision Services Task5 Step 1 to Step5](https://www.ibm.com/support/knowledgecenter/SSYHZ8_21.0.x/com.ibm.dba.aid/gs_ddesigner_topics/tut_dd_t5_lsn.html).
+[Getting started in Automation Decision Services Task 5](https://www.ibm.com/docs/SSYHZ8_21.0.x/com.ibm.dba.aid/gs_ddesigner_topics/tut_dd_t5_lsn.html).
 
 **Procedure**
 
@@ -72,16 +73,19 @@ In this step, you deploy your decision service within your instance of Automatio
 3. Open the **Share changes** tab. You see the changes that you can share. The Getting started decision service is selected.
 4. Click **Share**. Enter the following comment, and then click **Share**:
 ```
-Getting started first version`
+Getting started first version
 ```
-5. Open the **View history** tab. It shows the commit that you just made. To the right of it, click **Version +**.
-Enter the name `FirstVersion` and click the **Create** button. 
-6. Click **Connect** in the upper right corner of Decision Designer. Then, enter the GitHub repository URI and credentials, and click **Connect**.
-7. Click the name of your project in the breadcrumbs, open the **Deploy** tab, and expand FirstVersion. Click **Deploy** to the right of the Getting started decision service.
-Wait for the decision service to be deployed to the embedded runtime archive repository. Now, you make the decision service available as an automation service.
+
+5. Click **Connect** in the upper right corner of Decision Designer. Then, enter the GitHub repository URI and credentials, and click **Connect**.
+6. Click the name of your project in the breadcrumbs, open the **Deploy** tab.
+7. Click on Create version. Enter the name FirstVersion and click the Create button.
+8. Expand FirstVersion. Click **Deploy** to the right of the Getting started decision service.
+Wait for the decision service to be deployed to the embedded runtime archive repository. 
 8. Click **Business Automations** in the breadcrumbs to go back to the list of projects.
 
-# Task 2: Publishing and using a decision service in an application
+The next step is to make the decision service archive available as an automation service.
+
+# Task 2: Publishing and using an automation service in an application
 **About this task**
 
 In this task, you... 
@@ -99,8 +103,9 @@ In this step, you publish the first version of the decision service archive to u
 
 1. In the list of projects in Business Automation Studio, click inside the box of your project, `My Project`. Do not open it in Decision Designer.
 2. In the **Versions** tab, click the three dots at the end of the row for FirstVersion and select **Publish**. 
-3. Close the window that confirms the deployment of FirstVersion to the runtime environment. 
-4. Open the **Automation services** tab. It shows the first version of the getting started tutorial.
+3. Click on **Publish** in the **Publish automation services** view. Wait for the service to be published.
+4. Click on the arrow at the top left of the screen to go back in the **Business automations** page. Click **Published automation services** tab. It shows the list of automation services.
+5. Click on **getting_started** to see the service you just deployed. You see the available operation `daily-advice`.
 
 ## Step 2: Creating an application
 
@@ -108,9 +113,9 @@ In this step, you create an application.
 
 **Procedure**
 
-1. In Business Automation Studio, click the menu in the top left corner, expand Design and select **Business applications**.
+1. In Business Automation Studio, click the menu in the top left corner, expand Design and select **Business applications**. Discover the explore and go menu.
 2. Click **Create** and select **Application**.
-3. Enter a unique name such as `My Application`. Then, enter the following purpose and click **Create**:
+3. Enter a unique name such as `My Application`. Do not select any template. Then, enter the following purpose and click **Create**:
 ```
 Application for the Daily advice decision service
 ```
@@ -124,15 +129,14 @@ In this step, you add a generated form to your application to run your decision 
 
 1. On the right of Application Designer, in the `Drag a component to your page` section, click **All views** and select **Automation service** in the menu.
 2. Click the **Add +** button and wait for the `Add an automation service` wizard to be filled with all the published decision services.
-3. Enter **Getting started** in the search field and look for the decision service that you just deployed. There might be several decision services with the same name if your collaborators have already used this tutorial.
-4. Select **Getting started** in the list. You see the First Version of the list of operations that can be used.
-5. Select **dailyAdvice** and click **Next**.
-6. A component named `Getting started` is added to the list. Select it and drag it into the middle page. Note that operation dailyAdvice is selected, and that a whole form is proposed.
+3. Enter **getting_started** in the search field and look for the decision service that you just deployed. There might be several decision services with the same name if your collaborators have already used this tutorial.
+4. Select **getting_started** in the list, the one that has just been deployed. Click on **Add(1)**. Note that the number `1` in parenthesis is the number of available operations in the decision service.
+5. A component named `getting_started` is added to the list. Select it and drag it into the middle page. Note that operation dailyAdvice is selected, and that a whole form is proposed.
 7. Click **Done**. The application now contains a form ready for running your decision service archive.
 
 ## Step 4: Running the decision service archive in your application
 
-In this step, you run the decision service archive with input data that is entered in the form.
+In this step, you run the decision service archive with input data that you enter in the form.
 
 **Procedure**
 

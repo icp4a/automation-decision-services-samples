@@ -6,6 +6,8 @@ ads.samples.externalLibrary.Country.GERMANY#instance.label = Germany
 ads.samples.externalLibrary.Country.ITALY#instance.label = Italy
 ads.samples.externalLibrary.Country.UK#instance.label = UK
 ads.samples.externalLibrary.Country.US#instance.label = USA
+ads.samples.externalLibrary.Country.SPAIN#instance.label = Spain
+ads.samples.externalLibrary.Country.CHINA#instance.label = China
 
 # ads.samples.externalLibrary.Person
 ads.samples.externalLibrary.Person#concept.label = person

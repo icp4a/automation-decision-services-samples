@@ -33,6 +33,8 @@ ads.samples.externalLibrary.Country.GERMANY#instance.label = Deutschland
 ads.samples.externalLibrary.Country.ITALY#instance.label = Italien
 ads.samples.externalLibrary.Country.UK#instance.label = Großbritannien
 ads.samples.externalLibrary.Country.US#instance.label = USA
+ads.samples.externalLibrary.Country.SPAIN#instance.label = Spanien
+ads.samples.externalLibrary.Country.CHINA#instance.label = China
 
 # ads.samples.externalLibrary.Person
 ads.samples.externalLibrary.Person#concept.label = Person

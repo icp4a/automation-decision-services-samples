@@ -1,40 +1,51 @@
 # Decision service archives
 
-This directory contains archives of sample decision services that you can run in your Automation Decision Services runtime. Your runtime might already be configured to point to a repository that contains these archives. This is done by default for installations that are made by using the demo pattern.
+The archives in this repository contain sample decision services that you can run in your Automation Decision Services runtime. 
 
 **Note:** The *loanValidationDecisionService* archive is used by the client web application that is defined in *samples/LoanApplication*.
 
-Follow these steps to use the archives.
+The following steps show you how to use the archives. These steps use the `baggage-21.0.2.jar` archive as an example.
 
-## Upload an archive into a Nexus archive repository
-To upload the archive `baggage-1.0.0.jar`:
+## Upload an archive 
+You use the Swagger UI of your runtime instance to upload an archive to a deployment space. After you deploy the archive, you look at its operations.
 
-1. Log in to your instance of Nexus.
-2. Upload the JAR file to the repository `maven-releases`:
-
-   a. Browse to the archive file `baggage-1.0.0.jar`.
-
-   b. Enter `ads.samples` for the group ID.
-
-   c. Enter the name of the JAR file, for example, `baggage` for the artifact ID.
-
-   d. Enter `1.0.0` for the version number.
-
-   e. Click the `Upload` button.
+1. Download the .jar file that you want to deploy to your computer, for example, `baggage-21.0.2.jar`.
+2. Open the Swagger UI of your runtime instance.
+3. Enter your security credentials to be able to manage archives and to execute.
+4. Deploy the archive by expanding `POST /deploymentSpaces/{deploymentSpaceId}/decisions/{decisionId}/archive` in the **Decision storage management** part, entering the following parameters, and running the operation:
+   * *deploymentSpaceId*: Use your space identifier, for example: `testArchive<Initials>`. It is created at the first call.
+   * *decisionId*: Use the example `baggage-21.0.2.jar`.
+   * Archive file: In the Request body, browse to the archive file downloaded to your computer. 
    
-3. View the uploaded file, and copy its path to use it as the decision ID in running the sample, for example, `ads/samples/baggage/1.0.0/baggage-1.0.0.jar`.
-
-## Run the sample by using the Swagger UI tool 
-To run the sample by using the Swagger UI tool:
-
-1. Enter the URL for your Swagger UI tool into your browser, and then open the tool.
-2. Click `Authorize` in the tool, and enter your login credentials.
-3. Expand `GET /decision/{decisionId}/operations`. 
-4. Enter the decision ID of the sample. In this example, the path is `ads/samples/baggage/1.0.0/baggage-1.0.0.jar`.
-You get a list of possible operations. In this exercise, you execute the operation `complianceAndFees`.
-5. Expand `GET ​/decision​/{decisionId}​/operations​/{operation}​/payload`, and enter the decision ID and the operation `complianceAndFees`.
-You get the payload of this operation, for example:
+   The archive is loaded into your deployment space, and you get the return code 200 for a successfully action.
+5. Check the operations in the decision archive by expanding `GET /deploymentSpaces/{deploymentSpaceId}/decisions/{decisionId}/operations` in the **Decision runtime** part, entering the following parameters, and running the operation:
+   * *deploymentSpaceId*: Use your space identifier, for example, `testArchive<Initials>`.
+   * *decisionId*: `baggage-21.0.2.jar`.
+   
+   You get the return code 200, and a list of the possible operations:
+```    {
+      "decisionId": "baggage-21.0.2.jar",
+      "operations": [
+        "compliance-and-fees",
+      ]
+    }
 ```
+Next, you run the `compliance-and-fees` operation.
+
+## Run an archive 
+You use the Swagger UI of your runtime instance to run the decision service archive. 
+
+1. Do the first three steps in the **Upload an archive** section to work in the Swagger UI.
+2. Get an example input payload by expanding `/deploymentSpaces/{deploymentSpaceId}/decisions/{decisionId}/operations/{operation}/exampleInput`, entering the following parameters, and running the operation:
+   * deploymentSpaceId: Use your space identifier, for example, `testArchive<Initials>`.
+   * decisionId: `baggage-21.0.2.jar`
+   * operation: `compliance-and-fees`
+   
+   You get the return code 200 and the following response:
+```
+{
+  "decisionId": "baggage-21.0.2.jar",
+  "decisionOperation": "compliance-and-fees",
   "input": {
     "frequentFlyerStatus": "Bronze",
     "initialBooking": {
@@ -53,13 +64,26 @@ You get the payload of this operation, for example:
       ]
     }
   }
+}
+```
+Copy the contents of the input field and run the decision service in the following step.
+
+3. Run the operation by expanding `POST /deploymentSpaces/{deploymentSpaceId}/decisions/{decisionId}/operations/{operation}/execute`, entering the following parameters, and running the operation:
+   * *deploymentSpaceId*: Use your space identifier, for example, `testArchive<Initials>`.
+   * *decisionId*: `baggage-21.0.2.jar`
+   * *operation*: `compliance-and-fees`
+   * *Request body*: Enter the input data from step 2.
+   
+   You get the return code 200, and the following response:
+```
+    "output": {
+      "compliant": false,
+      "fees": 0,
+      "messages": [
+        "At least one baggage is too wide. The maximum allowed width is 100.0 cm or 39.0 inches",
+        "At least one baggage is too deep. The maximum allowed depth is 90.0 cm or 35.0 inches."
+      ]
+    }
 ```
 
-6. Expand `POST /decision/{decisionId}/operations/{operation}`, and enter the decision ID and the operation `complianceAndFees`. Enter in the input the payload previously got.
-You get the following results because the request is not compliant with the limits:
-```
-     "At least one baggage is too wide. The maximum allowed width is 100.0 cm or 39.0 inches",
-     "At least one baggage is too deep. The maximum allowed depth is 90.0 cm or 35.0 inches."
-```
-
-For more information, see  [Swagger UI documentation](https://www.ibm.com/support/knowledgecenter/SSYHZ8_21.0.x/com.ibm.dba.aid/topics/con_swagger_ui.html).
+For more information, see  [Swagger UI documentation](https://www.ibm.com/docs/SSYHZ8_21.0.x/com.ibm.dba.aid/topics/services-swagger-ui.html).

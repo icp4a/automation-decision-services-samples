@@ -1,7 +1,7 @@
 /*
  * Licensed Materials - Property of IBM
  * 5737-I23
- * Copyright IBM Corp. 2018 - 2020. All Rights Reserved.
+ * Copyright IBM Corp. 2018 - 2021. All Rights Reserved.
  * U.S. Government Users Restricted Rights:
  * Use, duplication or disclosure restricted by GSA ADP Schedule
  * Contract with IBM Corp.
@@ -67,6 +67,7 @@ $(document).ready(
 								'zipCode' : $('input[name=zipCode]').val(),
 							'server' : $('input[name=server]').val(),
 							'decisionId' : $('input[name=decisionId]').val(),
+							'spaceId' : $('input[name=spaceId]').val(),
 							'operation' : $('input[name=operation]').val(),
 							'user' : $('input[name=user]').val(),
 							'password' : $('input[name=password]').val(),
@@ -79,7 +80,7 @@ $(document).ready(
 							'showTrace' : showTrace
 						};
 						// update swagger link
-						$("a.swaggerLink").attr("href", "https://" + $('input[name=server]').val() + "/api/swagger-ui/");
+						$("a.swaggerLink").attr("href", "https://" + $('input[name=server]').val() + "/ads/runtime/api/swagger-ui/");
 
 						// process the form
 						var request = $.ajax({
@@ -173,5 +174,6 @@ function default_initialize() {
 	$('input[name="password"]').val(ADSPASSWORD);
 	$('input[name="server"]').val(SERVERNAME);
 	$('input[name="decisionId"]').val(DECISIONID);
-	$("a.swaggerLink").attr("href", "https://" + SERVERNAME + "/api/swagger-ui/");
+	$('input[name="spaceId"]').val(SPACEID);
+	$("a.swaggerLink").attr("href", "https://" + SERVERNAME + "/ads/runtime/api/swagger-ui/");
 }

@@ -56,6 +56,8 @@
                                 <locale>fr_FR</locale>
                                 <locale>de_DE</locale>
                                 <locale>it_IT</locale>
+                                <locale>es_ES</locale>
+                                <locale>zh_CN</locale>
                             </locales>
                             <!-- Optional, by default: true -->
                             <importMethods>true</importMethods>

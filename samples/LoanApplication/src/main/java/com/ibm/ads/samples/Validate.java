@@ -102,7 +102,7 @@ public class Validate extends HttpServlet {
 			String userName = jsonInput.getString("user");
 			String password = jsonInput.getString("password");
 			RestJavaClient restClient = new RestJavaClient();
-			response = restClient.executeDecision(jsonInput.getString("server"), jsonInput.getString("decisionId"),
+			response = restClient.executeDecision(jsonInput.getString("server"), jsonInput.getString("spaceId"), jsonInput.getString("decisionId"),
 					jsonInput.getString("operation"),
 					userName, password, payload.toString());
 			System.out.println("**Response status" + response.status + " payload " + response.payload);

@@ -1,7 +1,7 @@
 /*
  * Licensed Materials - Property of IBM
  * 5737-I23
- * Copyright IBM Corp. 2018 - 2020. All Rights Reserved.
+ * Copyright IBM Corp. 2018 - 2021. All Rights Reserved.
  * U.S. Government Users Restricted Rights:
  * Use, duplication or disclosure restricted by GSA ADP Schedule
  * Contract with IBM Corp.
@@ -30,7 +30,7 @@ public class RestJavaClient {
         logger = Logger.getAnonymousLogger();
     }
 
-    public  AdsResponse executeDecision(String host, String decisionId, String operationName, String user,
+    public  AdsResponse executeDecision(String host, String spaceId, String decisionId, String operationName, String user,
                                         String password, String requestBody) throws Exception {
         // method to be used to send request : POST
         // possible return codes are :
@@ -38,14 +38,21 @@ public class RestJavaClient {
         //  404 decisionId or decision operation invalid (not found)
         //  500 error during the execution
         // response content is a JSON payload (if status is ok)
-
+        // https://runtime.ads.apps.ads-stable.cp.fyre.ibm.com/ads/runtime/api/v1/deploymentSpaces/ADSsample/decisions/loanApplication-21.0.2/operations/loan-validation-decision-model/execute
+        //
+        //Server response
+        //Code	Details
         AdsResponse result = new AdsResponse();
 
         String stringUrl = null;
         try {
-            stringUrl = computeRuntimeURL(host) + URLEncoder.encode(decisionId,"UTF-8")
-                    + "/operations/" + URLEncoder.encode(operationName,"UTF-8");
+            stringUrl = "https://" + host + "/ads/runtime/api/v1"
+                    + "/deploymentSpaces/" + URLEncoder.encode(spaceId,"UTF-8")
+                    + "/decisions/"+ URLEncoder.encode(decisionId,"UTF-8")
+                    + "/operations/" + URLEncoder.encode(operationName,"UTF-8")
+                    + "/extendedExecute";
         } catch (UnsupportedEncodingException e) {
+            System.out.println("Exception " + e);
             logger.throwing(this.getClass().getName(),"executeProject",e);
         }
         System.out.println("URL: " + stringUrl);
@@ -120,10 +127,6 @@ public class RestJavaClient {
 
         return result;
 
-    }
-
-    private String computeRuntimeURL(String host) {
-        return "https://" + host + "/api/v1/decision/";
     }
 
 }

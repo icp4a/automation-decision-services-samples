@@ -7,8 +7,8 @@
     <properties>
         <archive.repository.snapshot.url>SNAPSHOT URL TO BE SET</archive.repository.snapshot.url>
         <archive.repository.release.url>RELEASE URL TO BE SET</archive.repository.release.url>
-        <ads-mojo.version>4.2.0</ads-mojo.version>
-        <ads-annotations.version>1.0.7</ads-annotations.version>
+        <ads-mojo.version>4.6.2</ads-mojo.version>
+        <ads-annotations.version>1.0.10</ads-annotations.version>
     </properties>
 
     <groupId>ads.samples</groupId>
@@ -20,7 +20,6 @@
         <module>sampleLibrary</module>
         <module>adsSampleLibrary</module>
     </modules>
-
     <distributionManagement>
         <snapshotRepository>
             <id>maven-snapshots</id>

@@ -1,6 +1,6 @@
 <!-- Licensed Materials - Property of IBM                             -->
 <!-- 5737-I23                                                         -->
-<!-- Copyright IBM Corp. 2018 - 2020. All Rights Reserved.            -->
+<!-- Copyright IBM Corp. 2018 - 2021. All Rights Reserved.            -->
 <!-- U.S. Government Users Restricted Rights:                         -->
 <!--  Use, duplication or disclosure restricted by GSA ADP Schedule   -->
 <!-- Contract with IBM Corp.                                          -->
@@ -215,14 +215,14 @@
               
      <div id="execution" class="tab-pane fade">
      <div class="panel panel-info">
-                            <div class="panel-heading"><h4>Server, rule application and runtime details</h4></div>
+                            <div class="panel-heading"><h4>Decision and runtime details</h4></div>
        <div class="panel-body">   	    	
         <div class="row">    
                       <div class="form-group">                                
                                  <div class="col-sm-6">
   								  <div class="input-group">
-  									  <span class="input-group-addon">Decision operation</span>
-  									 <input id="operation" type="text" class="form-control" name="operation" value="loanValidationDecisionModel" placeholder="Decision operation">
+  									  <span class="input-group-addon">Host name</span>
+									  <input id="server" type="text" class="form-control" name="server" placeholder="Host name">
  								 </div>
  								 </div>
  								 <div class="col-sm-4"> 								  
@@ -240,8 +240,8 @@
  						  <div class="form-group">    
                                 <div class="col-sm-6">
   								  <div class="input-group">
-  									  <span class="input-group-addon">Host name</span>
-  									 <input id="server" type="text" class="form-control" name="server" placeholder="Host name">
+  									  <span class="input-group-addon">Space Id</span>
+  									 <input id="spaceId" type="text" class="form-control" name="spaceId" placeholder="Space Id">
  								 </div>
  								 </div>
    								  <div class="col-sm-4"> 								  
@@ -257,13 +257,20 @@
                   				  </div>							                        
                   		    </div>
                             <div class="form-group">   
-                             <div class="col-sm-12">
+                             <div class="col-sm-6">
   								 <div class="input-group">
   									  <span class="input-group-addon">Decision id</span>
-  									  <input id="decisionId" type="text" class="form-control" name="decisionId"  placeholder="Decision id">
+  									  <input id="decisionId" type="text" class="form-control" name="decisionId"  value="loanApplication-21.0.2" placeholder="Decision id">
  								 </div>
-								 </div>                                                         
-  						  </div>
+							 </div>
+								<div class="col-sm-6">
+									<div class="input-group">
+										<span class="input-group-addon">Decision operation</span>
+										<input id="operation" type="text" class="form-control" name="operation" value="loan-validation-decision-model" placeholder="Decision operation">
+									</div>
+								</div>
+
+							</div>
                              
           </div>
        </div>
