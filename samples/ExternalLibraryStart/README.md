@@ -8,7 +8,7 @@ In Automation Decision Services, you can use external libraries in decision serv
 You use them to extend rule authoring to include custom data types and functions from Java libraries.
 For more information on decision models and external libraries, see [Working with external libraries](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.x?topic=decisions-working-external-libraries).
 
-For another example of an external library, see [External library giving geo localization facilities](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/ExternalLibraryGeo).
+For another example of an external library, see [External library giving geo localization facilities](../ExternalLibGeo/README.md).
 
 ## Learning objectives
 - Build an external library from a Java library.
@@ -146,7 +146,7 @@ In this task, you...
 - Explore the external library.
 
 ## (Optional) Step 1: Checking the credentials for the repository manager
-You search for the external library. The task is normally done by your IT developers (see [Configuring credentials for a Maven repository manager](https://www.ibm.com/docs/SSYHZ8_21.0.x/com.ibm.dba.install/op_topics/tsk_admin_add_maven.html).
+You search for the external library. The task is normally done by your IT developers (see [Configuring credentials for a Maven repository manager](https://www.ibm.com/docs/SSYHZ8_21.0.x/com.ibm.dba.install/op_topics/tsk_admin_add_maven.html)).
 1. Open the admin-platform URL in a web browser.
 2. Filter the table by using the word *maven*. One value should be defined to give access to the repository in which you have deployed the external library.
 3. If no value is defined, add a one by using the following information:
@@ -362,4 +362,4 @@ In this task, you...
 ``` 
 "Salut Dominique Dupont! It would be wise to stay home. There is a storm alert."
 ``` 
-You've completed this tutorial. For another example of an external library, see [External library giving geo localization facilities](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/ExternalLibraryGeo).
+You've completed this tutorial. For another example of an external library, see [External library giving geo localization facilities](../ExternalLibGeo/README.md).

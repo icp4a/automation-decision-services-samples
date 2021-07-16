@@ -86,4 +86,4 @@ Copy the contents of the input field and run the decision service in the followi
     }
 ```
 
-For more information, see  [Swagger UI documentation](https://www.ibm.com/docs/SSYHZ8_21.0.x/com.ibm.dba.aid/topics/services-swagger-ui.html).
+For more information, see  [Swagger UI documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.x?topic=services-swagger-ui).

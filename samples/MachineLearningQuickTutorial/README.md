@@ -11,10 +11,10 @@ This tutorial shows you how to connect an existing predictive model to a machine
 For more information on decision models and machine learning, see [Modeling decisions](https://www.ibm.com/docs/SSYHZ8_21.0.x/com.ibm.dba.aid/topics/con_modeling.html) and [Integrating machine learning](https://www.ibm.com/docs/SSYHZ8_21.0.x/com.ibm.dba.aid/ml_topics/con_integrate_ml.html).
 
 For more tutorials about machine learning in Automation Decision Services see:
-   - [Machine learning short tutorial](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/MachineLearningShortTutorial) to learn how to connect a predictive model to a Watson Machine Learning Model. 
-   - [Machine learning complete tutorial](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/MachineLearningCompleteTutorial) to learn how to create predictive model, connect it to a Watson Machine Learning Model, deploy and execute the decision.
-   - [Machine learning sample](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/MLDatasets) to get another example using two predictive models.
-   - [Machine learning notebooks](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/MLNotebooks) to get another example of a notebook ready to be connected to a predictive model.
+   - [Machine learning short tutorial](../MachineLearningShortTutorial/README.md) to learn how to connect a predictive model to a Watson Machine Learning Model. 
+   - [Machine learning complete tutorial](../MachineLearningCompleteTutorial/README.md) to learn how to create predictive model, connect it to a Watson Machine Learning Model, deploy and execute the decision.
+   - [Machine learning sample](../MLDatasets/README.md) to get another example using two predictive models.
+   - [Machine learning notebooks](../MLNotebooks/README.md) to get another example of a notebook ready to be connected to a predictive model.
    
 ## Learning objectives
 
@@ -115,7 +115,7 @@ You import a PMML file to create in Open Prediction Service a machine learning m
 
 1. Following Task 1, you are in the **Configure predictive model** wizard.
 2. Click on **Select provider** and select the `ops-quick` provider you defined in Task1. You can see all the machine learning models deployed on this provider.
-3. Click Import and select the PMML file provided in [`automation-decision-services-samples/samples/MachineLearningQuickTutorial/model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml`](https://raw.githubusercontent.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/MachineLearningQuickTutorial/model/Predict%20loan%20default%20with%20PMML%20in%20WML.ipynb). 
+3. Click Import and select the PMML file provided in [`automation-decision-services-samples/samples/MachineLearningQuickTutorial/model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml`](model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml). 
 4. Click on Import. A new machine learning model deployment is added: expand `SGDClassifier` a deployment `SGDClassifier` is ready to be used. 
 
 Next you connect the predictive model to this machine learning model deployment.
@@ -185,8 +185,9 @@ You run the decision model using the predictive model just defined.
 4. Browse the run history: the loan risk score rule has been triggered, the predictive model has called the machine learning model deployment.
 
 You've completed this tutorial.
+
 For more tutorials about machine learning in Automation Decision Services see:
-   - [Machine learning short tutorial](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/MachineLearningShortTutorial) to learn how to connect a predictive model to a Watson Machine Learning Model. 
-   - [Machine learning complete tutorial](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/MachineLearningCompleteTutorial) to learn how to create predictive model, connect it to a Watson Machine Learning Model, deploy and execute the decision.
-   - [Machine learning sample](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/MLDatasets) to get another example using two predictive models.
-   - [Machine learning notebooks](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/MLNotebooks) to get another example of a notebook ready to be connected to a predictive model.
+   - [Machine learning short tutorial](../MachineLearningShortTutorial/README.md) to learn how to connect a predictive model to a Watson Machine Learning Model. 
+   - [Machine learning complete tutorial](../MachineLearningCompleteTutorial/README.md) to learn how to create predictive model, connect it to a Watson Machine Learning Model, deploy and execute the decision.
+   - [Machine learning sample](../MLDatasets/README.md) to get another example using two predictive models.
+   - [Machine learning notebooks](../MLNotebooks/README.md) to get another example of a notebook ready to be connected to a predictive model.

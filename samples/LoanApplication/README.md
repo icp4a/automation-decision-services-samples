@@ -19,7 +19,7 @@ This sample is for anyone who wants to execute a decision service archive built 
 
 ## Prerequisites
 - Automation Decision Services: Your instance of the services must have a runtime that supports basic authentication. You must have the host name and login credentials (user name and password) allowing management and execution in the runtime. 
-For more information on the roles see [User roles and access control](https://www.ibm.com/docs/SSYHZ8_21.0.x/com.ibm.dba.aid/topics/setup-user-roles-access-control.html)
+For more information on the roles see [User roles and access control](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.x?topic=services-user-roles-authentication-modes)
 - Websphere Application Server Liberty: A Java application server that you can download from [Download WAS Liberty](https://developer.ibm.com/wasdev/downloads/). This sample was tested on **WebSphere Liberty Web Profile 8 21.0.0.6**.
 - Apache Maven: A software project management tool that you can download from [Welcome to Apache Maven](https://maven.apache.org).
 
@@ -40,7 +40,7 @@ You use the Swagger UI tool to explore the contents of a deployment space and de
 
 You use the Swagger UI tool of the runtime to deploy the decision service archive in the runtime `ADSsample` storage.
 
-1. Download the archive [loanValidationDecisionService](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/archives/loanValidationDecisionService-21.0.2.jar)  in a local directory.
+1. Download the archive [loanValidationDecisionService](../../archives/loanValidationDecisionService-21.0.2.jar)  in a local directory.
 2. In the **Decision storage management** part, expand `POST /deploymentSpaces/{deploymentSpaceId}/decisions/{decisionId}/archive`. Click on Try it out.
 3. Give the following parameters:
    - deploymentSpaceId `ADSsample`.
@@ -80,7 +80,7 @@ mvn clean install
 
 You can use the application when you see the message ``` BUILD SUCCESS```.
 
-**Note:** If you want to modify and build the application again, follow the instructions in the section [Clean this sample](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/LoanApplication#clean-this-sample) at the end of this readme.
+**Note:** If you want to modify and build the application again, follow the instructions in the section [Clean this sample](./README.md#clean-this-sample) at the end of this readme.
 
 # Sample details
 1. In a browser, open the URL ```http://localhost:9080/loanApplication-1.0-SNAPSHOT/```:
