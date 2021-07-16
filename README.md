@@ -18,4 +18,4 @@ There are three main directories:
 
 Note that the [**Open Prediction Service Hub repository**](https://github.com/IBM/open-prediction-service-hub) contains material and guidelines related to implementing the Open Prediction Service API services.
                                                                                                                
-To familiarize yourself with Automation Decision Services, start by following the tutorial [Getting started in Automation Decision Services](https://www.ibm.com/docs/SSYHZ8_21.0.x/com.ibm.dba.aid/topics/resources-getting-started-tutorial.html).
+To familiarize yourself with Automation Decision Services, start by following the tutorial [Getting started in Automation Decision Services](https://www.ibm.com/docs/SSYHZ8_21.0.x/com.ibm.dba.aid/gs_ddesigner_topics/dba_ddesigner_intro.html).

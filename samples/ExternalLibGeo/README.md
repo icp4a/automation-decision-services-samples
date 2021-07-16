@@ -30,13 +30,13 @@ You must have the following environments:
 - **Apache Maven**: You can download Maven from https://maven.apache.org.
 
 Download a compressed file of the `automation-decision-services-samples` Git repository to your computer.
-Open [Automation Decision Services samples](https://github.com/icp4a/automation-decision-services-samples/), click `Code` and select `Download Zip` in the menu.
+Open [Automation Decision Services samples](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2), click `Code` and select `Download Zip` in the menu.
 The sample refers to **automation-decision-services-samples** as the directory where you decompress the repository.
 
 # Setting up the sample
 
-- Follow the instructions in Task 1: Building an external library of the tutorial [Using an external library](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/ExternalLibraryStart) to build and deploy the external library.
-- Check the credentials for the repository manager as described in [Task2, Step1: Checking the credentials for the repository manager](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/ExternalLibraryStart#optional-step-1-checking-the-credentials-for-the-repository-manager).
+- Follow the instructions in Task 1: Building an external library of the tutorial [Using an external library](../ExternalLibraryStart/README.md) to build and deploy the external library.
+- Check the credentials for the repository manager as described in [Task2, Step1: Checking the credentials for the repository manager](../ExternalLibraryStart#optional-step-1-checking-the-credentials-for-the-repository-manager).
 - Create a new project in Decision Designer. Import the compressed file for this sample: `automation-decision-services-samples/samples/ExternalLibGeo/project/PricingWithGeo.zip`.
 - Open the settings of your project to define the external library:
   - Group ID: ads.samples

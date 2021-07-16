@@ -10,10 +10,10 @@ This tutorial shows you how to create a Predictive Model (PM) in Automation Deci
 For more information on decision models and machine learning, see [Modeling decisions](https://www.ibm.com/docs/SSYHZ8_21.0.x/com.ibm.dba.aid/topics/con_modeling.html) and [Integrating machine learning](https://www.ibm.com/docs/SSYHZ8_21.0.x/com.ibm.dba.aid/ml_topics/con_integrate_ml.html).
 
 For more tutorials about machine learning in Automation Decision Services see:
-   - [Machine learning quick tutorial](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/MachineLearningQuickTutorial) to learn how to import a Machine Learning Model as PMML file in an Automation Decision Services Machine Learning Service and how to connect it to a predictive model.
-   - [Machine learning short tutorial](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/MachineLearningShortTutorial) to learn how to connect a predictive model to a Watson Machine Learning Model. 
-   - [Machine learning sample](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/MLDatasets) to get another example using two predictive models.
-   - [Machine learning notebooks](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/MLNotebooks) to get another example of a notebook ready to be connected to a predictive model.
+   - [Machine learning quick tutorial](../MachineLearningQuickTutorial/README.md) to learn how to import a Machine Learning Model as PMML file in an Automation Decision Services Machine Learning Service and how to connect it to a predictive model.
+   - [Machine learning short tutorial](../MachineLearningShortTutorial/README.md) to learn how to connect a predictive model to a Watson Machine Learning Model. 
+   - [Machine learning sample](../MLDatasets/README.md) to get another example using two predictive models.
+   - [Machine learning notebooks](../MLNotebooks/README.md) to get another example of a notebook ready to be connected to a predictive model.
 
 ## Learning objectives
 
@@ -55,7 +55,7 @@ In this tutorial, you...
 **About this task**
 
 In this task, you...
-- Define a machine learning model using a PMML file in Watson Studio.
+- Define a machine learning model using a PMML file or a notebook in Watson Studio.
 - Deploy this model in Watson Machine learning.
 
 Click the following image to watch a video where the first part covers this task:
@@ -64,8 +64,8 @@ Click the following image to watch a video where the first part covers this task
 
 **Procedure**
 1. You define a machine learning model using:
-   - either the PMML file provided in [`automation-decision-services-samples/samples/MachineLearningCompleteTutorial/model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml`](https://raw.githubusercontent.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/MachineLearningCompleteTutorial/model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml).
-   - either the notebook provided in [`automation-decision-services-samples/samples/MachineLearningCompleteTutorial/model/Predict loan default with PMML in WML.ipynb`](https://raw.githubusercontent.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/MachineLearningCompleteTutorial/model/Predict%20loan%20default%20with%20PMML%20in%20WML.ipynb). 
+   - either the PMML file provided in [`automation-decision-services-samples/samples/MachineLearningCompleteTutorial/model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml`](model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml).
+   - either the notebook provided in [`automation-decision-services-samples/samples/MachineLearningCompleteTutorial/model/Predict loan default with PMML in WML.ipynb`](model/Predict%20loan%20default%20with%20PMML%20in%20WML.ipynb). 
 2. You deploy this model in Watson Machine Learning, you can follow the documentation in [Deployment spaces](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-spaces_local.html?audience=wdp).
 3. When the model is deployed, you get the data from Watson Studio that is required to define a machine learning provider in your decision project in Task 2. You need:
 * the space id which is defined in the deployment space settings.
@@ -399,7 +399,7 @@ In the response body, you get the description of the machine learning provider:
 ```
 You've completed this tutorial.
 For more tutorials about machine learning in Automation Decision Services see:
-   - [Machine learning quick tutorial](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/MachineLearningQuickTutorial) to learn how to import a Machine Learning Model as PMML file in an Automation Decision Services Machine Learning Service and how to connect it to a predictive model.
-   - [Machine learning short tutorial](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/MachineLearningShortTutorial) to learn how to connect a predictive model to a Watson Machine Learning Model. 
-   - [Machine learning sample](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/MLDatasets) to get another example using two predictive models.
-   - [Machine learning notebooks](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2/samples/MLNotebooks) to get another example of a notebook ready to be connected to a predictive model.
+   - [Machine learning quick tutorial](../MachineLearningQuickTutorial/README.md) to learn how to import a Machine Learning Model as PMML file in an Automation Decision Services Machine Learning Service and how to connect it to a predictive model.
+   - [Machine learning short tutorial](../MachineLearningShortTutorial/README.md) to learn how to connect a predictive model to a Watson Machine Learning Model. 
+   - [Machine learning sample](../MLDatasets/README.md) to get another example using two predictive models.
+   - [Machine learning notebooks](../MLNotebooks/README.md) to get another example of a notebook ready to be connected to a predictive model.
