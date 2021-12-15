@@ -1,0 +1,33 @@
+
+# ads.samples.externalLibrary.Country
+ads.samples.externalLibrary.Country#concept.label = 国
+ads.samples.externalLibrary.Country.CHINA#instance.label = 中国
+ads.samples.externalLibrary.Country.FRANCE#instance.label = フランス
+ads.samples.externalLibrary.Country.GERMANY#instance.label = ドイツ
+ads.samples.externalLibrary.Country.ITALY#instance.label = イタリア
+ads.samples.externalLibrary.Country.SPAIN#instance.label = スペイン
+ads.samples.externalLibrary.Country.UK#instance.label = イギリス
+ads.samples.externalLibrary.Country.US#instance.label = アメリカ
+ads.samples.externalLibrary.Country.JAPAN#instance.label = 日本
+
+# ads.samples.externalLibrary.Person
+ads.samples.externalLibrary.Person#concept.label = 人
+ads.samples.externalLibrary.Person.Person(java.lang.String,ads.samples.externalLibrary.Country)#phrase.navigation = 新規の {人} ここで {0, 入力名} {1, 国}
+ads.samples.externalLibrary.Person.country#phrase.action = {this} の国を {国} とする
+ads.samples.externalLibrary.Person.country#phrase.navigation = {this} の {国}
+ads.samples.externalLibrary.Person.equals(java.lang.Object)#phrase.navigation = {this} は {0} と等しい
+ads.samples.externalLibrary.Person.firstName#phrase.navigation = {this} の {ファーストネーム}
+ads.samples.externalLibrary.Person.fullName#phrase.navigation = {this} の {フルネーム}
+ads.samples.externalLibrary.Person.greeting#phrase.navigation = {this} の {挨拶}
+ads.samples.externalLibrary.Person.initials#phrase.navigation = {this} の {イニシャル}
+ads.samples.externalLibrary.Person.inputName#phrase.action = {this} の入力名を {入力名} とする
+ads.samples.externalLibrary.Person.inputName#phrase.navigation = {this} の {入力名}
+ads.samples.externalLibrary.Person.lastName#phrase.navigation = {this} の {ラストネーム}
+ads.samples.externalLibrary.Person.shortName#phrase.navigation = {this} の {略称}
+
+# ads.samples.externalLibrary.StringUtilities
+ads.samples.externalLibrary.StringUtilities#concept.label = string utilities
+ads.samples.externalLibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation = {0} を大文字にする
+ads.samples.externalLibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation.precedence = 1-7:nonassoc:102
+ads.samples.externalLibrary.StringUtilities.firstLetter(java.lang.String)#phrase.navigation = {0} の最初の一文字
+ads.samples.externalLibrary.StringUtilities.firstLetter(java.lang.String)#phrase.navigation.precedence = 1-7:nonassoc:101

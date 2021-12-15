@@ -12,7 +12,7 @@
     "displayName": "Training",
     "description": "Learn the basics of Automation Decision Services through practical examples.",
     "type": 0,
-    "nbProjects": 5,
+    "nbProjects": 6,
     "level": 0,
     "iconName": "Education",
     "iconColor": "warm-gray"
@@ -89,6 +89,15 @@
     "iconName": "Education",
     "iconColor": "blue"
   },
+  "Japanese": {
+    "displayName": "Japanese - 日本語",
+    "description": "日本語の意思決定",
+    "type": 0,
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "Education",
+    "iconColor": "blue"
+  },
   "Spanish": {
     "displayName": "Spanish - Español",
     "description": "Decisiones en Español.",
@@ -102,7 +111,7 @@
     "displayName": "Banking",
     "description": "Validate loans and compute insurance rates for the requested loan.",
     "type": 1,
-    "nbProjects": 1,
+    "nbProjects": 4,
     "level": 0,
     "iconName": "Finance",
     "iconColor": "purple"
@@ -138,7 +147,7 @@
     "displayName": "Telecom",
     "description": "Determine the best offer to make to customers to reduce churn rate.",
     "type": 1,
-    "nbProjects": 1,
+    "nbProjects": 2,
     "level": 2,
     "iconName": "PhoneFilled",
     "iconColor": "red"

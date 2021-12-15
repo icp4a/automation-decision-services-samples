@@ -7,13 +7,12 @@ This tutorial shows you how to connect an existing predictive model to a Watson 
 
 ![Image summarize the tutorial steps](images/MLShortTutorial.png)
 
-For more information on decision models and machine learning, see [Modeling decisions](https://www.ibm.com/docs/SSYHZ8_21.0.x/com.ibm.dba.aid/topics/con_modeling.html) and [Integrating machine learning](https://www.ibm.com/docs/SSYHZ8_21.0.x/com.ibm.dba.aid/ml_topics/con_integrate_ml.html).
+For more information on decision models and predictive models, see [Modeling decisions](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=decisions-developing-decision-services) and [Integrating machine learning](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=services-integrating-machine-learning).
 
 For more tutorials about machine learning in Automation Decision Services see:
    - [Machine learning quick tutorial](../MachineLearningQuickTutorial/README.md) to learn how to connect a predictive model to a Watson Machine Learning Model. 
    - [Machine learning complete tutorial](../MachineLearningCompleteTutorial/README.md) to learn how to create predictive model, connect it to a Watson Machine Learning Model, deploy and execute the decision.
-   - [Machine learning sample](../MLDatasets/README.md) to get another example using two predictive models.
-   - [Machine learning notebooks](../MLNotebooks/README.md) to get another example of a notebook ready to be connected to a predictive model.
+   - [Machine learning customer loyalty sample](../MachineLearningCustomerLoyaltySample/README.md) to get another example using two predictive models.
  
 ## Learning objectives
    - Build a Watson Machine Learning (WML) model and deploy it using a PMML file
@@ -22,7 +21,7 @@ For more tutorials about machine learning in Automation Decision Services see:
 
 ## Audience
 
-This sample is for technical and business users who want to apply predictive analytics through machine learning in decision projects in Automation Decision Services. It also shows data scientists and data engineers how Automation Decision Services can be used to apply machine learning models in decision-making applications.
+This sample is for technical and business users who want to apply predictive analytics through machine learning in decision services in Automation Decision Services. It also shows data scientists and data engineers how Automation Decision Services can be used to apply machine learning models in decision-making applications.
 
 ## Time required
 
@@ -31,11 +30,11 @@ This sample is for technical and business users who want to apply predictive ana
 ## Prerequisites
 
 Prepare with the following resources:
-- [Getting started in Automation Decision Services](https://www.ibm.com/docs/SSYHZ8_21.0.x/com.ibm.dba.aid/gs_ddesigner_topics/dba_ddesigner_intro.html): This tutorial introduces you to Automation Decision Services.
+- [Getting started in Automation Decision Services](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=resources-getting-started-tutorial): This tutorial introduces you to Automation Decision Services.
 - [Watson Machine Learning](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-overview.html?audience=wdp&context=wdp): This service lets you build analytical models and neural networks for use in applications. 
 
 You must have the following environments:
-- **Decision Designer**: A web-based user interface for developing decision services in Business Automation Studio. You work with the sample decision service by importing it into a decision project and opening it in Decision Designer.
+- **Decision Designer**: A web-based user interface for developing decision services in Business Automation Studio. You work with the sample decision service by importing it into a project and opening it in Decision Designer.
 - **Watson Studio**: A web-based user interface for developing and deploying machine learning models. 
 
 In this tutorial, you...
@@ -72,37 +71,41 @@ You also require an API key that you take from the [cloud](https://cloud.ibm.com
 **About this task**
 
 In this task, you...
-- Import and explore a sample project.
+- Import and explore a sample decision service.
 - Define a machine learning provider using Watson Machine Learning.
 
 ## Step 1: Importing the sample decision service in Decision Designer
 
-You import a sample decision service into a decision project. This decision service applies several criteria in determining a borrower’s eligibility for a loan.
+You import a sample decision service into a project. This decision service applies several criteria in determining a borrower’s eligibility for a loan.
 One of the key factors is risk which is predicted by the machine learning model.
 
 **Procedure**
 
-1. Sign in to your instance of Business Automation Studio. Use the credentials provided for your instance.
+1. Sign in to your instance of Business Automation Studio.
 2. Click on the navigation menu at the top left of the page, expand Design and select **Business automations**.
 3. Click Decision to see the decision automations.
-4. Click Create and select Decision automations to make a project.
-5. Enter a name for the project. Use a unique name. Do not reuse the name of a decision project that already exists in your instance of Business Automation Studio. For simplicity, we use **Machine learning short** in this documentation. After entering your name for the decision project, enter the following description:
-`Automated Decision Service short tutorial integrating machine learning prediction in a Loan Validation decision`. 
-6. Click **Create** to make your decision project.
+4. Click Create and select Decision automations to create a project.
+5. Enter a name for the project. 
+6. Click **Create** to create your project.
 7. Click **Browse samples** in the project, and then select **Machine learning short tutorial - Loan approval** in the Discovery section. 
-8. Click **Import**: a decision service named **Short machine learning loan approval** is added to your project. Click on it.
-9. Open the data model to browse the defined types. Select `risk probabilities` that is used by the predictive model.
-10. Click on the project name in the breadcrumbs and open the decision model `Loan Validation Decision Model`: it decides if a loan can be given to a borrower. One of the key decision is the risk computed in
-the `Risk Score` node. It takes as input a prediction node corresponding to the `loan risk score` predictive model. The project may be in error, these errors will be fixed in Task 4.
-11. Click **Short machine learning loan approval** in the breadcrumbs and open the predictive model `loan risk score`. It is not yet connected, you'll connect it in next steps.
-12. Click on the `Input mapping` node and look at the input mapping rule: it defines the machine learning model input from a loan and a borrower.
-13. Click on the `Output mapping` node and look at the output mapping rule: it defines a risk probability from the output of the machine learning model.
+8. Click **Import**: a decision service named **Short machine learning loan approval** is added to your project.
+
+**Discovery**
+
+Take a moment to look at the imported decision service.
+
+1. Open the `Loan Validation Data` data model in the `Data and libraries` tab to browse the defined types. <br>
+   The `risk probabilities` type is used by the predictive model.
+2. Click on the project name in the breadcrumbs and open the decision model `Loan Validation Decision Model`: it decides if a loan can be given to a borrower. One of the key decision is the risk computed in the `Risk Score` node. It takes as input a prediction node corresponding to the `loan risk score` predictive model. The project may be in error, these errors will be fixed in Task 4.
+3. Click **Short machine learning loan approval** in the breadcrumbs and open the predictive model `loan risk score`. It is not yet connected, you'll connect it in next steps.
+4. Click on the `Input mapping` node and look at the input mapping rule: it defines the machine learning model input from a loan and a borrower.
+5. Click on the `Output mapping` node and look at the output mapping rule: it defines a risk probability from the output of the machine learning model.
 
 Next you will define a machine learning provider to connect the predictive model.
 
 ## Step 2: Defining a machine learning provider 
 
-You create a machine learning provider to get your model deployment into your decision project.See [Managing machine learning providers](https://www.ibm.com/docs/SSYHZ8_21.0.x/com.ibm.dba.aid/ml_topics/tsk_manage_providers.html) for more information.
+You create a machine learning provider to get your model deployment into your decision project. See [Managing machine learning providers](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=learning-managing-machine-providers) for more information.
 
 **Procedure**
 
@@ -147,13 +150,15 @@ In this task, you...
     ],
     "values": [
         [
-            0.17825993285555752,
-            0.8217400671444425,
+            0.17825993285555802,
+            0.821740067144442,
             1
         ]
     ]
 }
 ```
+The values may differ because the precision is not the same each time.
+
 6. Click **Next** to define the model output schema. Select **Generate from test output**. Wait for the output schema to be generated and click on **OK**.
 7. Click **Apply** to connect the predictive model to this provider. 
 
@@ -172,22 +177,23 @@ Next you run your predictive model and the decision model that calls it.
  You run the predictive model you connected in Task 2.
  
  **Procedure**
- 1. Following Task 3, you are in the `loan risk score` diagram editor. Click on the Run tab. Two datasets are defined.
+ 1. Following Task 3, you are in the `loan risk score` diagram editor. Click on the Run tab. Two data sets are defined.
  2. Select `John good score` and click on **Run**. The result is
  ```
  {
-   "payment default": 0,
-   "probability": 1
- }
+  "paymentDefault": 0,
+  "probability": 1
+}
  ```
  There is no default payment risk with a probability of 1.
- 3. Browse in the Run history to see the executed rules.
+ 
+ 3. Browse the Run history to see the executed rules.
  
  Next you run the decision model calling this predictive model.
  
  ## Step 2: Running a decision model 
  
- You run the decision model using the predictive model just defined. 
+ You run the decision model using the predictive model you just defined. 
  
  **Procedure**
  1. Following Step1, you are in the `loan risk score` Run tab. 
@@ -195,7 +201,7 @@ Next you run your predictive model and the decision model that calls it.
     - Remove the `loan risk score` predictive node.
     - Hover on the `Risk score` node and click on  **Add prediction**.
     - Select the predictive model `loan risk score.` There is no more errors.
- 6. Click on the Run tab and run the dataset `John good score`. The lon is approved.
+ 6. Click on the Run tab and run the data set `John Good Score`. The loan is approved.
  7. Browse the run history: the loan risk score rule has been triggered, the predictive model has called the machine learning model deployment.
  
 You've completed this tutorial.
@@ -203,6 +209,7 @@ You've completed this tutorial.
 For more tutorials about machine learning in Automation Decision Services see:
    - [Machine learning quick tutorial](../MachineLearningQuickTutorial/README.md) to learn how to connect a predictive model to a Watson Machine Learning Model. 
    - [Machine learning complete tutorial](../MachineLearningCompleteTutorial/README.md) to learn how to create predictive model, connect it to a Watson Machine Learning Model, deploy and execute the decision.
-   - [Machine learning sample](../MLDatasets/README.md) to get another example using two predictive models.
-   - [Machine learning notebooks](../MLNotebooks/README.md) to get another example of a notebook ready to be connected to a predictive model.
- 
+   - [Machine learning sample](../MachineLearningCustomerLoyaltySample/README.md) to get another example using two predictive models.
+
+Note that the [**Open Prediction Service Hub repository**](https://github.com/IBM/open-prediction-service-hub) contains material and guidelines related to implementing Open Prediction Service API services.
+For instance, you can use the [Build a Loan default score model with OPS.ipynb](https://github.com/IBM/open-prediction-service-hub/blob/main/notebooks/OPS/Build%20a%20Loan%20default%20score%20model%20with%20OPS.ipynb) notebook to deploy a model in OPS and use it in a predictive model in Decision Designer. 
