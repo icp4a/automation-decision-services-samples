@@ -94,36 +94,36 @@ $(document).ready(
 							console.log(data);
 							show_panels();
 							if (data.error) {
-							    $('#info-panel').attr('class','panel panel-danger');
+							    $('#info-header').attr('class','card-header bg-danger');
                             	$('#info-header').text('Error')
-                            	$('#info-json-panel').attr('class','panel panel-danger');
+                            	$('#info-json-header').attr('class','card-header bg-danger');
                             	$('#info-json-header').text('Error')
                             	$('#info-text').text(data.text)
                             	$('#info-json-text').text(data.text)
 							} else if (data.notFound == true) {
-                                $('#info-panel').attr('class','panel panel-danger');
+                                $('#info-header').attr('class','card-header bg-danger');
                                 $('#info-header').text('Decision not found')
-                                $('#info-json-panel').attr('class','panel panel-danger');
+                                $('#info-json-header').attr('class','card-header bg-danger');
                                 $('#info-json-header').text('Decision not found')
                                 $('#info-text').text(data.message)
                                 $('#info-json-text').text(data.message)
                             } else if (data.validData == false) {
-                                 $('#info-panel').attr('class','panel panel-danger');
+                                 $('#info-header').attr('class','card-header bg-danger');
                                  $('#info-header').text('Invalid input data')
-                                 $('#info-json-panel').attr('class','panel panel-danger');
+                                 $('#info-json-header').attr('class','card-header bg-danger');
                                  $('#info-json-header').text('Invalid input data')
                                  $('#info-text').text(data.message)
                                  $('#info-json-text').text(data.message)
                              } else if (data.success == true) {
 								if (data.approved == true) {
-                                 	$('#info-panel').attr('class','panel panel-success');
+                                 	$('#info-header').attr('class','card-header bg-success');
                                  	$('#info-header').text('Approved loan request')
-                                 	$('#info-json-panel').attr('class','panel panel-success');
+                                 	$('#info-json-header').attr('class','card-header bg-success');
                                  	$('#info-json-header').text('Approved loan request')
                                 } else {
-                                 	$('#info-panel').attr('class','panel panel-warning');
+                                 	$('#info-header').attr('class','card-header bg-warning');
                                  	$('#info-header').text('Rejected loan request')
-                                    $('#info-json-panel').attr('class','panel panel-warning');
+                                    $('#info-json-header').attr('class','card-header bg-warning');
                                  	$('#info-json-header').text('Rejected loan request')
                                 }
 							    $('#info-json-text').html(format_json(data.jsonOutputContent))
@@ -136,7 +136,7 @@ $(document).ready(
 
 						request.fail(function(jqXHR, textStatus) {
 							console.log("Request failed: " + textStatus);
-							$('#info-panel').attr('class','panel panel-error');
+							$('#info-header').attr('class','card-header bg-error');
 							$('#info-header').text('Error')
 							$('#info-text').text(textStatus)
 						});

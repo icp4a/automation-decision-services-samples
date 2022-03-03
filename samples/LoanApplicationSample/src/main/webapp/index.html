@@ -12,13 +12,11 @@
     <title>Loan</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet"
-          href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <script
-            src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script
-            src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <!-- Bootstrap Date-Picker Plugin -->
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+   <!-- Bootstrap Date-Picker Plugin -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>           
             
@@ -59,256 +57,279 @@
 </head>
 
 
-<body>
 <div class="container">
-    <div class="jumbotron">
-        <h1>Sample</h1>
+	<div class="jumbotron ">
+		<h1>ADS sample</h1>
+		<p id="sample-name" class="lead">Loan request approval application</p>
+		<hr class="my-4">
+		<p>Calls the ADS runtime to run a decision to approve or not a loan request.</p>
+	</div>
 
-        <p id="sample-name">Loan request approval</p>
-    </div>
-<div>
-    
- <form role="form" action="validate" method="post" class="form-horizontal">
-   <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#input">Application</a></li>
-    <li><a data-toggle="tab" href="#detailInput">Additional Info</a></li>
-    <li><a data-toggle="tab" href="#execution">Execution Details</a></li>
-   </ul>
-                    
-    <div class="tab-content">
-      <div id="input" class="tab-pane fade in active">
-       <div class="row">
-         <div class="borrower col-sm-6">
-           <div class="panel panel-info">
-                            <div class="panel-heading"><h4>Borrower</h4></div>
-            <div class="panel-body">    	  
-             <div class="form-group">
-  					<div class="input-group">
-  						<span class="input-group-addon">First name</span>
-  						<input type="text" class="form-control" id="firstName" name="firstName" value="Joe" placeholder="First name">
- 					</div>
-					</div>
-				<div class="form-group">									 
- 					<div class="input-group">
-  						<span class="input-group-addon">Last name</span>
-  						<input type="text" class="form-control" id="lastName" name="lastName" value="Doe" placeholder="Last name">
- 					</div>
-					</div>
-				<div class="form-group">									  					
- 					<div class="input-group">
-  										  <span class="input-group-addon">Yearly income</span>
-  										  <input type="text" class="form-control" id="yearly-income" name="yearly-income" value="80000" placeholder="Yearly income">
-  										  <div class="input-group-addon">
-  										     <span class="input-group-text">$</span>
-  									       </div> 										  
- 					</div>
-					</div>
-				<div class="form-group">									  					
- 					<div class="input-group">
-  										  <span class="input-group-addon">Credit score</span>
-  										  <input type="text" class="form-control" id="credit-score" name="credit-score" value="600" placeholder="Credit score">
-  										  </div>
- 					
-				 </div>    <!-- Form group -->                                                                   
-               </div>      <!-- Panel body -->                                
-            </div>         <!-- Panel  -->  
-         </div>            <!-- Col  -->  
- 
-        <div class="loan col-sm-6">
-             <div class="panel panel-info">
-                  <div class="panel-heading"><h4>Loan</h4></div>
-               <div class="panel-body">
-                            <div class="form-group">
- 									 <div class="input-group">
-  										  <span class="input-group-addon">Amount</span>
-  										  <input type="text" class="form-control" id="amount" name="amount" value="500000" placeholder="Amount">
-  										  <div class="input-group-addon">
-  										     <span class="input-group-text">$</span>
-  									       </div> 										  
- 									 </div>
-									 </div>
-									<div class="form-group">	
-									<div class="input-group mb-3">
-									  <div class="input-group-addon">
- 								 		  <span class="input-group-text">Loan period</span>
- 									 </div>
- 									 <input type="text" class="form-control" id="duration" name="duration" value="360" placeholder="Duration">
- 									 <div class="input-group-addon">
-  										  <span class="input-group-text">Mo</span>
-  									</div>
-							        </div>
-							        </div>
-							<div class="form-group">									  									 
-  									 <div class="input-group">
-  										  <span class="input-group-addon">Yearly interest rate</span>
-  										  <input type="text" class="form-control" id="yearly-interest-rate" name="yearly-interest-rate" value="5" placeholder="Yearly Interest Rate">
-  										  <div class="input-group-addon">
-  										   <span class="input-group-text">%</span>
-  								       	  </div>
- 									 </div>
-									 </div>
-							<div class="form-group">									  									 
-  									 <div class="input-group">
-  										  <span class="input-group-addon">Start date</span>
-  										  <input type="text" class="form-control" id="startDate" name="startDate" value="01/07/2019" placeholder="MM/DD/YYYY">
-  										  <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
- 									 </div>
-				 </div>    <!-- Form group -->                                                                   
-               </div>      <!-- Panel body -->                                
-            </div>         <!-- Panel  -->  
-         </div>            <!-- Col  -->  
-      </div>               <!-- Row  -->  
-     </div>                <!-- Tab  -->  
-  
-      <div id="detailInput" class="tab-pane fade">
-        <div class="panel panel-info">
-                            <div class="panel-heading"><h4>Individual and bankruptcy data</h4></div>
-          <div class="panel-body">   
-                  <div class="form-group">
-                   <div class="col-sm-6">
-  					<div class="input-group">
-  									  <span class="input-group-addon">Birth date</span>
-  									  <input type="text" class="form-control" id="birthDate" name="birthDate" value="01/01/1979" placeholder="MM/DD/YYYY">
-   									  <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
- 					</div>
-				</div>                                 
-                   <div class="col-sm-6">
-  					<div class="input-group">
-  									  <span class="input-group-addon">Bankruptcy date</span>
-  									  <input type="text" class="form-control" id="birthDate" name="bankruptcyDate" value="" placeholder="MM/DD/YYYY">
-  									  <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
- 					</div>
-				</div>                                 
-				</div>                                 
-          	    	
-           <div class="form-group">    
-                   <div class="col-sm-6">
-  					<div class="input-group">
-  										  <span class="input-group-addon">Zip code</span>
-  										  <input type="text" class="form-control" id="zipCode" name="zipCode" value="12345" placeholder="Zip code">
- 					</div>
-				</div>                                 
-                   <div class="col-sm-6">
-  					<div class="input-group">
-  									  <span class="input-group-addon">Bankruptcy chapter</span>
-  									  <input type="text" class="form-control" id="bankruptcyChapter" name="bankruptcyChapter" value="" placeholder="integer">
- 					</div>
-				</div>                                 
-		    </div>                                   
- 				<div class="form-group">
-                   <div class="col-sm-6">
-  					<div class="input-group">
-  									  <span class="input-group-addon">SSN code</span>
-  									  <input type="text" class="form-control" id="SSNCode" name="SSNCode" value="123121234" placeholder="SSN code">
- 					</div>
-				</div>                                 
-                   <div class="col-sm-6">
-  					<div class="input-group">
-  									  <span class="input-group-addon">Bankruptcy reason</span>
-  									  <input type="text" class="form-control" id="bankruptcyReason" name="bankruptcyReason" value="" placeholder="">
- 					</div>
-				</div>                                 
-				</div>
-      </div>
-      </div> 
-      </div> 
-              
-     <div id="execution" class="tab-pane fade">
-     <div class="panel panel-info">
-                            <div class="panel-heading"><h4>Decision and runtime details</h4></div>
-       <div class="panel-body">   	    	
-        <div class="row">    
-                      <div class="form-group">                                
-                                 <div class="col-sm-6">
-  								  <div class="input-group">
-  									  <span class="input-group-addon">Host name</span>
-									  <input id="server" type="text" class="form-control" name="server" placeholder="Host name">
- 								 </div>
- 								 </div>
- 								 <div class="col-sm-4"> 								  
-  								  <div class="input-group">
-   									   <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-    								  <input id="user" type="text" class="form-control" name="user" placeholder="user">
-  								  </div>
-  								  </div>
-  								  <div style="text-align: left">
-                      			 	 <div class="checkbox col-sm-2">
-                       	 			    <label><input type="checkbox" name="trace" id="trace">Trace enabled</label>
-                      			   </div>
-                  				  </div>							                            								                                                                      								  
-   						  </div>
- 						  <div class="form-group">    
-                                <div class="col-sm-6">
-  								  <div class="input-group">
-  									  <span class="input-group-addon">Space Id</span>
-  									 <input id="spaceId" type="text" class="form-control" name="spaceId" placeholder="Space Id">
- 								 </div>
- 								 </div>
-   								  <div class="col-sm-4"> 								  
-  								  <div class="input-group">
-     									 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-    									  <input id="password" type="password" class="form-control" name="password" placeholder="Password" >
-   								 </div>
-   								 </div>
-   								  <div style="text-align: left">
-                      			 	 <div class="col-sm-2">
-                       	 			    <a class="swaggerLink" href="">Swagger UI</a>
-                      			   </div>
-                  				  </div>							                        
-                  		    </div>
-                            <div class="form-group">   
-                             <div class="col-sm-6">
-  								 <div class="input-group">
-  									  <span class="input-group-addon">Decision id</span>
-  									  <input id="decisionId" type="text" class="form-control" name="decisionId"  value="loanApplicationSample-21.0.2" placeholder="Decision id">
- 								 </div>
-							 </div>
-								<div class="col-sm-6">
+	<form role="form" action="validate" method="post" class="">
+		<ul class="nav nav-tabs">
+			<li class="nav-item"><a data-toggle="tab" href="#input" class="nav-link active">Application</a>
+			</li>
+			<li class="nav-item"><a data-toggle="tab" href="#detailInput" class="nav-link">Additional Info</a>
+			</li>
+			<li class="nav-item"><a data-toggle="tab" href="#execution" class="nav-link">Execution Details</a>
+			</li>
+		</ul>
+		<div class="tab-content">
+			<div id="input" class="tab-pane active">
+				<div class="row">
+					<div class="borrower col-md-6">
+						<div class="card">
+							<div class="card-header">
+								<h4>Borrower</h4>
+							</div>
+							<div class="card-body">
+								<div class="form-group">
 									<div class="input-group">
-										<span class="input-group-addon">Decision operation</span>
-										<input id="operation" type="text" class="form-control" name="operation" value="loan-validation-decision-model" placeholder="Decision operation">
+										<div class="input-group-prepend">
+										<span class="input-group-text">First name</span>
+										</div>
+										<input type="text" class="form-control"
+											   id="firstName" name="firstName" value="Joe" placeholder="First name">
 									</div>
 								</div>
-
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-prepend">
+										<span class="input-group-text">Last name</span>
+										</div>
+										<input type="text" class="form-control"
+											   id="lastName" name="lastName" value="Doe" placeholder="Last name">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-prepend">
+										<span class="input-group-text">Yearly income</span>
+										</div>
+										<input type="text"
+											   class="form-control" id="yearly-income" name="yearly-income" value="80000"
+											   placeholder="Yearly income">
+										<div class="input-group-append"> <span class="input-group-text">$</span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-prepend">
+										<span class="input-group-text">Credit score</span>
+										</div>
+										<input type="text"
+											   class="form-control" id="credit-score" name="credit-score" value="600"
+											   placeholder="Credit score">
+										<div class="input-group-append"> <span class="input-group-text">$</span>
+										</div>
+									</div>
+								</div>
+								<!-- Form group -->
 							</div>
-                             
-          </div>
-       </div>
-          </div>
-       </div>
-      </div>
-            
-            <div class="row">
-                <div style="text-align: center">
-                    <button type="submit" class="btn btn-primary">
-                        <span class="glyphicon glyphicon-ok"></span>
-                        <span></span>
-                        <span>Request loan</span>
-                    </button>
-                </div>
-            </div>
-        </form>
- 
-    <div class="row">   
+						</div>
+					</div>
+					<!-- Col -->
+					<div class="loan col-md-6">
+						<div class="card">
+							<div class="card-header">
+								<h4>Loan</h4>
+							</div>
+							<div class="card-body">
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text">Amount</span>
+										</div>
+										<input type="text" class="form-control"
+											   id="amount" name="amount" value="500000" placeholder="Amount">
+										<div class="input-group-append"> <span class="input-group-text">$</span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="input-group mb-3">
+										<div class="input-group-prepend"> <span class="input-group-text">Loan period</span>
+										</div>
+										<input type="text" class="form-control" id="duration" name="duration"
+											   value="360" placeholder="Duration">
+										<div class="input-group-append"> <span class="input-group-text">Mo</span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text">Yearly interest rate</span>
+										</div>
+										<input type="text"
+											   class="form-control" id="yearly-interest-rate" name="yearly-interest-rate"
+											   value="5" placeholder="Yearly Interest Rate">
+										<div class="input-group-append"> <span class="input-group-text">%</span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="input-group">
+										<div class="input-group-prepend">
+											<span class="input-group-text">Start date</span>
+										</div>
+										<input type="text" class="form-control"
+											   id="startDate" name="startDate" value="01/07/2019" placeholder="MM/DD/YYYY">
+									</div>
+								</div>
+								<!-- Form group -->
+							</div>
+						</div>
+					</div>
+					<!-- Col -->
+				</div>
+				<!-- Row -->
+			</div>
+			<!-- Tab -->
+			<div id="detailInput" class="tab-pane">
+				<div class="card">
+					<div class="card-header">
+						<h4>Individual and bankruptcy data</h4>
+					</div>
+					<div class="card-body">
+						<div class="row">
+						<div class="input-group col-md-6 mb-3">
+									<div class="input-group-prepend">
+										<span class="input-group-text">Birth date</span>
+									</div>
+									<input type="text" class="form-control"
+										   id="birthDate" name="birthDate" value="01/01/1979" placeholder="MM/DD/YYYY">
+								</div>
+								<div class="input-group col-md-6 mb-3">
+									<div class="input-group-prepend">
+										<span class="input-group-text">Bankruptcy date</span>
+									</div>
+									<input type="text"
+										   class="form-control" id="bankruptcyDate" name="bankruptcyDate" value="" placeholder="MM/DD/YYYY">
+								</div>
+								<div class="input-group col-md-6 mb-3">
+									<div class="input-group-prepend">
+										<span class="input-group-text">Zip code</span>
+									</div>
+									<input type="text" class="form-control"
+										   id="zipCode" name="zipCode" value="12345" placeholder="Zip code">
+								</div>
+								<div class="input-group col-md-6 mb-3">
+									<div class="input-group-prepend">
+										<span class="input-group-text">Bankruptcy chapter</span>
+									</div>
+									<input type="text"
+										   class="form-control" id="bankruptcyChapter" name="bankruptcyChapter" value=""
+										   placeholder="integer">
+						</div>
+								<div class="input-group col-md-6 mb-3">
+									<div class="input-group-prepend">
+										<span class="input-group-text">SSN code</span>
+									</div>
+									<input type="text" class="form-control"
+										   id="SSNCode" name="SSNCode" value="123121234" placeholder="SSN code">
+								</div>
+								<div class="input-group col-md-6 mb-3">
+									<div class="input-group-prepend">
+										<span class="input-group-text">Bankruptcy reason</span>
+									</div>
+									<input type="text"
+										   class="form-control" id="bankruptcyReason" name="bankruptcyReason" value=""
+										   placeholder="">
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="execution" class="tab-pane">
+				<div class="card">
+					<div class="card-header">
+						<h4>Decision and runtime details</h4>
+					</div>
+					<div class="card-body">
+						<div class="row">
+									<div class="input-group col-md-6 mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text">Host name</span>
+										</div>
+										<input id="server" type="text"
+											   class="form-control" name="server" placeholder="Host name">
+									</div>
+									<div class="input-group col-md-4 mb-3">
+										<div class="input-group-prepend">
+										<span class="input-group-text">User name</span>
+										</div>
+										<input
+												id="user" type="text" class="form-control" name="user" placeholder="user">
+									</div>
+									<div class="form-check col-md-2 mb-3">
+										<label>
+											<input type="checkbox" name="trace" id="trace">Trace enabled</label>
+									</div>
+									<div class="input-group col-md-6 mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text">Space Id</span>
+										</div>
+										<input id="spaceId" type="text"
+											   class="form-control" name="spaceId" placeholder="Space Id">
+									</div>
+									<div class="input-group col-md-4 mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text">Password</span>
+										</div>
+										<input
+												id="password" type="password" class="form-control" name="password" placeholder="Password">
+									</div>
+									<div class="col-md-2 mb-3"> <a class="swaggerLink" href="">Swagger UI</a>
+									</div>
+									<div class="input-group col-md-6 mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text">Decision id</span>
+										</div>
+										<input id="decisionId"
+											   type="text" class="form-control" name="decisionId" value="loanApplicationSample-21.0.2"
+											   placeholder="Decision id">
+									</div>
+									<div class="input-group col-md-6 mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text">Decision operation</span>
+										</div>
+										<input id="operation"
+											   type="text" class="form-control" name="operation" value="approval"
+											   placeholder="Decision operation">
+									</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row mb-3 mt-3 mx-auto" style="width: 200px;">
+				<button  class="btn btn-primary" type="submit"> <span class="glyphicon glyphicon-ok"></span>
+					<span></span>
+					<span>Request loan</span>
+				</button>
+		</div>
+	</form>
+
   	<ul  id="response" class="nav nav-tabs">
- 		   <li class="active"><a data-toggle="tab" href="#output">Formatted output</a></li>
-  		  <li><a data-toggle="tab" href="#jsonResponse">JSON response</a></li>
+ 		   <li class="nav-item"><a data-toggle="tab" href="#output" class="nav-link active ">Formatted output</a></li>
+  		   <li class="nav-item"><a data-toggle="tab" href="#jsonResponse" class="nav-link">JSON response</a></li>
    	</ul>
     <div class="tab-content">
-      <div id="output" class="tab-pane fade in active">   
-        <div id="info-panel" class="panel panel-success">
-           <div id="info-header" class="panel-heading">Formatted output</div>
-           <div id="info-text" class="panel-body" > </div>
+      <div id="output" class="tab-pane active">
+        <div id="info-panel" class="card">
+           <div id="info-header" class="card-header">Formatted output</div>
+           <div id="info-text" class="card-body" > </div>
         </div>
       </div>
-      <div id="jsonResponse" class="tab-pane fade">   
-        <div id="info-json-panel" class="panel panel-success">
-           <div id="info-json-header" class="panel-heading">JSON output</div>
-           <div id="info-json-text" class="panel-body" > </div>
+      <div id="jsonResponse" class="tab-pane">
+        <div id="info-json-panel" class="card">
+           <div id="info-json-header" class="card-header">JSON output</div>
+           <div id="info-json-text" class="card-body" > </div>
         </div>
       </div>
-     </div>  <!-- Tabcontent  -->  
-     </div>  <!-- Row  -->  
-     
+     </div>  <!-- Tabcontent  -->
+</div>
 </body>
 </html>
