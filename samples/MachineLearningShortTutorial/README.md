@@ -44,9 +44,11 @@ In this tutorial, you...
 - Connect a predictive model to a machine learning model deployed in Watson Machine Learning.
 - Run a decision model using this predictive model.
 
-Click the following image to watch a video that covers this tutorial:
+Click the following image to watch a video that covers this tutorial.
 
-[![Video covers the machine learning sample.](images/ml_sample.jpg)](https://www.youtube.com/watch?v=Ch78Qy-oUg8&ab_channel=IBMSupportandTraining)
+[![Video covers the machine learning sample.](images/ml_sample.jpg)](https://www.youtube.com/watch?v=qp0qbWKo1es&ab_channel=IBMSupportandTraining)
+
+**Note**: This video uses IBM Cloud Pak for Data 3.5.0 there may be slight differences with the latest version.
 
 # Task 1: Defining and deploying a machine learning model in Watson Machine Learning.
 

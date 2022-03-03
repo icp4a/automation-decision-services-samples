@@ -104,7 +104,7 @@ To be able to deploy the library, you must have the following information:
 2. Look at the property definitions:
     * `archive.repository.snapshot.url`: The URL in which you deploy snapshots. This value is used in the distribution management part. 
     * `archive.repository.release.url`: The URL in which you deploy releases. This value is used in the distribution management part. 
-    * `ads-mojo.version` The version that is used to build the library. (**Note:** This sample was tested with Mojo 6.1.5.)
+    * `ads-mojo.version` The version that is used to build the library. (**Note:** This sample was tested with Mojo 6.1.5.1.)
    * `ads-annotations.version` The version that is used to build the library. (**Note:** This sample was tested with annotations 1.0.12.)
 
 3. Replace the instances of `TO BE SET` by the appropriate values:
@@ -113,7 +113,7 @@ To be able to deploy the library, you must have the following information:
    <properties>
        <archive.repository.snapshot.url>SNAPSHOT URL TO BE SET</archive.repository.snapshot.url>
        <archive.repository.release.url>RELEASE URL TO BE SET</archive.repository.release.url>
-       <ads-mojo.version>6.1.5</ads-mojo.version>
+       <ads-mojo.version>6.1.5.1</ads-mojo.version>
        <ads-annotations.version>1.0.12</ads-annotations.version>
    </properties>
 ```
@@ -148,7 +148,7 @@ In this task, you...
 - Explore the external library.
 
 ## (Optional) Step 1: Checking the credentials for the repository manager
-You search for the external library. The task is normally done by your IT developers (see [Configuring credentials for a Maven repository manager](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=platform-configuring-credentials-maven-repository-manager)).
+You search for the external library. The task is normally done by your IT developers (see [Configuring credentials for a Maven repository manager](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=credentials-configuring-maven-repository-manager)).
 To look at the credentials, you should have the permission `Administer platform for decision services` enabled. If you don't, you can skip this step.
 1. Open the admin-platform URL in a web browser.
 2. Filter the table by using the word *maven*. One value should be defined to give access to the repository in which you have deployed the external library.

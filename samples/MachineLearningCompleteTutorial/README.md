@@ -57,9 +57,11 @@ In this task, you...
 - Define a machine learning model using a PMML file or a notebook in Watson Studio.
 - Deploy this model in Watson Machine learning.
 
-Click the following image to watch a video where the first part covers this task:
+Click the following image to watch a video where the first part covers this task.
 
-[![Video covers the machine learning sample.](images/ml_sample.jpg)](https://www.youtube.com/watch?v=Ch78Qy-oUg8&ab_channel=IBMSupportandTraining)
+[![Video covers the machine learning sample.](images/ml_sample.jpg)](https://www.youtube.com/watch?v=qp0qbWKo1es&ab_channel=IBMSupportandTraining)
+
+**Note**: This video uses IBM Cloud Pak for Data 3.5.0 there may be slight differences with the latest version.
 
 **Procedure**
 1. You define a machine learning model using:

@@ -6,7 +6,7 @@
     <parent>
         <artifactId>externalLibrary</artifactId>
         <groupId>ads.samples</groupId>
-        <version>1.0.9</version>
+        <version>1.0.10</version>
     </parent>
 
     <groupId>ads.samples</groupId>
@@ -103,7 +103,7 @@
         <dependency>
              <groupId>ads.samples</groupId>
             <artifactId>sampleLibrary</artifactId>
-            <version>1.0.9</version>
+            <version>1.0.10</version>
        </dependency>
     </dependencies>
 
