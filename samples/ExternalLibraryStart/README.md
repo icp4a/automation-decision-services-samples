@@ -104,7 +104,7 @@ To be able to deploy the library, you must have the following information:
 2. Look at the property definitions:
     * `archive.repository.snapshot.url`: The URL in which you deploy snapshots. This value is used in the distribution management part. 
     * `archive.repository.release.url`: The URL in which you deploy releases. This value is used in the distribution management part. 
-    * `ads-mojo.version` The version that is used to build the library. (**Note:** This sample was tested with Mojo 4.6.2.)
+    * `ads-mojo.version` The version that is used to build the library. (**Note:** This sample was tested with Mojo 4.6.2.3.)
 
 3. Replace the instances of `TO BE SET` by the appropriate values:
 
@@ -112,7 +112,7 @@ To be able to deploy the library, you must have the following information:
    <properties>
        <archive.repository.snapshot.url>SNAPSHOT URL TO BE SET</archive.repository.snapshot.url>
        <archive.repository.release.url>RELEASE URL TO BE SET</archive.repository.release.url>
-        <ads-mojo.version>4.6.2</ads-mojo.version>
+        <ads-mojo.version>4.6.2.3</ads-mojo.version>
     </properties>
 ```
 4. Save the `pom.xml` file. 
