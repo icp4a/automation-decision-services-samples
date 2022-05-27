@@ -38,7 +38,6 @@ public class RestJavaClient {
         //  404 decisionId or decision operation invalid (not found)
         //  500 error during the execution
         // response content is a JSON payload (if status is ok)
-        // https://runtime.ads.apps.ads-stable.cp.fyre.ibm.com/ads/runtime/api/v1/deploymentSpaces/ADSsample/decisions/loanApplicationSample-21.0.2/operations/loan-validation-decision-model/execute
         //
         //Server response
         //Code	Details
