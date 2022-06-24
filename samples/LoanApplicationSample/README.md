@@ -1,11 +1,12 @@
 # Sample: Loan Validation application
 
 ## Description
-This sample shows a web application calling a decision service built into Automation Decision Services. It provides code for a web-based client application which calls a decision service archive to process loan requests. 
+This sample shows a web application calling a decision service built into Automation Decision Services. It provides code for a web-based client application 
+which calls a decision service archive to process loan requests using Automation Decision Services runtime.
 
 ## Learning objectives
 - Deploy a decision service archive to a production environment.
-- Configure a web application to call a decision service archive.
+- Configure a web application to call a decision service archive using the Automation Decision Services runtime.
 - Run the web application with representative data.
 - Explore the execution trace.
 
@@ -19,11 +20,11 @@ This sample is for anyone who wants to execute a decision service archive built 
 
 ## Prerequisites
 - Automation Decision Services: Your instance of the services must have a runtime that supports basic authentication. You must have the host name and login credentials (user name and password) allowing management and execution in the runtime. 
-For more information on the roles see [User roles and access control](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=setup-user-roles-access-control)
-- Websphere Application Server Liberty: A Java application server that you can download from [Download WAS Liberty](https://developer.ibm.com/wasdev/downloads/). This sample was tested on **WebSphere Liberty Web Profile 8 21.0.0.11**.
+For more information on the roles see [User roles and access control](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=roles-user-access-control)
+- Websphere Application Server Liberty: A Java application server that you can download from [Download WAS Liberty](https://developer.ibm.com/wasdev/downloads/). This sample was tested on **WebSphere Liberty Web Profile 8 22.0.0.5**.
 - Apache Maven: A software project management tool that you can download from [Welcome to Apache Maven](https://maven.apache.org).
 
-It is recommended that you do the tutorial [Getting started in Automation Decision Services](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=resources-getting-started-tutorial) before using this sample.
+It is recommended that you do the tutorial [Getting started in Automation Decision Services](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=resources-getting-started-tutorial) before using this sample.
 
 # Setting up the sample
 The web application defined in this sample calls a decision service archive that gives a decision about approving or not a loan. It relies on the decision service `Loan Approval` defined in the Banking 
@@ -36,16 +37,16 @@ You use the Swagger UI tool to explore the contents of a deployment space and de
 2. Give the credentials for management.
 3. In the **Decision storage management** part, expand `GET /deploymentSpaces/{deploymentSpaceId}/decisions`. Click on Try it out.
 4. Give `ADSsample` as the deploymentSpaceId and click on Execute.
-5. The response code is 200. if `loanApproval-21.0.3` is in the response list, you can directly go to the next part **Building and deploying the client application**. Otherwise, continue.
+5. The response code is 200. if `loanApproval-22.0.1` is in the response list, you can directly go to the next part **Building and deploying the client application**. Otherwise, continue.
 
 You use the Swagger UI tool of the runtime to deploy the decision service archive in the runtime `ADSsample` storage.
 
-1. Download the archive [loanApproval-21.0.3.jar](../../archives/loanApproval-21.0.3.jar)  in a local directory.
+1. Download the archive [loanApproval-22.0.1.jar](../../archives/loanApproval-22.0.1.jar)  in a local directory.
 2. In the **Decision storage management** part, expand `POST /deploymentSpaces/{deploymentSpaceId}/decisions/{decisionId}/archive`. Click on Try it out.
 3. Give the following parameters:
    - deploymentSpaceId `ADSsample`.
-   - decisionId `loanApproval-21.0.3`
-   - in the request body browse to the `loanApproval-21.0.3.jar` archive you downloaded.
+   - decisionId `loanApproval-22.0.1`
+   - in the request body browse to the `loanApproval-22.0.1.jar` archive you downloaded.
 4. Click on Execute.
 5. The response code is 200. The archive is now deployed. 
 
@@ -53,7 +54,7 @@ You can have a look at the operation name.
 1. In the **Decision runtime** part, expand `GET /deploymentSpaces/{deploymentSpaceId}/decisions/{decisionId}/operations`. Click on Try it out.
 3. Give the following parameters:
    - deploymentSpaceId `ADSsample`.
-   - decisionId `loanApproval-21.0.3`.
+   - decisionId `loanApproval-22.0.1`.
 4. Click on Execute.
 5. The response code is 200. You see the list of operations in the response body: the operation `approval` is defined. It will be used by the web application.
 
@@ -88,7 +89,7 @@ You can use the application when you see the message ``` BUILD SUCCESS```.
 ![Image shows the loan application.](images/loanApplication.png)
 
 2. Switch to the Execution Details tab.
-3. Check that the values for the server name, user name and password are the same as the ones you entered in the config.js file.
+3. Check that the values for the server name (called host name in the application), user name and password are the same as the ones you entered in the config.js file.
 4. Click **Request loan**, and look at the results. You can switch to the JSON response to get the full JSON output:
 
 ![Image shows the loan application.](images/loanApplicationWithResponse.png)
@@ -109,5 +110,5 @@ When you stop using the application or want to rebuild it, follow these instruct
     1. Open the Swagger UI tool of the runtime.
     2. Give the credentials for management.
     3. In the **Decision storage management** part, expand `DELETE /deploymentSpaces/{deploymentSpaceId}/decisions/{decisionId}/archive`. Click on Try it out.
-    4. Give `ADSsample` as the deploymentSpaceId and `loanApproval-21.0.3` as the decisionId .
+    4. Give `ADSsample` as the deploymentSpaceId and `loanApproval-22.0.1` as the decisionId .
     5. Click on Execute. The response code is 200, the archive is removed from the deployment space `ADSsample`.

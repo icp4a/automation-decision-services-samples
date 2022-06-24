@@ -7,7 +7,7 @@ This tutorial shows you how to connect an existing predictive model to a Watson 
 
 ![Image summarize the tutorial steps](images/MLShortTutorial.png)
 
-For more information on decision models and predictive models, see [Modeling decisions](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=decisions-developing-decision-services) and [Integrating machine learning](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=services-integrating-machine-learning).
+For more information on decision models and predictive models, see [Modeling decisions](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=automations-developing-decision-services) and [Integrating machine learning](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=services-integrating-machine-learning).
 
 For more tutorials about machine learning in Automation Decision Services see:
    - [Machine learning quick tutorial](../MachineLearningQuickTutorial/README.md) to learn how to connect a predictive model to a Watson Machine Learning Model. 
@@ -15,8 +15,9 @@ For more tutorials about machine learning in Automation Decision Services see:
    - [Machine learning customer loyalty sample](../MachineLearningCustomerLoyaltySample/README.md) to get another example using two predictive models.
  
 ## Learning objectives
-   - Build a Watson Machine Learning (WML) model and deploy it using a PMML file
-   - Create a WML provider and connect it to a predictive model.
+   - Create an empty deployment space in Watson Studio.
+   - Create a WML provider in Decision Designer.
+   - Import a PMML model directly in Decision Designer and connect it to an existing predictive model
    - Run a decision model using this predictive model.
 
 ## Audience
@@ -25,12 +26,12 @@ This sample is for technical and business users who want to apply predictive ana
 
 ## Time required
 
-25 minutes
+15 minutes
 
 ## Prerequisites
 
 Prepare with the following resources:
-- [Getting started in Automation Decision Services](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=resources-getting-started-tutorial): This tutorial introduces you to Automation Decision Services.
+- [Getting started in Automation Decision Services](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=resources-getting-started-tutorial): This tutorial introduces you to Automation Decision Services.
 - [Watson Machine Learning](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-overview.html?audience=wdp&context=wdp): This service lets you build analytical models and neural networks for use in applications. 
 
 You must have the following environments:
@@ -38,35 +39,32 @@ You must have the following environments:
 - **Watson Studio**: A web-based user interface for developing and deploying machine learning models. 
 
 In this tutorial, you...
-- Define a machine learning model using Watson Studio.
-- Deploy a machine learning model in Watson Machine Learning.
+- Create an empty deployment space in Watson Studio.
 - Define a machine learning provider using Watson Machine Learning.
+- Upload a machine learning model by importing a PMML file. 
 - Connect a predictive model to a machine learning model deployed in Watson Machine Learning.
 - Run a decision model using this predictive model.
 
-Click the following image to watch a video that covers this tutorial.
+Click the following image to watch a video that covers this tutorial:
 
-[![Video covers the machine learning sample.](images/ml_sample.jpg)](https://www.youtube.com/watch?v=qp0qbWKo1es&ab_channel=IBMSupportandTraining)
+[![Video covers the machine learning short tutorial.](images/ml_sample.png)](https://www.youtube.com/watch?v=qPXmrsswfKY&ab_channel=IBMSupportandTraining)
 
-**Note**: This video uses IBM Cloud Pak for Data 3.5.0 there may be slight differences with the latest version.
 
-# Task 1: Defining and deploying a machine learning model in Watson Machine Learning.
+# Task 1: Creating a deployment space in Watson Studio.
 
 **About this task**
 
 In this task, you...
-- Define a machine learning model using a PMML file in Watson Studio.
-- Deploy this model in Watson Machine learning.
+- create an empty deployment space in Watson Studio
 
 **Procedure**
-1. You define a machine learning model using the PMML file provided in [`automation-decision-services-samples/samples/MachineLearningShortTutorial/model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml`](model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml).
-2. You deploy this model in Watson Machine Learning, you can follow the documentation in [Deployment spaces](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-spaces_local.html?audience=wdp).
-3. When the model is deployed, you get the data from Watson Studio that is required to define a machine learning provider in your decision project in Task 2. You need:
+1. You create a deployment space in Watson Studio following the WS [documentation](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-spaces_local.html?context=cpdaas&audience=wdp).
+2. You get the data from Watson Studio that is required to define a machine learning provider in your decision project in Task 2. You need:
 * the space id which is defined in the deployment space settings.
-* the URL where the model is deployed. For instance `https://<location>.ml.cloud.ibm.com/ml/v4`.
+* the base URL of the Watson Machine Learning API endpoint. For instance `https://<location>.ml.cloud.ibm.com/ml/v4`.
 * the authentication URL. For instance `https://iam.bluemix.net/identity/token`.
 
-You also require an API key that you take from the [cloud](https://cloud.ibm.com/iam/apikeys).
+You also require an API key that you take from your [cloud account](https://cloud.ibm.com/iam/apikeys).
 
 # Task 2: Defining a machine learning provider in Decision Designer
 
@@ -107,12 +105,13 @@ Next you will define a machine learning provider to connect the predictive model
 
 ## Step 2: Defining a machine learning provider 
 
-You create a machine learning provider to get your model deployment into your decision project. See [Managing machine learning providers](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=learning-managing-machine-providers) for more information.
+You create a machine learning provider to get your model deployment into your decision project. See [Managing machine learning providers](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=learning-managing-local-machine-providers) for more information.
 
 **Procedure**
 
 1. Go back to the diagram and click in the diagram outside any node or link.
-2. Click on the **Connect** button. You see that no provider is defined.
+2. Click on the **Configure** button. Keep **Remote Machine Learning Model** selected. 
+3. Click **Next** to select a provider. You see that no provider is defined.
 3. Click on **New provider** to define one.
 4. Click on **New +** to open the Machine Learning provider wizard:
    * Keep `Watson ML` as the type.
@@ -129,19 +128,21 @@ You create a machine learning provider to get your model deployment into your de
 
 Next you will connect your predictive model.
 
-# Task 3: Connecting a predictive model.
+# Task 3: Importing a PMML file and connecting a predictive model
 
 **About this task**
 
 In this task, you...
+- import a PMML file to create a machine learning model deployment.
 - Connect a predictive model to a machine learning model.
 
 **Procedure**
 
 1. Following Task 2, you are in the **Configure predictive model** wizard.
-2. Click on **Select provider** and select the `wml-short` provider you defined in Task 2. You can see all the machine learning models deployed on this provider.
-3. Select the machine learning model: expand the machine learning model name you choose in Task 1 and click on the deployment name you want to use. 
-4. Click **Next** to define the model input schema: it is complete, just browse it.
+2. Click on **Select provider** and select the `wml-short` provider you defined in Task 2.
+3. Click Import and select the PMML file provided in [`automation-decision-services-samples/samples/MachineLearningQuickTutorial/model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml`](model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml). 
+4. Click on Import. A new machine learning model deployment is added and selected. You are redirected to the next step to define the input schema.
+4. Check the input schema: it is complete, just browse it.
 5. Click **Next** to define the test invocation. Click **Run** at the right of the wizard to validate the model. You get the following output:
 ```json
 {

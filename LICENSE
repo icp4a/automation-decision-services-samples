@@ -1,4 +1,4 @@
-The translated license terms can be viewed here: http://www14.software.ibm.com/cgi-bin/weblap/lap.pl?li_formnum=L-ASAY-C6LF82
+The translated license terms can be viewed here: http://www14.software.ibm.com/cgi-bin/weblap/lap.pl?li_formnum=L-ASAY-CCQCLE
 
 IMPORTANT: READ CAREFULLY
 
@@ -26,13 +26,17 @@ LICENSE INFORMATION
 The Programs listed below are licensed under the following License Information terms and conditions in addition to the Program license terms previously agreed to by Client and IBM. If Client does not have previously agreed to license terms in effect for the Program, the International License Agreement for Evaluation of Programs (i125-5543-06) applies.
 
 Program Name (Program Number):
-IBM Cloud Pak for Business Automation 21.0.3 (Evaluation)
+IBM Cloud Pak for Business Automation 22.0.1 (Evaluation)
 
 The following standard terms apply to Licensee's use of the Program.
 
 Evaluation Period
 
 The evaluation period begins on the date that Licensee agrees to the terms of this Agreement and ends after 30 days.
+
+License Terms delivered with Program Not Applicable
+
+The terms of this Agreement supersede and void any electronic "click through," "shrinkwrap," or other licensing terms and conditions included with or accompanying the Program(s).
 
 Multi-Product Install Image
 
@@ -72,9 +76,7 @@ Supporting Programs:
 IBM Db2 Standard Edition
 IBM WebSphere Application Server Liberty
 IBM WebSphere Application Server Network Deployment
-IBM Spectrum Scale
-IBM Spectrum Discover
-IBM Spectrum Virtualize for Public Cloud
+IBM Spectrum Fusion
 
 Permitted Components
 
@@ -118,6 +120,10 @@ IBM InfoSphere Data Replication 11.4 (SQL Replication, Q Replication and CDC for
 IBM WebSphere Application Server 9.0 (of IBM Db2 Standard Edition)
 IBM Data Server Manager Enterprise Edition 2.1.5 (of IBM Db2 Standard Edition)
 
+Modifiable Third Party Code
+
+To the extent, if any, in the NOTICES file IBM identifies third party code as "Modifiable Third Party Code," IBM authorizes Licensee to 1) modify the Modifiable Third Party Code and 2) reverse engineer the Program modules that directly interface with the Modifiable Third Party Code provided that it is only for the purpose of debugging Licensee's modifications to such third party code. IBM's service and support obligations, if any, apply only to the unmodified Program.
+
 Separately Licensed Code
 
 Each of the components listed in the NON_IBM_LICENSE file is considered "Separately Licensed Code" licensed to Licensee under the terms of the applicable third party license agreement(s) set forth in the NON_IBM_LICENSE file(s) that accompanies the Program, and not this Agreement. Future Program updates or fixes may contain additional Separately Licensed Code. Such additional Separately Licensed Code and related licenses are listed in the applicable NON_IBM_LICENSE file that accompanies the Program update or fix.
@@ -145,9 +151,13 @@ LICENSE INFORMATION
 The Programs listed below are licensed under the following License Information terms and conditions in addition to the Program license terms previously agreed to by Client and IBM. If Client does not have previously agreed to license terms in effect for the Program, the International Program License Agreement (i125-3301-15) applies.
 
 Program Name (Program Number):
-IBM Cloud Pak for Business Automation 21.0.3 (5737-I23)
+IBM Cloud Pak for Business Automation 22.0.1 (5737-I23)
 
 The following standard terms apply to Licensee's use of the Program.
+
+License Terms delivered with Program Not Applicable
+
+The terms of this Agreement supersede and void any electronic "click through," "shrinkwrap," or other licensing terms and conditions included with or accompanying the Program(s).
 
 Multi-Product Install Image
 
@@ -187,9 +197,7 @@ Supporting Programs:
 IBM Db2 Standard Edition
 IBM WebSphere Application Server Liberty
 IBM WebSphere Application Server Network Deployment
-IBM Spectrum Scale
-IBM Spectrum Discover
-IBM Spectrum Virtualize for Public Cloud
+IBM Spectrum Fusion
 
 Permitted Components
 
@@ -248,15 +256,23 @@ Licensee may install and use the following Program components, under the license
 - IBM Business Automation Insights when used in Non-Production
 - IBM Automation Workstream Services when used in Non-Production
 - IBM Workflow Process Service when used in Non-Production
-- IBM Robotic Process Automation Studio 20.12
+- IBM Robotic Process Automation Studio
 - IBM Db2 Standard Edition
 - IBM Automation Foundation
+- IBM FileNet Content Manager for Non-Production Environment when Concurrent, Authorized, Infrequent, External, Employee User Conversion Entitlement Ratio is used.
+- IBM Business Automation Workflow Enterprise for Non-Production Environment when Concurrent, Authorized, Infrequent, External, Employee User Conversion Entitlement Ratio is used.
+- IBM Content Collector for Email, Files & Sharepoint for Non-Production Environment when Authorized, Infrequent, External, Employee User Conversion Entitlement Ratio is used.
+- IBM Content Collector for SAP for Non-Production Environment when Authorized, Infrequent, External, Employee User Conversion Entitlement Ratio is used.
 - IBM FileNet Content Manager Connector for Salesforce
 - IBM Content Navigator (Component of IBM FileNet Content Manager) when the container is used
 - IBM Datacap Insight Edition Add-On
 - IBM Datacap Insight Edition Add-on for Non-Production Environment
 - IBM Datacap Accounts Payable Add-On
 - IBM Datacap Accounts Payable Add-on for Non-Production Environment
+
+Modifiable Third Party Code
+
+To the extent, if any, in the NOTICES file IBM identifies third party code as "Modifiable Third Party Code," IBM authorizes Licensee to 1) modify the Modifiable Third Party Code and 2) reverse engineer the Program modules that directly interface with the Modifiable Third Party Code provided that it is only for the purpose of debugging Licensee's modifications to such third party code. IBM's service and support obligations, if any, apply only to the unmodified Program.
 
 Separately Licensed Code
 
@@ -313,8 +329,7 @@ Virtual Server is a unit of measure by which the Program can be licensed. A serv
 In addition to the above, the following terms apply to Licensee's use of the Program.
 
 Million Event
-
-Licensee is entitled to use 3 Processes for Process Mining Process, 20 Million Events for Process Mining Events, 1 Authorized User for Process Mining Analyst User, 3 Authorized Users for Process Mining Business User, and 2 Concurrent Connections for Task Mining Agent, for every Install of IBM Process Mining Platform.
+A Million Event is a unit of measure by which the Program can be licensed. A Million Event is a log event generated from a server, application or device that can be processed for a specific purpose, rounded up to the nearest million. Sufficient entitlements must be obtained to cover the maximum number of Million Events to be collected and processed by the Program at any time.
 
 Entitlement Values
 
@@ -331,7 +346,8 @@ Business Automation Insights (Component of the Program)
 - Conversion Entitlement Ratio: 1 VPC/ 1 VPC
 
 IBM FileNet Content Manager
-- Conversion Entitlement Ratio: 1 VPC/ 5 VPCs; or- Conversion Entitlement Ratio: 10 Concurrent User/ 1 VPC; or
+- Conversion Entitlement Ratio: 1 VPC/ 5 VPCs; or NEWLINE
+- Conversion Entitlement Ratio: 10 Concurrent User/ 1 VPC; or
 - Conversion Entitlement Ratio: 18 Authorized User/ 1 VPC and 180 Infrequent User / 1 VPC and 3579 External User/ 1 VPC; or
 - Conversion Entitlement Ratio: 36 Employee User/ 1 VPC and 3579 External User/ 1 VPC
 - Use Limitation: IBM FileNet Content Manager may be used as storage without requiring additional entitlements for one or more of the following use cases:
@@ -343,7 +359,8 @@ IBM FileNet Content Manager for Non-Production Environment
 - Conversion Entitlement Ratio: 2 VPCs/ 5VPCs
 
 IBM Business Automation Workflow Enterprise
-- Conversion Entitlement Ratio: 1 VPC/ 5 VPCs; or - Conversion Entitlement Ratio: 5 Concurrent User/ 1 VPC; or
+- Conversion Entitlement Ratio: 1 VPC/ 5 VPCs; or NEWLINE
+- Conversion Entitlement Ratio: 5 Concurrent User/ 1 VPC; or
 - Conversion Entitlement Ratio: 9 Authorized User/ 1 VPC and 90 Infrequent User/ 1 VPC and 1782 External User/ 1 VPC; or
 - Conversion Entitlement Ratio: 18 Employee User/ 1 VPC and 1782 External User/ 1 VPC
 
@@ -371,7 +388,7 @@ IBM Datacap
 IBM Datacap for Non-Production Environment
 - Conversion Entitlement Ratio: 1 VPC/ 1 VPC
 
- IBM Content Collector for Email, Files & Sharepoint
+IBM Content Collector for Email, Files & Sharepoint
 - Conversion Entitlement Ratio: 1 VPC/ 3 VPC ; or
 - Conversion Entitlement Ratio: 200 Authorized User/ 1 VPC and 2000 Infrequent User/ 1 VPC and 40900 External User/ 1 VPC; or
 - Conversion Entitlement Ratio: 499 Employee User/ 1 VPC and 40900 External User/ 1 VPC
@@ -402,7 +419,7 @@ IBM Robotic Process Automation Attended Bot Agent add-on
 
 Process Mining Platform
 - Conversion Flat Entitlement: Licensee may convert 4 VPCs of the Program to use 1 Install of the listed program. Regardless of the number of entitlements obtained to the Program, Licensee's use of the listed program is limited to the one-time listed conversion.
-- Licensee is entitled to use 3 Process Mining Processes, 20 Million Events, 1 Analyst User, 3 Business User, 2 Task Mining Agents, with every Install of IBM Process Mining Platform.
+- Licensee is entitled to use 3 Process Mining Processes, 20 Million Events, 1 Analyst User, 3 Business Users, 2 Task Mining Agents, with every Install of IBM Process Mining Platform.
 
 Process Mining Process add-on
 - Conversion Entitlement Ratio: 3 Processes/ 1 VPC
@@ -434,16 +451,17 @@ Red Hat OpenShift Container Platform
 
 "Additional Entitlement Ratio n/m" means that Licensee receives some number ('n') entitlements of the indicated metric for the identified program for every specified number ('m') entitlements of the specified metric for the Program as a whole. The specified ratio does not apply to any entitlements for the Program that are not of the required metric type. The number of entitlements for the identified program is rounded up to a multiple of 'n'.
 
-Red Hat OpenShift Data Foundation
-- Additional Flat Entitlement: 36TB (12TB usable)
-- Use Limitation: Licensee's entitlement to support for the listed program is limited to 12TB usable (36TB raw) capacity. Licensee's license to the listed programs terminates 36 calendar months after Licensee's entitlements under this Additional Flat Entitlement first take effect. Upon termination, Licensee agrees to promptly discontinue use of and destroy all of Licensee's copies of the listed programs.
+Red Hat OpenShift Data Foundation Essentials
+- Additional Flat Entitlement: 48 Virtual Processing Cores (VPC)
+- Use Limitation: Licensee’s entitlement to support for the listed program is limited to 6TB usable (18TB raw) capacity. Licensee’s entitlement to support for the listed program terminates 12 calendar months after Licensee’s initial purchase of entitlements to the Program. Upon termination, Licensee agrees that any support Licensee obtains for the Principal Program beyond that period of time, will not include support for the listed program.
+- This Red Hat OpenShift Data Foundation entitlement cannot be used in a managed service environment.
 
-"Additional Flat Entitlement" means that regardless of the number of entitlements obtained to the Program, Licensee's use of the listed program is limited to the number of entitlement(s) listed.
+- “Additional Flat Entitlement” means that regardless of the number of entitlements obtained to the Program, Licensee’s use of the listed program is limited to the number of entitlement(s) listed.
 
-If the Client has acquired the Program as a result of a trade up or subscription license upgrade for the IBM Cloud Pak for Business Automation and IBM Business Automation Workflow User-Based Trade Up and Subscription License Upgrade Restriction, the Client must measure deployment for the trade up and subscription license upgrade on the user-based metrics of Authorized User, Employee User, External User, Concurrent User, and/or Infrequent User. No other metric shall be used for deployment measurement for license trade up and subscription license upgrade and subsequent additional license to this Program.
+If the Client has acquired the Program as a result of agreeing to the terms of the addendum titled “IBM Cloud Pak for Business Automation and IBM Business Automation Workflow User-Based Trade Up and Subscription License Upgrade Restriction,” then the Client must measure deployment for the trade up and subscription license upgrade on the user-based metrics of Authorized User, Employee User, External User, Concurrent User, and/or Infrequent User. No other metric shall be used for deployment measurement for license trade up and subscription license upgrade and subsequent additional license to this Program.
 
-The Program enables use of a usage metering dashboard (the "Dashboard") that enables the display and monitoring of certain data and metrics regarding Licensee's deployment or usage of IBM software programs ("Usage Metering Data"). Usage of the Dashboard may require separate download and configuring of the Red Hat Marketplace Operator or similar separately-licensed enabling program. Usage Metering Data may include, for example, quantitative license metric-related information (e.g. the number of VPCs, resources, users or other license metric deployed, consumed or managed by the Program), and other quantitative metrics relating to usage of the Program or its features (e.g. API calls, events, storage, etc.), each as may be made available for monitoring and display on the Dashboard by IBM. Usage Metering Data does not include personally-identifiable information or the contents of Licensee's data managed by the Program. If the Dashboard is enabled by Licensee, the Usage Metering Data applicable the Program and other IBM software programs deployed on the cluster(s) selected for monitoring by Licensee is sent to IBM servers, and IBM may use such Usage Metering Data to process and display the Dashboard information to Licensee, and may also use such Usage Metering Data for IBM's internal business purposes, including management and planning of IBM's products and services, supporting, improving and enhancing IBM products and services, and to support and advise Licensee regarding Licensee's use of IBM software programs (e.g. performance, deployment and capacity planning) and to offer other IBM products and services to Licensee, and may share such Usage Metering Data with its affiliates, contractors and business partners for these purposes. Licensee may disable the Dashboard or monitoring of Usage Metering Data at any time.
-
+Use of Usage Metering Data
+The Program enables use of a usage metering dashboard (the "Dashboard") that enables the display and monitoring of certain data and metrics regarding Licensee's deployment and usage of IBM and non-IBM software programs, as well as the computing environment on which they are deployed ("Usage Metering Data"). Usage of the Dashboard requires registration on either the Red Hat Marketplace or IBM Software Central. Licensee's usage of the Dashboard and IBM's use and sharing of Usage Metering Data are governed by the terms of the Service Description for the Red Hat Marketplace, Operated by IBM, available here: https://www.ibm.com/support/customer/csol/terms?id=i126-8719, and if Licensee enables or uses the Dashboard, Licensee agrees to those terms.
 
 Infrequent User
 
@@ -465,10 +483,10 @@ The Supporting Program may use a maximum of 16 processor cores and 128 GB of mem
 
 Additional Flat Entitlement
 
-IBM Spectrum Scale, IBM Spectrum Discover, IBM Spectrum Virtualize for Public Cloud
-- Additional Flat Entitlement: 12 Terabytes (TB) collectively across the listed programs
-- Use Limitation: Licensee's license to the listed programs terminates 36 calendar months after Licensee's entitlements under this Additional Flat Entitlement first take effect. Upon termination, Licensee agrees to promptly discontinue use of and destroy all of Licensee's copies of the listed programs.
+IBM Spectrum Fusion
+- Additional Flat Entitlement: 6 Terabtyes (TB) each of IBM Primary Storage, IBM Backup Storage, and Metadata Management.
+- Use Limitation: Licensee’s license to the listed programs is only available for first-time Cloud Pak purchases and terminates 12 calendar months after Licensee’s initial purchase of entitlements to the Program, or upon the termination or expiration of the Program to the extent such termination or expiration occurs prior to 12 months after initial purchase. Upon termination of the listed programs, Licensee agrees to promptly discontinue use of and destroy all of Licensee’s copies of the listed programs
 
-L/N:  L-ASAY-C6LF82
-D/N:  L-ASAY-C6LF82
-P/N:  L-ASAY-C6LF82
+L/N: L-ASAY-CCQCLE
+D/N: L-ASAY-CCQCLE
+P/N: L-ASAY-CCQCLE

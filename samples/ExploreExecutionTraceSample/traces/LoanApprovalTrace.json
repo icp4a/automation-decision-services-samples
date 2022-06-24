@@ -1,0 +1,357 @@
+{
+  "decisionId": "testLoan",
+  "decisionOperation": "approval",
+  "executionId": "string",
+  "output": {
+    "insurance": {
+      "rate": 0.02,
+      "required": true
+    },
+    "approval": {
+      "approved": false,
+      "message": "We are sorry. Your loan has not been approved"
+    }
+  },
+  "executionTrace": {
+    "configuration": {
+      "executionDuration": true,
+      "printedMessages": true,
+      "decisionModel": {
+        "inputParameters": "Object",
+        "outputParameters": "Object",
+        "inputNode": "None",
+        "outputNode": "None"
+      },
+      "rules": {
+        "boundObjectsAtStart": "None",
+        "boundObjectsAtEnd": "None",
+        "allRules": true,
+        "executedRules": true,
+        "nonExecutedRules": true,
+        "exceptions": "None"
+      },
+      "ruleflow": {
+        "inputParameters": "ClassNameNHashcode",
+        "outputParameters": "ClassNameNHashcode",
+        "allTasks": true,
+        "executedTasks": true,
+        "notExecutedTasks": true,
+        "selectedRules": true
+      }
+    },
+    "rootRecord": {
+      "recordType": "DecisionModel",
+      "recordIndex": "1",
+      "properties": {
+        "engineVersion": "2.14.0",
+        "name": "ApprovalDecisionModel-Approval-decision-model",
+        "input": {
+          "loan": {
+            "amount": 185000,
+            "loanToValue": 0.7,
+            "numberOfMonthlyPayments": 72,
+            "startDate": "2020-06-01T00:00:00Z"
+          },
+          "borrower": {
+            "SSN": {
+              "areaNumber": "123",
+              "groupCode": "45",
+              "serialNumber": "6789"
+            },
+            "birthDate": "1968-05-12T00:00:00Z",
+            "creditScore": 500,
+            "firstName": "John",
+            "lastName": "Doe",
+            "latestBankruptcy": {
+              "chapter": 7,
+              "date": "2019-03-10T00:00:00Z",
+              "reason": "Unemployment"
+            },
+            "spouse": null,
+            "yearlyIncome": 100000,
+            "zipCode": "91320"
+          },
+          "currentTime": "2020-02-04T08:41:21.242Z"
+        },
+        "nestedRecords": [
+          {
+            "recordType": "DecisionModelNode",
+            "recordIndex": "1.1",
+            "properties": {
+              "name": "Loan",
+              "kind": "InputData",
+              "hitPolicy": "sequence",
+              "executionDuration": 0
+            }
+          },
+          {
+            "recordType": "DecisionModelNode",
+            "recordIndex": "1.2",
+            "properties": {
+              "name": "Borrower",
+              "kind": "InputData",
+              "hitPolicy": "sequence",
+              "executionDuration": 0
+            }
+          },
+          {
+            "recordType": "DecisionModelNode",
+            "recordIndex": "1.3",
+            "properties": {
+              "name": "current time",
+              "kind": "InputData",
+              "hitPolicy": "sequence",
+              "executionDuration": 0
+            }
+          },
+          {
+            "recordType": "DecisionModelNode",
+            "recordIndex": "1.4",
+            "properties": {
+              "name": "Duration",
+              "kind": "Decision",
+              "hitPolicy": "sequence",
+              "allRules": [
+                "duration"
+              ],
+              "nonExecutedRules": [],
+              "nestedRecords": [
+                {
+                  "recordType": "Rule",
+                  "recordIndex": "1.4.1",
+                  "properties": {
+                    "name": "duration",
+                    "actionIndex": "0",
+                    "executionDuration": 0
+                  }
+                }
+              ],
+              "executionDuration": 0
+            }
+          },
+          {
+            "recordType": "DecisionModelNode",
+            "recordIndex": "1.5",
+            "properties": {
+              "name": "Yearly Interest Rate",
+              "kind": "Decision",
+              "hitPolicy": "sequence",
+              "allRules": [
+                "yearly interest rate"
+              ],
+              "nonExecutedRules": [],
+              "nestedRecords": [
+                {
+                  "recordType": "Rule",
+                  "recordIndex": "1.5.1",
+                  "properties": {
+                    "name": "yearly interest rate",
+                    "actionIndex": "5",
+                    "executionDuration": 0
+                  }
+                }
+              ],
+              "executionDuration": 1
+            }
+          },
+          {
+            "recordType": "DecisionModelNode",
+            "recordIndex": "1.6",
+            "properties": {
+              "name": "Repayment",
+              "kind": "Decision",
+              "hitPolicy": "sequence",
+              "allRules": [
+                "repayment"
+              ],
+              "nonExecutedRules": [],
+              "nestedRecords": [
+                {
+                  "recordType": "Rule",
+                  "recordIndex": "1.6.1",
+                  "properties": {
+                    "name": "repayment",
+                    "actionIndex": "0",
+                    "executionDuration": 0
+                  }
+                }
+              ],
+              "executionDuration": 0
+            }
+          },
+          {
+            "recordType": "DecisionModelNode",
+            "recordIndex": "1.7",
+            "properties": {
+              "name": "Salary Score",
+              "kind": "Decision",
+              "hitPolicy": "sequence",
+              "allRules": [
+                "salary score"
+              ],
+              "nonExecutedRules": [],
+              "nestedRecords": [
+                {
+                  "recordType": "Rule",
+                  "recordIndex": "1.7.1",
+                  "properties": {
+                    "name": "salary score",
+                    "actionIndex": "5",
+                    "executionDuration": 0
+                  }
+                }
+              ],
+              "executionDuration": 0
+            }
+          },
+          {
+            "recordType": "DecisionModelNode",
+            "recordIndex": "1.8",
+            "properties": {
+              "name": "Bankruptcy Score",
+              "kind": "Decision",
+              "hitPolicy": "sequence",
+              "allRules": [
+                "bankruptcy score"
+              ],
+              "nonExecutedRules": [],
+              "nestedRecords": [
+                {
+                  "recordType": "Rule",
+                  "recordIndex": "1.8.1",
+                  "properties": {
+                    "name": "bankruptcy score",
+                    "actionIndex": "0",
+                    "executionDuration": 0
+                  }
+                }
+              ],
+              "executionDuration": 0
+            }
+          },
+          {
+            "recordType": "DecisionModelNode",
+            "recordIndex": "1.9",
+            "properties": {
+              "name": "Corporate Score",
+              "kind": "Decision",
+              "hitPolicy": "sequence",
+              "allRules": [
+                "corporate score"
+              ],
+              "nonExecutedRules": [],
+              "nestedRecords": [
+                {
+                  "recordType": "Rule",
+                  "recordIndex": "1.9.1",
+                  "properties": {
+                    "name": "corporate score",
+                    "actionIndex": "0",
+                    "executionDuration": 0
+                  }
+                }
+              ],
+              "executionDuration": 0
+            }
+          },
+          {
+            "recordType": "DecisionModelNode",
+            "recordIndex": "1.10",
+            "properties": {
+              "name": "Grade",
+              "kind": "Decision",
+              "hitPolicy": "sequence",
+              "allRules": [
+                "grade"
+              ],
+              "nonExecutedRules": [],
+              "nestedRecords": [
+                {
+                  "recordType": "Rule",
+                  "recordIndex": "1.10.1",
+                  "properties": {
+                    "name": "grade",
+                    "actionIndex": "8",
+                    "executionDuration": 0
+                  }
+                }
+              ],
+              "executionDuration": 0
+            }
+          },
+          {
+            "recordType": "DecisionModelNode",
+            "recordIndex": "1.11",
+            "properties": {
+              "name": "Insurance",
+              "kind": "Decision",
+              "hitPolicy": "sequence",
+              "allRules": [
+                "insurance"
+              ],
+              "nonExecutedRules": [
+                "insurance"
+              ],
+              "executionDuration": 0
+            }
+          },
+          {
+            "recordType": "DecisionModelNode",
+            "recordIndex": "1.12",
+            "properties": {
+              "name": "Approval",
+              "kind": "Decision",
+              "hitPolicy": "sequence",
+              "allRules": [
+                "bad score",
+                "risky grade",
+                "too big Debt to Income ratio",
+                "age not valid",
+                "no name",
+                "wrong SSN",
+                "wrong SSN format",
+                "wrong zip format ",
+                "max amount exceeded"
+              ],
+              "nonExecutedRules": [
+                "bad score",
+                "too big Debt to Income ratio",
+                "age not valid",
+                "no name",
+                "wrong SSN",
+                "wrong SSN format",
+                "wrong zip format ",
+                "max amount exceeded"
+              ],
+              "nestedRecords": [
+                {
+                  "recordType": "Rule",
+                  "recordIndex": "1.12.1",
+                  "properties": {
+                    "name": "risky grade",
+                    "actionIndex": "1",
+                    "executionDuration": 0
+                  }
+                }
+              ],
+              "executionDuration": 1
+            }
+          }
+        ],
+        "output": {
+          "insurance": {
+            "rate": 0.02,
+            "required": true
+          },
+          "approval": {
+            "approved": false,
+            "message": "We are sorry. Your loan has not been approved"
+          }
+        },
+        "executionDuration": 12
+      }
+    },
+    "printedMessages": [],
+    "exceptionsRaised": []
+  }
+}

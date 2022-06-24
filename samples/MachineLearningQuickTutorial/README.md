@@ -8,7 +8,7 @@ This tutorial shows you how to connect an existing predictive model to a machine
 
 ![Image summarize the tutorial steps](images/MLQuickTutorial.png)
 
-For more information on decision models and predictive models, see [Modeling decisions](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=decisions-developing-decision-services) and [Integrating machine learning](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=services-integrating-machine-learning).
+For more information on decision models and predictive models, see [Modeling decisions](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=automations-developing-decision-services) and [Integrating machine learning](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=services-integrating-machine-learning).
 
 For more tutorials about machine learning in Automation Decision Services see:
    - [Machine learning short tutorial](../MachineLearningShortTutorial/README.md) to learn how to connect a predictive model to a Watson Machine Learning Model. 
@@ -32,8 +32,8 @@ This sample is for technical and business users who want to apply predictive ana
 ## Prerequisites
 
 Prepare with the following resources:
-- [Getting started in Automation Decision Services](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=resources-getting-started-tutorial): This tutorial introduces you to Automation Decision Services.
-- [Open Prediction Service API (OPS)](https://github.ibm.com/dba/ads-ml-service): This service allows to discover, manage and run models and deployments of a Machine Learning provider.
+- [Getting started in Automation Decision Services](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=resources-getting-started-tutorial): This tutorial introduces you to Automation Decision Services.
+- [Open Prediction Service API (OPS)](https://github.com/IBM/open-prediction-service-hub): This service allows to discover, manage and run models and deployments of a Machine Learning provider.
 
 You must have the following environments:
 - **Decision Designer**: A web-based user interface for developing decision services in Business Automation Studio. You work with the sample decision service by importing it into a project and opening it in Decision Designer.
@@ -86,20 +86,21 @@ Next you will define a machine learning provider to connect the predictive model
 
 ## Step 2: Defining a machine learning provider
 
-You create a machine learning provider to get your model deployment into your project. See [Managing machine learning providers](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=learning-managing-machine-providers) for more information.
+You create a machine learning provider to get your model deployment into your project. See [Managing machine learning providers](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=learning-managing-local-machine-providers) for more information.
 
 **Procedure**
 
 1. Go back to the diagram and click in the diagram outside any node or link.
-2. Click on the **Connect** button. You see that no provider is defined.
-3. Click on **New provider** to define one.
-4. Click on **New +** to open the Machine Learning provider wizard:
+2. Click on the **Configure** button. You see that no provider is defined.
+3. By default, **Remote Machine Learning Model** is selected. Click on **Next** 
+4. Click on **New provider** to define one.
+5. Click on **New +** to open the Machine Learning provider wizard:
    * Select `Open Prediction Service` as the type.
    * Set `ops-quick` as the name.
    * Enter the description: `Provider for the machine learning quick tutorial`.
    * Enter the URL of your Open Prediction Service instance. Click on the `Test connection` button. It should successfully connect.
    * Click on **Save** to add this provider. Wait for the Status to be Running to have this provider ready to be used in your project.
-5. In the Navigation history click on `loan risk score` to go back to the predictive model.
+6. In the Navigation history click on `loan risk score` to go back to the predictive model.
 
 Next you will connect your predictive model.
 
@@ -184,7 +185,7 @@ You run the decision model using the predictive model you just defined.
 2. In the Navigation history, select `Loan Validation Decision Model`. If the project is in error, you should do the following steps:
    - Remove the `loan risk score` predictive node.
    - Hover on the `Risk score` node and click on  **Add prediction**.
-   - Select the predictive model `loan risk score.` There is no more errors.
+   - Select the predictive model `loan risk score.` There are no more errors.
 3. Click on the Run tab and run the dataset `John Good Score`. You get the following results:
 ![Results image](images/result.png)
 4. Browse the run history: the loan risk score rule has been triggered, the predictive model called the machine learning model deployment.

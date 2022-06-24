@@ -10,5 +10,5 @@ package ads.samples.externalLibrary;
 
 
 public enum Country {
-    FRANCE, GERMANY, ITALY, SPAIN, UK, US, CHINA, JAPAN;
+    FRANCE, GERMANY, ITALY, SPAIN, BRAZIL, UK, US, CHINA, JAPAN;
 }

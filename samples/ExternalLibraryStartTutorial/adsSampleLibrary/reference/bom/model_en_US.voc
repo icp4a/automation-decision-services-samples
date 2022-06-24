@@ -1,6 +1,7 @@
 
 # ads.samples.externalLibrary.Country
 ads.samples.externalLibrary.Country#concept.label = country
+ads.samples.externalLibrary.Country.BRAZIL#instance.label = Brazil
 ads.samples.externalLibrary.Country.FRANCE#instance.label = France
 ads.samples.externalLibrary.Country.GERMANY#instance.label = Germany
 ads.samples.externalLibrary.Country.ITALY#instance.label = Italy

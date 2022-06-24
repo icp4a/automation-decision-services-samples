@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<PMML version="4.2" xmlns="http://www.dmg.org/PMML-4_2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Header copyright="(C) Copyright IBM Corp. 1994, 2021">
+    <Application name="IBM SPSS Modeler" version="18.3"/>
+</Header>
+  <DataDictionary numberOfFields="10">
+    <DataField dataType="double" name="Age" optype="continuous">
+      <Extension extender="spss" name="storageType" value="numeric"/>
+</DataField>
+    <DataField dataType="string" name="Paymethod" optype="categorical">
+      <Extension extender="spss" name="storageType" value="string"/>
+      <Value property="valid" value="Auto"/>
+      <Value property="valid" value="CC"/>
+      <Value property="valid" value="CH"/>
+</DataField>
+    <DataField dataType="double" name="Usage" optype="continuous">
+      <Extension extender="spss" name="storageType" value="numeric"/>
+</DataField>
+    <DataField dataType="string" name="Status" optype="categorical">
+      <Extension extender="spss" name="storageType" value="string"/>
+      <Value property="valid" value="D"/>
+      <Value property="valid" value="M"/>
+      <Value property="valid" value="S"/>
+</DataField>
+    <DataField dataType="integer" name="RatePlan" optype="continuous">
+      <Extension extender="spss" name="storageType" value="numeric"/>
+</DataField>
+    <DataField dataType="integer" name="Children" optype="continuous">
+      <Extension extender="spss" name="storageType" value="numeric"/>
+</DataField>
+    <DataField dataType="double" name="Est Income" optype="continuous">
+      <Extension extender="spss" name="storageType" value="numeric"/>
+</DataField>
+    <DataField dataType="string" name="Gender" optype="categorical">
+      <Extension extender="spss" name="storageType" value="string"/>
+      <Extension extender="spss" name="flagTypeTrueValue" value="M"/>
+      <Value property="valid" value="F"/>
+      <Value property="valid" value="M"/>
+</DataField>
+    <DataField dataType="string" name="Car Owner" optype="categorical">
+      <Extension extender="spss" name="storageType" value="string"/>
+      <Extension extender="spss" name="flagTypeTrueValue" value="Y"/>
+      <Value property="valid" value="N"/>
+      <Value property="valid" value="Y"/>
+</DataField>
+    <DataField dataType="string" name="LTV" optype="categorical">
+      <Extension extender="spss" name="storageType" value="string"/>
+      <Value property="valid" value="AVERAGE"/>
+      <Value property="valid" value="HIGH"/>
+      <Value property="valid" value="LOW"/>
+      <Value property="valid" value="MEDIUM"/>
+      <Value property="valid" value="MEDIUM_HIGH"/>
+      <Value property="valid" value="VERY_LOW"/>
+</DataField>
+</DataDictionary>
+  <RuleSetModel algorithmName="RuleSet" functionName="classification" modelName="LTV">
+    <MiningSchema>
+      <MiningField importance="0.128662" name="Age" usageType="active"/>
+      <MiningField importance="0.0905438" name="Paymethod" usageType="active"/>
+      <MiningField importance="0.234398" name="Usage" usageType="active"/>
+      <MiningField importance="0.0905438" name="Status" usageType="active"/>
+      <MiningField importance="0.0905438" name="RatePlan" usageType="active"/>
+      <MiningField importance="0.0919568" name="Children" usageType="active"/>
+      <MiningField importance="0.0922641" name="Est Income" usageType="active"/>
+      <MiningField importance="0.0905438" name="Gender" usageType="active"/>
+      <MiningField importance="0.0905438" name="Car Owner" usageType="active"/>
+      <MiningField name="LTV" usageType="predicted"/>
+</MiningSchema>
+    <RuleSet defaultConfidence="0.5" defaultScore="LOW" recordCount="3766.0">
+      <RuleSelectionMethod criterion="weightedSum"/>
+      <SimpleRule confidence="0.9696969696969697" id="0" nbCorrect="31.0" recordCount="31" score="AVERAGE" weight="0.9696969696969697">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Paymethod" operator="equal" value="CC"/>
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="77.965"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="57.14"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="53.5"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="42.53"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.9322033898305084" id="1" nbCorrect="54.0" recordCount="57" score="AVERAGE" weight="0.9322033898305084">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="77.965"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="64.17"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="61.75"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="42.53"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.9230769230769231" id="2" nbCorrect="11.0" recordCount="11" score="AVERAGE" weight="0.9230769230769231">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Status" operator="equal" value="M"/>
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="57.14"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="37.295"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="38.3033"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="29.2367"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.875" id="3" nbCorrect="6.0" recordCount="6" score="AVERAGE" weight="0.875">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="68.44"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="57.14"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="42.53"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="39.96335"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.8421052631578947" id="4" nbCorrect="15.0" recordCount="17" score="AVERAGE" weight="0.8421052631578947">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Paymethod" operator="equal" value="CH"/>
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="77.965"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="57.14"/>
+          <SimplePredicate field="RatePlan" operator="greaterThan" value="2.5"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="42.53"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.8181818181818182" id="5" nbCorrect="8.0" recordCount="9" score="AVERAGE" weight="0.8181818181818182">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="32.115"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="24.945"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="29.2367"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="18.98"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.8181818181818182" id="6" nbCorrect="8.0" recordCount="9" score="AVERAGE" weight="0.8181818181818182">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="107.19999999"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="77.965"/>
+          <SimplePredicate field="Est Income" operator="lessOrEqual" value="86464.14999999"/>
+          <SimplePredicate field="Est Income" operator="greaterThan" value="12536.8"/>
+          <SimplePredicate field="Children" operator="lessOrEqual" value="1.5"/>
+          <SimplePredicate field="RatePlan" operator="lessOrEqual" value="2.5"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="51.27665"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.8148148148148148" id="7" nbCorrect="21.0" recordCount="25" score="AVERAGE" weight="0.8148148148148148">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="40.65"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="32.115"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="29.2367"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="21.07999999"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.7894736842105263" id="8" nbCorrect="29.0" recordCount="36" score="AVERAGE" weight="0.7894736842105263">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="57.14"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="50.86"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="50.59"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="38.3033"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.7777777777777778" id="9" nbCorrect="6.0" recordCount="7" score="AVERAGE" weight="0.7777777777777778">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="90.71"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="77.965"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="51.27665"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.6666666666666666" id="10" nbCorrect="3.0" recordCount="4" score="AVERAGE" weight="0.6666666666666666">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="24.945"/>
+          <SimplePredicate field="Est Income" operator="lessOrEqual" value="7516.475"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="29.2367"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.9903846153846154" id="11" nbCorrect="205.0" recordCount="206" score="HIGH" weight="0.9903846153846154">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="greaterThan" value="103.365"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="39.96335"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.9903846153846154" id="12" nbCorrect="102.0" recordCount="102" score="HIGH" weight="0.9903846153846154">
+        <SimplePredicate field="Usage" operator="greaterThan" value="190.275"/>
+</SimpleRule>
+      <SimpleRule confidence="0.988950276243094" id="13" nbCorrect="178.0" recordCount="179" score="HIGH" weight="0.988950276243094">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="greaterThan" value="130.065"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="48.52335"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.9818181818181818" id="14" nbCorrect="53.0" recordCount="53" score="HIGH" weight="0.9818181818181818">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Gender" operator="equal" value="F"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="37.84"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="18.98"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.9764705882352941" id="15" nbCorrect="82.0" recordCount="83" score="HIGH" weight="0.9764705882352941">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="greaterThan" value="107.19999999"/>
+          <SimplePredicate field="Est Income" operator="lessOrEqual" value="87773.3"/>
+          <SimplePredicate field="Children" operator="lessOrEqual" value="0.5"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="48.52335"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.9746376811594203" id="16" nbCorrect="268.0" recordCount="274" score="HIGH" weight="0.9746376811594203">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="greaterThan" value="57.14"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="30.02665"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.9666666666666667" id="17" nbCorrect="28.0" recordCount="28" score="HIGH" weight="0.9666666666666667">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Gender" operator="equal" value="M"/>
+          <SimplePredicate field="Status" operator="equal" value="M"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="146.745"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="62.59335"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.9615384615384616" id="18" nbCorrect="24.0" recordCount="24" score="HIGH" weight="0.9615384615384616">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Status" operator="equal" value="S"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="146.745"/>
+          <SimplePredicate field="RatePlan" operator="greaterThan" value="3.5"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="62.59335"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.8888888888888888" id="19" nbCorrect="7.0" recordCount="7" score="HIGH" weight="0.8888888888888888">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Status" operator="equal" value="D"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="107.19999999"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="62.59335"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.8846153846153846" id="20" nbCorrect="22.0" recordCount="24" score="HIGH" weight="0.8846153846153846">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Car Owner" operator="equal" value="Y"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="107.19999999"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="56.82335"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="52.32335"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.868421052631579" id="21" nbCorrect="32.0" recordCount="36" score="HIGH" weight="0.868421052631579">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Car Owner" operator="equal" value="Y"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="37.84"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="18.98"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.8974358974358975" id="22" nbCorrect="34.0" recordCount="37" score="LOW" weight="0.8974358974358975">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="64.17"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="57.14"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="53.5"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.851063829787234" id="23" nbCorrect="39.0" recordCount="45" score="LOW" weight="0.851063829787234">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="77.965"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="57.14"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="61.75"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.8076923076923077" id="24" nbCorrect="20.0" recordCount="24" score="LOW" weight="0.8076923076923077">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="64.17"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="57.14"/>
+          <SimplePredicate field="RatePlan" operator="lessOrEqual" value="2.5"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="39.96335"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.4640088593576966" id="25" nbCorrect="418.0" recordCount="901" score="LOW" weight="0.4640088593576966">
+        <SimplePredicate field="Usage" operator="lessOrEqual" value="57.14"/>
+</SimpleRule>
+      <SimpleRule confidence="0.9230769230769231" id="26" nbCorrect="11.0" recordCount="11" score="MEDIUM" weight="0.9230769230769231">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="77.34999999"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="57.14"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="39.96335"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="30.02665"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.8461538461538461" id="27" nbCorrect="10.0" recordCount="11" score="MEDIUM" weight="0.8461538461538461">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="57.14"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="32.115"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="21.07999999"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="18.98"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.8333333333333334" id="28" nbCorrect="34.0" recordCount="40" score="MEDIUM" weight="0.8333333333333334">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="57.14"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="40.65"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="29.2367"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="18.98"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.8275862068965517" id="29" nbCorrect="23.0" recordCount="27" score="MEDIUM" weight="0.8275862068965517">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="146.745"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="107.19999999"/>
+          <SimplePredicate field="Est Income" operator="greaterThan" value="71765.39999999"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="48.52335"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.8" id="30" nbCorrect="3.0" recordCount="3" score="MEDIUM" weight="0.8">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Status" operator="equal" value="S"/>
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="57.14"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="37.295"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="38.3033"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="29.2367"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.8" id="31" nbCorrect="19.0" recordCount="23" score="MEDIUM" weight="0.8">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="37.84"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="24.945"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="18.98"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.2955390334572491" id="32" nbCorrect="158.0" recordCount="536" score="MEDIUM" weight="0.2955390334572491">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="greaterThan" value="57.14"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="39.96335"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.9333333333333333" id="33" nbCorrect="13.0" recordCount="13" score="MEDIUM_HIGH" weight="0.9333333333333333">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="190.275"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="107.19999999"/>
+          <SimplePredicate field="Est Income" operator="greaterThan" value="87773.3"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="48.52335"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="39.96335"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.8666666666666667" id="34" nbCorrect="12.0" recordCount="13" score="MEDIUM_HIGH" weight="0.8666666666666667">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Gender" operator="equal" value="M"/>
+          <SimplePredicate field="Car Owner" operator="equal" value="N"/>
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="57.14"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="37.84"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="18.98"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.85" id="35" nbCorrect="16.0" recordCount="18" score="MEDIUM_HIGH" weight="0.85">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Car Owner" operator="equal" value="Y"/>
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="146.745"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="107.19999999"/>
+          <SimplePredicate field="Est Income" operator="lessOrEqual" value="71765.39999999"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="52.32335"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="48.52335"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.8333333333333334" id="36" nbCorrect="9.0" recordCount="10" score="MEDIUM_HIGH" weight="0.8333333333333334">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="107.19999999"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="77.965"/>
+          <SimplePredicate field="Est Income" operator="greaterThan" value="86464.14999999"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="50.56"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="39.96335"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.8333333333333334" id="37" nbCorrect="9.0" recordCount="10" score="MEDIUM_HIGH" weight="0.8333333333333334">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Car Owner" operator="equal" value="N"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="107.19999999"/>
+          <SimplePredicate field="Est Income" operator="lessOrEqual" value="12510.805"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="48.52335"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.8181818181818182" id="38" nbCorrect="17.0" recordCount="20" score="MEDIUM_HIGH" weight="0.8181818181818182">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="103.365"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="77.34999999"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="39.96335"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="30.02665"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.8181818181818182" id="39" nbCorrect="8.0" recordCount="9" score="MEDIUM_HIGH" weight="0.8181818181818182">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="107.19999999"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="77.965"/>
+          <SimplePredicate field="Children" operator="lessOrEqual" value="1.5"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="44"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="39.96335"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.8" id="40" nbCorrect="15.0" recordCount="18" score="MEDIUM_HIGH" weight="0.8">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="130.065"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="107.19999999"/>
+          <SimplePredicate field="Children" operator="greaterThan" value="0.5"/>
+          <SimplePredicate field="Age" operator="lessOrEqual" value="48.52335"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="39.96335"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.7857142857142857" id="41" nbCorrect="10.0" recordCount="12" score="MEDIUM_HIGH" weight="0.7857142857142857">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Paymethod" operator="equal" value="CH"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="107.19999999"/>
+          <SimplePredicate field="Est Income" operator="lessOrEqual" value="71765.39999999"/>
+          <SimplePredicate field="Est Income" operator="greaterThan" value="12510.805"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="48.52335"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.7692307692307693" id="42" nbCorrect="9.0" recordCount="11" score="MEDIUM_HIGH" weight="0.7692307692307693">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Car Owner" operator="equal" value="Y"/>
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="190.275"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="107.19999999"/>
+          <SimplePredicate field="Est Income" operator="lessOrEqual" value="71765.39999999"/>
+          <SimplePredicate field="Children" operator="lessOrEqual" value="1"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="56.82335"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.7333333333333333" id="43" nbCorrect="10.0" recordCount="13" score="MEDIUM_HIGH" weight="0.7333333333333333">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Gender" operator="equal" value="F"/>
+          <SimplePredicate field="Status" operator="equal" value="M"/>
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="190.275"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="146.745"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="48.52335"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.5777777777777777" id="44" nbCorrect="24.999999999999996" recordCount="43" score="MEDIUM_HIGH" weight="0.5777777777777777">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="190.275"/>
+          <SimplePredicate field="Usage" operator="greaterThan" value="146.745"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="48.52335"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.9927007299270073" id="45" nbCorrect="135.0" recordCount="135" score="VERY_LOW" weight="0.9927007299270073">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="17.00999999"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="29.2367"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.9875" id="46" nbCorrect="157.0" recordCount="158" score="VERY_LOW" weight="0.9875">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="26.86"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="43.5"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.9879518072289156" id="47" nbCorrect="81.0" recordCount="81" score="VERY_LOW" weight="0.9879518072289156">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="30.44"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="55.03665"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.986013986013986" id="48" nbCorrect="140.0" recordCount="141" score="VERY_LOW" weight="0.986013986013986">
+        <SimplePredicate field="Usage" operator="lessOrEqual" value="16.77499999"/>
+</SimpleRule>
+      <SimpleRule confidence="0.9375" id="49" nbCorrect="104.0" recordCount="110" score="VERY_LOW" weight="0.9375">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="26.86"/>
+          <SimplePredicate field="Children" operator="greaterThan" value="1.5"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="29.72335"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.9166666666666666" id="50" nbCorrect="10.0" recordCount="10" score="VERY_LOW" weight="0.9166666666666666">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="37.295"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="65.17664999"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.9166666666666666" id="51" nbCorrect="32.0" recordCount="34" score="VERY_LOW" weight="0.9166666666666666">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Status" operator="equal" value="S"/>
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="37.295"/>
+          <SimplePredicate field="RatePlan" operator="lessOrEqual" value="3.5"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="55.03665"/>
+</CompoundPredicate>
+</SimpleRule>
+      <SimpleRule confidence="0.9130434782608695" id="52" nbCorrect="20.0" recordCount="21" score="VERY_LOW" weight="0.9130434782608695">
+        <CompoundPredicate booleanOperator="and">
+          <SimplePredicate field="Usage" operator="lessOrEqual" value="37.295"/>
+          <SimplePredicate field="Est Income" operator="lessOrEqual" value="3725.475"/>
+          <SimplePredicate field="Age" operator="greaterThan" value="29.2367"/>
+</CompoundPredicate>
+</SimpleRule>
+</RuleSet>
+</RuleSetModel>
+</PMML>

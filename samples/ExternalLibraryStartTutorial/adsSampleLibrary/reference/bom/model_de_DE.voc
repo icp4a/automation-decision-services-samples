@@ -28,6 +28,7 @@
 
 # ads.samples.externalLibrary.Country
 ads.samples.externalLibrary.Country#concept.label = Land
+ads.samples.externalLibrary.Country.BRAZIL#instance.label = Brasilien
 ads.samples.externalLibrary.Country.FRANCE#instance.label = Frankreich
 ads.samples.externalLibrary.Country.GERMANY#instance.label = Deutschland
 ads.samples.externalLibrary.Country.ITALY#instance.label = Italien

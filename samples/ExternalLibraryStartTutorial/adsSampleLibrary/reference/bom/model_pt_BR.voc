@@ -1,0 +1,44 @@
+
+# Term: iniciais
+@iniciais#article.definite = as
+@iniciais#gender = FEMALE
+
+# Term: pessoa
+@pessoa#gender = FEMALE
+
+# Term: saudação
+@saudação#gender = FEMALE
+
+# ads.samples.externalLibrary.Country
+ads.samples.externalLibrary.Country#concept.label = país
+ads.samples.externalLibrary.Country.BRAZIL#instance.label = Brasil
+ads.samples.externalLibrary.Country.CHINA#instance.label = China
+ads.samples.externalLibrary.Country.FRANCE#instance.label = França
+ads.samples.externalLibrary.Country.GERMANY#instance.label = Alemanha
+ads.samples.externalLibrary.Country.ITALY#instance.label = Itália
+ads.samples.externalLibrary.Country.JAPAN#instance.label = Japão
+ads.samples.externalLibrary.Country.SPAIN#instance.label = Espanha
+ads.samples.externalLibrary.Country.UK#instance.label = Reino Unido
+ads.samples.externalLibrary.Country.US#instance.label = Estados Unidos
+
+# ads.samples.externalLibrary.Person
+ads.samples.externalLibrary.Person#concept.label = pessoa
+ads.samples.externalLibrary.Person.Person(java.lang.String,ads.samples.externalLibrary.Country)#phrase.navigation = uma nova {pessoa} como {0, nome de entrada} {1, país}
+ads.samples.externalLibrary.Person.country#phrase.action = atribuir o país {this, PARTITIVE_ARTICLE} a {país}
+ads.samples.externalLibrary.Person.country#phrase.navigation = {país} {this, PARTITIVE_ARTICLE}
+ads.samples.externalLibrary.Person.equals(java.lang.Object)#phrase.navigation = {this} é idêntico a {0}
+ads.samples.externalLibrary.Person.firstName#phrase.navigation = {nome} {this, PARTITIVE_ARTICLE}
+ads.samples.externalLibrary.Person.fullName#phrase.navigation = {nome completo} {this, PARTITIVE_ARTICLE}
+ads.samples.externalLibrary.Person.greeting#phrase.navigation = {saudação} {this, PARTITIVE_ARTICLE}
+ads.samples.externalLibrary.Person.initials#phrase.navigation = {iniciais} {this, PARTITIVE_ARTICLE}
+ads.samples.externalLibrary.Person.inputName#phrase.action = atribuir nome de entrada {this, PARTITIVE_ARTICLE} a {nome de entrada}
+ads.samples.externalLibrary.Person.inputName#phrase.navigation = {nome de entrada} {this, PARTITIVE_ARTICLE}
+ads.samples.externalLibrary.Person.lastName#phrase.navigation = {sobrenome} {this, PARTITIVE_ARTICLE}
+ads.samples.externalLibrary.Person.shortName#phrase.navigation = {nome curto} {this, PARTITIVE_ARTICLE}
+
+# ads.samples.externalLibrary.StringUtilities
+ads.samples.externalLibrary.StringUtilities#concept.label = string utilities
+ads.samples.externalLibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation = {0} em maiúsculas
+ads.samples.externalLibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation.precedence = 1-2:nonassoc:102
+ads.samples.externalLibrary.StringUtilities.firstLetter(java.lang.String)#phrase.navigation = a primeira letra {0, PARTITIVE_ARTICLE}
+ads.samples.externalLibrary.StringUtilities.firstLetter(java.lang.String)#phrase.navigation.precedence = 0-2:nonassoc:101

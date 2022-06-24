@@ -6,7 +6,7 @@
     <parent>
         <artifactId>externalLibrary</artifactId>
         <groupId>ads.samples</groupId>
-        <version>1.0.11.2</version>
+        <version>1.1.1</version>
     </parent>
 
     <groupId>ads.samples</groupId>
@@ -74,6 +74,7 @@
                                 <locale>de_DE</locale>
                                 <locale>it_IT</locale>
                                 <locale>es_ES</locale>
+                                <locale>pt_BR</locale>
                                 <locale>zh_CN</locale>
                                 <locale>ja_JP</locale>
                             </locales>
@@ -101,10 +102,10 @@
 
     <dependencies>
         <dependency>
-             <groupId>ads.samples</groupId>
+            <groupId>ads.samples</groupId>
             <artifactId>sampleLibrary</artifactId>
-            <version>1.0.11.2</version>
-       </dependency>
+            <version>1.1.1</version>
+        </dependency>
     </dependencies>
 
 </project>

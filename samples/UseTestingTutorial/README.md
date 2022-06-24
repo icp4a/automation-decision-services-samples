@@ -18,7 +18,7 @@ This tutorial is for technical and business users who want to add unit tests to 
 
 ## Prerequisites
 
-Prepare by doing the [Getting started in Automation Decision Services](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=resources-getting-started-tutorial) tutorial. It introduces you to Automation Decision Services.
+Prepare by doing the [Getting started in Automation Decision Services](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=resources-getting-started-tutorial) tutorial. It introduces you to Automation Decision Services.
 Note that in this tutorial, the steps are not as detailed as in the Getting started, you can refer to it if you need more information.
 
 You must have the following environment:
@@ -36,7 +36,7 @@ In this task, you...
  ## Step 1: Exploring a decision service
  In this step, you create a new project, import a sample, and explore a decision service to be ready to add unit tests to it. 
  This decision service is `Loan Approval` which validates loans by using data from the borrower, and computes insurance rates for the requested loan amount.
- If you need more details to follow the instructions please refer to the [Getting started in Automation Decision Services](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=resources-getting-started-tutorial) tutorial.
+ If you need more details to follow the instructions please refer to the [Getting started in Automation Decision Services](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=resources-getting-started-tutorial) tutorial.
  
  **Procedure**
  
@@ -46,7 +46,7 @@ In this task, you...
 4. Open the **Decision Operations** tab, open the existing operation. The source model is `Approval decision model` and the function name is `Approval-decision-model`. The
 operation ID to be used in the unit test is `ApprovalDecisionModel-Approval-decision-model`.
 5. Open the **Approval decision model** model and explore its diagram.
-6. Click the **Run** tab. Four data sets are defined. Open the `InvalidZipCode` data set, open the overflow menu and select `Edit as JSON` to get its json input to be used in the unit test definition.
+6. Click the **Run** tab. Four data sets are defined. Open the `InvalidZipCode` data set and click on `Edit as JSON` to get its json input to be used in the unit test definition.
 7. Run the data set. You get the following response in the node named `Approval`:
 ```
 {
@@ -61,7 +61,11 @@ In the next task, you write a unit test to check the output of this data set.
 ## Step 2: Sharing your decision service
 
 In this step, you connect your project to a Git repository and you share your decision service in your instance of Automation Decision Services.
-If you need more details to follow the instructions please refer to the [Getting started in Automation Decision Services Task2](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=resources-getting-started-tutorial) tutorial.
+
+**Note**: 
+If Decision Designer is configured to automatically create a Git repository to connect to your project, you can ignore the created repository.
+Create a new one and follow the procedure below.
+If you need more details to follow the instructions please refer to the [Getting started in Automation Decision Services Task2](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=resources-getting-started-tutorial) tutorial.
  
 **Procedure**
 
@@ -80,8 +84,10 @@ In this task, you...
 - Add unit tests to your decision service.
 - Run those unit tests locally to debug them.
 
-You use Maven to build and test the project. Refer to the [Building and deploying from a CI/CD stack](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=services-building-deploying-from-cicd-stack) documentation for more details.
-                                              
+You use Maven to build and test the project. You use Designer as a maven repository.
+Refer to 
+the [Using Decision Designer as a Maven repository](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=environment-using-decision-designer-as-maven-repository) 
+documentation for more details.                                   
 
 ## Step 1: Building your decision service
 
@@ -91,24 +97,23 @@ In this step, you first clone your Git repository, define your Maven settings fi
 
 1. Create a new empty directory on your machine and clone your Git repository by running the command `git clone <repository URL>` in this directory. 
 2. Browse the files of your decision project, open the `Loan Approval` directory that contains the files of the `Loan Approval` decision service.
-3. If your Maven settings file is configured to access Automation Decision Services artifacts, you can skip this point.
-Otherwise, you must define a Maven settings file by completing the template settings.xml, which is provided in this sample.
-   * Open **automation-decision-services-samples/samples/UseTestingTutorial/settings.xml**.
-   *  Replace all the `TO BE SET` tags with appropriate values:
-      * `LOCAL REPOSITORY TO BE SET`: A directory on your machine in which the artifacts are downloaded.
-      * `MAVEN SNAPSHOT TO BE SET`: The URL of the repository manager snapshot repository.
-      * `MAVEN RELEASE TO BE SET`: The URL of the repository manager release repository.
-      * `MAVEN PUBLIC TO BE SET`: The URL of the repository manager public repository.
-      * `USER TO BE SET`: A username that can access the repository manager.
-      * `PASSWORD TO BE SET`: The username's password to access the repository manager.
-   * Copy the `settings.xml` file in the `Loan Approval` directory opened in point 2.
-3. Run the following command in the `Loan Approval` directory: 
+3. Be sure your Maven settings file is configure to access Automation Decision Services artifacts to be able to build the decision service. Otherwise, you define a Maven setting file by completing the template settings.xml, which is provided in this sample.
+To access the Automation Decision Services artifacts to build the decision service, replace the following placeholders: :
+   * %ADS_MAVEN_REPOSITORY_TO_BE_SET% : the URL of your ADS maven repository ([more](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=environment-using-decision-designer-as-maven-repository)).
+   * %YOUR_API_KEY_TO_BE_SET% : your encoded ZEN api key (For more information about getting the API key, see this [documentation](https://www.ibm.com/docs/en/cloud-paks/1.0?topic=users-generating-api-keys-authentication). You must encode this key as described in this [documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=administering-authorizing-http-requests-by-using-zen-api-key)).
+   *  Copy the `settings.xml` file in the `Loan Approval` directory opened in point 2.
+4. Enable Maven to use ADS remote repository stored in HTTPS servers ([more](https://maven.apache.org/guides/mini/guide-repository-ssl.html)). <br>
+  Note: Alternatively, for test only, SSL validation can be disabled using 
+  ```
+  -Dmaven.wagon.http.ssl.insecure=true
+  ```
+5. Run the following command in the `Loan Approval` directory: 
 ```
 mvn clean install -s settings.xml
 ```
 Your decision archive named `loanApprovalDecisionService-1.0.0-SNAPSHOT.jar` is created in the `Loan Approval/.decisionservice/target/` directory.
 
-4. Open the file `Loan Approval/Approval decision model/target/classes/META-INF/decisions/ApprovalDecisionModel-Approval-decision-model.json`. It contains:
+6. Open the file `Loan Approval/Approval decision model/target/classes/META-INF/decisions/ApprovalDecisionModel-Approval-decision-model.json`. It contains:
 ```
 {
   "contentVersion" : "1.0.0",
@@ -121,7 +126,7 @@ The name of this file which is also contained in the field `"name"` is the opera
 ## Step 2: Adding unit tests
 
 In this step, you add unit tests in the decision model. Those unit tests are described in JSON format giving the input and expected output of each run.
-A Java file is also required to add a JUnit test browsing those JSON files. You can find detailed information about writing unit test in the [Unit testing documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=services-unit-testing)
+A Java file is also required to add a JUnit test browsing those JSON files. You can find detailed information about writing unit test in the [Unit testing documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=services-unit-testing)
 
 **Procedure**
 
@@ -274,7 +279,7 @@ This time the test passes and the archive is generated. You get the following ou
 ...
 ```
 
-4. Since the tests are running fine, you commit your changes to your Git repository. For this, you add the new files using the `git add` command, then you commit using `git commit -m"add unit test"` and you push your changes.
+4. Since the tests are running fine, you commit your changes to your Git repository. For this, you add the new files using the `git add` command, then you commit using `git commit -m "add unit test"` and you push your changes.
 
 In next step, you load your tests in Decision Designer and look at the test results using the embedded build.
 
@@ -289,15 +294,15 @@ In this task, you load you changes in Decision Designer, you deploy the decision
 2. Open the `Load changes` tab and load the changes you just committed to `Loan Approval`.
 3. Open the Deploy tab, create a new version as proposed, and name it `UnitTest`.
 4. Expand this version and click on Deploy at the end of the `Loan Approval`row. 
-5. When the deployment is completed, click on the View logs button next to the successful status and search for the Tests section: your test has been successfully executed.
+5. When the deployment is completed, click on the `View tests report` button next to Test succeeded. You get the following output:
+ and search for the Tests section: your test has been successfully executed.
 ```
-...
-INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running adsSamples.TestLoanApproval
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.213 s - in adsSamples.TestLoanApproval
-...
+Test result
+adsSamples.TestLoanApproval
+1 tests ran for 0.615 seconds.
+Success
+
+InvalidZipCode.json (decisionTests()): 0.566 seconds
 ```
 **Important note** 
 
@@ -308,4 +313,4 @@ In this case, `Deploy` will fail in Decision Designer, you will have to open the
 
 You've completed this tutorial. You can find more tests in the `project/BankingTested.zip` project.
 You can import this zip in a new project in Decision Designer and connect it to a Git repository to look at the tests. The decision service `Approval with ML`
-does not contain any test because the unit test feature is not yet supported for decision services using machine learning. You can find tests for the three others decision services. Note that the decision services available in `project/BankingTested.zip` are the same as the ones available in the `Banking` sample. You will need to rename the decision services before you can import the `Banking` sample.
+does not contain any test because the unit test feature is not yet supported for decision services using machine learning. You can find tests for the three other decision services. Note that the decision services available in `project/BankingTested.zip` are the same as the ones available in the `Banking` sample. You will need to rename the decision services before you can import the `Banking` sample.

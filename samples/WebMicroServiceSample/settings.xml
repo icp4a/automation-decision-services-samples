@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <mirrors>
+        <mirror>
+            <id>ads-maven</id> <!-- match server definition -->
+            <mirrorOf>ads-maven</mirrorOf> <!-- match repository definition -->
+            <name>ADS Maven repository mirror</name>
+            <url>ADS_MAVEN_REPOSITORY_TO_BE_SET</url>
+        </mirror>
+    </mirrors>
+    <profiles>
+        <profile>
+            <id>mavenRepos</id>
+            <repositories>
+                <repository>
+                    <id>ads-maven</id>
+                    <name>ADS maven repository</name>
+                    <url>ADS_MAVEN_REPOSITORY_TO_BE_SET</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>ads-maven</id>
+                    <name>ADS maven repository</name>
+                    <url>ADS_MAVEN_REPOSITORY_TO_BE_SET</url>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>mavenRepos</activeProfile>
+    </activeProfiles>
+    <servers>
+        <server>
+            <id>ads-maven</id>
+            <configuration>
+                <httpHeaders>
+                    <property>
+                        <name>Authorization</name>
+                        <value>ZenApiKey API_KEY_TO_BE_SET</value>
+                    </property>
+                </httpHeaders>
+            </configuration>
+        </server>
+    </servers>
+</settings>

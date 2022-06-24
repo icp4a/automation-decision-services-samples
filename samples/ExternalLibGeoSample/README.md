@@ -2,7 +2,7 @@
 
 ## Description
 This sample defines an external library that provides geolocalization functions that are ready for use in Automation Decision Services.
-For more information about decision models and external libraries, see [Working with external libraries](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=data-working-external-libraries).
+For more information about decision models and external libraries, see [Working with external libraries](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=data-working-external-libraries).
 
 ## Learning objectives
 - Build an external library from a Java library.
@@ -26,7 +26,7 @@ Some basic knowledge of Java is required.
 
 You must have the following environments:
 - **Decision Designer**: The web-based user interface for developing decision services in Automation Decision Service. You work with a sample decision service by importing it into a project and opening it in Decision Designer.
-- **Deployment services**: Your IT developers must provide a CI/CD stack that is connected to Decision Designer. They must give you the host name of a deployment space into which you can deploy the external library.
+- **Deployment services**: Your IT developers must provide a repository manager where you can deploy the external library.
 - **Apache Maven**: You can download Maven from https://maven.apache.org.
 
 Download a compressed file of the `automation-decision-services-samples` Git repository to your computer.
@@ -41,7 +41,7 @@ The sample refers to **automation-decision-services-samples** as the directory w
 - Open the settings of your project to define the external library:
   - Group ID: ads.samples
   - Artifact ID: adsGeoLibrary
-  - Version: 1.0.21.1
+  - Version: 1.0.25
   
 # Sample details
 
