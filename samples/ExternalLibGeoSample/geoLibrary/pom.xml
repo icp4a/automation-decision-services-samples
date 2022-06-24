@@ -5,7 +5,7 @@
     <parent>
         <artifactId>externalLibraryGeo</artifactId>
         <groupId>ads.samples</groupId>
-        <version>1.0.21.1</version>
+        <version>1.0.25</version>
     </parent>
 
     <artifactId>geoLibrary</artifactId>
@@ -52,7 +52,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
-            <version>2.10.1</version>
+            <version>2.13.2</version>
             <scope>provided</scope>
         </dependency>
         <dependency>

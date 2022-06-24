@@ -2,32 +2,28 @@
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
-    <!-- use our own local repository allows checks if needed  -->
-    <localRepository>LOCAL REPOSITORY TO BE SET</localRepository>
+    <mirrors>
+        <mirror>
+            <id>maven-releases</id> <!-- match server definition -->
+            <mirrorOf>maven-releases</mirrorOf> <!-- match repository definition -->
+            <name>Maven release mirror</name>
+            <url>%MAVEN_RELEASES-REPOSITORY_TO_BE_SET%</url>
+        </mirror>
+        <mirror>
+            <id>ads-maven</id> <!-- match server definition -->
+            <mirrorOf>ads-maven</mirrorOf> <!-- match repository definition -->
+            <name>ADS Maven repository mirror</name>
+            <url>%ADS_MAVEN_REPOSITORY_TO_BE_SET%</url>
+        </mirror>
+    </mirrors>
     <profiles>
         <profile>
             <id>mavenRepos</id>
             <repositories>
                 <repository>
-                    <id>maven-snapshots</id>
-                    <name>Maven snapshot repo</name>
-                    <url>MAVEN SNAPSHOT TO BE SET</url>
-                    <releases>
-                        <enabled>false</enabled>
-                    </releases>
-                </repository>
-                <repository>
                     <id>maven-releases</id>
                     <name>Maven release repo</name>
-                    <url>MAVEN RELEASE TO BE SET</url>
-                    <snapshots>
-                        <enabled>false</enabled>
-                    </snapshots>
-                </repository>
-                <repository>
-                    <id>maven-public</id>
-                    <name>Maven group repo</name>
-                    <url>MAVEN PUBLIC TO BE SET</url>
+                    <url>%MAVEN_RELEASES-REPOSITORY_TO_BE_SET%</url>
                     <snapshots>
                         <enabled>false</enabled>
                     </snapshots>
@@ -35,9 +31,9 @@
             </repositories>
             <pluginRepositories>
                 <pluginRepository>
-                    <id>maven-plugins</id>
-                    <name>Maven group repo</name>
-                    <url>MAVEN PUBLIC TO BE SET</url>
+                    <id>ads-maven</id>
+                    <name>ADS Maven group repo</name>
+                    <url>%ADS_MAVEN_REPOSITORY_TO_BE_SET%</url>
                 </pluginRepository>
             </pluginRepositories>
         </profile>
@@ -52,19 +48,15 @@
             <password>PASSWORD TO BE SET</password>
         </server>
         <server>
-            <id>maven-snapshots</id>
-            <username>USER TO BE SET</username>
-            <password>PASSWORD TO BE SET</password>
-        </server>
-        <server>
-            <id>maven-public</id>
-            <username>USER TO BE SET</username>
-            <password>PASSWORD TO BE SET</password>
-        </server>
-        <server>
-            <id>maven-plugins</id>
-            <username>USER TO BE SET</username>
-            <password>PASSWORD TO BE SET</password>
+            <id>ads-maven</id>
+            <configuration>
+                <httpHeaders>
+                    <property>
+                        <name>Authorization</name>
+                        <value>ZenApiKey %YOUR_API_KEY_TO_BE_SET%</value>
+                    </property>
+                </httpHeaders>
+            </configuration>
         </server>
     </servers>
 </settings>

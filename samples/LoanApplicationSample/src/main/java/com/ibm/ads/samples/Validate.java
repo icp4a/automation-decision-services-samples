@@ -312,7 +312,7 @@ public class Validate extends HttpServlet {
 			JsonObject record = (JsonObject)iterator.next();
 			if (record.getString("recordType").equals("Rule")) {
 				JsonObject properties = record.getJsonObject("properties");
-				result = result + "<li>" + properties.getString("ruleName") + "</li>";				
+				result = result + "<li>" + properties.getString("name") + "</li>";				
 			}
 		}
 		return result;

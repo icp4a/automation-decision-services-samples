@@ -1,5 +1,6 @@
 # ads.samples.externalLibrary.Country
 ads.samples.externalLibrary.Country#concept.label = 国家或地区
+ads.samples.externalLibrary.Country.BRAZIL#instance.label = 巴西
 ads.samples.externalLibrary.Country.FRANCE#instance.label = 法国
 ads.samples.externalLibrary.Country.GERMANY#instance.label = 德国
 ads.samples.externalLibrary.Country.ITALY#instance.label = 意大利

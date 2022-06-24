@@ -5,7 +5,7 @@
 This sample uses a decision service that recommends a retention offer based on predicted customer churn and lifetime value. 
 Those predictions are made using two predictive models connected to Watson Machine Learning models deployed with AutoAI.
 
-For more information on decision models and predictive models, see [Modeling decisions](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=decisions-developing-decision-services) and [Integrating machine learning](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/21.0.3?topic=services-integrating-machine-learning).
+For more information on decision models and predictive models, see [Modeling decisions](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=automations-developing-decision-services) and [Integrating machine learning](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=services-integrating-machine-learning).
 
 ## Learning objectives
    - Build a Watson Machine Learning (WML) model and deploy it using an AutoAI experiment.

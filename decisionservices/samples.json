@@ -53,9 +53,9 @@
     "iconName": "WatsonMachineLearning",
     "iconColor": "yellow"
   },
-  "Chinese": {
-    "displayName": "Chinese - 中文",
-    "description": "以中文书写的决策",
+  "Portuguese": {
+    "displayName": "Brazilian Portuguese - Português brasileiro",
+    "description": "Decisões em português brasileiro.",
     "type": 0,
     "nbProjects": 1,
     "level": 0,
@@ -98,6 +98,15 @@
     "iconName": "Education",
     "iconColor": "blue"
   },
+  "Chinese": {
+    "displayName": "Simplified Chinese - 简体中文",
+    "description": "用简体中文写的决定",
+    "type": 0,
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "Education",
+    "iconColor": "blue"
+  },
   "Spanish": {
     "displayName": "Spanish - Español",
     "description": "Decisiones en Español.",
@@ -125,7 +134,7 @@
     "iconName": "Receipt",
     "iconColor": "magenta"
   },
-   "Pricing": {
+  "Pricing": {
     "displayName": "Pricing",
     "description": "Calculate shipping price after applicable discount.",
     "type": 1,
@@ -147,7 +156,7 @@
     "displayName": "Telecom",
     "description": "Determine the best offer to make to customers to reduce churn rate.",
     "type": 1,
-    "nbProjects": 2,
+    "nbProjects": 3,
     "level": 2,
     "iconName": "PhoneFilled",
     "iconColor": "red"
