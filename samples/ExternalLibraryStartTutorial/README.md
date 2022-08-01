@@ -104,16 +104,15 @@ To be able to deploy the library, you must have the following information:
 2. Look at the property definitions:
     * `archive.repository.snapshot.url`: The URL in which you deploy snapshots. This value is used in the distribution management part. 
     * `archive.repository.release.url`: The URL in which you deploy releases. This value is used in the distribution management part. 
-    * `ads-mojo.version` The version that is used to build the library. (**Note:** This sample was tested with Mojo 6.1.5.3.)
-   * `ads-annotations.version` The version that is used to build the library. (**Note:** This sample was tested with annotations 1.0.12.)
-
+    * `ads-mojo.version` The version that is used to build the library. (**Note:** This sample was tested with Mojo 6.1.5.4, which was delivered with the 21.0.3 IFIX0010 version of Automation Decision Services. If you use a newer iFix version, make sure you use the Mojo version delivered by this version.)
+    * `ads-annotations.version` The version that is used to build the library. (**Note:** This sample was tested with annotations 1.0.12, which was delivered with the 21.0.3 IFIX0010 version of Automation Decision Services. If you use a newer iFix version, make sure you use the annotations version delivered by this iFix.)
 3. Replace the instances of `TO BE SET` by the appropriate values:
 
 ```
    <properties>
        <archive.repository.snapshot.url>SNAPSHOT URL TO BE SET</archive.repository.snapshot.url>
        <archive.repository.release.url>RELEASE URL TO BE SET</archive.repository.release.url>
-       <ads-mojo.version>6.1.5.3</ads-mojo.version>
+       <ads-mojo.version>6.1.5.4</ads-mojo.version>
        <ads-annotations.version>1.0.12</ads-annotations.version>
    </properties>
 ```
