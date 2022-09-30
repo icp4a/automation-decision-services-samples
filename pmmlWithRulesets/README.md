@@ -1,6 +1,6 @@
 # Sample: Import PMML files to create transparent predictive models
 
-This directory contains PMML files with rulesets. These files were generated using different algorithms from AI Explainability 360 and Watson Studio Modeler Flow (SPSS Modeler).
+This directory contains PMML files with rulesets. These files were generated using different algorithms from AI Explainability 360 and Watson Studio Modeler Flow ([SPSS Modeler](https://dataplatform.cloud.ibm.com/docs/content/wsd/spss-modeler.html)).
 
 ## Using PMML files with rulesets
 
