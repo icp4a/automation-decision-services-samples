@@ -1,6 +1,6 @@
 /*
  * Licensed Materials - Property of IBM
- * 5737-I23
+ * 5737-I23 5900-AUD
  * Copyright IBM Corp. 2018 - 2022. All Rights Reserved.
  * U.S. Government Users Restricted Rights:
  * Use, duplication or disclosure restricted by GSA ADP Schedule
@@ -49,7 +49,7 @@ import java.security.NoSuchAlgorithmException;
 @Path("/decision")
 public class DecisionResourceWithML {
 
-    private static final String ML_PROVIDER_INFO_KEY = "ADS Sample Machine Learning Provider11"; // taken from ../archives/README.md
+    private static final String ML_PROVIDER_INFO_KEY = "ADS Sample Machine Learning Provider13"; // taken from ../archives/README.md
     private static final String ML_DEPLOYMENT_ID = "TO BE SET"; // TO BE SET WHEN THE ML model is deployed
     private static final String ML_PROVIDER_URL = "TO BE SET";
     private static boolean ML_CODE_CERTIFICATE_REQUIRED = true; // TO CHANGE to false IF the trusted certificate is already added to the keystore.

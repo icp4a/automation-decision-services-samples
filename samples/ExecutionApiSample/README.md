@@ -1,8 +1,8 @@
 # Sample: Executing a decision service in Java
 
 ## Description
-This sample shows Java applications that execute decision services by using the **execution Java API** (see [documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=services-executing-decision-execution-java-api)). <br><br>
-These Java applications must be run in a Kubernetes cluster where License Service for tracking usage is installed. (see [Tracking usage](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=api-tracking-usage)).
+This sample shows Java applications that execute decision services by using the **execution Java API** (see [documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=services-executing-decision-execution-java-api)). <br><br>
+These Java applications must be run in a Kubernetes cluster where License Service for tracking usage is installed. (see [Tracking usage](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=api-tracking-usage)).
 
 ## Learning objectives
 - Create a Java application that executes a decision service
@@ -17,8 +17,8 @@ This sample is for anyone who wants to use the execution Java API to run a decis
 
 ## Prerequisites
 - Apache Maven project management tool (see [Welcome to Apache Maven](https://maven.apache.org)).
-- [Access to Decision Designer as a Maven repository.](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=environment-using-decision-designer-as-maven-repository)
-- (Optional) Implementation of a machine Learning service based on IBM Open Prediction Service (OPS) API. <br>Ask your IT for an access (see [Integrating machine learning](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=services-integrating-machine-learning)).
+- [Access to Decision Designer as a Maven repository.](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=environment-using-decision-designer-as-maven-repository)
+- (Optional) Implementation of a machine Learning service based on IBM Open Prediction Service (OPS) API. <br>Ask your IT for an access (see [Integrating machine learning](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=services-integrating-machine-learning)).
 
 # Setting up the sample
 In this section, you download the source files, and fill in the placeholders of the configuration files.
@@ -29,8 +29,8 @@ In this section, you download the source files, and fill in the placeholders of 
 
 ## Configuring Maven
 - Replace the following placeholders in `ExecutionApiSample/settings.xml`:
-  - %ADS_MAVEN_REPOSITORY_TO_BE_SET% : the URL of your maven repository ([more](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=environment-using-decision-designer-as-maven-repository)).
-  - %YOUR_API_KEY_TO_BE_SET% : your ZEN API key ([more](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=administering-authorizing-http-requests-by-using-zen-api-key))
+  - %ADS_MAVEN_REPOSITORY_TO_BE_SET% : the URL of your maven repository ([more](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=environment-using-decision-designer-as-maven-repository)).
+  - %YOUR_API_KEY_TO_BE_SET% : your ZEN API key ([more](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=administering-authorizing-http-requests-by-using-zen-api-key))
 - Enable Maven to use the remote repository that is stored in HTTPS servers ([more](https://maven.apache.org/guides/mini/guide-repository-ssl.html)). <br>
   Note: (For testing only) Alternatively, SSL validation can be disabled by using: 
   ```
@@ -74,7 +74,7 @@ In this section, you download the source files, and fill in the placeholders of 
 - The application is located at `ExecutionApiSample/src/main/java/com/ibm/ads/samples/LoanApprovalWithML.java`.
 - It submits all JSON input that is found in the directory `ExecutionApiSample/../WebMicroServiceSample/test/approvalWithML`.
 - It uses the decision service named **Approval with ML** that is defined in the **Banking** sample project.
-- The generated decision service archive is located at `ExecutionApiSample../../archives/approvalWithML-XXX.jar`.
+- The generated decision service archive is located at `ExecutionApiSample/../../archives/approvalWithML-XXX.jar`.
 
 ## Executing
 - The following steps must be completed before running this sample:
@@ -103,7 +103,7 @@ In this section, you download the source files, and fill in the placeholders of 
   ```
 
 # Getting more information
-* about the [Execution API documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=services-executing-decision-execution-java-api).
-* about the machine learning metadata in [Decision service metadata](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=services-decision-service-metadata).
+* about the [Execution API documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=services-executing-decision-execution-java-api).
+* about the machine learning metadata in [Decision service metadata](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=services-decision-service-metadata).
 * about the [sample of the execution API in a web microservice](../WebMicroServiceSample/README.md)
 * about the [sample of the Loan Validation application](../LoanApplicationSample/README.md) to illustrate decision execution using **decision runtime**.

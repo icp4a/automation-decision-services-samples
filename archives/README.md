@@ -2,7 +2,7 @@
 
 This directory contains decision services archives that can be run in your Automation Decision Services runtime or using the execution api. 
 They were built from the decision services that can be loaded in Designer using the 
-samples wizard (see [Importing and exporting decision services](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=decisions-importing-exporting-decision-services)).
+samples wizard (see [Importing and exporting decision services](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=decisions-importing-exporting-decision-services)).
 
 Here is the correspondance between the archive and the decision service:
 
@@ -44,7 +44,7 @@ The `approvalWithML` archive is used by the following samples:
 
 You use the Swagger UI of your runtime instance to execute the archives. 
 For an archive containing a predictive model, you first deploy the machine learning model.
-For more information, see [Executing decision services with  decision runtime documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=services-executing-decision-decision-runtime).
+For more information, see [Executing decision services with  decision runtime documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=services-executing-decision-decision-runtime).
 
 ## Prerequisites
 - Automation Decision Services: Your instance of the services must have a runtime. You must have the credentials allowing management and execution in this runtime. 
@@ -56,22 +56,22 @@ To use an archive containing a predictive model:
 
 You use the Swagger UI of your runtime instance to deploy an archive to a deployment space. After you deploy the archive, you look at its operations.
 
-1. Download the .jar file that you want to deploy to your computer, for example, `baggage-22.0.1.jar`.
+1. Download the .jar file that you want to deploy to your computer, for example, `baggage-22.0.2.jar`.
 2. Open the Swagger UI of your runtime instance.
 3. Enter your security credentials to be able to manage archives and to execute.
 4. Deploy the archive by expanding `POST /deploymentSpaces/{deploymentSpaceId}/decisions/{decisionId}/archive` in the **Decision storage management** part, entering the following parameters, and running the operation:
    * *deploymentSpaceId*: Use your space identifier, for example: `testArchive<Initials>`. It is created at the first call.
-   * *decisionId*: Use the example `baggage-22.0.1.jar`.
+   * *decisionId*: Use the example `baggage-22.0.2.jar`.
    * Archive file: In the Request body, browse to the archive file downloaded to your computer. 
    
    The archive is loaded into your deployment space, and you get the return code 200 for a successfully action.
 5. Check the operations in the decision archive by expanding `GET /deploymentSpaces/{deploymentSpaceId}/decisions/{decisionId}/operations` in the **Decision runtime** part, entering the following parameters, and running the operation:
    * *deploymentSpaceId*: Use your space identifier, for example, `testArchive<Initials>`.
-   * *decisionId*: `baggage-22.0.1.jar`.
+   * *decisionId*: `baggage-22.0.2.jar`.
    
    You get the return code 200, and a list of the possible operations:
 ```    {
-      "decisionId": "baggage-22.0.1.jar",
+      "decisionId": "baggage-22.0.2.jar",
       "operations": [
         "compliance-and-fees",
       ]
@@ -85,13 +85,14 @@ To run an archive using a Machine Learning model, you have first to deploy the c
 
 The ML archives require a deployment of the ML models they use. PMML files are provided in the `archives/models` directory. Download them to use the corresponding archives. 
 The ML archives also embed a provider info key, you have to set it in the decision metadata. 
-For more information about the Machine Learning metadata, see [Decision service metadata](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=services-decision-service-metadata).
+For more information about the Machine Learning metadata, see [Decision service metadata](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=services-decision-service-metadata).
 Here are the required information for the archives:
 
-| **Archive name** | **Model name** | **Provider info key** |
-|:---------------- |:-------------- |:--------------------- |
-| `approvalWithML` | `Approval-SGDClassifier-StandardScaler-pmml.xml`|`ADS Sample Machine Learning Provider11` |
-   
+| **Archive name** | **Model name** | **File containing the provider info id**                                                                                                  |
+|:---------------- |:-------------- |:------------------------------------------------------------------------------------------------------------------------------------------|
+| `approvalWithML` | `Approval-SGDClassifier-StandardScaler-pmml.xml`| `Banking.zip/Approval with ML/Loan risk score/resources/extannotations/<USERID>/banking/approval_with_ml/loanriskscore/providerInfo.json` |
+
+The `ProviderInfoId` is the value of the `id` property in this json file.
 
 Here is an example to deploy the model in the OPS instance your IT provided you:
    * Open the OPS URL in a browser.
@@ -116,11 +117,11 @@ Then you use the Swagger UI of your runtime instance to add the required informa
                     "mlUrl": "<URL_TO_OPS>"
                     }
                  },
-  "<ProviderInfoKey>": {"name": "ProviderInfoKey",
+  "<ProviderInfoId>": {"name": "ProviderInfoId",
                         "kind": "ENCRYPTED",
                         "readOnly": false,
                         "value": {
-                            "id" : "ProviderInfoKey",
+                            "id" : "ProviderInfoKId",
                             "providerId" : "MyProvider",
                             "deploymentId" : "<ML_DEPLOYMENT_ID>"
                                  }
@@ -137,13 +138,13 @@ You use the Swagger UI of your runtime instance to run the decision service arch
 1. Open the Swagger UI tool as described in the previous **Deploying an archive** section.
 2. Get an example input payload by expanding `/deploymentSpaces/{deploymentSpaceId}/decisions/{decisionId}/operations/{operation}/exampleInput` in the **Decision runtime** part, entering the following parameters, and running the operation:
    * deploymentSpaceId: Use your space identifier, for example, `testArchive<Initials>`.
-   * decisionId: `baggage-22.0.1.jar`
+   * decisionId: `baggage-22.0.2.jar`
    * operation: `compliance-and-fees`
    
    You get the return code 200 and the following response:
 ```
 {
-  "decisionId": "baggage-22.0.1.jar",
+  "decisionId": "baggage-22.0.2.jar",
   "decisionOperation": "compliance-and-fees",
   "input": {
     "frequentFlyerStatus": "Bronze",
@@ -170,7 +171,7 @@ Copy the contents of the input field and run the decision service in the followi
 
 3. Run the operation by expanding `POST /deploymentSpaces/{deploymentSpaceId}/decisions/{decisionId}/operations/{operation}/execute`, entering the following parameters, and running the operation:
    * *deploymentSpaceId*: Use your space identifier, for example, `testArchive<Initials>`.
-   * *decisionId*: `baggage-22.0.1.jar`
+   * *decisionId*: `baggage-22.0.2.jar`
    * *operation*: `compliance-and-fees`
    * *Request body*: Enter the input data from step 2, be careful to take only the input field content.
    
@@ -186,4 +187,4 @@ Copy the contents of the input field and run the decision service in the followi
     }
 ```
 
-For more information, see  [Swagger UI documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=runtime-swagger-ui).
+For more information, see  [Swagger UI documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=runtime-swagger-ui-decision-api).

@@ -5,7 +5,7 @@
 This sample uses a decision service that recommends a retention offer based on predicted customer churn and lifetime value. 
 Those predictions are made using two predictive models connected to Watson Machine Learning models deployed with AutoAI.
 
-For more information on decision models and predictive models, see [Modeling decisions](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=automations-developing-decision-services) and [Integrating machine learning](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=services-integrating-machine-learning).
+For more information on decision models and predictive models, see [Modeling decisions](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=automations-developing-decision-services) and [Integrating machine learning](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=services-integrating-machine-learning).
 
 ## Learning objectives
    - Build a Watson Machine Learning (WML) model and deploy it using an AutoAI experiment.
@@ -35,10 +35,14 @@ You must download the data sets [`customer churn data.csv`](./datasets/customer%
 # Setting up the sample
 
 - Follow the steps described in this [tutorial](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/autoai_example_binary_classifier.html) to create two AutoAI experiment 
-using the data sets [`customer churn data.csv`](datasets/customer%20churn%20data.csv) and [`customer LTV data.csv`](datasets/customer%20LTV%20data.csv) .
+using the following data sets :
+   - [`customer churn data.csv`](datasets/customer%20churn%20data.csv): in Configuration details, select No for the option to create a Time Series Forecast
+and choose CHURN as the column to predict.
+   - [`customer LTV data.csv`](datasets/customer%20LTV%20data.csv): in Configuration details, select No for the option to create a Time Series Forecast
+and choose LTV as the column to predict.
 - When the pipeline generation process completes, save a pipeline as a model among the resulting model candidates.
 - Deploy the saved model following Task 1 of the [Machine learning short tutorial](../MachineLearningShortTutorial/README.md).
-- Create a new project in Decision Designer. Browse the samples and import the `Machine learning sample - Customer loyalty` from the discovery section of the wizard. 
+- Create a new project in Decision Designer. Browse the discovery tutorials to import `Machine learning sample - Customer loyalty`. 
 - Open the `Telco retention` decision service. It contains:
    - `Retention offer`: a decision model that determines the best retention offer to recommend to a customer in order to avoid churn. 
    - `Customer Lifetime Value`: a predictive model that uses the customer data to predict a lifetime value.
