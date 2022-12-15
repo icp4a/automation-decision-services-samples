@@ -1,6 +1,6 @@
 /*
  * Licensed Materials - Property of IBM
- * 5737-I23
+ * 5737-I23 5900-AUD
  * Copyright IBM Corp. 2018 - 2022. All Rights Reserved.
  * U.S. Government Users Restricted Rights:
  * Use, duplication or disclosure restricted by GSA ADP Schedule
@@ -108,9 +108,9 @@ public class LoanApprovalWithML {
         }};
 
         // Machine Learning config
-        // the value "ADS Sample Machine Learning Provider11" is predefined in the approvalWithML archive used in this sample
+        // the value "ADS Sample Machine Learning Provider13" is predefined in the approvalWithML archive used in this sample
         // (see ../../archives/README.md#for-an-ml-archive-deploy-the-ml-models)
-        final String ML_PROVIDER_INFO_KEY = "ADS Sample Machine Learning Provider11";
+        final String ML_PROVIDER_INFO_KEY = "ADS Sample Machine Learning Provider13";
         final String ML_DEPLOYMENT_ID = System.getProperty("ml.deployment.id");
         if (ML_DEPLOYMENT_ID==null || ML_DEPLOYMENT_ID.isEmpty() || ML_DEPLOYMENT_ID.equals("TO_BE_SET"))
             throw new RuntimeException(String.format("Unexpected 'ml.deployment.id' property value (= '%s')", ML_DEPLOYMENT_ID));

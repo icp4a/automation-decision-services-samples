@@ -2,7 +2,7 @@
 
 ## Description
 
-This tutorial shows you how to use a decision service in an automation service.
+This tutorial shows you how to use a decision service in an automation service. It requires an installation of Automation Decision Services on a platform.
 
 ## Learning objectives
 - Deploy a decision service archive to the embedded runtime.
@@ -24,8 +24,8 @@ You must have access to  the following environments in Business Automation Studi
 - **Decision Designer**: A web-based user interface for developing decision services in Business Automation Studio. You work with a sample decision service that you import into a project and open in Decision Designer.
 - **Application Designer**:  A web-based user interface for developing applications in Business Automation Studio.
  
-If you do not have access to these environments, see [Managing access to Business Automation Studio projects documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=decisions-managing-access-projects).
-For more information about Business Automation Studio and the designers it integrates, see the [Business Automation Studio documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=software-business-automation-studio).
+If you do not have access to these environments, see [Managing access to Business Automation Studio projects documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=decisions-managing-access-decision-automations).
+For more information about Business Automation Studio and the designers it integrates, see the [Business Automation Studio documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=cpbaf-business-automation-studio).
 # Task 1: Creating and deploying a decision service
 **About this task**
 
@@ -54,8 +54,8 @@ In this step, you import the decision service that you later deploy. You import 
 
 **Procedure**
 
-1. In the **Decision services** tab, click **Browse samples**.
-2. Choose **Getting started** in the Discovery part, and click **Import** to import the decision service.
+1. In the **Decision services** tab, click **New decision**.
+2. Choose **Discovery tutorials** in the left panel. Then, select **Getting started** and click **Import** to import the decision service.
 3. Click **Getting started** to open the decision service after it is imported. It contains a data model and six decision models. Each decision model corresponds to a task in the getting started tutorial.
 4. Click the **Daily advice** decision model to open it, and explore the diagram. It is the final version of the getting started tutorial.
 5. Click the **Run** tab and run the provided test data to see how the decision service works.
@@ -64,8 +64,8 @@ In this step, you import the decision service that you later deploy. You import 
 ## Step 3: Deploying your decision service
 
 In this step, you deploy your decision service within your instance of Automation Decision Services. The instructions are summarized, but you can find more detailed instructions in the 
-[Getting started in Automation Decision Services Task 2](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=gst-task-2-connecting-git-repository-sharing-decision-service).
-If Decision Designer is configured to automatically create a Git repository to be connected to, you can use this git repo and skip points 1,2 and 3 in the following procedure. See [Connecting to a remote repository automatically](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.1?topic=services-connecting-remote-repository-automatically).
+[Getting started in Automation Decision Services Task 2](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=gst-task-2-connecting-git-repository-sharing-decision-service).
+If Decision Designer is configured to automatically create a Git repository to be connected to, you can use this git repo and skip points 1,2 and 3 in the following procedure. See [Connecting to a remote repository automatically](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=decisions-connecting-remote-repository-automatically).
 
 **Procedure**
 

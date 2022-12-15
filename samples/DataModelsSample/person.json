@@ -1,0 +1,47 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Simple Swagger",
+    "description": "A simple API definitions"
+  },
+  "definitions": {
+    "Person": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "dateOfBirth": {
+          "type": "string",
+          "format": "date"
+        },
+        "dateOfLoanStart": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "tenant": {
+          "type": "boolean"
+        },
+        "habitation": {
+          "type": "string",
+          "enum": [
+            "House",
+            "Boat",
+            "Appartment",
+            "MobilHome",
+            "Castle"
+          ]
+        },
+        "descendants": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Person"
+          }
+        }
+      }
+    }
+  }
+}
