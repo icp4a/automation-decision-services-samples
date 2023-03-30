@@ -36,7 +36,7 @@ Prepare with the following resources:
 - [Open Prediction Service API (OPS)](https://github.com/IBM/open-prediction-service-hub): This service allows to discover, manage and run models and deployments of a Machine Learning provider.
 
 You must have the following environments:
-- **Decision Designer**: A web-based user interface for developing decision services in Business Automation Studio. You work with the sample decision service by importing it into a project and opening it in Decision Designer.
+- **Decision Designer**: A web-based user interface for developing decision services. You work with the sample decision service by importing it into a project and opening it in Decision Designer.
 - **Automation Decision Services Machine Learning Service**: A Machine Learning service implementation based on IBM Open Prediction Service API.
 
 In this tutorial, you...
