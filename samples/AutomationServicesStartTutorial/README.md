@@ -2,7 +2,7 @@
 
 ## Description
 
-This tutorial shows you how to use a decision service in an automation service. It requires an installation of Automation Decision Services on a platform.
+This tutorial shows you how to use a decision service in an automation service. It requires an installation of Automation Decision Services on the platform IBM Cloud Pak for Business Automation.
 
 ## Learning objectives
 - Deploy a decision service archive to the embedded runtime.

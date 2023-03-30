@@ -38,7 +38,7 @@ Prepare with the following resources:
 - [Watson Machine Learning](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-overview.html?audience=wdp&context=wdp): This service lets you build analytical models and neural networks for use in applications. 
 
 You must have the following environments:
-- **Decision Designer**: A web-based user interface for developing decision services in Business Automation Studio. 
+- **Decision Designer**: A web-based user interface for developing decision services. 
 - **Watson Studio**: A web-based user interface for developing and deploying machine learning models. 
 
 In this tutorial, you...

@@ -22,7 +22,7 @@ Prepare by doing the [Getting started in Automation Decision Services](https://w
 Note that in this tutorial, the steps are not as detailed as in the Getting started, you can refer to it if you need more information.
 
 You must have the following environment:
-- **Decision Designer**: A web-based user interface for developing decision services in Business Automation Studio. You work with a sample decision service by importing it into a project and opening it in Decision Designer.
+- **Decision Designer**: A web-based user interface for developing decision services. You work with a sample decision service by importing it into a project and opening it in Decision Designer.
 - **Apache Maven**: You can download it from https://maven.apache.org. This tutorial was tested with version 3.8.3.
 
 

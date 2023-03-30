@@ -7,6 +7,8 @@ The web microservice embeds a decision service archive. When it is launched, it 
 This sample uses the execution Java API to execute decisions and Quarkus to build a web microservice.
 For more information, see the [execution Java API](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=services-executing-decision-execution-java-api) documentation.
 
+This sample is only applicable on an **IBM Cloud Pak for Business automation** installation of **Automation Decision Services**.
+
 ## Learning objectives
 
 - Create a web microservice that embeds a decision service archive.
@@ -28,6 +30,7 @@ This sample is for anyone who wants to create a web microservice for executing a
 - **Kubernetes**: A Kubernetes cluster where License Service for tracking usage is installed. For more information about tracking usage, see the [documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=api-tracking-usage).
 This Kubernetes cluster is not necessary the same one that Automation Decision Services is installed. This sample was tested by using an OpenShift cluster with the Kubernetes version v1.20.11+e880017.
 - **Automation Decision Services machine learning service**: A machine learning service implementation based on IBM Open Prediction Service API. Contact your IT to get a URL to access it.
+- **Automation Decision Services** on the platform **IBM Cloud Pak for Business Automation**
 
 # Setting up the sample
 In this section, you download the source files, and prepare the configuration file.
@@ -76,7 +79,7 @@ You deploy it to a Kubernetes container, and then, you test it by using cURL.
 1. Open the `WebMicroServiceSample/pom.xml` file to check the used versions. They are defined as properties at the beginning of the file:
 ```
     <ads.samples.version>1.0.0</ads.samples.version>
-    <ads.execution-api.version>2.1.3</ads.execution-api.version> 
+    <ads.execution-api.version>2.1.6</ads.execution-api.version> 
 ```
 `ads.samples.version` is the version of the decision service archive `loanApproval` that you previously installed. 
 This sample was tested with the version `ads.execution-api.version` of the artifact `execution-api`.<br> 
@@ -160,7 +163,7 @@ For more information about the metadata for machine learning, see [Decision serv
 1. Open the `WebMicroServiceSample/pomML.xml` file to check the used versions. They are defined as properties at the beginning of the file:
 ```
     <ads.samples.version>1.0.0</ads.samples.version>
-    <ads.execution-api.version>2.1.3</ads.execution-api.version> 
+    <ads.execution-api.version>2.1.6</ads.execution-api.version> 
 ```
 `ads.samples.version` is the version of the decision service archive `approvalWithML` that you previously installed. 
 This sample was tested with the artifact  `execution-api` with the version `ads.execution-api.version`.<br>
