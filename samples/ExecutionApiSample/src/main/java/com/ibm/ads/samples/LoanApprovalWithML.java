@@ -110,7 +110,7 @@ public class LoanApprovalWithML {
         // Machine Learning config
         // the value "ADS Sample Machine Learning Provider13" is predefined in the approvalWithML archive used in this sample
         // (see ../../archives/README.md#for-an-ml-archive-deploy-the-ml-models)
-        final String ML_PROVIDER_INFO_KEY = "ADS Sample Machine Learning Provider13";
+        final String ML_PROVIDER_INFO_KEY = "ADS Sample Machine Learning Provider";
         final String ML_DEPLOYMENT_ID = System.getProperty("ml.deployment.id");
         if (ML_DEPLOYMENT_ID==null || ML_DEPLOYMENT_ID.isEmpty() || ML_DEPLOYMENT_ID.equals("TO_BE_SET"))
             throw new RuntimeException(String.format("Unexpected 'ml.deployment.id' property value (= '%s')", ML_DEPLOYMENT_ID));
@@ -118,7 +118,7 @@ public class LoanApprovalWithML {
         if (ML_PROVIDER_URL==null || ML_PROVIDER_URL.isEmpty() || ML_PROVIDER_URL.equals("TO_BE_SET"))
             throw new RuntimeException(String.format("Unexpected 'ml.provider.url' property value (= '%s')", ML_PROVIDER_URL));
 
-        String mlproviderKey = "MyProvider";
+        String mlproviderKey = "ADS Sample Machine Learning Provider";
         String mlproviderInfo = String.format("{ 'id': '%s', 'providerId': '%s', 'deploymentId': '%s'}",
                 ML_PROVIDER_INFO_KEY, mlproviderKey, ML_DEPLOYMENT_ID).replace("'", "\"");
         String mlprovider = String.format("{'mlUrl': '%s', 'type': 'OPS', 'name': '%s'}",

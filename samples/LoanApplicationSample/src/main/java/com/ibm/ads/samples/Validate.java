@@ -102,7 +102,12 @@ public class Validate extends HttpServlet {
 			String userName = jsonInput.getString("user");
 			String password = jsonInput.getString("password");
 			RestJavaClient restClient = new RestJavaClient();
-			response = restClient.executeDecision(jsonInput.getString("server"), jsonInput.getString("spaceId"), jsonInput.getString("decisionId"),
+			int majorVersion = -1;
+			try { majorVersion = Integer.parseInt(jsonInput.getString("majorVersion"));} catch (NumberFormatException expt) { /* ignore */ }
+			int minorVersion = -1;
+			try { minorVersion = Integer.parseInt(jsonInput.getString("minorVersion"));} catch (NumberFormatException expt) { /* ignore */ }
+			response = restClient.executeDecision(jsonInput.getString("server"), jsonInput.getString("spaceId"),
+					jsonInput.getString("decisionServiceId"), majorVersion, minorVersion,
 					jsonInput.getString("operation"),
 					userName, password, payload.toString());
 			System.out.println("**Response status" + response.status + " payload " + response.payload);
@@ -195,7 +200,6 @@ public class Validate extends HttpServlet {
 		JsonObject payload = Json
 				.createObjectBuilder()
 				.add("input", inputObject)
-				.add("decisionOperation", jsonInput.getString("operation"))
 				.build();
 		return payload;
 	}

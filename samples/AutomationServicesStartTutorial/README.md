@@ -24,8 +24,8 @@ You must have access to  the following environments in Business Automation Studi
 - **Decision Designer**: A web-based user interface for developing decision services in Business Automation Studio. You work with a sample decision service that you import into a project and open in Decision Designer.
 - **Application Designer**:  A web-based user interface for developing applications in Business Automation Studio.
  
-If you do not have access to these environments, see [Managing access to Business Automation Studio projects documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=decisions-managing-access-decision-automations).
-For more information about Business Automation Studio and the designers it integrates, see the [Business Automation Studio documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=cpbaf-business-automation-studio).
+If you do not have access to these environments, see [Managing access to Business Automation Studio projects documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.1?topic=services-managing-access-decision-automations).
+For more information about Business Automation Studio and the designers it integrates, see the [Business Automation Studio documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.1?topic=cpbaf-business-automation-studio).
 # Task 1: Creating and deploying a decision service
 **About this task**
 
@@ -63,9 +63,9 @@ In this step, you import the decision service that you later deploy. You import 
 
 ## Step 3: Deploying your decision service
 
-In this step, you deploy your decision service within your instance of Automation Decision Services. The instructions are summarized, but you can find more detailed instructions in the 
-[Getting started in Automation Decision Services Task 2](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=gst-task-2-connecting-git-repository-sharing-decision-service).
-If Decision Designer is configured to automatically create a Git repository to be connected to, you can use this git repo and skip points 1,2 and 3 in the following procedure. See [Connecting to a remote repository automatically](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=decisions-connecting-remote-repository-automatically).
+In this step, you deploy your decision service within your instance of Automation Decision Services. The instructions are summarized, but you can find more detailed instructions in the
+[Getting started in Automation Decision Services Task 2](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.1?topic=gs-task-2-connecting-git-repository-sharing-decision-service).
+If Decision Designer is configured to automatically create a Git repository to be connected to, you can use this git repo and skip points 1,2 and 3 in the following procedure. See [Connecting to a remote repository automatically](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.1?topic=administering-connecting-remote-repository-automatically).
 
 **Procedure**
 
@@ -107,7 +107,7 @@ In this step, you publish the first version of the decision service archive to u
 2. In the **Versions** tab, click the three dots at the end of the row for FirstVersion and select **Publish**. 
 3. Click on **Publish** in the **Publish automation services** view. Wait for the service to be published.
 4. Click on the arrow at the top left of the screen to go back in the **Business automations** page. Click **Published automation services** tab. It shows the list of automation services.
-5. Click on **getting_started** to see the service you just deployed. You see the available operation `daily-advice`.
+5. Click on **Getting started** to see the service you just deployed. You see the available operation `daily-advice`.
 
 ## Step 2: Creating an application
 
@@ -131,9 +131,9 @@ In this step, you add a generated form to your application to run your decision 
 
 1. On the right of Application Designer, in the `Drag a component to your page` section, click **All views** and select **Automation service** in the menu.
 2. Click the **Add +** button and wait for the `Add an automation service` wizard to be filled with all the published decision services.
-3. Enter **getting_started** in the search field and look for the decision service that you just deployed. There might be several decision services with the same name if your collaborators have already used this tutorial.
-4. Select **getting_started** in the list, the one that has just been deployed. Click on **Add(1)**. Note that the number `1` in parenthesis is the number of available operations in the decision service.
-5. A component named `getting_started` is added to the list. Select it and drag it into the middle page. Note that operation dailyAdvice is selected, and that a whole form is proposed.
+3. Enter **Getting started** in the search field and look for the decision service that you just deployed. There might be several decision services with the same name if your collaborators have already used this tutorial.
+4. Select **Getting started** in the list, the one that has just been deployed. Click on **Add(1)**. Note that the number `1` in parenthesis is the number of available operations in the decision service.
+5. A component named `Getting started` is added to the list. Select it and drag it into the middle page. Note that operation dailyAdvice is selected, and that a whole form is proposed.
 7. Click **Done**. The application now contains a form ready for running your decision service archive.
 
 ## Step 4: Running the decision service archive in your application
