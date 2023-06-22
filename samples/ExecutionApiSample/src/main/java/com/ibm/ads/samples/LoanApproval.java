@@ -29,7 +29,7 @@ public class LoanApproval {
     public static void main(String[] args) throws IOException {
 
 
-        // Locating decision archive "../../archives/approvalWithML-XXXXXX.jar";
+        // Locating decision archive "../../archives/loanApproval-XXXXXX.jar";
         final String archivesDir = "../../archives";
         final String archivePrefix = "loanApproval-";
         final File decisionJar = new File(archivesDir).listFiles(new FileFilter() {

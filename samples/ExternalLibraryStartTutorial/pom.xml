@@ -7,15 +7,15 @@
     <properties>
         <archive.repository.snapshot.url>SNAPSHOT URL TO BE SET</archive.repository.snapshot.url>
         <archive.repository.release.url>RELEASE URL TO BE SET</archive.repository.release.url>
-        <ads-mojo.version>10.2.0</ads-mojo.version>
-        <ads-annotations.version>2.0.2</ads-annotations.version>
+        <ads-mojo.version>11.0.12</ads-mojo.version>
+        <ads-annotations.version>2.0.3</ads-annotations.version>
         <jackson.version>2.13.4</jackson.version>
-        <ads-sample.version>1.3.1</ads-sample.version>
+        <ads-sample.version>1.4.1</ads-sample.version>
     </properties>
 
     <groupId>ads.samples</groupId>
     <artifactId>externalLibrary</artifactId>
-    <version>1.3.1</version>
+    <version>1.4.1</version>
     <packaging>pom</packaging>
 
     <modules>

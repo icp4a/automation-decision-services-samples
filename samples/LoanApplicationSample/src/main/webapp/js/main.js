@@ -66,7 +66,9 @@ $(document).ready(
 								'SSNCode' : $('input[name=SSNCode]').val(),
 								'zipCode' : $('input[name=zipCode]').val(),
 							'server' : $('input[name=server]').val(),
-							'decisionId' : $('input[name=decisionId]').val(),
+							'decisionServiceId' : $('input[name=decisionServiceId]').val(),
+							'majorVersion' : $('input[name=majorVersion]').val(),
+							'minorVersion' : $('input[name=minorVersion]').val(),
 							'spaceId' : $('input[name=spaceId]').val(),
 							'operation' : $('input[name=operation]').val(),
 							'user' : $('input[name=user]').val(),
@@ -173,7 +175,9 @@ function default_initialize() {
 	$('input[name="user"]').val(ADSUSERNAME);
 	$('input[name="password"]').val(ADSPASSWORD);
 	$('input[name="server"]').val(SERVERNAME);
-	$('input[name="decisionId"]').val(DECISIONID);
+	$('input[name="decisionServiceId"]').val(DECISIONSERVICEID);
+	$('input[name="majorVersion"]').val('');
+	$('input[name="minorVersion"]').val('');
 	$('input[name="spaceId"]').val(SPACEID);
 	$("a.swaggerLink").attr("href", "https://" + SERVERNAME + "/ads/runtime/api/swagger-ui/");
 }

@@ -30,7 +30,8 @@ public class RestJavaClient {
         logger = Logger.getAnonymousLogger();
     }
 
-    public  AdsResponse executeDecision(String host, String spaceId, String decisionId, String operationName, String user,
+    public  AdsResponse executeDecision(String host, String spaceId, String decisionServiceId, int majorVersion, int minorVersion,
+                                        String operationName, String user,
                                         String password, String requestBody) throws Exception {
         // method to be used to send request : POST
         // possible return codes are :
@@ -45,11 +46,12 @@ public class RestJavaClient {
 
         String stringUrl = null;
         try {
-            stringUrl = "https://" + host + "/ads/runtime/api/v1"
-                    + "/deploymentSpaces/" + URLEncoder.encode(spaceId,"UTF-8")
-                    + "/decisions/"+ URLEncoder.encode(decisionId,"UTF-8")
-                    + "/operations/" + URLEncoder.encode(operationName,"UTF-8")
-                    + "/extendedExecute";
+            stringUrl = String.format("https://%s/ads/runtime/api/v1/selectors/lastSemanticDecisionServiceVersion" +
+                            "/deploymentSpaces/%s/operations/%s/extendedExecute?decisionServiceId=%s%s%s",
+                    host, URLEncoder.encode(spaceId,"UTF-8"), URLEncoder.encode(operationName,"UTF-8"),
+                    URLEncoder.encode(decisionServiceId,"UTF-8"),
+                    majorVersion<0 ? "": "&majorVersion="+majorVersion,
+                    minorVersion<0 ? "": "&minorVersion="+minorVersion);
         } catch (UnsupportedEncodingException e) {
             System.out.println("Exception " + e);
             logger.throwing(this.getClass().getName(),"executeProject",e);

@@ -7,7 +7,7 @@
   <version>1.0.0-SNAPSHOT</version>
   <properties>
     <sample.main>com.ibm.ads.samples.LoanApproval</sample.main>
-    <ads.execution-api.version>2.1.6</ads.execution-api.version>
+    <ads.execution-api.version>2.2.20</ads.execution-api.version>
     <ml.certificat><!--blank by default --></ml.certificat>
     <ml.deployment.id>TO_BE_SET</ml.deployment.id>
     <ml.provider.url>TO_BE_SET</ml.provider.url>
@@ -23,6 +23,13 @@
       <artifactId>slf4j-simple</artifactId>
       <version>1.7.36</version>
     </dependency>
+    <dependency>
+      <groupId>com.ibm.decision.samples</groupId>
+      <artifactId>loanApproval</artifactId>
+      <version>1.0.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/../../archives/loanApproval-23.0.1.jar</systemPath>
+    </dependency>
   </dependencies>
   <profiles>
     <profile>
@@ -30,6 +37,24 @@
       <properties>
         <sample.main>com.ibm.ads.samples.LoanApprovalWithML</sample.main>
       </properties>
+    </profile>
+    <profile>
+      <id>pojo</id>
+      <properties>
+        <sample.main>com.ibm.ads.samples.LoanApprovalPOJO</sample.main>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <version>3.0.0</version>
+            <configuration>
+              <classpathScope>compile</classpathScope>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
     </profile>
   </profiles>
   <build>

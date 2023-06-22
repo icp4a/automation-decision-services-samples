@@ -3,7 +3,7 @@
 This directory contains JSON files that can be used as definition files. They contain data structures and complex data types that can be used to populate data models.
 You can download these files and import them directly into Decision Designer when you create a data model.
 
-For more information about how to create data models in Decision Designer, see the [documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=data-creating-model).
+For more information about how to create data models in Decision Designer, see the `documentation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.1?topic=data-creating-model)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.1?topic=data-creating-model).
 
    * Create a decision service in Decision Designer.
    * Open the `Data` tab and click `Create` to create a new data model.

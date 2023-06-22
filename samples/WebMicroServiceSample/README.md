@@ -5,7 +5,7 @@ This sample shows how to create a web microservice to execute a decision service
 The web microservice embeds a decision service archive. When it is launched, it can execute the decision service. You use the web microservice in a Kubernetes container.
 
 This sample uses the execution Java API to execute decisions and Quarkus to build a web microservice.
-For more information, see the [execution Java API](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=services-executing-decision-execution-java-api) documentation.
+For more information, see the [execution Java API](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.1?topic=services-executing-decision-execution-java-api) documentation.
 
 This sample is only applicable on an **IBM Cloud Pak for Business automation** installation of **Automation Decision Services**.
 
@@ -27,10 +27,9 @@ This sample is for anyone who wants to create a web microservice for executing a
 - Linux: This sample is used on Linux.
 - **Apache Maven**: A software project management tool that you can download from [Welcome to Apache Maven](https://maven.apache.org). 
 - **OpenJDK 11**: The web microservice is built by using the latest Quarkus version that requires Java SDK 11.
-- **Kubernetes**: A Kubernetes cluster where License Service for tracking usage is installed. For more information about tracking usage, see the [documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=api-tracking-usage).
+- **Kubernetes**: A Kubernetes cluster where License Service for tracking usage is installed. For more information about tracking usage, see the [documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.1?topic=api-metering-tracking-usage-execution-java).
 This Kubernetes cluster is not necessary the same one that Automation Decision Services is installed. This sample was tested by using an OpenShift cluster with the Kubernetes version v1.20.11+e880017.
 - **Automation Decision Services machine learning service**: A machine learning service implementation based on IBM Open Prediction Service API. Contact your IT to get a URL to access it.
-- **Automation Decision Services** on the platform **IBM Cloud Pak for Business Automation**
 
 # Setting up the sample
 In this section, you download the source files, and prepare the configuration file.
@@ -47,7 +46,7 @@ Otherwise, you must define a Maven settings file by completing the template `set
 3. Replace all `TO BE SET` tags with the appropriate values:
    * `ADS_MAVEN_REPOSITORY_TO_BE_SET`: The URL of your Maven repository.
    * `API_KEY_TO_BE_SET`: The Zen API key to access Decision Designer. For more information about getting the API key, see this [documentation](https://www.ibm.com/docs/en/cloud-paks/1.0?topic=users-generating-api-keys-authentication). 
-   You must encode this key by using `base64` as described in this [documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=administering-authorizing-http-requests-by-using-zen-api-key).
+   You must encode this key by using `base64` as described in this [documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.1?topic=administering-authorizing-http-requests-by-using-zen-api-key).
 4. Save the `settings.xml` file.
 
 _Note_: To access Decision Designer, you might need to add the appropriate certificate to your key store.
@@ -69,17 +68,17 @@ Follow these steps to deploy the decision service archives:
     
 This command installs the two decision service archives with the version specified in `SERVICE_VERSION` to your local Maven repository. You can go to the next step when you see the message ``` BUILD SUCCESS```.
 
-# Building, running, and testing a web microservice without machine learning
-In this section, you build by using a Quarkus docker image that contains a web microservice. This web micoservice embeds the decision service archive `loanApproval`. 
+# Building, running and testing a web microservice without machine learning
+In this section, you build by using a Quarkus docker image that contains a web microservice. This web microservice embeds the decision service archive `loanApproval`. 
 This decision service archive does not contain any predictive model.
-You deploy it to a Kubernetes container, and then, you test it by using cURL.
+You deploy it to a Kubernetes container and then you test it by using cURL.
 
 ### Building and running the web microservice 
 
 1. Open the `WebMicroServiceSample/pom.xml` file to check the used versions. They are defined as properties at the beginning of the file:
 ```
     <ads.samples.version>1.0.0</ads.samples.version>
-    <ads.execution-api.version>2.1.6</ads.execution-api.version> 
+    <ads.execution-api.version>2.2.20</ads.execution-api.version> 
 ```
 `ads.samples.version` is the version of the decision service archive `loanApproval` that you previously installed. 
 This sample was tested with the version `ads.execution-api.version` of the artifact `execution-api`.<br> 
@@ -156,14 +155,14 @@ To prepare the web microservice, you need to:
    * complete the machine learning provider information,
    * make sure you have a trusted certificate to call the machine learning provider or add one in the code.
 
-For more information about the metadata for machine learning, see [Decision service metadata](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=services-decision-service-metadata).
+For more information about the metadata for machine learning, see [Decision service metadata](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.1?topic=services-decision-service-metadata).
 
 ### Building and running the web microservice with approvalWithML
 
 1. Open the `WebMicroServiceSample/pomML.xml` file to check the used versions. They are defined as properties at the beginning of the file:
 ```
     <ads.samples.version>1.0.0</ads.samples.version>
-    <ads.execution-api.version>2.1.6</ads.execution-api.version> 
+    <ads.execution-api.version>2.2.20</ads.execution-api.version> 
 ```
 `ads.samples.version` is the version of the decision service archive `approvalWithML` that you previously installed. 
 This sample was tested with the artifact  `execution-api` with the version `ads.execution-api.version`.<br>
@@ -247,7 +246,7 @@ The endpoints are defined as public functions with Quarkus annotations to declar
 The docker image description is defined in `src/main/docker/Dockerfile.jvm`.
 
 The annotations for using the decision execution are in `src/main/resources/application.properties`. They are for a non-production environment.
-You get the ones for a production environment in the [documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=api-tracking-usage).
+You get the ones for a production environment in the [documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.1?topic=api-metering-tracking-usage-execution-java)
 
 ## Browsing the code for the web microservice with machine learning
  
@@ -262,9 +261,9 @@ Open the file `WebMicroServiceSample/src/main/java/com/ibm/ads/samples/quarkus/w
 The docker image description is defined in `docker/Dockerfile.jvm`.
 
 The annotations for using the decision execution are in `src/main/resources/application.properties`. They are for a non-production environment.
-You get the ones for a production environnement in the [documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=api-tracking-usage).
+You get the ones for a production environnement in the [documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.1?topic=api-metering-tracking-usage-execution-java).
    
 # Getting more information
-   * about the [Execution API documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=services-executing-decision-execution-java-api).
+   * about the [Execution API documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.1?topic=services-executing-decision-execution-java-api).
    * about Quarkus in [this documentation](https://quarkus.io/get-started/).
-   * about the machine learning metadata in [Decision service metadata](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/22.0.2?topic=services-decision-service-metadata).
+   * about the machine learning metadata in [Decision service metadata](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.1?topic=services-decision-service-metadata).

@@ -15,14 +15,14 @@ mvn install:install-file -DgroupId=ads.samples \
                          -Dversion=$SERVICE_VERSION \
                          -DgeneratePom=true \
                          -Dpackaging=jar \
-                         -Dfile=../../../archives/loanApproval-22.0.2.jar \
+                         -Dfile=../../../archives/loanApproval-23.0.1.jar \
                          -s ../settings.xml
 mvn install:install-file -DgroupId=ads.samples \
                          -DartifactId=approvalWithML \
                          -Dversion=$SERVICE_VERSION \
                          -DgeneratePom=true \
                          -Dpackaging=jar \
-                         -Dfile=../../../archives/approvalWithML-22.0.2.jar \
+                         -Dfile=../../../archives/approvalWithML-23.0.1.jar \
                          -s ../settings.xml
 
 
