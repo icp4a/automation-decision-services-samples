@@ -4,14 +4,9 @@ These samples give you a working introduction to Automation Decision Services.
 
 This repository has several branches. Refer to the one that corresponds to your version:
    - [**Master**](https://github.com/icp4a/automation-decision-services-samples/tree/master): Supports the latest version of Automation Decision Services.
+   - [**23.0.2**](https://github.com/icp4a/automation-decision-services-samples/tree/23.0.2): Supports the 23.0.2 version of Automation Decision Services.
    - [**23.0.1**](https://github.com/icp4a/automation-decision-services-samples/tree/23.0.1): Supports the 23.0.1 version of Automation Decision Services.
-   - [**22.0.2**](https://github.com/icp4a/automation-decision-services-samples/tree/22.0.2): Supports the 22.0.2 version of Automation Decision Services.
-   - [**22.0.1**](https://github.com/icp4a/automation-decision-services-samples/tree/22.0.1): Supports the 22.0.1 version of Automation Decision Services.
    - [**21.0.3**](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.3): Supports the 21.0.3 version of Automation Decision Services.
-   - [**21.0.2**](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.2): Supports the 21.0.2 version of Automation Decision Services.
-   - [**21.0.1**](https://github.com/icp4a/automation-decision-services-samples/tree/21.0.1): Supports the 21.0.1 version of Automation Decision Services.
-   - [**20.0.3.2**](https://github.com/icp4a/automation-decision-services-samples/tree/20.0.3.2): Supports the 20.0.3 IF002 version of Automation Decision Services.
-   - [**20.0.3**](https://github.com/icp4a/automation-decision-services-samples/tree/20.0.3): Supports the 20.0.3 version of Automation Decision Services.
 
 There are four main directories:
 

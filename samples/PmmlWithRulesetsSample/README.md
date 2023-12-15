@@ -8,7 +8,7 @@ The files can be directly imported into Decision Designer to generate a transpar
 
 ### Creating a transparent predictive model
 
-You create a predictive model and configure it using a PMML file. For more details, see the `documentation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.1?topic=model-importing-transparent-machine-learning)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.1?topic=model-importing-transparent-machine-learning).
+You create a predictive model and configure it using a PMML file. For more details, see the `documentation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=model-importing-transparent-machine-learning)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=model-importing-transparent-machine-learning).
 The first step is to download the PMML file to your machine. You explore it to see what data is required in the data dictionary part.
 Then, open Decision Designer to import `Telecom` sample from the list of Industry samples:
 
