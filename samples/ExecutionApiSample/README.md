@@ -1,8 +1,8 @@
 # Sample: Executing a decision service in Java
 
 ## Description
-This sample shows Java applications that execute decision services by using the **execution Java API** (see `documentation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=services-executing-decision-execution-java-api)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=services-executing-decision-execution-java-api)). <br><br>
-These Java applications must be run in a Kubernetes cluster where License Service for tracking usage is installed. (see [Tracking usage](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=api-metering-tracking-usage-execution-java)).
+This sample shows Java applications that execute decision services by using the **execution Java API** (see `documentation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=services-executing-decision-execution-java-api)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=services-executing-decision-execution-java-api)). <br><br>
+These Java applications must be run in a Kubernetes cluster where License Service for tracking usage is installed. (see [Tracking usage](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=api-metering-tracking-usage-execution-java)).
 
 ## Learning objectives
 - Create a Java application that executes a decision service
@@ -17,8 +17,8 @@ This sample is for anyone who wants to use the execution Java API to run a decis
 
 ## Prerequisites
 - Apache Maven project management tool (see [Welcome to Apache Maven](https://maven.apache.org)).
-- `Access to Decision Designer as a Maven repository`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=environment-using-decision-designer-as-maven-repository)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=environment-using-decision-designer-as-maven-repository).
-- (Optional) Implementation of a machine Learning service based on IBM Open Prediction Service (OPS) API. <br>Ask your IT for an access (see `Integrating machine learning`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=artifacts-integrating-machine-learning)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=artifacts-integrating-machine-learning)).
+- `Access to Decision Designer as a Maven repository`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=environment-using-decision-designer-as-maven-repository)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=environment-using-decision-designer-as-maven-repository).
+- (Optional) Implementation of a Machine Learning service based on IBM Open Prediction Service (OPS) API. <br>Ask your IT for an access (see `Integrating machine learning`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=artifacts-integrating-machine-learning)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=artifacts-integrating-machine-learning)).
 
 # Setting up the sample
 In this section, you download the source files, and fill in the placeholders of the configuration files.
@@ -29,8 +29,8 @@ In this section, you download the source files, and fill in the placeholders of 
 
 ## Configuring Maven
 - Replace the following placeholders in `ExecutionApiSample/settings.xml`:
-  - %ADS_MAVEN_REPOSITORY_TO_BE_SET% : the URL of your maven repository (`more`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=environment-using-decision-designer-as-maven-repository)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=environment-using-decision-designer-as-maven-repository)).
-  - %YOUR_API_KEY_TO_BE_SET% : your ZEN API key ([more](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=administering-authorizing-http-requests-by-using-zen-api-key))
+  - %ADS_MAVEN_REPOSITORY_TO_BE_SET% : the URL of your maven repository (`more`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=environment-using-decision-designer-as-maven-repository)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=environment-using-decision-designer-as-maven-repository)).
+  - %YOUR_API_KEY_TO_BE_SET% : your ZEN API key ([more](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=administering-authorizing-http-requests-by-using-zen-api-key))
 - Enable Maven to use the remote repository that is stored in HTTPS servers ([more](https://maven.apache.org/guides/mini/guide-repository-ssl.html)). <br>
   Note: (For testing only) Alternatively, SSL validation can be disabled by using: 
   ```
@@ -57,16 +57,16 @@ In this section, you download the source files, and fill in the placeholders of 
   ```
 - The output should be something similar to the following example:
   ```
-  [INFO] --- exec-maven-plugin:3.0.0:exec (default-cli) @ ads-sample-execution-api ---
-  May 23, 2022 10:02:14 AM com.ibm.ads.samples.LoanApproval main
-  INFO: Running approved.json
-  May 23, 2022 10:02:24 AM com.ibm.ads.samples.LoanApproval main
-  INFO: Result {"insurance":{"rate":0.006,"required":true},"approval":{"approved":true,"message":"Congratulations! Your loan has been approved"}}
-  May 23, 2022 10:02:24 AM com.ibm.ads.samples.LoanApproval main
-  INFO: Running refused.json
-  May 23, 2022 10:02:24 AM com.ibm.ads.samples.LoanApproval main
-  INFO: Result {"insurance":{"rate":0.0025,"required":true},"approval":{"approved":false,"message":"Too big Debt/Income ratio: 0.3943594113786697"}}
-  ```
+...
+juin 03, 2024 4:50:32 PM com.ibm.ads.samples.LoanApproval main
+INFOS: Running refused.json
+juin 03, 2024 4:50:32 PM com.ibm.ads.samples.LoanApproval main
+INFOS: Result {"insurance":{"rate":0.0025,"required":true},"approval":{"approved":false,"message":"Too big Debt/Income ratio: 0.3943594113786697"}}
+juin 03, 2024 4:50:32 PM com.ibm.ads.samples.LoanApproval main
+INFOS: Running approved.json
+juin 03, 2024 4:50:32 PM com.ibm.ads.samples.LoanApproval main
+INFOS: Result {"insurance":{"rate":0.006,"required":true},"approval":{"approved":true,"message":"Congratulations! Your loan has been approved"}}
+```
 
 # LoanValidationPOJO application
 ## Discovering
@@ -82,11 +82,11 @@ In this section, you download the source files, and fill in the placeholders of 
   ```
 - The output should be something similar to the following example:
   ```
-  [INFO] --- exec-maven-plugin:3.0.0:exec (default-cli) @ ads-sample-execution-api ---
-  Mar 16, 2023 10:04:21 AM com.ibm.ads.samples.LoanApprovalPOJO main
-  INFO: Approved input result: {"insurance":{"rate":0.006,"required":true},"approval":{"approved":true,"message":"Congratulations! Your loan has been approved"}}
-  Mar 16, 2023 10:04:21 AM com.ibm.ads.samples.LoanApprovalPOJO main
-  INFO: Refusal input result: {"insurance":{"rate":0.0025,"required":true},"approval":{"approved":false,"message":"Too big Debt/Income ratio: 0.3943594113786697"}}
+...
+juin 03, 2024 4:54:40 PM com.ibm.ads.samples.LoanApprovalPOJO main
+INFOS: Approved input result: {"insurance":{"rate":0.006,"required":true},"approval":{"approved":true,"message":"Congratulations! Your loan has been approved"}}
+juin 03, 2024 4:54:40 PM com.ibm.ads.samples.LoanApprovalPOJO main
+INFOS: Refusal input result: {"insurance":{"rate":0.0025,"required":true},"approval":{"approved":false,"message":"Too big Debt/Income ratio: 0.3943594113786697"}}
   ```
   
 # LoanValidationWithML application
@@ -112,18 +112,18 @@ In this section, you download the source files, and fill in the placeholders of 
 - The output should be something similar to the following example:
   ```
   ...
-  mai 23, 2022 4:27:57 PM com.ibm.ads.samples.LoanApprovalWithML main
-  INFO: Running badScore.json
-  mai 23, 2022 4:28:04 PM com.ibm.ads.samples.LoanApprovalWithML main
-  INFO: Result {"insurance":{"required":true,"rate":0.02},"approval":{"approved":false,"message":"The loan is rejected because the risk score is too high."}}
-  mai 23, 2022 4:28:04 PM com.ibm.ads.samples.LoanApprovalWithML main
-  INFO: Running goodScore.json
-  mai 23, 2022 4:28:05 PM com.ibm.ads.samples.LoanApprovalWithML main
-  INFO: Result {"insurance":{"required":true,"rate":0.02},"approval":{"approved":true,"message":"Congratulations! Your loan has been approved"}}
-  ```
+juin 03, 2024 5:43:06 PM com.ibm.ads.samples.LoanApprovalWithML main
+INFOS: Running badScore.json
+juin 03, 2024 5:43:08 PM com.ibm.ads.samples.LoanApprovalWithML main
+INFOS: Result {"insurance":{"rate":0.02,"required":true},"approval":{"approved":false,"message":"The loan is rejected because the risk score is too high."}}
+juin 03, 2024 5:43:08 PM com.ibm.ads.samples.LoanApprovalWithML main
+INFOS: Running goodScore.json
+juin 03, 2024 5:43:09 PM com.ibm.ads.samples.LoanApprovalWithML main
+INFOS: Result {"insurance":{"rate":0.02,"required":true},"approval":{"approved":true,"message":"Congratulations! Your loan has been approved"}}
+```
 
 # Getting more information
-* about the `Execution API documentation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=services-executing-decision-execution-java-api)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=services-executing-decision-execution-java-api).
-* about the machine learning metadata in `Decision service metadata`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=services-decision-service-metadata)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=services-decision-service-metadata).
+* about the `Execution API documentation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=services-executing-decision-execution-java-api)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=services-executing-decision-execution-java-api).
+* about the machine learning metadata in `Decision service metadata`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=services-decision-service-metadata)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=services-decision-service-metadata).
 * about the [sample of the execution API in a web microservice](../WebMicroServiceSample/README.md)
 * about the [sample of the Loan Validation application](../LoanApplicationSample/README.md) to illustrate decision execution using **decision runtime**.

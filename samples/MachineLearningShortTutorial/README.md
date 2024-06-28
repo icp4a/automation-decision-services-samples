@@ -7,7 +7,7 @@ This tutorial shows you how to connect an existing predictive model to a Watson 
 
 ![Image summarize the tutorial steps](images/MLShortTutorial.png)
 
-For more information on decision models and predictive models, see `Modeling decisions`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=services-developing-decision)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=services-developing-decision) and `Integrating machine learning`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=artifacts-integrating-machine-learning)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=artifacts-integrating-machine-learning).
+For more information on decision models and predictive models, see `Modeling decisions`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=services-developing-decision)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=services-developing-decision) and `Integrating machine learning`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=artifacts-integrating-machine-learning)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=artifacts-integrating-machine-learning).
 
 For more tutorials about machine learning in Automation Decision Services see:
    - [Machine learning quick tutorial](../MachineLearningQuickTutorial/README.md) to learn how to connect a predictive model to a Watson Machine Learning Model. 
@@ -31,7 +31,7 @@ This sample is for technical and business users who want to apply predictive ana
 ## Prerequisites
 
 Prepare with the following resources:
-- `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=resources-getting-started): This tutorial introduces you to Automation Decision Services.
+- `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=resources-getting-started): This tutorial introduces you to Automation Decision Services.
 - [Watson Machine Learning](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-overview.html?audience=wdp&context=wdp): This service lets you build analytical models and neural networks for use in applications. 
 
 You must have the following environments:
@@ -91,7 +91,7 @@ Take a moment to look at the imported decision service.
 
 1. Open the `Loan Validation Data` data model in the `Data` tab to browse the defined types. <br>
    The `risk probabilities` type is used by the predictive model.
-2. Click `Short machine learning loan approval` in the breadcrumbs and open the decision model `Loan Validation Decision Model`: it decides if a loan can be given to a borrower. One of the key decision is the risk computed in the `Risk Score` node. It takes as input a prediction node corresponding to the `loan risk score` predictive model. The project may be in error, these errors will be fixed in Task 4.
+2. Click `Short machine learning loan approval` in the breadcrumbs and open the decision model `Loan Validation Decision Model`: it decides if a loan can be given to a borrower. One of the key decision is the risk computed in the `Risk Score` node. It takes as input a prediction node corresponding to the `loan risk score` predictive model.
 3. Click `Short machine learning loan approval` in the breadcrumbs and open the predictive model `loan risk score`. It is not yet connected, you'll connect it in next steps.
 4. Click on the `Input mapping` node and look at the input mapping rule: it defines the machine learning model input from a loan and a borrower.
 5. Click on the `Output mapping` node and look at the output mapping rule: it defines a risk probability from the output of the machine learning model.
@@ -100,7 +100,7 @@ Next you will define a machine learning provider to connect the predictive model
 
 ## Step 2: Defining a machine learning provider 
 
-You create a machine learning provider to get your model deployment into your decision project. See `Managing machine learning providers`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=learning-managing-local-machine-providers)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=learning-managing-local-machine-providers) for more information.
+You create a machine learning provider to get your model deployment into your decision project. See `Managing machine learning providers`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=learning-managing-local-machine-providers)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=learning-managing-local-machine-providers) for more information.
 
 **Procedure**
 
@@ -195,10 +195,7 @@ Next you run your predictive model and the decision model that calls it.
  
  **Procedure**
  1. Following Step1, you are in the `loan risk score` Run tab. 
- 2. In the Navigation history, select `Loan Validation Decision Model`. If the project is in error, you should do the following steps:
-    - Remove the `loan risk score` predictive node.
-    - Hover on the `Risk score` node and click on  **Add prediction**.
-    - Select the predictive model `loan risk score.` There is no more errors.
+ 2. In the Navigation history, select `Loan Validation Decision Model`. 
  6. Click on the Run tab and run the data set `John Good Score`. The loan is approved.
  7. Browse the run history: the loan risk score rule has been triggered, the predictive model has called the machine learning model deployment.
  

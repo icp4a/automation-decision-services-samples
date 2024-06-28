@@ -303,15 +303,30 @@ public class Validate extends HttpServlet {
 			JsonObject record = (JsonObject)iterator.next();
 			JsonObject properties = record.getJsonObject("properties");
 			if (properties.getString("kind").equals("Decision") && properties.getJsonArray("nestedRecords") != null) {
+				if (hasFiredRules(properties)) {
 				result = result + "<li> in node " + properties.getString("name") + "<ul>" + getFiredRulesFromResponse(properties) + "</ul></li>";
+				}
 			}
 		}
 		return result + "</ul>" + "<b>Decision:</b> " + message;
 	}
 
+	private boolean hasFiredRules(JsonObject object) {
+		JsonArray nestedRecordsEngine = object.getJsonArray("nestedRecords");
+		// For a decision model there is only one record for the Sequential engine
+		JsonObject engineRecord = (JsonObject)nestedRecordsEngine.getJsonObject(0);
+		JsonObject engineProperties = engineRecord.getJsonObject("properties");
+		return (engineProperties.getJsonArray("nestedRecords") != null);
+		}
+
 	private String getFiredRulesFromResponse(JsonObject object) {
-		JsonArray nestedRecords = object.getJsonArray("nestedRecords");
-		Iterator<JsonValue> iterator = nestedRecords.iterator();String result = "";
+		JsonArray nestedRecordsEngine = object.getJsonArray("nestedRecords");
+		// For a decision model there is only one record for the Sequential engine
+		JsonObject engineRecord = (JsonObject)nestedRecordsEngine.getJsonObject(0);
+		JsonObject engineProperties = engineRecord.getJsonObject("properties");
+		JsonArray nestedRecords = engineProperties.getJsonArray("nestedRecords");
+		Iterator<JsonValue> iterator = nestedRecords.iterator();
+		String result = "";
 		while (iterator.hasNext()) {
 			JsonObject record = (JsonObject)iterator.next();
 			if (record.getString("recordType").equals("Rule")) {

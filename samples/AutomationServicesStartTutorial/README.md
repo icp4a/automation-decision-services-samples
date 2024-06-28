@@ -24,8 +24,8 @@ You must have access to  the following environments in Business Automation Studi
 - **Decision Designer**: A web-based user interface for developing decision services in Business Automation Studio. You work with a sample decision service that you import into a project and open in Decision Designer.
 - **Application Designer**:  A web-based user interface for developing applications in Business Automation Studio.
  
-If you do not have access to these environments, see [Managing access to Business Automation Studio projects documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=services-managing-access-decision-automations).
-For more information about Business Automation Studio and the designers it integrates, see the [Business Automation Studio documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=cpbaf-business-automation-studio).
+If you do not have access to these environments, see [Managing access to Business Automation Studio projects documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=services-managing-access-decision-automations).
+For more information about Business Automation Studio and the designers it integrates, see the [Business Automation Studio documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=cpbaf-business-automation-studio).
 # Task 1: Creating and deploying a decision service
 **About this task**
 
@@ -64,8 +64,8 @@ In this step, you import the decision service that you later deploy. You import 
 ## Step 3: Deploying your decision service
 
 In this step, you deploy your decision service within your instance of Automation Decision Services. The instructions are summarized, but you can find more detailed instructions in the
-[Getting started in Automation Decision Services Task 2](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=gs-task-2-connecting-git-repository-sharing-decision-service).
-If Decision Designer is configured to automatically create a Git repository to be connected to, you can use this git repo and skip points 1,2 and 3 in the following procedure. See [Connecting to a remote repository automatically](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=administering-connecting-remote-repository-automatically).
+[Getting started in Automation Decision Services Task 2](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=gs-task-2-connecting-git-repository-sharing-decision-service).
+If Decision Designer is configured to automatically create a Git repository to be connected to, you can use this git repo and skip points 1,2 and 3 in the following procedure. See [Connecting to a remote repository automatically](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=administering-connecting-remote-repository-automatically).
 
 **Procedure**
 

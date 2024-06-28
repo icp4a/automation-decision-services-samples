@@ -20,11 +20,11 @@ This sample is for anyone who wants to execute a decision service archive built 
 
 ## Prerequisites
 - Automation Decision Services: Your instance of the services must have a runtime that supports basic authentication. You must have the host name and login credentials (user name and password) allowing management and execution in the runtime. 
-For more information on the roles see `User roles and access control`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=runtime-user-permissions-authentication-modes)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=runtime-user-permissions-authentication-modes)
-- Websphere Application Server Liberty: A Java application server that you can download from [Download WAS Liberty](https://developer.ibm.com/wasdev/downloads/). This sample was tested on **WebSphere Liberty Web Profile 8 22.0.0.12**.
+For more information on the roles see `User roles and access control`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=runtime-user-permissions-authentication-modes)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=runtime-user-permissions-authentication-modes)
+- Websphere Application Server Liberty: A Java application server that you can download from [Download WAS Liberty](https://developer.ibm.com/wasdev/downloads/). This sample was tested on **WebSphere Liberty Web Profile 10 24.0.0.5**.
 - Apache Maven: A software project management tool that you can download from [Welcome to Apache Maven](https://maven.apache.org).
 
-It is recommended that you do the tutorial `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=resources-getting-started) before using this sample.
+It is recommended that you do the tutorial `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=resources-getting-started) before using this sample.
 
 # Setting up the sample
 The web application defined in this sample calls a decision service archive that gives a decision about approving or not a loan. It relies on the decision service `Loan Approval` defined in the Banking 
@@ -38,27 +38,27 @@ You use the Swagger UI tool to explore the contents of a deployment space and de
 3. In the **Decision storage management** part, expand `GET /deploymentSpaces/{deploymentSpaceId}/decisions/{decisionId}/metadata`. Click on Try it out.
 4. Give the following parameters:
    - deploymentSpaceId `ADSsample`.
-   - decisionId `loanApproval-23.0.2`.
+   - decisionId `loanApproval-24.0.0`.
 5. Click on Execute.
 6. If response code is 200, in the response body, locate and keep the value of property `decisionServiceId` (it will be used afterward), then you can directly go to the next part **Building and deploying the client application**.
 7. Otherwise, continue.
 
 You use the Swagger UI tool of the runtime to deploy the decision service archive in the runtime `ADSsample` storage.
 
-1. Download the archive [loanApproval-23.0.2.jar](../../archives/loanApproval-23.0.2.jar)  in a local directory.
+1. Download the archive [loanApproval-24.0.0.jar](../../archives/loanApproval-24.0.0.jar)  in a local directory.
 2. In the **Decision storage management** part, expand `POST /deploymentSpaces/{deploymentSpaceId}/decisions/{decisionId}/archive`. Click on Try it out.
 3. Give the following parameters:
    - deploymentSpaceId `ADSsample`.
-   - decisionId `loanApproval-23.0.2`
-   - in the request body browse to the `loanApproval-23.0.2.jar` archive you downloaded.
+   - decisionId `loanApproval-24.0.0`
+   - in the request body browse to the `loanApproval-24.0.0.jar` archive you downloaded.
 4. Click on Execute.
 5. The response code is 200. The archive is now deployed.
 6. Then expand `GET /deploymentSpaces/{deploymentSpaceId}/decisions/{decisionId}/metadata`. Click on Try it out.
 7. Give the following parameters:
     - deploymentSpaceId `ADSsample`.
-    - decisionId `loanApproval-23.0.2`.
+    - decisionId `loanApproval-24.0.0`.
 8. Click on Execute.<br>
-   Note: Execution may fail as the cache used by the Automation Decision Services runtime is out of date. Retry an execution afterward (see the parameter `decision_selection.update_interval` at `Decision runtime parameters`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=parameters-decision-runtime)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=parameters-decision-runtime) )
+   Note: Execution may fail as the cache used by the Automation Decision Services runtime is out of date. Retry an execution afterward (see the parameter `decision_selection.update_interval` at `Decision runtime parameters`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=parameters-decision-runtime)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=parameters-decision-runtime) )
 9. In the response body, locate and keep the value of property `decisionServiceId`, it will be used afterward.
 
 You can have a look at the operation name of the decision service by its semantic version.
@@ -121,5 +121,5 @@ When you stop using the application or want to rebuild it, follow these instruct
     1. Open the Swagger UI tool of the runtime.
     2. Give the credentials for management.
     3. In the **Decision storage management** part, expand `DELETE /deploymentSpaces/{deploymentSpaceId}/decisions/{decisionId}/archive`. Click on Try it out.
-    4. Give `ADSsample` as the deploymentSpaceId and `loanApproval-23.0.2` as the decisionId .
+    4. Give `ADSsample` as the deploymentSpaceId and `loanApproval-24.0.0` as the decisionId .
     5. Click on Execute. The response code is 200, the archive is removed from the deployment space `ADSsample`.

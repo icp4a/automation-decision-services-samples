@@ -7,7 +7,7 @@ This tutorial shows you how to create a predictive model in Automation Decision 
 
 ![Image summarize the tutorial steps](images/MLCompleteTutorial.png)
 
-For more information on decision models and predictive models, see `Modeling decisions`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=services-developing-decision)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=services-developing-decision) and `Integrating machine learning`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=artifacts-integrating-machine-learning)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=artifacts-integrating-machine-learning).
+For more information on decision models and predictive models, see `Modeling decisions`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=services-developing-decision)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=services-developing-decision) and `Integrating machine learning`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=artifacts-integrating-machine-learning)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=artifacts-integrating-machine-learning).
 
 For more tutorials about machine learning in Automation Decision Services see:
    - [Machine learning quick tutorial](../MachineLearningQuickTutorial/README.md) to learn how to import a Machine Learning Model as PMML file in an Automation Decision Services Machine Learning Service and how to connect it to a predictive model.
@@ -34,7 +34,7 @@ This sample is for technical and business users who want to apply predictive ana
 ## Prerequisites
 
 Prepare with the following resources:
-- `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=resources-getting-started): This tutorial introduces you to Automation Decision Services.
+- `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=resources-getting-started): This tutorial introduces you to Automation Decision Services.
 - [Watson Machine Learning](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-overview.html?audience=wdp&context=wdp): This service lets you build analytical models and neural networks for use in applications. 
 
 You must have the following environments:
@@ -113,7 +113,7 @@ Next you will define a machine learning provider to be able to access the machin
 
 ### Step 2: Defining a machine learning provider
 
-You associate to your project a new machine learning provider to get your model deployment. See `Managing machine learning providers`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=learning-managing-local-machine-providers)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=learning-managing-local-machine-providers) for more information.
+You associate to your project a new machine learning provider to get your model deployment. See `Managing machine learning providers`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=learning-managing-local-machine-providers)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=learning-managing-local-machine-providers) for more information.
 
 **Procedure**
 
@@ -121,7 +121,7 @@ You associate to your project a new machine learning provider to get your model 
 2. Click on the **Settings** icon at the page top right corner.
 3. Open the Machine learning providers tab. 
 4. Click on **New +** to define a provider:
-   * Keep `Watson ML` as the type.
+   * Keep `Watson Machine Learning` as the type.
    * Set `wml-complete` as the name.
    * Enter the description: `Provider for the machine learning complete tutorial`.
    * Enter the following service credentials you obtained in Task 1 from Watson Studio to authenticate with your Watson Machine Learning service instance:
@@ -287,7 +287,7 @@ You edit the decision model to replace an input node with a prediction node call
     ```
     set decision to the loan risk score computed from 
     Borrower being Borrower , 
-    Loan being Loan; 
+    Loan being Loan;
     ```
 5. Go back to the diagram. Here is the new model:
     ![Image shows the decision model.](images/scrn_dmodel.png)
@@ -309,8 +309,8 @@ In this task, you...
 
 ### Step 1: Deploying the decision service
 
-You deploy the decision service. Note that those steps are more detailed in Task 2 and Task 6 of `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=resources-getting-started).
-If Decision Designer is configured to automatically create a Git repository to be connected to, you can use this git repo and skip points 1,2 and 3 in the following procedure. See `Connecting to a remote repository automatically`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=administering-connecting-remote-repository-automatically)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=administering-connecting-remote-repository-automatically).
+You deploy the decision service. Note that those steps are more detailed in Task 2 and Task 6 of `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=resources-getting-started).
+If Decision Designer is configured to automatically create a Git repository to be connected to, you can use this git repo and skip points 1,2 and 3 in the following procedure. See `Connecting to a remote repository automatically`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=administering-connecting-remote-repository-automatically)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=administering-connecting-remote-repository-automatically).
 
 **Procedure**
 
@@ -322,7 +322,7 @@ If Decision Designer is configured to automatically create a Git repository to b
 6. In the **Deploy** tab, click the suggested `create version` from the latest change and create your version.
 7. Expand the created version and click **Deploy** at the end of the row for your decision service. Wait for the deployment to finish.
 8. Copy the decision ID you will use it in step 3 to get the metadata.
-9. Click on `{...}` at the end of the row of your decision service deployment. The Swagger UI of Automation Decision Service runtime opens.
+9. Click on <img src="/resources/Test-icon.png" width="23" height="22"> at the end of the row of your decision service deployment. The Swagger UI of Automation Decision Service runtime opens.
 
 ### Step 2: Executing the decision service
 
@@ -375,7 +375,7 @@ You execute the decision service archive using Swagger UI.
 You verify the metadata containing the machine learning provider. Those metadata were generated by Decision Designer. You may have to change them if your provider credentials change.
 Note also that you have to define those metadata in case you deploy the decision service archive to another deployment space.
 You need to have credentials allowing management in the Automation Decision Services runtime.
-For more information about the metadata, see `Decision service metadata`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=services-decision-service-metadata)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=services-decision-service-metadata).
+For more information about the metadata, see `Decision service metadata`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=services-decision-service-metadata)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=services-decision-service-metadata).
 
 **Procedure**
 1. Get the runtime Swagger UI url from your IT. You should be authenticated.
@@ -396,10 +396,18 @@ In the response body, you get the description of the machine learning provider:
         "name": "<USER_ID>/<PROJECT_NAME>/wml-completeXXXXXX",
         "type": "WML",
         "description": "Provider for the machine learning complete tutorial",
-        "mlUrl": "<ML_URL>",
-        "authUrl": "<AUTH_URL>",
-        "instanceId": "<INSTANCE_ID>",
-        "apiKey": "<API_KEY>"
+        "updateTime": <UPDATE_TIME>,
+        "authInfo": {
+          "authType": "IAM",
+          "apiKey": "<API_KEY>",
+          "authUrl": "<AUTH_URL>"
+        },
+        "providerAdditionalInfo": {
+          "providerType": "WML",
+          "mlUrl": "<ML_URL>",
+          "spaceId": "<SPACE_ID>"
+        },
+        "version": "V1"
       }
 ...
 ```

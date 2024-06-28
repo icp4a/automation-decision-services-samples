@@ -6,7 +6,7 @@ This decision service is based on the getting started tutorial result, but it in
 
 In Automation Decision Services, you can use external libraries in decision services.
 You use them to extend rule authoring to include custom data types and functions from Java libraries.
-For more information on decision models and external libraries, see `Working with external libraries`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=data-working-external-libraries)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=data-working-external-libraries).
+For more information on decision models and external libraries, see `Working with external libraries`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=data-working-external-libraries)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=data-working-external-libraries).
 
 For another example of an external library, see [External library giving geo localization facilities](../ExternalLibGeoSample/README.md).
 
@@ -26,7 +26,7 @@ This sample is for anyone who wants to use a Java library in Automation Decision
 
 ## Prerequisites
 
-Prepare by doing the tutorial `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=resources-getting-started). It introduces you to Automation Decision Services.
+Prepare by doing the tutorial `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=resources-getting-started). It introduces you to Automation Decision Services.
 
 Some basic knowledge of Java is required.
 
@@ -61,8 +61,8 @@ You explore the sources.
 1. Go to the **automation-decision-services-samples/samples/ExternalLibraryStartTutorial** directory on your computer.
 2. Explore the sources. There are two directories:
  - `sampleLibrary`: Contains the Java classes StringUtilities, Person and Country. Browse through them to see the usage of annotations that define pure functions that are ready to be used in the decision models.
- The StringUtilities class defines two static functions to be used on string. To get more information on the annotations, look into `Annotations`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=annotations-)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=annotations-).
- - `adsSampleLibrary`: Contains the reference files to build the library. Several vocabulary files are provided in `reference/bom`, including the one for English. These files define, for example, the navigation sentence of the StringUtilities.capitalize static function and its precedence policy. To get more information on the vocabulary, look into `Vocabulary`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=vocabulary-)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=vocabulary-).
+ The StringUtilities class defines two static functions to be used on string. To get more information on the annotations, look into `Annotations`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=annotations-)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=annotations-).
+ - `adsSampleLibrary`: Contains the reference files to build the library. Several vocabulary files are provided in `reference/bom`, including the one for English. These files define, for example, the navigation sentence of the StringUtilities.capitalize static function and its precedence policy. To get more information on the vocabulary, look into `Vocabulary`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=vocabulary-)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=vocabulary-).
  
 Each repository contains a `pom.xml` file to build and deploy the library. Open the `adsSampleLibrary/pom.xml` file. The description of this artifact is shown in the decision library. The library depends on the sampleLibrary artifact. This library can be used in many languages including English.
 
@@ -71,9 +71,9 @@ Each repository contains a `pom.xml` file to build and deploy the library. Open 
 You check if the sample library has already been deployed to your repository manager.
 
 1. Open your **sample-repository-manager** release repository where the external library will be stored.
-2. Look for `ads/samples/adsSampleLibrary/1.6.3.4`. If it exists, the sample library is already deployed. You can go to Task 2 directly. If the file does not exist, you must deploy it.
+2. Look for `ads/samples/adsSampleLibrary/1.7.3.6`. If it exists, the sample library is already deployed. You can go to Task 2 directly. If the file does not exist, you must deploy it.
 
-**Note**: If you want to deploy another version, change the version from `1.6.3.4` to the version number that you want to use, for example, `1.myInitials`, in the following XML files:
+**Note**: If you want to deploy another version, change the version from `1.7.3.6` to the version number that you want to use, for example, `1.myInitials`, in the following XML files:
 - `automation-decision-services-samples/samples/ExternalLibraryStartTutorial/pom.xml` 
 - `automation-decision-services-samples/samples/ExternalLibraryStartTutorial/sampleLibrary/pom.xml` 
 - `automation-decision-services-samples/samples/ExternalLibraryStartTutorial/adsSampleLibrary/pom.xml` 
@@ -92,8 +92,8 @@ Otherwise, you must define a Maven setting file by completing the template setti
   ```
 2. Open **automation-decision-services-samples/samples/ExternalLibraryStartTutorial/settings.xml**.
 3. To access the Automation Decision Services artifacts to build the sample external library, replace the following placeholders :
-   * %ADS_MAVEN_REPOSITORY_TO_BE_SET% : the URL of your ADS maven repository (`more`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=environment-using-decision-designer-as-maven-repository)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=environment-using-decision-designer-as-maven-repository)).
-   * %YOUR_API_KEY_TO_BE_SET% : your encoded ZEN api key (For more information about getting the API key, see this [documentation](https://www.ibm.com/docs/en/cloud-paks/1.0?topic=users-generating-api-keys-authentication). You must encode this key as described in this [documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=administering-authorizing-http-requests-by-using-zen-api-key)).
+   * %ADS_MAVEN_REPOSITORY_TO_BE_SET% : the URL of your ADS maven repository (`more`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=environment-using-decision-designer-as-maven-repository)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=environment-using-decision-designer-as-maven-repository)).
+   * %YOUR_API_KEY_TO_BE_SET% : your encoded ZEN api key (For more information about getting the API key, see this [documentation](https://www.ibm.com/docs/en/cloud-paks/1.0?topic=users-generating-api-keys-authentication). You must encode this key as described in this [documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=administering-authorizing-http-requests-by-using-zen-api-key)).
 4. To access the sample-repository-manager to deploy the sample external library, replace the following placeholders :
    * %MAVEN_RELEASES-REPOSITORY_TO_BE_SET% : The URL of the **sample-repository-manager** release repository where you deploy the external library.
    * %USER TO BE SET%: A username that can access the repository manager where you deploy the external library.
@@ -112,8 +112,8 @@ To be able to deploy the library, you must have the following information:
 2. Look at the property definitions:
     * `archive.repository.snapshot.url`: The URL in which you deploy snapshots. This value is used in the distribution management part. 
     * `archive.repository.release.url`: The URL in which you deploy releases. This value is used in the distribution management part. 
-    * `ads-mojo.version` The version that is used to build the library. (**Note:** This sample was tested with Mojo 12.0.3.4)
-    * `ads-annotations.version` The version that is used to build the library. (**Note:** This sample was tested with annotations 2.0.5)
+    * `ads-mojo.version` The version that is used to build the library. (**Note:** This sample was tested with Mojo 14.1.8)
+    * `ads-annotations.version` The version that is used to build the library. (**Note:** This sample was tested with annotations 2.0.12)
 
 3. Replace the instances of `TO BE SET` by the appropriate values:
 
@@ -121,8 +121,8 @@ To be able to deploy the library, you must have the following information:
    <properties>
        <archive.repository.snapshot.url>SNAPSHOT URL TO BE SET</archive.repository.snapshot.url>
        <archive.repository.release.url>RELEASE URL TO BE SET</archive.repository.release.url>
-       <ads-mojo.version>12.0.3.4</ads-mojo.version>
-       <ads-annotations.version>2.0.5</ads-annotations.version>
+       <ads-mojo.version>14.1.8</ads-mojo.version>
+       <ads-annotations.version>2.0.12</ads-annotations.version>
    </properties>
 ```
 4. Save the `pom.xml` file. 
@@ -132,7 +132,7 @@ To be able to deploy the library, you must have the following information:
 In this step, you build and deploy the external library to a repository manager.
 
 **Note**: The pom file to build an external library can be generated using a maven command, 
-for more information about this feature see the `documentation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=library-creating-pom-file)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=library-creating-pom-file).
+for more information about this feature see the `documentation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=library-creating-pom-file)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=library-creating-pom-file).
 This sample provides this pom file in `automation-decision-services-samples/samples/ExternalLibraryStartTutorial/adsSampleLibrary/pom.xml`, it can be generated with the following command
 ````
 mvn archetype:generate -DarchetypeGroupId=com.ibm.decision -DarchetypeArtifactId=maven-archetype-external-library \
@@ -172,7 +172,7 @@ In this task, you...
 - Explore the external library.
 
 ## (Optional) Step 1: Checking the credentials for the repository manager
-You search for the external library. The task is normally done by your IT developers (see `Configuring credentials for a Maven repository manager`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=administering-configuring-credentials-maven-repository-manager)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=administering-configuring-credentials-maven-repository-manager)).
+You search for the external library. The task is normally done by your IT developers (see `Configuring credentials for a Maven repository manager`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=administering-configuring-credentials-maven-repository-manager)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=administering-configuring-credentials-maven-repository-manager)).
 To look at the credentials, you should have the permission `Administer platform for decision services` enabled. If you don't, you can skip this step.
 1. Open the admin-platform URL in a web browser.
 2. Select the `Maven configuration` tab.
@@ -180,7 +180,7 @@ To look at the credentials, you should have the permission `Administer platform 
 4. If no value is defined, add one using the `New` button.
   
  ## Step 2: Creating a new project that uses the external library
- In this step, you create a project that uses the external library. If you need more details to follow the instructions please refer to the `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=resources-getting-started) tutorial.
+ In this step, you create a project that uses the external library. If you need more details to follow the instructions please refer to the `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=resources-getting-started) tutorial.
 
 1. Use the credentials provided for your instance to sign in to Decision Designer.
 2. Create a new project. We use `Library Sample` in this sample documentation for the project name.
@@ -189,7 +189,7 @@ To look at the credentials, you should have the permission `Administer platform 
 5. Enter the following values:
   - Group ID: ads.samples
   - Artifact ID: adsSampleLibrary
-  - Version: 1.6.3.4 (This is the version you want to use. It might be different if you deployed a new version.)
+  - Version: 1.7.3.6 (This is the version you want to use. It might be different if you deployed a new version.)
   
 6. Click **OK** and wait for the library to be imported. You see the library description and that it is defined in many languages.
 
@@ -360,7 +360,7 @@ then
 `"SALUT Dominique Dupond! Cold day! Take a coat."`
 
 # (Optional) Task 4: Executing a decision service using an external library
-You run a decision service that includes an external library in the same way as any other decision service. These steps are more detailed than those in task 2 and task 6 of `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=resources-getting-started).
+You run a decision service that includes an external library in the same way as any other decision service. These steps are more detailed than those in task 2 and task 6 of `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=resources-getting-started).
 
 **About this task**
 
@@ -370,7 +370,7 @@ In this task, you...
 - Deploy your decision service archive.
 - Run the decision service archive by using the OpenAPI of your decision service in the Swagger UI tool.
 
-If Decision Designer is configured to automatically create a Git repository to be connected to, you can use this git repo and skip points 1,2 and 3 in the following procedure. See `Connecting to a remote repository automatically`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/23.0.2?topic=administering-connecting-remote-repository-automatically)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/23.0.2?topic=administering-connecting-remote-repository-automatically).
+If Decision Designer is configured to automatically create a Git repository to be connected to, you can use this git repo and skip points 1,2 and 3 in the following procedure. See `Connecting to a remote repository automatically`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=administering-connecting-remote-repository-automatically)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=administering-connecting-remote-repository-automatically).
 
 **Procedure**
 
@@ -381,7 +381,8 @@ If Decision Designer is configured to automatically create a Git repository to b
 5. Click **Share** to share your changes in the Git repository.
 6. In the **Deploy** tab, click the suggested `create version` from the latest change to create your version.
 7. Expand the created version and click **Deploy** at the end of the row for your decision service. Wait for the deployment to finish.
-8. Run your decision service archive by clicking `{...}` at the end of the line of the decision service name to open the Swagger UI for the your decision service.
+8. Run your decision service archive by clicking on the **Test** icon <img src="/resources/Test-icon.png" width="26" height="23">
+ at the end of the line of the decision service name to open the Swagger UI for the your decision service.
 9. Expand `POST /daily-advice/execute`, click on `Try it out` and enter the following request body:
  ``` 
 {
