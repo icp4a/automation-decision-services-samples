@@ -25,6 +25,7 @@ ads.samples.externalLibrary.Person.inputName#phrase.action = set the input name 
 ads.samples.externalLibrary.Person.inputName#phrase.navigation = {input name} of {this}
 ads.samples.externalLibrary.Person.lastName#phrase.navigation = {last name} of {this}
 ads.samples.externalLibrary.Person.shortName#phrase.navigation = {short name} of {this}
+ads.samples.externalLibrary.Person.isOlderThan(int)#phrase.navigation = {this} is older than {0}
 
 # ads.samples.externalLibrary.StringUtilities
 ads.samples.externalLibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation = {0} capitalized

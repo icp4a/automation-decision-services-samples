@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PMML xmlns="http://www.dmg.org/PMML-4_4" version="4.4">
+<PMML xmlns="http://www.dmg.org/PMML-4_3" version="4.3">
     <Header copyright="Copyright (c) 2018 Software AG" description="Default Description">
         <Application name="Nyoka" version="4.3.0"/>
-        <Timestamp>2020-12-04 14:25:25.420141</Timestamp>
+        <Timestamp>2024-11-27 16:42:36.125614</Timestamp>
     </Header>
     <DataDictionary numberOfFields="7">
         <DataField name="creditScore" optype="continuous" dataType="double"/>
@@ -87,13 +87,13 @@
             <OutputField name="probability_1" optype="continuous" dataType="double" feature="probability" value="1"/>
             <OutputField name="predicted_paymentDefault" optype="categorical" dataType="integer" feature="predictedValue"/>
         </Output>
-        <RegressionTable intercept="-4.2168086639693634" targetCategory="1">
-            <NumericPredictor name="standardScaler(creditScore)" exponent="1" coefficient="-0.3775314905901354"/>
-            <NumericPredictor name="standardScaler(income)" exponent="1" coefficient="-4.4915279148008480"/>
-            <NumericPredictor name="standardScaler(loanAmount)" exponent="1" coefficient="6.3507539023095392"/>
-            <NumericPredictor name="standardScaler(monthDuration)" exponent="1" coefficient="0.4459768302556588"/>
-            <NumericPredictor name="standardScaler(rate)" exponent="1" coefficient="-0.3693524520285792"/>
-            <NumericPredictor name="standardScaler(yearlyReimbursement)" exponent="1" coefficient="0.6002720759537469"/>
+        <RegressionTable intercept="-4.2168086643216744" targetCategory="1">
+            <NumericPredictor name="standardScaler(creditScore)" exponent="1" coefficient="-0.3775314906784991"/>
+            <NumericPredictor name="standardScaler(income)" exponent="1" coefficient="-4.4915279148997067"/>
+            <NumericPredictor name="standardScaler(loanAmount)" exponent="1" coefficient="6.3507539070772268"/>
+            <NumericPredictor name="standardScaler(monthDuration)" exponent="1" coefficient="0.4459768290512958"/>
+            <NumericPredictor name="standardScaler(rate)" exponent="1" coefficient="-0.3693524515046908"/>
+            <NumericPredictor name="standardScaler(yearlyReimbursement)" exponent="1" coefficient="0.6002720716065694"/>
         </RegressionTable>
         <RegressionTable intercept="0.0" targetCategory="0"/>
     </RegressionModel>

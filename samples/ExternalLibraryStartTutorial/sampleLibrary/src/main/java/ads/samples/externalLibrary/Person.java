@@ -27,11 +27,14 @@ public class Person {
     private List<String> middleNames;
     private Country country;
 
+    private int age;
+
     @BeanConstructor
     @JsonCreator
-    public Person(@JsonProperty("inputName") String inputName, @JsonProperty("country") Country country) {
+    public Person(@JsonProperty("inputName") String inputName, @JsonProperty("country") Country country, @JsonProperty("age") int age) {
         this.inputName = inputName;
         this.country = country;
+        this.age = age;
         parseName();
     }
 
@@ -158,5 +161,13 @@ public class Person {
             else
                 middleNames.add(capitalName);
         }
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }

@@ -25,6 +25,7 @@ ads.samples.externalLibrary.Person.inputName#phrase.action = {this} の入力名
 ads.samples.externalLibrary.Person.inputName#phrase.navigation = {this} の {入力名}
 ads.samples.externalLibrary.Person.lastName#phrase.navigation = {this} の {ラストネーム}
 ads.samples.externalLibrary.Person.shortName#phrase.navigation = {this} の {略称}
+ads.samples.externalLibrary.Person.isOlderThan(int)#phrase.navigation = {this} より年上です {0}
 
 # ads.samples.externalLibrary.StringUtilities
 ads.samples.externalLibrary.StringUtilities#concept.label = string utilities

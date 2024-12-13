@@ -24,6 +24,7 @@ ads.samples.externalLibrary.Person.inputName#phrase.action = 设置 {this} 的 �
 ads.samples.externalLibrary.Person.inputName#phrase.navigation = {this} 的 {输入名}
 ads.samples.externalLibrary.Person.lastName#phrase.navigation = {this} 的 {姓氏}
 ads.samples.externalLibrary.Person.shortName#phrase.navigation = {this} 的 {短名称}
+ads.samples.externalLibrary.Person.isOlderThan(int)#phrase.navigation = {this} 比 {0}
 
 # ads.samples.externalLibrary.StringUtilities
 ads.samples.externalLibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation = {0} 大写

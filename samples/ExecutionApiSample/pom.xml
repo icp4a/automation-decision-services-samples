@@ -7,7 +7,7 @@
   <version>1.0.0-SNAPSHOT</version>
   <properties>
     <sample.main>com.ibm.ads.samples.LoanApproval</sample.main>
-    <ads.execution-api.version>2.4.29</ads.execution-api.version>
+    <ads.execution-api.version>2.6.8</ads.execution-api.version>
     <ml.certificat><!--blank by default --></ml.certificat>
     <ml.deployment.id>TO_BE_SET</ml.deployment.id>
     <ml.provider.url>TO_BE_SET</ml.provider.url>
@@ -28,8 +28,7 @@
       <artifactId>loanApproval</artifactId>
       <version>1.0.0</version>
       <scope>system</scope>
-        <systemPath>${pom.basedir}/../../archives/loanApproval-24.0.0.jar</systemPath>
-      <!-- <systemPath>${project.basedir}/../../archives/loanApproval-24.0.0.jar</systemPath> -->
+        <systemPath>${pom.basedir}/../../archives/loanApproval-24.0.1.jar</systemPath>
     </dependency>
   </dependencies>
   <profiles>

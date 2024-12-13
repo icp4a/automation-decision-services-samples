@@ -1,0 +1,23 @@
+<b2x:translation xmlns:b2x="http://schemas.ilog.com/JRules/1.3/Translation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.ilog.com/JRules/1.3/Translation ilog/rules/schemas/1_3/b2x.xsd">
+    <class>
+        <businessName>ads.samples.externalLibrary.Person</businessName>
+        <executionName>ads.samples.externalLibrary.Person</executionName>
+        <method>
+            <name>isOlderThan</name>
+            <parameter type="int"/>
+            <body language="arl"><![CDATA[
+             return this.getAge() > arg;
+             ]]></body>
+        </method>
+        <attribute>
+            <name>nameWithoutMiddleNames</name>
+            <getter language="arl"><![CDATA[
+                return this.getFirstName()+ ' ' + this.getLastName();
+                ]]></getter>
+        </attribute>
+    </class>
+
+
+
+
+</b2x:translation>

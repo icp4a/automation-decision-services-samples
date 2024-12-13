@@ -31,6 +31,7 @@ ads.samples.externalLibrary.Person.inputName#phrase.action = imposta il nome di 
 ads.samples.externalLibrary.Person.inputName#phrase.navigation = {nome input} {this,PARTITIVE_ARTICLE}
 ads.samples.externalLibrary.Person.lastName#phrase.navigation = {cognome} {this,PARTITIVE_ARTICLE}
 ads.samples.externalLibrary.Person.shortName#phrase.navigation = {nome corto} {this,PARTITIVE_ARTICLE}
+ads.samples.externalLibrary.Person.isOlderThan(int)#phrase.navigation = {this} è più vecchio di {0}
 
 # ads.samples.externalLibrary.StringUtilities
 ads.samples.externalLibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation = {0} maiuscola

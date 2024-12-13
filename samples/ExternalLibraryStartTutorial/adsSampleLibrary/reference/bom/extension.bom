@@ -1,0 +1,13 @@
+
+#loadGetterSetterAsProperties
+package ads.samples.externalLibrary;
+
+class Person
+        extends com.ibm.ia.StringProvider
+{
+    boolean isOlderThan(int arg)
+                #pureFunction;
+    readonly string nameWithoutMiddleNames;
+
+}
+

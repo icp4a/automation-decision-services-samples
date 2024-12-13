@@ -15,7 +15,7 @@
     <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
     <quarkus.platform.version>2.8.1.Final</quarkus.platform.version>
     <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
-    <ads.execution-api.version>2.4.29</ads.execution-api.version>
+    <ads.execution-api.version>2.6.8</ads.execution-api.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -77,6 +77,21 @@
   <dependency>
     <groupId>io.quarkus</groupId>
     <artifactId>quarkus-kubernetes</artifactId>
+  </dependency>
+  <dependency>
+    <groupId>org.bouncycastle</groupId>
+    <artifactId>bcpkix-jdk18on</artifactId>
+    <version>1.78</version>
+  </dependency>
+  <dependency>
+      <groupId>org.bouncycastle</groupId>
+      <artifactId>bcprov-jdk18on</artifactId>
+      <version>1.78</version>
+  </dependency>
+  <dependency>
+        <groupId>org.bouncycastle</groupId>
+         <artifactId>bcprov-ext-jdk18on</artifactId>
+         <version>1.78</version>
   </dependency>
   </dependencies>
   <build>

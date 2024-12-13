@@ -9,7 +9,7 @@
 set -e
 
 export SERVICE_VERSION=1.0.0
-export ADS_VERSION=24.0.0
+export ADS_VERSION=24.0.1
 
 mvn install:install-file -DgroupId=ads.samples \
                          -DartifactId=loanApproval \

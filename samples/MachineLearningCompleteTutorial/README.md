@@ -7,7 +7,7 @@ This tutorial shows you how to create a predictive model in Automation Decision 
 
 ![Image summarize the tutorial steps](images/MLCompleteTutorial.png)
 
-For more information on decision models and predictive models, see `Modeling decisions`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=services-developing-decision)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=services-developing-decision) and `Integrating machine learning`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=artifacts-integrating-machine-learning)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=artifacts-integrating-machine-learning).
+For more information on decision models and predictive models, see `Modeling decisions`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=services-developing-decision)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=services-developing-decision) and `Integrating machine learning`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=artifacts-integrating-machine-learning)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=artifacts-integrating-machine-learning).
 
 For more tutorials about machine learning in Automation Decision Services see:
    - [Machine learning quick tutorial](../MachineLearningQuickTutorial/README.md) to learn how to import a Machine Learning Model as PMML file in an Automation Decision Services Machine Learning Service and how to connect it to a predictive model.
@@ -34,7 +34,7 @@ This sample is for technical and business users who want to apply predictive ana
 ## Prerequisites
 
 Prepare with the following resources:
-- `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=resources-getting-started): This tutorial introduces you to Automation Decision Services.
+- `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=resources-getting-started): This tutorial introduces you to Automation Decision Services.
 - [Watson Machine Learning](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-overview.html?audience=wdp&context=wdp): This service lets you build analytical models and neural networks for use in applications. 
 
 You must have the following environments:
@@ -57,24 +57,32 @@ In this task, you...
 - Define a machine learning model using a PMML file or a notebook in Watson Studio.
 - Deploy this model in Watson Machine learning.
 
-**Procedure**
-1. You define a machine learning model using:
-   - either the PMML file provided in [`automation-decision-services-samples/samples/MachineLearningCompleteTutorial/model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml`](model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml).
-   - or the notebook provided in [`automation-decision-services-samples/samples/MachineLearningCompleteTutorial/model/Predict loan default with PMML in WML.ipynb`](model/Predict%20loan%20default%20with%20PMML%20in%20WML.ipynb). 
-2. You deploy this model in Watson Machine Learning, you can follow the documentation in [Deployment spaces](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-spaces_local.html?audience=wdp).
+## Step 1: Defining and deploying a machine learning model
 
-Click the following image to watch a video showing how to deploy a machine learning model using this sample notebook:
+You define a project in Watson Studio and deploy the corresponding model. Use your credentials to log into Watson Studio and create a new project. Follow one of the following procedure to create and deploy your machine learning model.
+
+**Procedure: using a PMML file**
+1. You define a new asset by importing the PMML file provided in [`automation-decision-services-samples/samples/MachineLearningCompleteTutorial/model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml`](model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml).
+2. You deploy this model in Watson Machine Learning by following the documentation in [Deployment spaces](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/ml-spaces_local.html?audience=wdp).
+  
+**Procedure: using a Jupyter notebook**
+Click the next image to watch a video showing how to deploy a machine learning model using this sample notebook. 
 
 [![Video covers how to run a notebbok in Watson Studio.](images/ml_sample.png)](https://youtu.be/bbEZk4ypRQU&ab_channel=IBMSupportandTraining)
 
-If the notebook is used to deploy, begin by reading it. Then update the following values inside before running it:
+*Note*
+There are some minor changes in the graphic user interface in this video compared to the latest version of Watson Studio. The actions remain the sames.
+
+1.You create a new asset using the notebook provided in [`automation-decision-services-samples/samples/MachineLearningCompleteTutorial/model/Predict loan default with PMML in WML.ipynb`](model/Predict%20loan%20default%20with%20PMML%20in%20WML.ipynb). 
+2. You read the notebook then you update the following values inside:
   - url: your Watson Machine Learning API endpoint URL.
   - apikey: see below for more information on how to get it.
   - space_id: your deployment space id.
-    
-  Then run the notebook to build and deploy the ML model.
-  
-3. When the model is deployed, you get the data from Watson Studio that is required to define a machine learning provider in your decision project in Task 2. You need:
+3. You run the notebook to build and deploy the ML model.
+
+## Step 2: Getting the required information to connect 
+
+You get the data from Watson Studio that is required to define a machine learning provider in your decision project in Task 2. You need:
 * the space id which is defined in the deployment space settings.
 * the URL where the model is deployed. For instance `https://<location>.ml.cloud.ibm.com/ml/v4`.
 * the authentication URL. For instance `https://iam.bluemix.net/identity/token`.
@@ -113,7 +121,7 @@ Next you will define a machine learning provider to be able to access the machin
 
 ### Step 2: Defining a machine learning provider
 
-You associate to your project a new machine learning provider to get your model deployment. See `Managing machine learning providers`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=learning-managing-local-machine-providers)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=learning-managing-local-machine-providers) for more information.
+You associate to your project a new machine learning provider to get your model deployment. See `Managing machine learning providers`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=learning-managing-local-machine-providers)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=learning-managing-local-machine-providers) for more information.
 
 **Procedure**
 
@@ -121,7 +129,7 @@ You associate to your project a new machine learning provider to get your model 
 2. Click on the **Settings** icon at the page top right corner.
 3. Open the Machine learning providers tab. 
 4. Click on **New +** to define a provider:
-   * Keep `Watson Machine Learning` as the type.
+   * Keep `WatsonX Machine Learning` as the type.
    * Set `wml-complete` as the name.
    * Enter the description: `Provider for the machine learning complete tutorial`.
    * Enter the following service credentials you obtained in Task 1 from Watson Studio to authenticate with your Watson Machine Learning service instance:
@@ -151,7 +159,7 @@ You create a predictive model connected to your machine learning model deploymen
 **Procedure**
 
 1. In your project, click the **Complete machine learning loan approval** decision service to open it.
-2. In the Models tab, click on **Create**.
+2. In the Models tab, click on **Create +**.
 3. Select **Predictive model type**, give the name **Loan risk score** and click **Create** to make your predictive model. The predictive model opens.
 4. On the right part, it is indicated **Not configured**. Click on **Configure** to connect it to the provider where your machine learning model is deployed.
 5. Keep **Remote Machine Learning Model** method selected and click **Next**.
@@ -175,9 +183,9 @@ You create a predictive model connected to your machine learning model deploymen
   ]
 }
 ```
-The values may differ if :
-- you used the notebook in Task 1, because the model has been trained again,
-- you used the PMML, because the precision is not the same each time.
+The values may differ :
+- in the case, you used the notebook in Task 1, because the model has been trained again,
+- in the case you used the PMML, because the precision is not the same each time.
 10. Click **Next** to define the model output schema. Select **Generate from test output**. Wait for the output schema to be generated and click on **OK**.
 11. Click **Apply** to connect the predictive model to this provider.
 
@@ -282,7 +290,7 @@ You edit the decision model to replace an input node with a prediction node call
 
 1. In the Navigation history, select **Loan Validation Decision Model** to open the decision model.
 2. Remove the **Loan Risk Score** node.
-3. Hover on the `Risk score` node and click on  **Add prediction**. Click **Select a predictive model** to select `Loan risk score`.
+3. Hover on the `Risk score` node and click on  **Add prediction**. Click **Select a prediction** to select `Loan risk score`.
 4. Select the **Risk Score** node. Go to the **Logic** tab and edit the **loan risk score** rule. Enter the following rule:
     ```
     set decision to the loan risk score computed from 
@@ -309,8 +317,8 @@ In this task, you...
 
 ### Step 1: Deploying the decision service
 
-You deploy the decision service. Note that those steps are more detailed in Task 2 and Task 6 of `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=resources-getting-started).
-If Decision Designer is configured to automatically create a Git repository to be connected to, you can use this git repo and skip points 1,2 and 3 in the following procedure. See `Connecting to a remote repository automatically`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=administering-connecting-remote-repository-automatically)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=administering-connecting-remote-repository-automatically).
+You deploy the decision service. Note that those steps are more detailed in Task 2 and Task 6 of `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=resources-getting-started).
+If Decision Designer is configured to automatically create a Git repository to be connected to, you can use this git repo and skip points 1,2 and 3 in the following procedure. See `Connecting to a remote repository automatically`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=administering-connecting-remote-repository-automatically)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=administering-connecting-remote-repository-automatically).
 
 **Procedure**
 
@@ -334,40 +342,30 @@ You execute the decision service archive using Swagger UI.
 2. Use the following schema in the request body:
 ```json 
 {
+  "borrower": {
+    "creditScore": 100,
+    "yearlyIncome": 100000,
+    "firstName": "Paul"
+  },
   "loan": {
     "numberOfMonthlyPayments": 72,
-    "startDate": "2020-06-01",
-    "amount": 185000,
+    "amount": 520000,
     "rate": 0.7
-  },
-  "borrower": {
-    "firstName": "John",
-    "lastName": "Doe",
-    "birthDate": "1968-05-12",
-    "SSN": {
-      "areaNumber": "123",
-      "groupCode": "45",
-      "serialNumber": "6789"
-    },
-    "yearlyIncome": 1000000,
-    "zipCode": "91320",
-    "creditScore": 750
-  },
-  "currentTime": "2020-02-03"
+  }
 }
 ```
 3. Click on **Execute**. You get the following response body:
 ```json
 {
   "insurance": {
-    "required": true,
-    "rate": 0.02
+    "rate": 0.02,
+    "required": true
   },
   "approval": {
-    "approved": true,
-    "message": "Congratulations! Your loan has been approved"
+    "approved": false,
+    "message": "The loan is rejected because the risk score is too high."
   }
-}   
+} 
 ```
 
 ### Step 3: Checking the metadata associated to your decision
@@ -375,7 +373,7 @@ You execute the decision service archive using Swagger UI.
 You verify the metadata containing the machine learning provider. Those metadata were generated by Decision Designer. You may have to change them if your provider credentials change.
 Note also that you have to define those metadata in case you deploy the decision service archive to another deployment space.
 You need to have credentials allowing management in the Automation Decision Services runtime.
-For more information about the metadata, see `Decision service metadata`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.0?topic=services-decision-service-metadata)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.0?topic=services-decision-service-metadata).
+For more information about the metadata, see `Decision service metadata`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=services-decision-service-metadata)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=services-decision-service-metadata).
 
 **Procedure**
 1. Get the runtime Swagger UI url from your IT. You should be authenticated.

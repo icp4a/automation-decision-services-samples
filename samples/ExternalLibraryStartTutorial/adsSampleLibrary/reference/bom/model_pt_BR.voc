@@ -35,6 +35,7 @@ ads.samples.externalLibrary.Person.inputName#phrase.action = atribuir nome de en
 ads.samples.externalLibrary.Person.inputName#phrase.navigation = {nome de entrada} {this, PARTITIVE_ARTICLE}
 ads.samples.externalLibrary.Person.lastName#phrase.navigation = {sobrenome} {this, PARTITIVE_ARTICLE}
 ads.samples.externalLibrary.Person.shortName#phrase.navigation = {nome curto} {this, PARTITIVE_ARTICLE}
+ads.samples.externalLibrary.Person.isOlderThan(int)#phrase.navigation = {this} é mais velho que {0}
 
 # ads.samples.externalLibrary.StringUtilities
 ads.samples.externalLibrary.StringUtilities#concept.label = string utilities
