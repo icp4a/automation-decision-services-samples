@@ -7,7 +7,7 @@
  * Contract with IBM Corp.
  */
 
-package ads.samples.geoLibrary;
+package ads.samples.geolibrary;
 import com.ibm.rules.engine.annotations.PureFunction;
 import ilog.rules.bom.annotations.NotBusiness;
 
