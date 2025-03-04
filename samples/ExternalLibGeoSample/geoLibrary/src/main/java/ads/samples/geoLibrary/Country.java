@@ -6,7 +6,7 @@
  * Use, duplication or disclosure restricted by GSA ADP Schedule
  * Contract with IBM Corp.
  */
-package ads.samples.geoLibrary;
+package ads.samples.geolibrary;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -15,11 +15,13 @@ import ilog.rules.bom.annotations.NotBusiness;
 
 public class Country {
     private String name;
-    private ads.samples.geoLibrary.Location capital;
+    private ads.samples.geolibrary.Location capital;
+
+    public Country(){}
 
     @BeanConstructor
     @JsonCreator
-    public Country(@JsonProperty("name")String name, @JsonProperty("capital")ads.samples.geoLibrary.Location capital) {
+    public Country(@JsonProperty("name")String name, @JsonProperty("capital")ads.samples.geolibrary.Location capital) {
         this.name = name;
         this.capital = capital;
         capital.setCountry(this);
@@ -37,7 +39,7 @@ public class Country {
         this.name = name;
     }
 
-    public void setCapital(ads.samples.geoLibrary.Location capital) {
+    public void setCapital(ads.samples.geolibrary.Location capital) {
         this.capital = capital;
     }
 
