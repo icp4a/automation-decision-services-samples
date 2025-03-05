@@ -9,7 +9,6 @@
         <version>2401.0.4</version>
     </parent>
 
-    <groupId>ads.samples</groupId>
     <artifactId>adsGeoLibrary</artifactId>
     <description>External library providing geo localization facilities</description>
 
