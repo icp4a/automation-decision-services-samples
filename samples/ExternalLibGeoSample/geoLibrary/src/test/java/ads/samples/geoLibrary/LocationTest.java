@@ -7,8 +7,11 @@
  * Contract with IBM Corp.
  */
 
-package ads.samples.geoLibrary;
+package ads.samples.geolibrary;
 
+import ads.samples.geolibrary.Country;
+import ads.samples.geolibrary.Locations;
+import ads.samples.geolibrary.LocationsUtilities;
 import junit.framework.TestCase;
 
 public class LocationTest extends TestCase {
@@ -19,19 +22,19 @@ public class LocationTest extends TestCase {
   private static final float WASHINGTON_PARIS = (float)6164.81;
 
   public void testDistanceParisNice() {
-    ads.samples.geoLibrary.Location paris = new ads.samples.geoLibrary.Location("Paris", PARIS_LONGITUDE, PARIS_LATITUDE);
-    ads.samples.geoLibrary.Location nice = new ads.samples.geoLibrary.Location("Nice", 7.2661, 43.7031);
-    ads.samples.geoLibrary.Location washington = new ads.samples.geoLibrary.Location("Washington", WASHINGTON_LONGITUDE, WASHINGTON_LATITUDE);
+    ads.samples.geolibrary.Location paris = new ads.samples.geolibrary.Location("Paris", PARIS_LONGITUDE, PARIS_LATITUDE);
+    ads.samples.geolibrary.Location nice = new ads.samples.geolibrary.Location("Nice", 7.2661, 43.7031);
+    ads.samples.geolibrary.Location washington = new ads.samples.geolibrary.Location("Washington", WASHINGTON_LONGITUDE, WASHINGTON_LATITUDE);
     assertEquals((float)685.953, paris.getDistance(nice));
     assertEquals(WASHINGTON_PARIS, paris.getDistance(washington));
   }
 
   public void testReadCsv() {
     Locations locations = new Locations("cities.csv");
-    ads.samples.geoLibrary.Location paris = locations.getLocation("Paris");
+    ads.samples.geolibrary.Location paris = locations.getLocation("Paris");
     assertEquals(paris.getLatitude(), PARIS_LATITUDE);
     assertEquals(paris.getLongitude(), PARIS_LONGITUDE);
-    ads.samples.geoLibrary.Location washington = locations.getLocation("Washington");
+    ads.samples.geolibrary.Location washington = locations.getLocation("Washington");
     assertEquals(washington.getLatitude(), WASHINGTON_LATITUDE);
     assertEquals(washington.getLongitude(), WASHINGTON_LONGITUDE);
   }

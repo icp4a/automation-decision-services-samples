@@ -9,7 +9,6 @@
         <version>2401.0.4</version>
     </parent>
 
-    <groupId>ads.samples</groupId>
     <artifactId>adsGeoLibrary</artifactId>
     <description>External library providing geo localization facilities</description>
 
@@ -25,18 +24,6 @@
         </pluginManagement>
 
         <plugins>
-            <plugin>
-                <groupId>com.ibm.decision</groupId>
-                <artifactId>build-maven-plugin</artifactId>
-                <version>${ads-mojo.version}</version>
-                <configuration>
-                    <deployments>
-                        <deployment>
-                            <name>adsGeoLibrary</name>
-                        </deployment>
-                    </deployments>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>com.ibm.decision</groupId>
                 <artifactId>build-maven-plugin</artifactId>
@@ -70,17 +57,18 @@
                             <!-- Optional, by default: en_US -->
                             <locales>
                                 <locale>en_US</locale>
-                        
                             </locales>
                             <!-- Optional, by default: true -->
                             <importMethods>true</importMethods>
                             <!-- Optional, by default: all classes from dependencies -->
-
-                            <filter>
+                            <!-- <filter>
                                 <includes>
-                                    <include>ads.samples.externalLibrary</include>
+                                    <include>ads.samples.geolibrary</include>
                                 </includes>
-                            </filter>
+                                <excludes>
+                                    <exclude>**</exclude>
+                                </excludes>
+                            </filter> -->
                             <referenceFolder>reference</referenceFolder>
                         </configuration>
                         <goals>
