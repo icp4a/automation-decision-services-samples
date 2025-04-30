@@ -7,7 +7,7 @@
  * Contract with IBM Corp.
  */
 
-package ads.samples.externalLibrary;
+package ads.samples.externallibrary;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -28,6 +28,8 @@ public class Person {
     private Country country;
 
     private int age;
+
+    public Person(){}
 
     @BeanConstructor
     @JsonCreator

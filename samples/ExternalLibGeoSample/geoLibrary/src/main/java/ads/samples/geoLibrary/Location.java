@@ -7,7 +7,7 @@
  * Contract with IBM Corp.
  */
 
-package ads.samples.geoLibrary;
+package ads.samples.geolibrary;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -26,6 +26,8 @@ public class Location {
     private Country country;
     private double longitude;
     private double latitude;
+
+    public Location(){}
 
     @BeanConstructor
     @JsonCreator

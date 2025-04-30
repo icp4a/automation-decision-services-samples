@@ -1,7 +1,7 @@
-package ads.samples.externalLibrary;
+package ads.samples.externallibrary;
 
 import junit.framework.TestCase;
-import ads.samples.externalLibrary.Country;
+import ads.samples.externallibrary.Country;
 
 public class PersonTest extends TestCase {
   public void testPersonWithMiddleName() {
