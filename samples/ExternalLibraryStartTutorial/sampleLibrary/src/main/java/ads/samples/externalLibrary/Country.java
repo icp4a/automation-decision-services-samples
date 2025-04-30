@@ -6,7 +6,7 @@
  * Use, duplication or disclosure restricted by GSA ADP Schedule
  * Contract with IBM Corp.
  */
-package ads.samples.externalLibrary;
+package ads.samples.externallibrary;
 
 
 public enum Country {

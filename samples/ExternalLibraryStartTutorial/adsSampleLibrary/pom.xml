@@ -6,10 +6,9 @@
     <parent>
         <artifactId>externalLibrary</artifactId>
         <groupId>ads.samples</groupId>
-        <version>2400.4.0</version>
+        <version>2400.5.1</version>
     </parent>
 
-    <groupId>ads.samples</groupId>
     <artifactId>adsSampleLibrary</artifactId>
     <description>To begin with external external library: defines person and country types.</description>
 
@@ -25,18 +24,6 @@
         </pluginManagement>
 
         <plugins>
-            <plugin>
-                <groupId>com.ibm.decision</groupId>
-                <artifactId>build-maven-plugin</artifactId>
-                <version>${ads-mojo.version}</version>
-                <configuration>
-                    <deployments>
-                        <deployment>
-                            <name>adsSampleLibrary</name>
-                        </deployment>
-                    </deployments>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>com.ibm.decision</groupId>
                 <artifactId>build-maven-plugin</artifactId>
@@ -84,7 +71,7 @@
 
                             <filter>
                                 <includes>
-                                    <include>ads.samples.externalLibrary</include>
+                                    <include>ads.samples.externallibrary</include>
                                 </includes>
                             </filter>
                             <referenceFolder>reference</referenceFolder>
@@ -104,7 +91,7 @@
         <dependency>
             <groupId>ads.samples</groupId>
             <artifactId>sampleLibrary</artifactId>
-            <version>2400.4.0</version>
+            <version>2400.5.1</version>
         </dependency>
     </dependencies>
 

@@ -1,33 +1,33 @@
 
-# ads.samples.externalLibrary.Country
-ads.samples.externalLibrary.Country#concept.label = country
-ads.samples.externalLibrary.Country.BRAZIL#instance.label = Brazil
-ads.samples.externalLibrary.Country.FRANCE#instance.label = France
-ads.samples.externalLibrary.Country.GERMANY#instance.label = Germany
-ads.samples.externalLibrary.Country.ITALY#instance.label = Italy
-ads.samples.externalLibrary.Country.UK#instance.label = UK
-ads.samples.externalLibrary.Country.US#instance.label = USA
-ads.samples.externalLibrary.Country.SPAIN#instance.label = Spain
-ads.samples.externalLibrary.Country.CHINA#instance.label = China
-ads.samples.externalLibrary.Country.JAPAN#instance.label = Japan
+# ads.samples.externallibrary.Country
+ads.samples.externallibrary.Country#concept.label = country
+ads.samples.externallibrary.Country.BRAZIL#instance.label = Brazil
+ads.samples.externallibrary.Country.FRANCE#instance.label = France
+ads.samples.externallibrary.Country.GERMANY#instance.label = Germany
+ads.samples.externallibrary.Country.ITALY#instance.label = Italy
+ads.samples.externallibrary.Country.UK#instance.label = UK
+ads.samples.externallibrary.Country.US#instance.label = USA
+ads.samples.externallibrary.Country.SPAIN#instance.label = Spain
+ads.samples.externallibrary.Country.CHINA#instance.label = China
+ads.samples.externallibrary.Country.JAPAN#instance.label = Japan
 
-# ads.samples.externalLibrary.Person
-ads.samples.externalLibrary.Person#concept.label = person
-ads.samples.externalLibrary.Person.Person(java.lang.String,ads.samples.externalLibrary.Country)#phrase.navigation = a new {person} where {0, input name} {1, country}
-ads.samples.externalLibrary.Person.country#phrase.action = set the country of {this} to {country}
-ads.samples.externalLibrary.Person.country#phrase.navigation = {country} of {this}
-ads.samples.externalLibrary.Person.equals(java.lang.Object)#phrase.navigation = {this} equals {0}
-ads.samples.externalLibrary.Person.firstName#phrase.navigation = {first name} of {this}
-ads.samples.externalLibrary.Person.fullName#phrase.navigation = {full name} of {this}
-ads.samples.externalLibrary.Person.greeting#phrase.navigation = {greeting} of {this}
-ads.samples.externalLibrary.Person.initials#phrase.navigation = {initials} of {this}
-ads.samples.externalLibrary.Person.inputName#phrase.action = set the input name of {this} to {input name}
-ads.samples.externalLibrary.Person.inputName#phrase.navigation = {input name} of {this}
-ads.samples.externalLibrary.Person.lastName#phrase.navigation = {last name} of {this}
-ads.samples.externalLibrary.Person.shortName#phrase.navigation = {short name} of {this}
+# ads.samples.externallibrary.Person
+ads.samples.externallibrary.Person#concept.label = person
+ads.samples.externallibrary.Person.Person(java.lang.String,ads.samples.externallibrary.Country)#phrase.navigation = a new {person} where {0, input name} {1, country}
+ads.samples.externallibrary.Person.country#phrase.action = set the country of {this} to {country}
+ads.samples.externallibrary.Person.country#phrase.navigation = {country} of {this}
+ads.samples.externallibrary.Person.equals(java.lang.Object)#phrase.navigation = {this} equals {0}
+ads.samples.externallibrary.Person.firstName#phrase.navigation = {first name} of {this}
+ads.samples.externallibrary.Person.fullName#phrase.navigation = {full name} of {this}
+ads.samples.externallibrary.Person.greeting#phrase.navigation = {greeting} of {this}
+ads.samples.externallibrary.Person.initials#phrase.navigation = {initials} of {this}
+ads.samples.externallibrary.Person.inputName#phrase.action = set the input name of {this} to {input name}
+ads.samples.externallibrary.Person.inputName#phrase.navigation = {input name} of {this}
+ads.samples.externallibrary.Person.lastName#phrase.navigation = {last name} of {this}
+ads.samples.externallibrary.Person.shortName#phrase.navigation = {short name} of {this}
 
-# ads.samples.externalLibrary.StringUtilities
-ads.samples.externalLibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation = {0} capitalized
-ads.samples.externalLibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation.precedence = 1-1:nonassoc:102
-ads.samples.externalLibrary.StringUtilities.firstLetter(java.lang.String)#phrase.navigation = the first letter of {0}
-ads.samples.externalLibrary.StringUtilities.firstLetter(java.lang.String)#phrase.navigation.precedence = 0-3:nonassoc:101
+# ads.samples.externallibrary.StringUtilities
+ads.samples.externallibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation = {0} capitalized
+ads.samples.externallibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation.precedence = 1-1:nonassoc:102
+ads.samples.externallibrary.StringUtilities.firstLetter(java.lang.String)#phrase.navigation = the first letter of {0}
+ads.samples.externallibrary.StringUtilities.firstLetter(java.lang.String)#phrase.navigation.precedence = 0-3:nonassoc:101

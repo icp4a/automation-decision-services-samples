@@ -7,7 +7,7 @@
  * Contract with IBM Corp.
  */
 
-package ads.samples.geoLibrary;
+package ads.samples.geolibrary;
 
 import junit.framework.TestCase;
 
@@ -19,19 +19,19 @@ public class LocationTest extends TestCase {
   private static final float WASHINGTON_PARIS = (float)6164.81;
 
   public void testDistanceParisNice() {
-    ads.samples.geoLibrary.Location paris = new ads.samples.geoLibrary.Location("Paris", PARIS_LONGITUDE, PARIS_LATITUDE);
-    ads.samples.geoLibrary.Location nice = new ads.samples.geoLibrary.Location("Nice", 7.2661, 43.7031);
-    ads.samples.geoLibrary.Location washington = new ads.samples.geoLibrary.Location("Washington", WASHINGTON_LONGITUDE, WASHINGTON_LATITUDE);
+    Location paris = new Location("Paris", PARIS_LONGITUDE, PARIS_LATITUDE);
+    Location nice = new Location("Nice", 7.2661, 43.7031);
+    Location washington = new Location("Washington", WASHINGTON_LONGITUDE, WASHINGTON_LATITUDE);
     assertEquals((float)685.953, paris.getDistance(nice));
     assertEquals(WASHINGTON_PARIS, paris.getDistance(washington));
   }
 
   public void testReadCsv() {
     Locations locations = new Locations("cities.csv");
-    ads.samples.geoLibrary.Location paris = locations.getLocation("Paris");
+    Location paris = locations.getLocation("Paris");
     assertEquals(paris.getLatitude(), PARIS_LATITUDE);
     assertEquals(paris.getLongitude(), PARIS_LONGITUDE);
-    ads.samples.geoLibrary.Location washington = locations.getLocation("Washington");
+    Location washington = locations.getLocation("Washington");
     assertEquals(washington.getLatitude(), WASHINGTON_LATITUDE);
     assertEquals(washington.getLongitude(), WASHINGTON_LONGITUDE);
   }

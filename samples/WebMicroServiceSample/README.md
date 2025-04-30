@@ -81,7 +81,7 @@ You deploy it to a Kubernetes container, and then, you test it by using cURL.
 1. Open the `WebMicroServiceSample/pom.xml` file to check the used versions. They are defined as properties at the beginning of the file:
 ```
     <ads.samples.version>1.0.0</ads.samples.version>
-    <ads.execution-api.version>2.4.29</ads.execution-api.version> 
+    <ads.execution-api.version>2.4.30</ads.execution-api.version> 
 ```
 `ads.samples.version` is the version of the decision service archive `loanApproval` that you previously installed. 
 This sample was tested with the version `ads.execution-api.version` of the artifact `execution-api`.<br> 
@@ -165,7 +165,7 @@ For more information about the metadata for machine learning, see [Decision serv
 1. Open the `WebMicroServiceSample/pomML.xml` file to check the used versions. They are defined as properties at the beginning of the file:
 ```
     <ads.samples.version>1.0.0</ads.samples.version>
-    <ads.execution-api.version>2.4.29</ads.execution-api.version> 
+    <ads.execution-api.version>2.4.30</ads.execution-api.version> 
 ```
 `ads.samples.version` is the version of the decision service archive `approvalWithML` that you previously installed. 
 This sample was tested with the artifact  `execution-api` with the version `ads.execution-api.version`.<br>
