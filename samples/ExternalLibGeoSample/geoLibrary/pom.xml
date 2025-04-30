@@ -5,11 +5,15 @@
     <parent>
         <artifactId>externalLibraryGeo</artifactId>
         <groupId>ads.samples</groupId>
-        <version>2401.0.4</version>
+        <version>2401.2.1</version>
     </parent>
 
     <artifactId>geoLibrary</artifactId>
     <packaging>jar</packaging>
+
+    <properties>
+        <maven.compiler.release>17</maven.compiler.release>
+    </properties>
 
     <build>
         <pluginManagement>
@@ -21,8 +25,6 @@
                     <configuration>
                         <compilerArgument>-parameters</compilerArgument>
                         <testCompilerArgument>-parameters</testCompilerArgument>
-                        <source>17</source>
-                        <target>17</target>
                     </configuration>
                 </plugin>
             </plugins>

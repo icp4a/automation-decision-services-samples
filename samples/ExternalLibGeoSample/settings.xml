@@ -9,12 +9,6 @@
             <name>Maven release mirror</name>
             <url>%MAVEN_RELEASES-REPOSITORY_TO_BE_SET%</url>
         </mirror>
-        <mirror>
-            <id>ads-maven</id> <!-- match server definition -->
-            <mirrorOf>ads-maven</mirrorOf> <!-- match repository definition -->
-            <name>ADS Maven repository mirror</name>
-            <url>%ADS_MAVEN_REPOSITORY_TO_BE_SET%</url>
-        </mirror>
     </mirrors>
     <profiles>
         <profile>
@@ -31,10 +25,10 @@
             </repositories>
             <pluginRepositories>
                 <pluginRepository>
-                    <id>ads-maven</id>
-                    <name>ADS Maven group repo</name>
-                    <url>%ADS_MAVEN_REPOSITORY_TO_BE_SET%</url>
-                </pluginRepository>
+                    <id>maven-releases</id>
+                     <name>Maven release plugins repo</name>
+                     <url>%MAVEN_RELEASES-REPOSITORY_TO_BE_SET%</url>
+                  </pluginRepository>
             </pluginRepositories>
         </profile>
     </profiles>
@@ -46,17 +40,6 @@
             <id>maven-releases</id>
             <username>USER TO BE SET</username>
             <password>PASSWORD TO BE SET</password>
-        </server>
-        <server>
-            <id>ads-maven</id>
-            <configuration>
-                <httpHeaders>
-                    <property>
-                        <name>Authorization</name>
-                        <value>ZenApiKey %YOUR_API_KEY_TO_BE_SET%</value>
-                    </property>
-                </httpHeaders>
-            </configuration>
         </server>
     </servers>
 </settings>

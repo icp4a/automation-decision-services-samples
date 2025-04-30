@@ -1,14 +1,14 @@
-# ads.samples.externalLibrary.Country
-ads.samples.externalLibrary.Country#concept.label = nazione
-ads.samples.externalLibrary.Country.BRAZIL#instance.label = Brasile
-ads.samples.externalLibrary.Country.FRANCE#instance.label = Francia
-ads.samples.externalLibrary.Country.GERMANY#instance.label = Germania
-ads.samples.externalLibrary.Country.ITALY#instance.label = Italia
-ads.samples.externalLibrary.Country.UK#instance.label = Regno Unito
-ads.samples.externalLibrary.Country.US#instance.label = Stati Uniti
-ads.samples.externalLibrary.Country.SPAIN#instance.label = Spagna
-ads.samples.externalLibrary.Country.CHINA#instance.label = Cina
-ads.samples.externalLibrary.Country.JAPAN#instance.label = Giappone
+# ads.samples.externallibrary.Country
+ads.samples.externallibrary.Country#concept.label = nazione
+ads.samples.externallibrary.Country.BRAZIL#instance.label = Brasile
+ads.samples.externallibrary.Country.FRANCE#instance.label = Francia
+ads.samples.externallibrary.Country.GERMANY#instance.label = Germania
+ads.samples.externallibrary.Country.ITALY#instance.label = Italia
+ads.samples.externallibrary.Country.UK#instance.label = Regno Unito
+ads.samples.externallibrary.Country.US#instance.label = Stati Uniti
+ads.samples.externallibrary.Country.SPAIN#instance.label = Spagna
+ads.samples.externallibrary.Country.CHINA#instance.label = Cina
+ads.samples.externallibrary.Country.JAPAN#instance.label = Giappone
 
 # Term: persona
 @persona#gender = FEMALE
@@ -17,24 +17,24 @@ ads.samples.externalLibrary.Country.JAPAN#instance.label = Giappone
 @iniziali#article.definite = le
 @saluto#article.definite = il
 
-# ads.samples.externalLibrary.Person
-ads.samples.externalLibrary.Person#concept.label = persona
-ads.samples.externalLibrary.Person.Person(java.lang.String,ads.samples.externalLibrary.Country)#phrase.navigation = una nuova {persona} con {0, nome input} {1, nazione}
-ads.samples.externalLibrary.Person.country#phrase.action = imposta la nazione {this,PARTITIVE_ARTICLE} a {nazione}
-ads.samples.externalLibrary.Person.country#phrase.navigation = {nazione} {this,PARTITIVE_ARTICLE}
-ads.samples.externalLibrary.Person.equals(java.lang.Object)#phrase.navigation = {this} è uguale a {0}
-ads.samples.externalLibrary.Person.firstName#phrase.navigation = {nome di battesimo} {this,PARTITIVE_ARTICLE}
-ads.samples.externalLibrary.Person.fullName#phrase.navigation = {nome e cognome} {this,PARTITIVE_ARTICLE}
-ads.samples.externalLibrary.Person.greeting#phrase.navigation = {saluto} {this,PARTITIVE_ARTICLE}
-ads.samples.externalLibrary.Person.initials#phrase.navigation = {iniziali} {this,PARTITIVE_ARTICLE}
-ads.samples.externalLibrary.Person.inputName#phrase.action = imposta il nome di input {this, PARTITIVE_ARTICLE} a {nome input}
-ads.samples.externalLibrary.Person.inputName#phrase.navigation = {nome input} {this,PARTITIVE_ARTICLE}
-ads.samples.externalLibrary.Person.lastName#phrase.navigation = {cognome} {this,PARTITIVE_ARTICLE}
-ads.samples.externalLibrary.Person.shortName#phrase.navigation = {nome corto} {this,PARTITIVE_ARTICLE}
-ads.samples.externalLibrary.Person.isOlderThan(int)#phrase.navigation = {this} è più vecchio di {0}
+# ads.samples.externallibrary.Person
+ads.samples.externallibrary.Person#concept.label = persona
+ads.samples.externallibrary.Person.Person(java.lang.String,ads.samples.externallibrary.Country)#phrase.navigation = una nuova {persona} con {0, nome input} {1, nazione}
+ads.samples.externallibrary.Person.country#phrase.action = imposta la nazione {this,PARTITIVE_ARTICLE} a {nazione}
+ads.samples.externallibrary.Person.country#phrase.navigation = {nazione} {this,PARTITIVE_ARTICLE}
+ads.samples.externallibrary.Person.equals(java.lang.Object)#phrase.navigation = {this} è uguale a {0}
+ads.samples.externallibrary.Person.firstName#phrase.navigation = {nome di battesimo} {this,PARTITIVE_ARTICLE}
+ads.samples.externallibrary.Person.fullName#phrase.navigation = {nome e cognome} {this,PARTITIVE_ARTICLE}
+ads.samples.externallibrary.Person.greeting#phrase.navigation = {saluto} {this,PARTITIVE_ARTICLE}
+ads.samples.externallibrary.Person.initials#phrase.navigation = {iniziali} {this,PARTITIVE_ARTICLE}
+ads.samples.externallibrary.Person.inputName#phrase.action = imposta il nome di input {this, PARTITIVE_ARTICLE} a {nome input}
+ads.samples.externallibrary.Person.inputName#phrase.navigation = {nome input} {this,PARTITIVE_ARTICLE}
+ads.samples.externallibrary.Person.lastName#phrase.navigation = {cognome} {this,PARTITIVE_ARTICLE}
+ads.samples.externallibrary.Person.shortName#phrase.navigation = {nome corto} {this,PARTITIVE_ARTICLE}
+ads.samples.externallibrary.Person.isOlderThan(int)#phrase.navigation = {this} è più vecchio di {0}
 
-# ads.samples.externalLibrary.StringUtilities
-ads.samples.externalLibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation = {0} maiuscola
-ads.samples.externalLibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation.precedence = 1-1:nonassoc:102
-ads.samples.externalLibrary.StringUtilities.firstLetter(java.lang.String)#phrase.navigation = la prima lettera {0, PARTITIVE_ARTICLE}
-ads.samples.externalLibrary.StringUtilities.firstLetter(java.lang.String)#phrase.navigation.precedence = 0-2:nonassoc:101
+# ads.samples.externallibrary.StringUtilities
+ads.samples.externallibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation = {0} maiuscola
+ads.samples.externallibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation.precedence = 1-1:nonassoc:102
+ads.samples.externallibrary.StringUtilities.firstLetter(java.lang.String)#phrase.navigation = la prima lettera {0, PARTITIVE_ARTICLE}
+ads.samples.externallibrary.StringUtilities.firstLetter(java.lang.String)#phrase.navigation.precedence = 0-2:nonassoc:101

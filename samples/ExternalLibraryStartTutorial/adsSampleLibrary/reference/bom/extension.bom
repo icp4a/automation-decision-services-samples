@@ -1,6 +1,6 @@
 
 #loadGetterSetterAsProperties
-package ads.samples.externalLibrary;
+package ads.samples.externallibrary;
 
 class Person
         extends com.ibm.ia.StringProvider

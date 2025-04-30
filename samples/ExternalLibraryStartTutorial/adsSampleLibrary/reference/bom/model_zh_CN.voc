@@ -1,33 +1,33 @@
-# ads.samples.externalLibrary.Country
-ads.samples.externalLibrary.Country#concept.label = 国家或地区
-ads.samples.externalLibrary.Country.BRAZIL#instance.label = 巴西
-ads.samples.externalLibrary.Country.FRANCE#instance.label = 法国
-ads.samples.externalLibrary.Country.GERMANY#instance.label = 德国
-ads.samples.externalLibrary.Country.ITALY#instance.label = 意大利
-ads.samples.externalLibrary.Country.UK#instance.label = 英国
-ads.samples.externalLibrary.Country.US#instance.label = 美国
-ads.samples.externalLibrary.Country.SPAIN#instance.label = 西班牙
-ads.samples.externalLibrary.Country.CHINA#instance.label = 中国
-ads.samples.externalLibrary.Country.JAPAN#instance.label = 日本
+# ads.samples.externallibrary.Country
+ads.samples.externallibrary.Country#concept.label = 国家或地区
+ads.samples.externallibrary.Country.BRAZIL#instance.label = 巴西
+ads.samples.externallibrary.Country.FRANCE#instance.label = 法国
+ads.samples.externallibrary.Country.GERMANY#instance.label = 德国
+ads.samples.externallibrary.Country.ITALY#instance.label = 意大利
+ads.samples.externallibrary.Country.UK#instance.label = 英国
+ads.samples.externallibrary.Country.US#instance.label = 美国
+ads.samples.externallibrary.Country.SPAIN#instance.label = 西班牙
+ads.samples.externallibrary.Country.CHINA#instance.label = 中国
+ads.samples.externallibrary.Country.JAPAN#instance.label = 日本
 
-# ads.samples.externalLibrary.Person
-ads.samples.externalLibrary.Person#concept.label = 人
-ads.samples.externalLibrary.Person.Person(java.lang.String,ads.samples.externalLibrary.Country)#phrase.navigation = 新建 {人} 符合条件： {0, 输入名} {1, 国家或地区}
-ads.samples.externalLibrary.Person.country#phrase.action = 设置 {this} 的 国家或地区 为 {国家或地区}
-ads.samples.externalLibrary.Person.country#phrase.navigation = {this} 的 {国家或地区}
-ads.samples.externalLibrary.Person.equals(java.lang.Object)#phrase.navigation = {this} 等于 {0}
-ads.samples.externalLibrary.Person.firstName#phrase.navigation = {this} 的 {名}
-ads.samples.externalLibrary.Person.fullName#phrase.navigation = {this} 的 {全名}
-ads.samples.externalLibrary.Person.greeting#phrase.navigation = {this} 的 {打招呼}
-ads.samples.externalLibrary.Person.initials#phrase.navigation = {this} 的 {姓名首字母}
-ads.samples.externalLibrary.Person.inputName#phrase.action = 设置 {this} 的 输入名 为 {输入名}
-ads.samples.externalLibrary.Person.inputName#phrase.navigation = {this} 的 {输入名}
-ads.samples.externalLibrary.Person.lastName#phrase.navigation = {this} 的 {姓氏}
-ads.samples.externalLibrary.Person.shortName#phrase.navigation = {this} 的 {短名称}
-ads.samples.externalLibrary.Person.isOlderThan(int)#phrase.navigation = {this} 比 {0}
+# ads.samples.externallibrary.Person
+ads.samples.externallibrary.Person#concept.label = 人
+ads.samples.externallibrary.Person.Person(java.lang.String,ads.samples.externallibrary.Country)#phrase.navigation = 新建 {人} 符合条件： {0, 输入名} {1, 国家或地区}
+ads.samples.externallibrary.Person.country#phrase.action = 设置 {this} 的 国家或地区 为 {国家或地区}
+ads.samples.externallibrary.Person.country#phrase.navigation = {this} 的 {国家或地区}
+ads.samples.externallibrary.Person.equals(java.lang.Object)#phrase.navigation = {this} 等于 {0}
+ads.samples.externallibrary.Person.firstName#phrase.navigation = {this} 的 {名}
+ads.samples.externallibrary.Person.fullName#phrase.navigation = {this} 的 {全名}
+ads.samples.externallibrary.Person.greeting#phrase.navigation = {this} 的 {打招呼}
+ads.samples.externallibrary.Person.initials#phrase.navigation = {this} 的 {姓名首字母}
+ads.samples.externallibrary.Person.inputName#phrase.action = 设置 {this} 的 输入名 为 {输入名}
+ads.samples.externallibrary.Person.inputName#phrase.navigation = {this} 的 {输入名}
+ads.samples.externallibrary.Person.lastName#phrase.navigation = {this} 的 {姓氏}
+ads.samples.externallibrary.Person.shortName#phrase.navigation = {this} 的 {短名称}
+ads.samples.externallibrary.Person.isOlderThan(int)#phrase.navigation = {this} 比 {0}
 
-# ads.samples.externalLibrary.StringUtilities
-ads.samples.externalLibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation = {0} 大写
-ads.samples.externalLibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation.precedence = 1-2:nonassoc:102
-ads.samples.externalLibrary.StringUtilities.firstLetter(java.lang.String)#phrase.navigation = {0} 的第一个字母
-ads.samples.externalLibrary.StringUtilities.firstLetter(java.lang.String)#phrase.navigation.precedence = 1-6:nonassoc:101
+# ads.samples.externallibrary.StringUtilities
+ads.samples.externallibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation = {0} 大写
+ads.samples.externallibrary.StringUtilities.capitalize(java.lang.String)#phrase.navigation.precedence = 1-2:nonassoc:102
+ads.samples.externallibrary.StringUtilities.firstLetter(java.lang.String)#phrase.navigation = {0} 的第一个字母
+ads.samples.externallibrary.StringUtilities.firstLetter(java.lang.String)#phrase.navigation.precedence = 1-6:nonassoc:101
