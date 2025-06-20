@@ -22,8 +22,8 @@ variable. However, the latter leads to an extra difficulty,
 which requires a new modeling construct.
 
 To illustrate it, the decision logic is enriched for choosing a lens
-model. In the following cases, a lens with a fixed focal length must
-be chosen instead of a zoom lens:
+model. In the following cases, a fixed-focus lens must be chosen
+instead of a zoom lens:
 
 1. A professional photographer who is taking portraits.
 2. A super-telephoto lens that is used for sports photography.
@@ -36,13 +36,13 @@ format and the lens type. Therefore, the corresponding dependencies enrich the d
 
 Based on this, two new columns for the level and subject are added to
 the decision table. For standard lenses, telephoto lenses, wide-angle
-lenses, and super wide-angle lenses, a lens with fixed focal length
+lenses, and super wide-angle lenses, a fixed-focus lens
 is proposed to professional photographers who do portraits. In all
 other cases, a zoom lens is proposed.
 
-For super-telephoto lenses, a lens with fixed focal length is
+For super-telephoto lenses, a fixed-focus lens is
 proposed to professional photographers who do portraits or sports
-photography. Itis also proposed to beginners who do sports
+photography. It is also proposed to beginners who do sports
 photography. In all other cases, a zoom lens is proposed.
 
 These factors result into a decision table with 46 rows. The following excerpt
@@ -110,20 +110,20 @@ different photographer levels and subject:
   for each sensor format must exist. One row must indicate
   that a beginner receives a zoom lens. The three other rows must
   indicate that a professional photographer receives a zoom lens if
-  the subject is landscape or sports and a prime lens if the subject
+  the subject is landscape or sports and a fixed-focus lens if the subject
   is portrait.
   
 - For super wide-angle lenses, four rows for full-frame cameras must exist.
   One row must indicate that a beginner receives a
   zoom lens. The three other rows must indicate that a professional
   photographer receives a zoom lens if the subject is landscape or
-  sports and a prime lens if the subject is portrait.
+  sports and a fixed-focus lens if the subject is portrait.
   
 - For super-telephoto lenses, six rows for full-frame
   cameras must exist. Namely, three rows for beginners and three rows for
-  professional photographers. A beginner receives a prime lens for
+  professional photographers. A beginner receives a fixed-focus lens for
   sports photography and zoom lenses for landscape and portraits. A
-  professional photographer receives prime lenses for sports
+  professional photographer receives fixed-focus lenses for sports
   and portrait photography and a zoom lens for landscape.
 
 The resulting decision table must have 46 rows.
@@ -153,32 +153,31 @@ Add a decision table to the node `lens`:
 
 #### Exercise 3
 
-The choice between zoom and prime lens depends only on subject,
+The choice between zoom and fixed-focus lens depends only on subject,
 level, and lens type. 
 
 Refactor the decision model by introducing an intermediate decision
-node `fixed focal length` of type `boolean`:
+node `fixed focus lens` of type `boolean`:
 
- - Ensure that the new node `fixed focal length` depends on the input
+ - Ensure that the new node `fixed focus lens` depends on the input
    data nodes `subject`, `level`, and `lens type`.
- - Ensure that the decision node `lens model` depends on the new node `fixed focal length`. 
+ - Ensure that the decision node `lens model` depends on the new node `fixed focus lens`. 
  - Remove the dependency links between `subject` and `level`,
    and the `lens model`.
    
 ![Dependency graph](resources/dependency-diagram3.png)
  
-The decision logic of node `fixed focal length` is best described in terms of rules:
+The decision logic of node `fixed focus lens` is best described in terms of rules:
 
  - A professional photographer who does portrait photography must
-   receive a prime lens.
- - Super wide-angle cameras used for sports photography must
-   receive a prime lens.
+   receive a fixed-focus lens.
+ - Super-telephoto lenses used for sports photography must be fixed-focus lenses.
  - A zoom lens is proposed in all other cases.
    
 Modify the decision table of node `lens model` as follows:
 
  - Replace the columns for photographer level and subject by a single
-   column for the indicator whether a fixed focal length must be
+   column for the indicator whether a fixed focus lens must be
    given or not. 
  - Keep only two rows for each combination of lens type and sensor format.
  

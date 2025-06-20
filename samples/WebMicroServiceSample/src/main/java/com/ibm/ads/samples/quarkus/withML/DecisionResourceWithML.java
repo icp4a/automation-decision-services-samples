@@ -83,7 +83,7 @@ public class DecisionResourceWithML {
                 SSL_CONTEXT.init(null, tmf.getTrustManagers(), null);
             }
             catch (IOException e) {
-                LOGGER.log(Level.SEVERE, "Cannot find the certificate file in resources/adsSamplesQuarkus/ads-ml.pem", e);
+                LOGGER.log(Level.SEVERE, "Cannot find the certificate file in resources/adsSamplesQuarkus/ads-ml.pem");
             }
         }
         return SSL_CONTEXT;
@@ -137,19 +137,19 @@ public class DecisionResourceWithML {
             return result;
 
         } catch (NoSuchDecisionRunnerException e) {
-            LOGGER.log(Level.SEVERE, "Cannot find the decision operation " + operation + " in the web service", e);
+            LOGGER.log(Level.SEVERE, "Cannot find the decision operation in the web service");
             return Response.status(404);
         } catch (NoSuchAlgorithmException e) {
-            LOGGER.log(Level.SEVERE, "SSL Trustore to be completed ", e);
+            LOGGER.log(Level.SEVERE, "SSL Trustore to be completed ");
             return Response.status(404);
         } catch (KeyManagementException e) {
-            LOGGER.log(Level.SEVERE, "SSL Trustore to be completed ", e);
+            LOGGER.log(Level.SEVERE, "SSL Trustore to be completed ");
             return Response.status(404);
         } catch (KeyStoreException e) {
-            LOGGER.log(Level.SEVERE, "SSL Trustore to be completed ", e);
+            LOGGER.log(Level.SEVERE, "SSL Trustore to be completed ");
             return Response.status(404);
         } catch (CertificateException e) {
-            LOGGER.log(Level.SEVERE, "SSL Certificate to be checked ", e);
+            LOGGER.log(Level.SEVERE, "SSL Certificate to be checked ");
             return Response.status(404);
         }
     }
@@ -167,7 +167,7 @@ public class DecisionResourceWithML {
 
         return decisionRunner.getInputWriter().writeValueAsString(inputExample);
         } catch (NoSuchDecisionRunnerException e) {
-            LOGGER.log(Level.SEVERE, "Cannot find the decision operation " + operation + " in the web service", e);
+            LOGGER.log(Level.SEVERE, "Cannot find the decision operation in the web service");
             return Response.status(404);
         }
     }

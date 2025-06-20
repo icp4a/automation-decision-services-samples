@@ -3,3 +3,4 @@
 This section discusses how to create intelligent decisions and gives best practices for using Automation Decision Services (ADS). 
 
  - [Decision Modeling](DecisionModeling/README.md)
+ - [Decision Logic](DecisionLogic/README.md)

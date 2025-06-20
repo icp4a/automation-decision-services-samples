@@ -31,7 +31,6 @@ public class Main {
       generateReport(traceFile, null);
     } catch (Exception e) {
       LOGGER.log(Level.SEVERE,"ERROR: " + e.getMessage(), e);
-      e.printStackTrace();
     }
   }
 

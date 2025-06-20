@@ -1,388 +1,258 @@
 # Tutorial: Using an external library
 
 ## Description
-This tutorial shows you how to use an external library in a decision service that gives advice about the weather. 
-This decision service is based on the getting started tutorial result, but it includes an external library that defines a **Person** custom type.
+This tutorial shows you how to use an external library in a decision service. 
+This decision service is obtained by following the Getting Started tutorial and has been customized to use an external library that defines a **Person** custom type.
 
-In Automation Decision Services, you can use external libraries in decision services.
-You use them to extend rule authoring to include custom data types and functions from Java libraries.
-For more information on decision models and external libraries, see `Working with external libraries`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=data-working-external-libraries)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=data-working-external-libraries).
+In Automation Decision Services, external libraries can be used in decision services to extend rule authoring with custom data types and functions from Java libraries.
+For more information on decision models and external libraries, see `Working with external libraries`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=data-working-external-libraries)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=data-working-external-libraries).
 
 For another example of an external library, see [External library giving geo localization facilities](../ExternalLibGeoSample/README.md).
 
 ## Learning objectives
-- Build an external library from a Java library.
-- Customize the vocabulary that is used in a decision model.
-- Integrate an external library into a decision service.
-- Use the external types and functions in the decision model.
+- Import and explore an external library in **Decision Designer**.
+- Use the external types and functions in a decision service.
 
 ## Audience
 
-This sample is for anyone who wants to use a Java library in Automation Decision Services.
+This sample is intended for a business user who wants to use a Java library in Automation Decision Services, with the library made available by an integrator.
 
 ## Time required
 
-15 minutes
+10 minutes
 
 ## Prerequisites
 
-Prepare by doing the tutorial `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=resources-getting-started). It introduces you to Automation Decision Services.
+Prepare by completing the tutorial `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=resources-getting-started). It introduces you to Automation Decision Services.
 
-Some basic knowledge of Java is required.
+Ensure that the external library has been built and deployed by an integrator. 
+For details on how the integrator proceeds,  refer to the [External library build tutorial](../ExternalLibraryBuildTutorial/README.md).
+Get the deployed version number from the integrator. This tutorial uses the version 2500.0.6.
 
-You must have the following environments:
-- **Decision Designer**: The web-based user interface for developing decision services in Automation Decision Service. You work with a sample decision service by importing it into a project and opening it in Decision Designer.
-- **An Artifact Repository Manager**: Your IT developers must provide a repository manager containing the Automation Decision Services artifacts required to build an external library that can be used in a decision service. This repository manager is also used to deploy
-the external library and its dependencies. For more information, see `Deploying to a Maven repository`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=environment-deploying-maven-repository)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=environment-deploying-maven-repository).
-
-  **Note**: This repository manager can be the one of the custom CI/CD stack. 
+You must have the following environment:
+- **Decision Designer**: The web-based user interface for developing decision services in Automation Decision Services. You work with a sample decision service by importing it into a project and opening it in Decision Designer.
 
 
-- **Apache Maven**: You can download Maven from https://maven.apache.org.
-
-Download a compressed file of the `automation-decision-services-samples` Git repository to your machine.
-Open this [link](/../../) and choose `Download Zip` in the `Code` menu.
-The task refers to **automation-decision-services-samples**, which is the directory in which you decompress the repository.
-
-# Task 1: Building an external library
-
-You use an editor and Maven to build the external library.
-
-**About this task**
-
-In this task, you...
-- Explore the sample code.
-- Check if the sample library has already been deployed.
-- Configure the Maven settings.
-- Edit the properties for deployment.
-- Build an external library for use in Decision Designer.
-
-This task should be done by an integrator.
-
-## Step 1: Importing and exploring the code
-
-You explore the sources.
-
-1. Go to the **automation-decision-services-samples/samples/ExternalLibraryStartTutorial** directory on your computer.
-2. Explore the sources. There are two directories:
- - `sampleLibrary`: Contains the Java classes StringUtilities, Person and Country. Browse through them to see the usage of annotations that define pure functions that are ready to be used in the decision models.
- The StringUtilities class defines two static functions to be used on string. To get more information on the annotations, look into `Annotations`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=annotations-)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=annotations-).
- - `adsSampleLibrary`: Contains the reference files to build the library in the `reference/bom` folder. It includes:
-    - `extension.bom` to declare custom members when required. This sample shows a computed attribute and a custom method.
-    - `extension.b2x` to define those custom members. To get more information on this topic, look into `Defining custom members and their implementation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=members-defining-custom-their-implementation)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=members-defining-custom-their-implementation).
-    - Vocabulary files named with the following pattern `model_<Locale>.voc` such as `model_en_US.voc` for English. These files define, for example, the navigation sentence of the StringUtilities.capitalize static function and its precedence policy. To get more information on the vocabulary, look into `Vocabulary`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=vocabulary-)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=vocabulary-).
- 
-Each repository contains a `pom.xml` file to build and deploy the library. Open the `adsSampleLibrary/pom.xml` file. The description of this artifact is shown in the decision library. The library depends on the sampleLibrary artifact. This library can be used in many languages including English.
-
-## Step 2: Checking deployed artifacts
-
-You check if the sample library has already been deployed to your repository manager.
-
-1. Open your **Artifact repository manager** release repository where the external library will be stored.
-2. Look for `ads/samples/adsSampleLibrary/2401.2.1`. If it exists, the sample library is already deployed. You can go to Task 2 directly. If the file does not exist, you must deploy it.
-
-**Note**: If you want to deploy another version, change the version from `2401.2.1` to the version number that you want to use, for example, `1.myInitials`, in the following XML files:
-- `automation-decision-services-samples/samples/ExternalLibraryStartTutorial/pom.xml` 
-- `automation-decision-services-samples/samples/ExternalLibraryStartTutorial/sampleLibrary/pom.xml` 
-- `automation-decision-services-samples/samples/ExternalLibraryStartTutorial/adsSampleLibrary/pom.xml` 
-
-## Step 3: Configuring the Maven settings to build your external library
-
-Your Maven setting files should be configured to access to your artifact repository manager to build and deploy the sample external library.
-If your Maven setting files is already configured like this, you can skip this step.
-Otherwise, you must define a Maven setting file by completing the template settings.xml, which is provided in this sample.
-
-1. Open **automation-decision-services-samples/samples/ExternalLibraryStartTutorial/settings.xml**.
-2. To access the **artifact repository manager** to build the sample external library, replace the following placeholders :
-   * %MAVEN_RELEASES-REPOSITORY_TO_BE_SET% : The URL of the **artifatct repository manager** release repository where you deployed the needed plugins and artifacts and where you deploy the external library.
-   * %USER TO BE SET%: A username that can access the repository manager.
-   * %PASSWORD TO BE SET%: The username's password to access the repository manager.
-3. Save the `settings.xml` file.
-
-## Step 4: Setting the properties to deploy your external library
-
-To be able to deploy the library, you must have the release URL of the repository manager in which you deploy your external library. 
-
-1. Open **automation-decision-services-samples/samples/ExternalLibraryStartTutorial/pom.xml**.
-2. Look at the property definitions:
-    * `archive.repository.release.url`: The URL in which you deploy releases. This value is used in the distribution management part. 
-    * `ads-mojo.version` The version that is used to build the library. (**Note:** This sample was tested with Mojo 14.2.0.2)
-    * `ads-annotations.version` The version that is used to build the library. (**Note:** This sample was tested with annotations 2.0.13.01)
-
-3. Replace the instances of `TO BE SET` by the appropriate values:
-
-```
-   <properties>
-       <archive.repository.release.url>RELEASE URL TO BE SET</archive.repository.release.url>
-       <ads-mojo.version>14.2.0.2</ads-mojo.version>
-       <ads-annotations.version>2.0.13.01</ads-annotations.version>
-   </properties>
-```
-4. Save the `pom.xml` file. 
-
-## Step 5: Building and deploying the library
-
-In this step, you build and deploy the external library to a repository manager.
-
-**Note**: The pom file to build an external library can be generated using a maven command, 
-for more information about this feature see the `documentation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=library-creating-pom-file)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=library-creating-pom-file).
-This sample provides this pom file in `automation-decision-services-samples/samples/ExternalLibraryStartTutorial/adsSampleLibrary/pom.xml`, it can be generated with the following command
-````
-mvn archetype:generate -DarchetypeGroupId=com.ibm.decision -DarchetypeArtifactId=maven-archetype-external-library \
--DarchetypeVersion=ADS-MOJO.VERSION -DgroupId=ads.samples \
--DartifactId=adsSampleLibrary \
--Dversion=SAMPLE.VERSION \
--Ddependencies=ads.samples:sampleLibrary:SAMPLE.VERSION \
--Dlocales=en_US,fr_FR,de_DE,it_IT,es_ES,pt_BR,zh_CN,ja_JP \
--DimportMethods=true \
--B -s settings.xml 
-````
-where `ADS-MOJO.VERSION` is the version that is used to build the library, and `SAMPLE.VERSION` is the version of the sample.
-
-
-To build and deploy the external library, run the following command in the **automation-decision-services-samples/samples/ExternalLibraryStartTutorial** directory:
-```
-mvn clean deploy -s settings.xml
-```
-This command...
-
-- Creates the `sampleLibrary.jar` file. It contains the Java classes of your library.
-- Runs the unit tests on this jar.
-- Creates the `adsSampleLibrary.jar` file. It encapsulates the Java library for use in Decision Designer. It uses the extensions and vocabulary files defined into `adsSampleLibrary/reference/bom`.
-- Creates a description file of the library for each vocabulary in `adsSampleLibrary/target/` with the form `adsSampleLibrary_LOCALE.md` file. It is used as a base for the description in Decision Designer.
-- Deploys the two jars in the repository manager.
-When you see the message BUILD SUCCESS, you can go to the next task to import the external library.
-
-# Task 2: Importing an external library
+# Task 1: Importing and exploring an external library
 
 You import the external library in Decision Designer.
 
 **About this task**
 
-In this task, you... 
-- (Optional) Check the credentials to the repository manager.
+In this task, you will: 
 - Create a new project that uses the external library in Decision Designer.
 - Explore the external library.
-
-## (Optional) Step 1: Checking the credentials for the repository manager
-You search for the external library. The task is normally done by your IT developers (see `Configuring credentials for a Maven repository manager`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=administering-configuring-credentials-maven-repository-manager)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=administering-configuring-credentials-maven-repository-manager)).
-To look at the credentials, you should have the permission `Administer platform for decision services` enabled. If you don't, you can skip this step.
-1. Open the admin-platform URL in a web browser.
-2. Select the `Maven configuration` tab.
-3. One value should be defined to give access to the repository in which you have deployed the external library.
-4. If no value is defined, add one using the `New` button.
   
- ## Step 2: Creating a new project that uses the external library
- In this step, you create a project that uses the external library. If you need more details to follow the instructions please refer to the `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=resources-getting-started) tutorial.
+ ## Step 1: Creating a new project that uses the external library
+
+ In this step, you create a project that uses the external library. If you need more details to follow the instructions, please refer to the `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=resources-getting-started) tutorial.
 
 1. Use the credentials provided for your instance to sign in to Decision Designer.
-2. Create a new project. We use `Library Sample` in this sample documentation for the project name.
-3. Click the `Settings` icon in the right top bar to open the Settings page.
+2. Create a new project. In this documentation, we use `Library Sample` as the project name.
+3. Click the `Settings` icon in the top-right bar to open the Settings page.
 4. Open the **External libraries** tab and click **Import**.
 5. Enter the following values:
   - Group ID: ads.samples
   - Artifact ID: adsSampleLibrary
-  - Version: 2401.2.1 (This is the version you want to use. It might be different if you deployed a new version.)
+  - Version: 2500.0.6 (This is the version you want to use. It might be different if you deployed a new version.)
   
-6. Click **OK** and wait for the library to be imported. You see the library description and that it is defined in many languages.
+6. Click **OK** and wait for the library to be imported. You see the library description and that it is available in multiple languages.
 
-## Step 3: Exploring the external library
-In this step, you look as a business user at the library that is loaded into Decision Designer.
+**Note** 
+If you encounter the error "Unable to add the external library," verify that you have entered the correct values for the Group ID, Artifact ID, and Version. If the issue persists, ask your integrator to confirm the availability of the library.
+
+
+## Step 2: Exploring the external library
+In this step, you will explore the library that is loaded into Decision Designer.
 
 1. Click **adsSampleLibrary** to open the library. You see the library types and verbalization.
 2. Click **person**. You see the vocabulary that can be used with this new type.
-Check the properties given to build a person: input name and country. Check the functions that you can use in your rules, for example, the greeting of a person.
-3. Click **string**. You see the functions declared in the StringUtilities class by using the vocabulary you set up.
-4. Click your project name in the breadcrumbs to continue by importing a decision service.
+Review the properties used to build a person, such as input name and country. Explore the functions available for use in your rules, such as the greeting function for a person.
+3. Click your project name in the breadcrumbs to return and continue by importing a decision service.
 
 **Note** 
-At the project level, you can see the library description in English. At the decision service level, you can see the library description in the locale of the current decision service.
+At the project level, you will see the library description in English. At the decision service level, the library description will appear in the locale of the current decision service.
 
-# Task 3: Using an external library in a decision service
-You import a decision service and use your external library in it.
+# Task 2: Using an external library in a decision service
+In this task, you will import a decision service and use your external library within it.
 
+**Note**: This tutorial can use a localized sample since the library is defined in many languages.
+The following steps describe how to use either the English or the localized sample. While most terms are in English, if you're using a different locale, you should use the localized names.
+ 
 **About this task**
 
-In this task, you... 
+In this task, you will: 
 - Import the Getting Started decision service.
-- Import the external library in this decision service.
+- Import the external library into this decision service.
 - Use the external library in the Daily advice decision model.
 - Run your changes.
 
 
 ## Step 1: Importing sample decision services
-In this step, you import the decision service in which you use the external library. You import the answer to the getting started tutorial.
+In this step, you import the decision service that uses the external library. This decision service corresponds to the answer from the Getting Started tutorial.
 
 **Procedure**
 
-1. Open the **Decision services** tab if it is not open.
+1. Open the **Decision services** tab if it is not already open.
 2. Click **New decision**.
-3. Choose **Discovery tutorials** in the left panel. Then, select **Getting started** and click **Import** to import the decision service.
-4. Click **Getting Started** to open the decision service. It contains several decision models that correspond to different lessons in the Getting started tutorial. 
-You work on the answer to the tutorial, which is named `Daily advice`. It also contains a data model defining custom types.
+3. In the left panel, choose **Discovery tutorials**. Then, select **Getting started** and click **Import** to import the decision service.
+4. Click **Getting Started** to open the decision service. It includes several decision models corresponding to different lessons from the Getting Started tutorial.
+You will work on the answer to the tutorial, named `Daily advice`. It also includes a data model defining custom types.
 
 **Note**  
-You can also import the **Brazilian Portuguese** sample and use the decision service named `conselho diário` to use this external library in Brazilian Portuguese.
+You can use a localized sample since the library is defined in multiple languages.
 
-You can also import the **French** sample and use the decision service named `Conseil du jour` to use this external library in French.
+To use the external library in Brazilian Portuguese, import the **Brazilian Portuguese** sample and use the decision service named `conselho diário`.
 
-You can also import the **German** sample and use the decision service named `Heutige Empfehlung` to use this external library in German.
+To use the external library in French, import the **French** sample and use the decision service named`Conseil du jour`.
 
-You can also import the **Italian** sample and use the decision service named `Consiglio quotidiano` to use this external library in Italian.
+To use the external library in German , import the **German** sample and use the decision service named `Heutige Empfehlung`.
 
-You can also import the **Japanese** sample and use the decision service named `私のサービス` to use this external library in Japanese.
+To use the external library in Italian, import the **Italian** sample and use the decision service named `Consiglio quotidiano`.
 
-You can also import the **Simplified Chinese** sample and use the decision service named `我的自动化服务` to use this external library in Simplified Chinese.
+To use the external library in Japanese, import the **Japanese** sample and use the decision service named `私のサービス`.
 
-You can also import the **Spanish** sample and use the decision service named `Consejo diario` to use this external library in Spanish.
+To use the external library in Simplified Chinese, import the **Simplified Chinese** sample and use the decision service named `我的自动化服务`.
+
+To use the external library in Spanish, import the **Spanish** sample and use the decision service named `Consejo diario`.
 
 
 ## Step 2: Defining the dependency to the external library in the Getting Started decision service
-In this step, you enable your decision service to use the external library.
+In this step, you enable your decision service to use the external library. 
 
 **Procedure**
 
 1. Open the `Daily advice` decision model.
-2. Click the **Dependencies** tab. It shows a data model and no dependency to an external library.
+2. Click the **Dependencies** tab. You see the data model but no dependency to an external library.
 2. Click **Add +**. 
 3. Select `adsSampleLibrary` and click **OK**. Now, you can use the library in the decision service.
  
- **Note**: You can add an external library to a decision service that already has a data model. This is the case in the tutorial that you just imported.
+ **Note**: You can add an external library to an existing decision service that already includes a data model, as demonstrated with the `Daily advice` decision model.
  
 ## Step 3: Using the external library in the Daily Advice model
- You replace the String type that is used for the input name by the new person type. 
+In this step, you replace the String type used for the input name with the new `person` type.
  
  **Procedure**
  
 1. Click on the **Run** tab. <br>Three data sets are provided. Run the `Avery` data set. It produces the following results:
 `"Hello Avery! Cold day! Take a coat."`<br>
-2. Now, you will change this advice by a capitalized greeting and initials provided in the external library.<br>Click **Modeling** and select the **Name** input node. <br>Change the node name to `Person`.<br>Change the node output type to the `person` custom type.
+2. Now, you will customize this advice with a personalized greeting and initials provided by the external library.<br>Click **Modeling** and select the **Name** input node. <br>Change the node name to `Person`.<br>Change the node output type to the `person` custom type.
 
-**Note:** In the custom types, you see the new types that are defined in your external libraries as well as the types that are defined in the data model of this decision service.
+**Note:** In the custom types, you see the new types that are defined in your external libraries, as well as the types that are defined in the data model of this decision service.
 
 3. Click the **Daily advice** node. In the **Logic** tab, select **Advice rule**.
-4. Change the rule to use the functions provided in the adsSampleLibrary:
+4. Modify the rule to use the functions provided in the adsSampleLibrary:
 ```
 if
     Person is defined
 then
-    set decision to the greeting of Person capitalized + " " + the initials of Person + "! " + 'Weather advice';
+    set decision to the greeting of Person + " " + the initials of Person + "! " + 'Weather advice';
 ```
 
-**Note:** You can use the rule completion menu to select the functions. You can use another function from the library for the name of the Person such as the first name.
+**Note:** You can use the rule completion menu to select the functions. You can choose a different function from the library, like one that returns the person's first name.
 
-If you use the Brazilian Portuguese project, the rule is
+If you are using the Brazilian Portuguese project, the rule will be:
 
 ```
 se
 	Pessoa é definido 
 então
-	atribuir à decisão o valor a saudação de Pessoa em maiúsculas + " " + as iniciais de Pessoa + "! " + 'Recomendação meteorológica';
+	atribuir à decisão o valor a saudação de Pessoa + " " + as iniciais de Pessoa + "! " + 'Recomendação meteorológica';
 ```
 
-If you use the French project, the rule is
+If you are using the French project, the rule will be:
 ```
 si 
      Personne est défini 
 alors 
-affecter à décision la manière de saluer de Personne en majuscules + " " + les initiales de Personne + "! " + 'Conseil lié aux prévisions' ;
+affecter à décision la manière de saluer de Personne + " " + les initiales de Personne + "! " + 'Conseil lié aux prévisions' ;
 ```
-If you use the German project, the rule is
+If you are using the German project, the rule will be:
 ```
 wenn
 	Person ist definiert
 dann
-	setze Entscheidung auf  die Anrede von Person in Großbuchstaben + " " + die Initialen von Person  + "! "  + Wetterempfehlung ;
+	setze Entscheidung auf  die Anrede von Person + " " + die Initialen von Person  + "! "  + Wetterempfehlung ;
 ```
-If you use the Italian project, the rule is
+If you are using the Italian project, the rule will be:
 ```
 se
 	Persona è definito 
 allora
-	assegna decisione a il saluto di Persona maiuscola + " " + le iniziali di Persona + "! " + 'Consiglio meteo' ;
+	assegna decisione a il saluto di Persona + " " + le iniziali di Persona + "! " + 'Consiglio meteo' ;
 ```
 
-If you use the Japanese project, the rule is
+If you are using the Japanese project, the rule will be:
 ```
 仮定条件
 	'人' は定義されている 
 その場合
 
-	'意思決定' を '人' の挨拶 を大文字にする + " " + '人' のイニシャル + "、" +'天気のアドバイス' とする 。 
+	'意思決定' を '人' の挨拶 + " " + '人' のイニシャル + "、" +'天気のアドバイス' とする 。 
 ```
 
-If you use the Simplified Chinese project, the rule is
-
+If you are using the Simplified Chinese project, the rule will be:
 ```
 如果
 	'人' 是 已被定义的
 那么
-	设置 '决策' 为 '人' 的打招呼 大写 + " " + '人' 的姓名首字母  + "! " + '天气建议' ;
+	设置 '决策' 为 '人' 的打招呼 + " " + '人' 的姓名首字母  + "! " + '天气建议' ;
 ```
 
-If you use the Spanish project, the rule is
+If you are using the Spanish project, the rule will be:
 
 ```
 si
 	Persona está definido
 entonces
-	asignar a decisión el saludo de Persona en mayúsculas + " " + las iniciales de Persona + "! " + 'Recomendación meteorológica' ;
+	asignar a decisión el saludo de Persona + " " + las iniciales de Persona + "! " + 'Recomendación meteorológica' ;
 ```
-
-**Note**: The rest of this tutorial uses the English names, in another locale, you have to use the localized names.
  
-## Step 4: Testing your changes
-You run the modified model.
+## Step 3: Testing your changes
+In this step, you run the modified model.
 
 **Procedure**
 
 1. Click the **Run** tab.
-2. The `Avery` data set shows an error as input data type has been changed.<br>Click the vertical three dots (**...**) at the right of the `name` attribute and select **Delete** in the menu.
-3. Now, you can add Person input value.<br>Click the **person +** button and set the following values: 
+2. Since the input data type has been changed, the `Avery` data set will show an error.<br>Click the vertical three dots (**...**) next to the `name` attribute and select **Delete** from the menu.
+3. Now, add the Person input value.<br>Click the **person +** button and set the following values: 
     - Input name: `dominique dupont`
-    - age: 40
     - Country: France
-5. Click **Run**. You get the following output: `"SALUT DD! Cold day! Take a coat."`
+5. Click **Run**. The following output is generated: `"Salut DD! Cold day! Take a coat."`
 6. Click **Modeling** and edit **Advice rule** again to use the full name of the person instead of the initials. The rule in English becomes:
 ```
 if
     Person is defined
 then
-    set decision to the greeting of Person capitalized + " " + the full name of Person + "! " + 'Weather advice';
+    set decision to the greeting of Person + " " + the full name of Person + "! " + 'Weather advice';
 ```
-6. Back to the **Run** tab, run your data set. You get the following output: 
-`"SALUT Dominique Dupond! Cold day! Take a coat."`
+6. Back in the **Run** tab, run your data set again. You get the following output: 
+`"Salut Dominique Dupond! Cold day! Take a coat."`
 
-# (Optional) Task 4: Executing a decision service using an external library
-You run a decision service that includes an external library in the same way as any other decision service. These steps are more detailed than those in task 2 and task 6 of `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=resources-getting-started).
+# (Optional) Task 3: Executing a decision service using an external library
+In this task you run a decision service that includes an external library in the same way as any other decision service. These steps are more detailed than those in task 6 of `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=resources-getting-started).
 
 **About this task**
 
-In this task, you...
-- Connect the **Library sample** project to a Git repository. 
-- Create a new version of your project.
+In this task, you will:
+- Share the changes of your decision service.
+- Create a new version of your decision service.
 - Deploy your decision service archive.
-- Run the decision service archive by using the OpenAPI of your decision service in the Swagger UI tool.
-
-If Decision Designer is configured to automatically create a Git repository to be connected to, you can use this git repo and skip points 1,2 and 3 in the following procedure. See `Connecting to a remote repository automatically`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=administering-connecting-remote-repository-automatically)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=administering-connecting-remote-repository-automatically).
+- Run the decision service archive using the OpenAPI of your decision service in the Swagger UI tool.
 
 **Procedure**
 
-1. Create a GIT repository, and get its URI and credentials.
-2. Click on the project name **Library Sample** in the breadcrumb to open it.
-3. Connect the project to the GIT repository using the button of the right top bar. 
-4. In the **Share changes** tab of your project, select the **Getting started** decision service.
-5. Click **Share** to share your changes in the Git repository.
-6. In the **Deploy** tab, click the suggested `create version` from the latest change to create your version.
-7. Expand the created version and click **Deploy** at the end of the row for your decision service. Wait for the deployment to finish.
-8. Run your decision service archive by clicking on the **Test** icon <img src="/resources/Test-icon.png" width="26" height="23">
+1. In the **Share changes** tab of your project, select the **Getting started** decision service.
+2. Click **Share** to share your changes with your collaborators.
+3. In the **Deploy** tab, click the suggested `create version` from the latest change to create your version.
+4. Expand the created version and click **Deploy** at the end of the row for your decision service. Wait for the deployment to finish.
+5. To run your decision service archive, click the **Test** icon <img src="/resources/Test-icon.png" width="26" height="23">
  at the end of the line of the decision service name to open the Swagger UI for the your decision service.
-9. Expand `POST /daily-advice/execute`, click on `Try it out` and enter the following request body:
+6. In the Swagger UI, expand `POST /daily-advice/execute`,click on `Try it out` and enter the following request body:
  ``` 
 {
   "person": {
     "country": "FRANCE",
-    "age": 40,
     "inputName": "Dominique Dupont"
   },
   "weather": {
@@ -395,6 +265,6 @@ If Decision Designer is configured to automatically create a Git repository to b
 10. Click Execute. You get the following response:
  
 ``` 
-"SALUT Dominique Dupont! It would be wise to stay home. There is a storm alert."
+"Salut Dominique Dupont! It would be wise to stay home. There is a storm alert."
 ``` 
-You've completed this tutorial. For another example of an external library, see [External library giving geo localization facilities](../ExternalLibGeoSample/README.md).
+You have completed this tutorial. For another example of an external library, see [External library giving geo localization facilities](../ExternalLibGeoSample/README.md).

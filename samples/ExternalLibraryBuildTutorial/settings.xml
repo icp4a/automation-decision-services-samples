@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <profiles>
+        <profile>
+            <id>mavenRepos</id>
+            <properties>
+              <altReleaseDeploymentRepository>maven-releases::%MAVEN_RELEASES-REPOSITORY_TO_BE_SET%</altReleaseDeploymentRepository>
+            </properties>
+            <repositories>
+                <repository>
+                    <id>maven-releases</id>
+                    <name>Maven release repo</name>
+                    <url>%MAVEN_RELEASES-REPOSITORY_TO_BE_SET%</url>
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>ads-plugin</id>
+                    <name>ADS plugin repo</name>
+                    <url>%MAVEN_RELEASES-REPOSITORY_TO_BE_SET%</url>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>mavenRepos</activeProfile>
+    </activeProfiles>
+    <servers>
+        <server>
+            <id>maven-releases</id>
+            <username>%USER TO BE SET%</username>
+            <password>%PASSWORD TO BE SET%</password>
+        </server>
+    </servers>
+</settings>

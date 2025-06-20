@@ -1,0 +1,27 @@
+
+# ads.samples.externallibrary.Country
+ads.samples.externallibrary.Country#concept.label = 国
+ads.samples.externallibrary.Country.BRAZIL#instance.label = ブラジル
+ads.samples.externallibrary.Country.CHINA#instance.label = 中国
+ads.samples.externallibrary.Country.FRANCE#instance.label = フランス
+ads.samples.externallibrary.Country.GERMANY#instance.label = ドイツ
+ads.samples.externallibrary.Country.ITALY#instance.label = イタリア
+ads.samples.externallibrary.Country.SPAIN#instance.label = スペイン
+ads.samples.externallibrary.Country.UK#instance.label = イギリス
+ads.samples.externallibrary.Country.US#instance.label = アメリカ
+ads.samples.externallibrary.Country.JAPAN#instance.label = 日本
+
+# ads.samples.externallibrary.Person
+ads.samples.externallibrary.Person#concept.label = 人
+ads.samples.externallibrary.Person.Person(java.lang.String,ads.samples.externallibrary.Country)#phrase.navigation = 新規の {人} ここで {0, 入力名} {1, 国}
+ads.samples.externallibrary.Person.country#phrase.action = {this} の国を {国} とする
+ads.samples.externallibrary.Person.country#phrase.navigation = {this} の {国}
+ads.samples.externallibrary.Person.equals(java.lang.Object)#phrase.navigation = {this} は {0} と等しい
+ads.samples.externallibrary.Person.firstName#phrase.navigation = {this} の {ファーストネーム}
+ads.samples.externallibrary.Person.fullName#phrase.navigation = {this} の {フルネーム}
+ads.samples.externallibrary.Person.greeting#phrase.navigation = {this} の {挨拶}
+ads.samples.externallibrary.Person.initials#phrase.navigation = {this} の {イニシャル}
+ads.samples.externallibrary.Person.inputName#phrase.action = {this} の入力名を {入力名} とする
+ads.samples.externallibrary.Person.inputName#phrase.navigation = {this} の {入力名}
+ads.samples.externallibrary.Person.lastName#phrase.navigation = {this} の {ラストネーム}
+ads.samples.externallibrary.Person.shortName#phrase.navigation = {this} の {略称}

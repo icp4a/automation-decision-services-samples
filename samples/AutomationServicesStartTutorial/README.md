@@ -24,8 +24,8 @@ You must have access to  the following environments in Business Automation Studi
 - **Decision Designer**: A web-based user interface for developing decision services in Business Automation Studio. You work with a sample decision service that you import into a project and open in Decision Designer.
 - **Application Designer**:  A web-based user interface for developing applications in Business Automation Studio.
  
-If you do not have access to these environments, see [Managing access to Business Automation Studio projects documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=services-managing-access-decision-automations).
-For more information about Business Automation Studio and the designers it integrates, see the [Business Automation Studio documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=cpbaf-business-automation-studio).
+If you do not have access to these environments, see [Managing access to Business Automation Studio projects documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=services-managing-access-decision-automations).
+For more information about Business Automation Studio and the designers it integrates, see the [Business Automation Studio documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=cpbaf-business-automation-studio).
 # Task 1: Creating and deploying a decision service
 **About this task**
 
@@ -64,26 +64,20 @@ In this step, you import the decision service that you later deploy. You import 
 ## Step 3: Deploying your decision service
 
 In this step, you deploy your decision service within your instance of Automation Decision Services. The instructions are summarized, but you can find more detailed instructions in the
-[Getting started in Automation Decision Services Task 2](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=gs-task-2-connecting-git-repository-sharing-decision-service).
-If Decision Designer is configured to automatically create a Git repository to be connected to, you can use this git repo and skip points 1,2 and 3 in the following procedure. See [Connecting to a remote repository automatically](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=administering-connecting-remote-repository-automatically).
+[Getting started in Automation Decision Services Task 6](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=started-task-6-deploying-running-decision).
 
 **Procedure**
 
-1. Create a repository in GitHub, and get its URL and the credentials to access it.
-2. In Decision Designer, click the name of your project in the breadcrumbs.
-3. Click **Connect** in the upper right corner of Decision Designer. Then, enter the GitHub repository URI and credentials, and click **Connect**.
-4. Click the name of your project in the breadcrumbs.
-5. Open the **Share changes** tab. You see the changes that you can share. The Getting started decision service is selected.
-6. Click **Share**. Enter the following comment, and then click **Share**:
+1. In the **Share changes** tab of your project, you can view the changes available to share. The Getting started decision service is selected.
+2. Click **Share**, enter the following comment, and then click **Share** again to confirm:
 ```
 Getting started first version
 ```
-
-7. Open the **Deploy** tab.
-8. Click on Create version. Enter the name FirstVersion and click the Create button.
-9. Expand FirstVersion. Click **Deploy** to the right of the Getting started decision service.
+3. Open the **Deploy** tab.
+4. Click **Create version**. Enter the name `FirstVersion`, and then click **Create**.
+5. Expand FirstVersion, then click **Deploy** next to the Getting started decision service.
 Click Deploy in the confirmation window, and wait for the decision service to be deployed to the embedded runtime archive repository. 
-10. Click **Business Automations** in the breadcrumbs to go back to the list of projects.
+6. Click **Business Automations** in the breadcrumbs to go back to the list of projects.
 
 The next step is to make the decision service archive available as an automation service.
 

@@ -68,6 +68,7 @@ folder in [/practice/DecisionModeling/step{stepNumber}/solution]().
    model for the components and applying this decision model 
    to make a decision for this component. [Continue the tutorial](step6/quiz/quiz.md)
 
+You have now learned how to define hierarchical decision-making problems with the help of ADS decision models. These decision models have some fundamental properties, which are important for the next tutorial. You can learn more about them in this [Discussion of decision models](wrapup/description.md).
 
 [Back to main page](./..)
 

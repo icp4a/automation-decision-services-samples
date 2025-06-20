@@ -5,29 +5,21 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <archive.repository.release.url>RELEASE URL TO BE SET</archive.repository.release.url>
-        <ads-mojo.version>14.2.0.2</ads-mojo.version>
-        <ads-annotations.version>2.0.13.01</ads-annotations.version>
-        <ads-sample.version>2401.2.1</ads-sample.version>
+        <ads-mojo.version>16.0.3</ads-mojo.version>
+        <ads-annotations.version>2.0.16</ads-annotations.version>
+        <ads-sample.version>2500.0.6</ads-sample.version>
         <jackson.version>2.15.2</jackson.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <groupId>ads.samples</groupId>
     <artifactId>externalLibraryGeo</artifactId>
-    <version>2401.2.1</version>
+    <version>2500.0.6</version>
     <packaging>pom</packaging>
 
     <modules>
         <module>geoLibrary</module>
         <module>adsGeoLibrary</module>
     </modules>
-
-    <distributionManagement>
-        <repository>
-            <id>maven-releases</id>
-            <url>${archive.repository.release.url}</url>
-        </repository>
-    </distributionManagement>
 
 </project>

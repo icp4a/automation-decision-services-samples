@@ -30,7 +30,7 @@ In this task, you configure a generative AI provider to use it in Automation Dec
 
 **Procedure**
 
-To activate the Generative AI feature in Automation Decision Services, you must create a Kubernetes secret and reference it in spec.genai_secret_name. For more information, see `Configuring a generative AI secret` [![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=services-configuring-generative-ai-secret)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=preparing-configuring-generative-ai-secret). You  retrieve the <watsonx_ai_api_key> and <project_id> from your IBM Watsonx account as follows.
+To activate the Generative AI feature in Automation Decision Services, you must create a Kubernetes secret and reference it in spec.genai_secret_name. For more information, see `Configuring a generative AI secret` [![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=services-configuring-generative-ai-secret)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=preparing-configuring-generative-ai-secret). You  retrieve the <watsonx_ai_api_key> and <project_id> from your IBM Watsonx account as follows.
 
 
 1. Create an IBM Cloud API key:
@@ -62,15 +62,15 @@ In this step, you take a moment to explore the imported sample decision service.
 
 **Procedure**
 1. Go to the **Data** tab and open the **Pricing Data** data model. Browse the data types: the Detection type is used by the generative AI model to store data extracted from customer emails.
-2. Click on the decision service name in the breadcrumbs and open the **Email analysis** generative AI model. It uses the Mixtral-8x7B LLM to analyze content from customer emails and extract data such as product names, item quantities, and company names.
-For more details about prompt fields see `Creating prompts` [![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=models-creating-prompts)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=models-creating-prompts).
+2. Click on the decision service name in the breadcrumbs and open the **Email analysis** generative AI model. It uses the mistral-small-3-1-24b-instruct-250 LLM to analyze content from customer emails and extract data such as product names, item quantities, and company names.
+For more details about prompt fields see `Creating prompts` [![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=ai-creating-prompts)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=ai-creating-prompts).
 3. Click **Assisted Pricing** in the breadcrumbs and open **Part number** decision model. Click on **Part number** node then click on **Logic** and open **Part number table**. It defines the part number of a product based on its name. If the product is not in the decision table than the **output-default-setting** rule is applied. Open the Run tab and test with the **Laptop** dataset. The output is **"OF-028"**. Update the product value to **laptop** and click **Run**. The output is **"N/A"**.
 4. Click **Assisted Pricing** in the breadcrumbs and open **[Main] Pricing** task model. 
-Click the **[Main] Pricing** ruleflow in the Artifacts list to open it. It contains three subflows:
+Click the **Automated pricing** ruleflow in the Artifacts list to open it. It contains three subflows:
    - **Analyse email**: It calls the **Email analysis** generative AI model to extract data from customer emails and get product names.
    - **Build product list**: It builds a list of product names and quantities by parsing the text returned by the generative AI model. It also calls the **Part number** decision model to get the part number of products.
    - **Price products**: It calls the **Unit price** decision model to get the unit price for specific products and calculate the total price for all detected products.
-5. Open the Run tab to test the **[Main] Pricing** ruleflow.There are four functions, one for the **[Main] Princing** ruleflow and the three others for the subflows. Select **Pricing** function and click **Run**. Switch to **Realistic email** test data and click Run.
+5. Open the Run tab to test the **[Main] Pricing** ruleflow. Click **Run**. Switch to **Realistic email** test data and click Run.
 
 Depending on the email used as input, some products might show a price of 0 because their part number could not be identified. If the product name does not exactly match the spelling used in the **Part number** decision table, the part number is set to to N/A and a price of 0 is returned.
  This limitation can be avoided by using a generative AI model instead of a decision table to get the part number of a product.
@@ -81,7 +81,7 @@ Next you create a generative AI model.
 
 **About this task**
 
-In this task, you create a generative AI model to replace the **Part number** decision model and call it from a task model. For more information about generative AI models, see `Integrating generative AI models` [![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=artifacts-integrating-generative-ai-models)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=artifacts-integrating-generative-ai-models).
+In this task, you create a generative AI model to replace the **Part number** decision model and call it from a task model. For more information about generative AI models, see `Integrating generative AI models` [![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=artifacts-integrating-generative-ai)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=artifacts-integrating-generative-ai).
 
 **Procedure**
 
@@ -199,6 +199,7 @@ In this task, you create a generative AI model to replace the **Part number** de
         OF-099,Guest Sofa
         OF-100,Desk Lamp
      </details>
+     
 7. Clear the default prompt input and enter: `what is the part number of {{product}}?`. A warning is displayed because you haven't defined the product variable yet.
 8. Edit the default variable:
     - Double click the Variable name and set it to `product`.
@@ -237,9 +238,6 @@ In this task, you replace the **Part number** decision model by the generative A
 
 
 ## Learn more
-- `Integrating generative AI models` in Decision Designer [![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=artifacts-integrating-generative-ai-models)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=artifacts-integrating-generative-ai-models).
+- `Integrating generative AI models` in Decision Designer [![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=artifacts-integrating-generative-ai)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=artifacts-integrating-generative-ai).
 - [Working with generative AI](https://dataplatform.cloud.ibm.com/docs/content/wsj/getting-started/quickstart-tutorials.html?context=wx&audience=wdp#prompt) in watsonx.ai
 - [Choosing a foundation model in watsonx.ai](https://dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-model-choose.html?context=wx&audience=wdp)
-
-
-

@@ -1,7 +1,7 @@
 /*
  * Licensed Materials - Property of IBM
  * 5737-I23 5900-AUD
- * Copyright IBM Corp. 2018 - 2021. All Rights Reserved.
+ * Copyright IBM Corp. 2018 - 2025. All Rights Reserved.
  * U.S. Government Users Restricted Rights:
  * Use, duplication or disclosure restricted by GSA ADP Schedule
  * Contract with IBM Corp.
@@ -51,7 +51,7 @@ public class Validate extends HttpServlet {
 	private static final String latestBankruptcy ="latestBankruptcy";
 	private static final String inputDateFormatTemplate = "dd/MM/yyyy";
 	private static final String outputDateFormatTemplate = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
-	
+
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -112,16 +112,12 @@ public class Validate extends HttpServlet {
 					userName, password, payload.toString());
 			System.out.println("**Response status" + response.status + " payload " + response.payload);
 		} catch (ParseException e) {
-			e.printStackTrace();
 			return parseErrorToJSON(e);
 		} catch (ClassCastException e) {
-			e.printStackTrace();
 			return castErrorToJSON(e);
 		} catch (RuntimeException e) {
-			e.printStackTrace();
 			return runtimeErrorToJSON(e);
 		} catch (Exception e) {
-			e.printStackTrace();
 			return errorToJSON(e);
 		}
 		return decodeResponse(response, showTrace, jsonInput);
@@ -284,7 +280,7 @@ public class Validate extends HttpServlet {
 					.add("success", false)
 					.add("message", "Status " + response.status +": check the runtime server is up and running on host " + jsonInput.getString("server")
 							+". \n Check the provided user/password for the runtime basic authentication.")
-				.build();	
+				.build();
 		}
 		return decodedResponse.toString();
 	}
@@ -331,7 +327,7 @@ public class Validate extends HttpServlet {
 			JsonObject record = (JsonObject)iterator.next();
 			if (record.getString("recordType").equals("Rule")) {
 				JsonObject properties = record.getJsonObject("properties");
-				result = result + "<li>" + properties.getString("name") + "</li>";				
+				result = result + "<li>" + properties.getString("name") + "</li>";
 			}
 		}
 		return result;
@@ -383,17 +379,17 @@ public class Validate extends HttpServlet {
 
 	public static class SSN implements java.io.Serializable {
 		/**
-		 * 
+		 *
 		 */
 		private static final long serialVersionUID = 1L;
 		/**
-		 * 
+		 *
 		 */
 		private String areaNumber;
 		private String groupCode;
 		private String serialNumber;
 
-		
+
 		private void parseSSN(String number) {
 			int firstDash = number.indexOf('-');
 			if (firstDash >= 1) {
@@ -402,7 +398,7 @@ public class Validate extends HttpServlet {
 				if (secondDash >= firstDash+2) {
 					groupCode = number.substring(firstDash+1, secondDash);
 					serialNumber = number.substring(secondDash+1);
-				} 
+				}
 				else {
 					groupCode = number.substring(firstDash+1, Math.min(number.length(), firstDash+3));
 					serialNumber = number.substring(Math.min(number.length(), firstDash+3), number.length());
@@ -414,8 +410,8 @@ public class Validate extends HttpServlet {
 				serialNumber = number.substring(Math.min(number.length(), 5), number.length());
 			}
 		}
-	
-	
+
+
 		public void setAreaNumber(String areaNumber) {
 			this.areaNumber = areaNumber;
 		}
@@ -431,34 +427,34 @@ public class Validate extends HttpServlet {
 		public SSN(String number) {
 			parseSSN(number);
 		}
-		
+
 		public SSN(String areaNumber, String groupCode, String serialNumber) {
 			this.areaNumber = areaNumber;
 			this.groupCode = groupCode;
 			this.serialNumber = serialNumber;
 		}
-		
+
 		public int getDigits() {
 			return areaNumber.length() + groupCode.length() + serialNumber.length();
 		}
-	
+
 		public String getAreaNumber() {
 			return areaNumber;
 		}
-		
+
 		public String getGroupCode() {
 			return groupCode;
 		}
-		
+
 		public String getSerialNumber() {
 			return serialNumber;
 		}
-		
-		
+
+
 		public String getFullNumber() {
 			return getAreaNumber() + "-" + getGroupCode() + "-" + getSerialNumber();
 		}
-		
+
 		public String toString() {
 			return this.getFullNumber();
 		}

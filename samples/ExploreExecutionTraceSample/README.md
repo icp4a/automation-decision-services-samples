@@ -2,7 +2,7 @@
 
 ## Description
 This sample builds an HTML page to help you explore the content of the execution trace.
-The execution trace can be generated when you call a decision service archive. For more information, see the documentation `Execution trace for decision runtime REST API`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=runtime-execution-trace-decision)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=runtime-execution-trace-decision).
+The execution trace can be generated when you call a decision service archive. For more information, see the documentation `Execution trace for decision runtime REST API`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=runtime-execution-trace-decision)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=runtime-execution-trace-decision).
 
 ## Learning objectives
 - Generate an execution trace.
@@ -18,10 +18,10 @@ This sample is for anyone who wants to explore the execution trace.
 
 ## Prerequisites
 - Automation Decision Services: Your instance of the services must have a decision runtime that supports basic authentication. You must have the hostname and login credentials (username and password) that allow you to manage and execute in the decision runtime. 
-For more information about the user roles, see `User roles and access control`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=runtime-user-permissions-authentication-modes)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=runtime-user-permissions-authentication-modes)
+For more information about the user roles, see `User roles and access control`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=runtime-user-permissions-authentication-modes)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=runtime-user-permissions-authentication-modes)
 - Apache Maven: A software project management tool that you can download from [Welcome to Apache Maven](https://maven.apache.org).
 
-It is recommended that you do the tutorial `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=resources-getting-started) before you use this sample.
+It is recommended that you do the tutorial `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=resources-getting-started) before you use this sample.
 
 # Setting up the sample
 The decision service used in this sample is `Loan Approval` that is defined in the `Banking` 
@@ -43,21 +43,21 @@ Next, you get an execution trace to explore.
 
 ## Deploying the decision service
 You use the Swagger UI tool to explore the content of a deployment space, and deploy the decision service archive. 
-The name chosen for the deployment space in this sample is `ADSsample`. For more information, see  `Swagger UI documentation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=runtime-swagger-ui-decision-api)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=runtime-swagger-ui-decision-api).
+The name chosen for the deployment space in this sample is `ADSsample`. For more information, see  `Swagger UI documentation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=runtime-swagger-ui-decision-api)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=runtime-swagger-ui-decision-api).
 
 1. Open the Swagger UI tool for the decision runtime.
 2. Enter the credentials for management.
 3. In the **Decision storage management** section, expand `GET /deploymentSpaces/{deploymentSpaceId}/decisions`. Click Try it out.
 4. Enter `ADSsample` as the deploymentSpaceId, and click Execute.
-5. The response code is 200. If `loanApproval-24.0.1` is in the response list, you can skip the rest and go to the next section **Getting the execution trace**. 
+5. The response code is 200. If `loanApproval` is in the response list, you can skip the rest and go to the next section **Getting the execution trace**. 
 
 You use the Swagger UI tool for the decision runtime to deploy the decision service archive in the decision runtime storage. 
 
 1. In the **Decision storage management** section, expand `POST /deploymentSpaces/{deploymentSpaceId}/decisions/{decisionId}/archive`. Click Try it out.
 2. Enter the following parameters:
    - deploymentSpaceId `ADSsample`.
-   - decisionId `loanApproval-24.0.1`.
-   - In the request body, browse to the `ADSSamples/archives/loanApproval-24.0.1.jar` archive that you downloaded.
+   - decisionId `loanApproval`.
+   - In the request body, browse to the `ADSSamples/archives/loanApproval.jar` archive that you downloaded.
 3. Click Execute.
 4. The response code is 200. The archive is now deployed. 
 
@@ -69,7 +69,7 @@ You use the Swagger UI tool for the decision runtime to execute the decision ser
 1. Expand `POST /deploymentSpaces/{deploymentSpaceId}/decisions/{decisionId}/operations/{operation}/extendedExecute` in the **Decision runtime** section.
 2. Enter the following parameters:
    * deploymentSpaceId:`ADSsample`.
-   * decisionId: `loanApproval-24.0.1`.
+   * decisionId: `loanApproval`.
    * operation: `approval`.
 3. Set the `input` value in the request body to:
 ```

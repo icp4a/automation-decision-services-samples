@@ -1,0 +1,13 @@
+## Decision logic
+As shown in the previous tutorial, each decision node has an associated decision logic that specifies which decision is made for which case.
+
+In this tutorial, discover different ways to represent a decision logic with the help of multiple rules. You will distinguish decisions made by rules and decisions made by decision logics. You will learn how interaction policies determine the inner working of a decision logic and how they determine a unique decision for the decision logic even if individual rules are making conflicting decisions.
+
+1. **Making a decision by a single rule:** Write rules such that each rule makes a decision based on the available information. Ensure that every possible case results in a unique decision. This can be achieved through logical analysis of rule conditions. [Start the tutorial](step1/description.md)
+2.  **Ensuring completeness:** How can an incomplete rule set be made complete? There are two fundamental approaches to solving this problem. Default values provide a fallback, whereas missing rules allow for refining the decision logic. [Continue the tutorial](step1/quiz/quiz.md)
+3. **Undefined decisions:** An incomplete rule set makes decisions for some cases, but not necessarily for all. How can it be detected when no decision has been made? This problem is solved using special predicates that test whether a decision is defined or undefined. [Continue the tutorial](step2/quiz/quiz.md)
+4. **Selecting or aggregating values from multiple rules:** What should be the decision of a decision logic when multiple rules apply to a single case? This problem is solved by using an interaction policy that is associated with the decision logic. The interaction policy may choose the first decision, select the smallest or largest decision, collect all decisions, or compute the sum of all decisions. [Continue the tutorial](step3/quiz/quiz.md)
+5. **Making a decision by a sequence of rules:** In more complex cases, a decision is made by applying multiple rules, which, for example, determine the values of different attributes of a composite decision. This behavior is enabled by a specific interaction policy that activates a computational state within the decision logic. This computational state is then modified by a sequence of rules. [Continue the tutorial](step4/quiz/quiz.md)
+6. **Transforming a sequential decision logic into a submodel:** If a single decision requires multiple rules, each rule contributes in a different way, such as setting values for different attributes. These contributions act as intermediate decisions, and introducing a submodel can help explicitly define them. [Continue the tutorial](step5/quiz/quiz.md)
+
+[Back to main page](./..)

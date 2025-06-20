@@ -29,15 +29,10 @@ public class LoanApprovalPOJO {
     public static void main(String[] args) throws IOException {
 
 
-        // Locating decision archive "../../archives/loanApproval-XXXXXX.jar";
+        // Locating decision archive "../../archives/loanApproval.jar";
         final String archivesDir = "../../archives";
-        final String archivePrefix = "loanApproval-";
-        final File decisionJar = new File(archivesDir).listFiles(new FileFilter() {
-            @Override
-            public boolean accept(File file) {
-                return file.getName().startsWith(archivePrefix);
-            }
-        })[0];
+        final String archiveFile = "loanApproval.jar";
+        final File decisionJar = new File(archivesDir, archiveFile);
 
         DecisionRunnerProvider provider = new URLDecisionRunnerProvider
                 .Builder()

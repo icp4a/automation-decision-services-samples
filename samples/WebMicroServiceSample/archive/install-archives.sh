@@ -9,21 +9,20 @@
 set -e
 
 export SERVICE_VERSION=1.0.0
-export ADS_VERSION=24.0.1
 
 mvn install:install-file -DgroupId=ads.samples \
                          -DartifactId=loanApproval \
                          -Dversion=$SERVICE_VERSION \
                          -DgeneratePom=true \
                          -Dpackaging=jar \
-                         -Dfile=../../../archives/loanApproval-$ADS_VERSION.jar \
+                         -Dfile=../../../archives/loanApproval.jar \
                          -s ../settings.xml
 mvn install:install-file -DgroupId=ads.samples \
                          -DartifactId=approvalWithML \
                          -Dversion=$SERVICE_VERSION \
                          -DgeneratePom=true \
                          -Dpackaging=jar \
-                         -Dfile=../../../archives/approvalWithML-$ADS_VERSION.jar \
+                         -Dfile=../../../archives/approvalWithML.jar \
                          -s ../settings.xml
 
 

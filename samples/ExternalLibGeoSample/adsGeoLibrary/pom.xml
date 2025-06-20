@@ -6,7 +6,7 @@
     <parent>
         <artifactId>externalLibraryGeo</artifactId>
         <groupId>ads.samples</groupId>
-        <version>2401.2.1</version>
+        <version>2500.0.6</version>
     </parent>
 
     <artifactId>adsGeoLibrary</artifactId>
@@ -86,7 +86,7 @@
         <dependency>
              <groupId>ads.samples</groupId>
             <artifactId>geoLibrary</artifactId>
-            <version>2401.2.1</version>
+            <version>2500.0.6</version>
        </dependency>
     </dependencies>
 

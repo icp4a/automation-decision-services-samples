@@ -1,8 +1,8 @@
 # Sample: Executing a decision service in Java
 
 ## Description
-This sample shows Java applications that execute decision services by using the **execution Java API** (see `documentation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=services-executing-decision-execution-java-api)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=services-executing-decision-execution-java-api)). <br><br>
-These Java applications must be run in a Kubernetes cluster where License Service for tracking usage is installed. (see [Tracking usage](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=api-metering-tracking-usage-execution-java)).
+This sample shows Java applications that execute decision services by using the **execution Java API** (see `documentation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=services-executing-decision-execution-java-api)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=services-executing-decision-execution-java-api)). <br><br>
+These Java applications must be run in a Kubernetes cluster where License Service for tracking usage is installed. (see [Tracking usage](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=api-metering-tracking-usage-execution-java)).
 
 ## Learning objectives
 - Create a Java application that executes a decision service
@@ -17,8 +17,8 @@ This sample is for anyone who wants to use the execution Java API to run a decis
 
 ## Prerequisites
 - Apache Maven project management tool (see [Welcome to Apache Maven](https://maven.apache.org)).
-- `Access to Decision Designer as a Maven repository`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=environment-using-decision-designer-as-maven-repository)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=environment-using-decision-designer-as-maven-repository).
-- (Optional) Implementation of a machine Learning service based on IBM Open Prediction Service (OPS) API. <br>Ask your IT for an access (see `Integrating machine learning`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=artifacts-integrating-machine-learning)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=artifacts-integrating-machine-learning)).
+- `Access to Decision Designer as a Maven repository`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=environment-using-decision-designer-as-maven-repository)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=environment-using-decision-designer-as-maven-repository).
+- (Optional) Implementation of a machine Learning service based on IBM Open Prediction Service (OPS) API. <br>Ask your IT for an access (see `Integrating machine learning`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=artifacts-integrating-machine-learning)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=artifacts-integrating-machine-learning)).
 
 # Setting up the sample
 In this section, you download the source files, and fill in the placeholders of the configuration files.
@@ -29,8 +29,8 @@ In this section, you download the source files, and fill in the placeholders of 
 
 ## Configuring Maven
 - Replace the following placeholders in `ExecutionApiSample/settings.xml`:
-  - %ADS_MAVEN_REPOSITORY_TO_BE_SET% : the URL of your maven repository (`more`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=environment-using-decision-designer-as-maven-repository)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=environment-using-decision-designer-as-maven-repository)).
-  - %YOUR_API_KEY_TO_BE_SET% : your ZEN API key ([more](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=administering-authorizing-http-requests-by-using-zen-api-key))
+  - %ADS_MAVEN_REPOSITORY_TO_BE_SET% : the URL of your maven repository (`more`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=environment-using-decision-designer-as-maven-repository)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=environment-using-decision-designer-as-maven-repository)).
+  - %YOUR_API_KEY_TO_BE_SET% : your ZEN API key ([more](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=administering-authorizing-http-requests-by-using-zen-api-key))
 - Enable Maven to use the remote repository that is stored in HTTPS servers ([more](https://maven.apache.org/guides/mini/guide-repository-ssl.html)). <br>
   Note: (For testing only) Alternatively, SSL validation can be disabled by using: 
   ```
@@ -123,7 +123,7 @@ In this section, you download the source files, and fill in the placeholders of 
   ```
 
 # Getting more information
-* about the `Execution API documentation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=services-executing-decision-execution-java-api)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=services-executing-decision-execution-java-api).
-* about the machine learning metadata in `Decision service metadata`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=services-decision-service-metadata)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=services-decision-service-metadata).
+* about the `Execution API documentation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=services-executing-decision-execution-java-api)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=services-executing-decision-execution-java-api).
+* about the machine learning metadata in `Decision service metadata`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=services-decision-service-metadata)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=services-decision-service-metadata).
 * about the [sample of the execution API in a web microservice](../WebMicroServiceSample/README.md)
 * about the [sample of the Loan Validation application](../LoanApplicationSample/README.md) to illustrate decision execution using **decision runtime**.

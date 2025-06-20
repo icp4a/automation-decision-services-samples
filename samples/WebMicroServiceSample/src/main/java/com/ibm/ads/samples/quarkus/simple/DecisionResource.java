@@ -48,7 +48,7 @@ public class DecisionResource {
             return result;
 
         } catch (NoSuchDecisionRunnerException e) {
-            LOGGER.log(Level.SEVERE, "Cannot find the decision operation " + operation + " in the web service", e);
+            LOGGER.log(Level.SEVERE, "Cannot find the decision operation in the web service");
             return Response.status(404);
         }
     }
@@ -66,7 +66,7 @@ public class DecisionResource {
 
         return decisionRunner.getInputWriter().writeValueAsString(inputExample);
         } catch (NoSuchDecisionRunnerException e) {
-            LOGGER.log(Level.SEVERE, "Cannot find the decision operation " + operation + " in the web service", e);
+            LOGGER.log(Level.SEVERE, "Cannot find the decision operation in the web service");
             return Response.status(404);
         }
     }

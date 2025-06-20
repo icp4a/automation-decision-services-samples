@@ -81,15 +81,10 @@ public class LoanApprovalWithML {
 
         SSLContext ssl = getSSLContext();
 
-        // Locating decision archive  "../../archives/approvalWithML-XXXXXX.jar";
+        // Locating decision archive  "../../archives/approvalWithML.jar";
         final String archivesDir = "../../archives";
-        final String archivePrefix = "approvalWithML-";
-        final File decisionJar = new File(archivesDir).listFiles(new FileFilter() {
-            @Override
-            public boolean accept(File file) {
-                return file.getName().startsWith(archivePrefix);
-            }
-        })[0];
+        final String archiveFile = "approvalWithML.jar";
+        final File decisionJar = new File(archivesDir, archiveFile);
 
         DecisionRunnerProvider provider = new URLDecisionRunnerProvider
                 .Builder()

@@ -1,6 +1,6 @@
 <!-- Licensed Materials - Property of IBM                             -->
 <!-- 5737-I23 5900-AUD                                                -->
-<!-- Copyright IBM Corp. 2018 - 2021. All Rights Reserved.            -->
+<!-- Copyright IBM Corp. 2018 - 2025. All Rights Reserved.            -->
 <!-- U.S. Government Users Restricted Rights:                         -->
 <!--  Use, duplication or disclosure restricted by GSA ADP Schedule   -->
 <!-- Contract with IBM Corp.                                          -->
@@ -8,342 +8,495 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="resources/config.js"></script>
     <title>Loan</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <script
-            src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
-   <!-- Bootstrap Date-Picker Plugin -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>           
-            
-    <script src="js/main.js"></script>
-    <style type="text/css">
-        .top15 {
-        margin-top: 15px;
-        }
-        .panel {
-        margin: 5px;
-        padding: 5px;
-        }
-        .form-group label {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        }
-        #use-rules {
-            margin-top: 2px;
-        }
-        button .glyphicon-ok {
-            margin-right: 2px;
-        }
-        .jumbotron {
-    padding: 0.5em 0.6em;
-    h1 {
-        font-size: 2em;
-    }
-    p {
-        font-size: 1.2em;
-        .btn {
-            padding: 0.5em;
-        }
-    }
-}
-    </style>
+    <script src="resources/config.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <!-- Bootstrap Date-Picker Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/js/bootstrap-datepicker.min.js"
+            integrity="sha512-LsnSViqQyaXpD4mBBdRYeP6sRwJiJveh2ZIbW41EBrNmKxgr/LFZIiWT6yr+nycvhvauz8c2nYMhrP80YhG7Cw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.10.0/css/bootstrap-datepicker.min.css"
+          integrity="sha512-34s5cpvaNG3BknEWSuOncX28vz97bRI59UnVtEEpFX536A7BtZSJHsDyFoCl8S7Dt2TPzcrCEoHBGeM4SUBDBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
+    <script src="js/main.js"></script>
 </head>
 
 
 <div class="container">
-	<div class="jumbotron ">
-		<h1>ADS sample</h1>
-		<p id="sample-name" class="lead">Loan request approval application</p>
-		<hr class="my-4">
-		<p>Calls the ADS runtime to run a decision to approve or not a loan request.</p>
-	</div>
+    <div class="p-5 mb-4 bg-light rounded-3">
+        <h1>ADS sample</h1>
+        <p id="sample-name" class="lead">Loan request approval application</p>
+        <hr class="my-4">
+        <p>Calls the ADS runtime to run a decision to approve or not a loan request.</p>
+    </div>
 
-	<form role="form" action="validate" method="post" class="">
-		<ul class="nav nav-tabs">
-			<li class="nav-item"><a data-toggle="tab" href="#input" class="nav-link active">Application</a>
-			</li>
-			<li class="nav-item"><a data-toggle="tab" href="#detailInput" class="nav-link">Additional Info</a>
-			</li>
-			<li class="nav-item"><a data-toggle="tab" href="#execution" class="nav-link">Execution Details</a>
-			</li>
-		</ul>
-		<div class="tab-content">
-			<div id="input" class="tab-pane active">
-				<div class="row">
-					<div class="borrower col-md-6">
-						<div class="card">
-							<div class="card-header">
-								<h4>Borrower</h4>
-							</div>
-							<div class="card-body">
-								<div class="form-group">
-									<div class="input-group">
-										<div class="input-group-prepend">
-										<span class="input-group-text">First name</span>
-										</div>
-										<input type="text" class="form-control"
-											   id="firstName" name="firstName" value="Joe" placeholder="First name">
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="input-group">
-										<div class="input-group-prepend">
-										<span class="input-group-text">Last name</span>
-										</div>
-										<input type="text" class="form-control"
-											   id="lastName" name="lastName" value="Doe" placeholder="Last name">
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="input-group">
-										<div class="input-group-prepend">
-										<span class="input-group-text">Yearly income</span>
-										</div>
-										<input type="text"
-											   class="form-control" id="yearly-income" name="yearly-income" value="80000"
-											   placeholder="Yearly income">
-										<div class="input-group-append"> <span class="input-group-text">$</span>
-										</div>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="input-group">
-										<div class="input-group-prepend">
-										<span class="input-group-text">Credit score</span>
-										</div>
-										<input type="text"
-											   class="form-control" id="credit-score" name="credit-score" value="600"
-											   placeholder="Credit score">
-										<div class="input-group-append"> <span class="input-group-text">$</span>
-										</div>
-									</div>
-								</div>
-								<!-- Form group -->
-							</div>
-						</div>
-					</div>
-					<!-- Col -->
-					<div class="loan col-md-6">
-						<div class="card">
-							<div class="card-header">
-								<h4>Loan</h4>
-							</div>
-							<div class="card-body">
-								<div class="form-group">
-									<div class="input-group">
-										<div class="input-group-prepend">
-											<span class="input-group-text">Amount</span>
-										</div>
-										<input type="text" class="form-control"
-											   id="amount" name="amount" value="500000" placeholder="Amount">
-										<div class="input-group-append"> <span class="input-group-text">$</span>
-										</div>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="input-group mb-3">
-										<div class="input-group-prepend"> <span class="input-group-text">Loan period</span>
-										</div>
-										<input type="text" class="form-control" id="duration" name="duration"
-											   value="360" placeholder="Duration">
-										<div class="input-group-append"> <span class="input-group-text">Mo</span>
-										</div>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="input-group">
-										<div class="input-group-prepend">
-											<span class="input-group-text">Yearly interest rate</span>
-										</div>
-										<input type="text"
-											   class="form-control" id="yearly-interest-rate" name="yearly-interest-rate"
-											   value="5" placeholder="Yearly Interest Rate">
-										<div class="input-group-append"> <span class="input-group-text">%</span>
-										</div>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="input-group">
-										<div class="input-group-prepend">
-											<span class="input-group-text">Start date</span>
-										</div>
-										<input type="text" class="form-control"
-											   id="startDate" name="startDate" value="01/07/2019" placeholder="MM/DD/YYYY">
-									</div>
-								</div>
-								<!-- Form group -->
-							</div>
-						</div>
-					</div>
-					<!-- Col -->
-				</div>
-				<!-- Row -->
-			</div>
-			<!-- Tab -->
-			<div id="detailInput" class="tab-pane">
-				<div class="card">
-					<div class="card-header">
-						<h4>Individual and bankruptcy data</h4>
-					</div>
-					<div class="card-body">
-						<div class="row">
-						<div class="input-group col-md-6 mb-3">
-									<div class="input-group-prepend">
-										<span class="input-group-text">Birth date</span>
-									</div>
-									<input type="text" class="form-control"
-										   id="birthDate" name="birthDate" value="01/01/1979" placeholder="MM/DD/YYYY">
-								</div>
-								<div class="input-group col-md-6 mb-3">
-									<div class="input-group-prepend">
-										<span class="input-group-text">Bankruptcy date</span>
-									</div>
-									<input type="text"
-										   class="form-control" id="bankruptcyDate" name="bankruptcyDate" value="" placeholder="MM/DD/YYYY">
-								</div>
-								<div class="input-group col-md-6 mb-3">
-									<div class="input-group-prepend">
-										<span class="input-group-text">Zip code</span>
-									</div>
-									<input type="text" class="form-control"
-										   id="zipCode" name="zipCode" value="12345" placeholder="Zip code">
-								</div>
-								<div class="input-group col-md-6 mb-3">
-									<div class="input-group-prepend">
-										<span class="input-group-text">Bankruptcy chapter</span>
-									</div>
-									<input type="text"
-										   class="form-control" id="bankruptcyChapter" name="bankruptcyChapter" value=""
-										   placeholder="integer">
-						</div>
-								<div class="input-group col-md-6 mb-3">
-									<div class="input-group-prepend">
-										<span class="input-group-text">SSN code</span>
-									</div>
-									<input type="text" class="form-control"
-										   id="SSNCode" name="SSNCode" value="123121234" placeholder="SSN code">
-								</div>
-								<div class="input-group col-md-6 mb-3">
-									<div class="input-group-prepend">
-										<span class="input-group-text">Bankruptcy reason</span>
-									</div>
-									<input type="text"
-										   class="form-control" id="bankruptcyReason" name="bankruptcyReason" value=""
-										   placeholder="">
-								</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="execution" class="tab-pane">
-				<div class="card">
-					<div class="card-header">
-						<h4>Decision and runtime details</h4>
-					</div>
-					<div class="card-body">
-						<div class="row">
-									<div class="input-group col-md-6 mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text">Host name</span>
-										</div>
-										<input id="server" type="text"
-											   class="form-control" name="server" placeholder="Host name">
-									</div>
-									<div class="input-group col-md-4 mb-3">
-										<div class="input-group-prepend">
-										<span class="input-group-text">User name</span>
-										</div>
-										<input
-												id="user" type="text" class="form-control" name="user" placeholder="user">
-									</div>
-									<div class="form-check col-md-2 mb-3">
-										<label>
-											<input type="checkbox" name="trace" id="trace">Trace enabled</label>
-									</div>
-									<div class="input-group col-md-6 mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text">Space Id</span>
-										</div>
-										<input id="spaceId" type="text"
-											   class="form-control" name="spaceId" placeholder="Space Id">
-									</div>
-									<div class="input-group col-md-4 mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text">Password</span>
-										</div>
-										<input
-												id="password" type="password" class="form-control" name="password" placeholder="Password">
-									</div>
-									<div class="col-md-2 mb-3"> <a class="swaggerLink" href="">Swagger UI</a>
-									</div>
-									<div class="input-group col-md-6 mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text">DecisionService id</span>
-										</div>
-										<input id="decisionServiceId"
-											   type="text" class="form-control" name="decisionServiceId" value="TO BE SET"
-											   placeholder="DecisionService id">
-									</div>
-									<div class="input-group col-md-6 mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text">Decision operation</span>
-										</div>
-										<input id="operation"
-											   type="text" class="form-control" name="operation" value="approval"
-											   placeholder="Decision operation">
-									</div>
-									<div class="input-group col-md-6 mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text">(Marjor version)</span>
-										</div>
-										<input id="majorVersion"
-											   type="number" class="form-control" name="majorVersion" value="">
-									</div>
-									<div class="input-group col-md-6 mb-3">
-										<div class="input-group-prepend">
-											<span class="input-group-text">(Minor version)</span>
-										</div>
-										<input id="minorVersion"
-											   type="number" class="form-control" name="minorVersion" value="">
-									</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row mb-3 mt-3 mx-auto" style="width: 200px;">
-				<button  class="btn btn-primary" type="submit"> <span class="glyphicon glyphicon-ok"></span>
-					<span></span>
-					<span>Request loan</span>
-				</button>
-		</div>
-	</form>
+    <form role="form" action="validate" method="post">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <button class="nav-link active"
+                        id="application-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#application-tab-pane"
+                        type="button"
+                        role="tab"
+                        aria-controls="application-tab-pane"
+                        aria-selected="true">
+                    Application
+                </button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link"
+                        id="additional-info-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#additional-info-tab-pane"
+                        type="button"
+                        role="tab"
+                        aria-controls="additional-info-tab-pane"
+                        aria-selected="false">
+                    Additional Info
+                </button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link"
+                        id="execution-details-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#execution-details-tab-pane"
+                        type="button" role="tab"
+                        aria-controls="execution-details-tab-pane"
+                        aria-selected="false">
+                    Execution Details
+                </button>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade show active"
+                 id="application-tab-pane"
+                 role="tabpanel"
+                 aria-labelledby="application-tab"
+                 tabindex="0">
+                <div class="row">
+                    <div class="borrower col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Borrower</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">First name</span>
+                                        </div>
+                                        <input type="text"
+                                               class="form-control"
+                                               id="firstName"
+                                               name="firstName"
+                                               value="Joe"
+                                               placeholder="First name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Last name</span>
+                                        </div>
+                                        <input type="text"
+                                               class="form-control"
+                                               id="lastName"
+                                               name="lastName"
+                                               value="Doe"
+                                               placeholder="Last name">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Yearly income</span>
+                                        </div>
+                                        <input type="text"
+                                               class="form-control"
+                                               id="yearly-income"
+                                               name="yearly-income"
+                                               value="80000"
+                                               placeholder="Yearly income">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Credit score</span>
+                                        </div>
+                                        <input type="text"
+                                               class="form-control"
+                                               id="credit-score"
+                                               name="credit-score"
+                                               value="600"
+                                               placeholder="Credit score">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Form group -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Col -->
+                    <div class="loan col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>Loan</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Amount</span>
+                                        </div>
+                                        <input type="text"
+                                               class="form-control"
+                                               id="amount"
+                                               name="amount"
+                                               value="500000"
+                                               placeholder="Amount">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">$</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Loan period</span>
+                                        </div>
+                                        <input type="text"
+                                               class="form-control"
+                                               id="duration"
+                                               name="duration"
+                                               value="360"
+                                               placeholder="Duration">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">Mo</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Yearly interest rate</span>
+                                        </div>
+                                        <input type="text"
+                                               class="form-control"
+                                               id="yearly-interest-rate"
+                                               name="yearly-interest-rate"
+                                               value="5"
+                                               placeholder="Yearly Interest Rate">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Start date</span>
+                                        </div>
+                                        <input type="text"
+                                               class="form-control"
+                                               id="startDate"
+                                               name="startDate"
+                                               value="01/07/2019"
+                                               placeholder="MM/DD/YYYY">
+                                    </div>
+                                </div>
+                                <!-- Form group -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Col -->
+                </div>
+                <!-- Row -->
+            </div>
+            <!-- Tab -->
+            <div class="tab-pane fade"
+                 id="additional-info-tab-pane"
+                 role="tabpanel"
+                 aria-labelledby="additional-info-tab"
+                 tabindex="0">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Individual and bankruptcy data</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="input-group col-md-6 mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Birth date</span>
+                                </div>
+                                <input type="text"
+                                       class="form-control"
+                                       id="birthDate"
+                                       name="birthDate"
+                                       value="01/01/1979"
+                                       placeholder="MM/DD/YYYY">
+                            </div>
+                            <div class="input-group col-md-6 mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Bankruptcy date</span>
+                                </div>
+                                <input type="text"
+                                       class="form-control"
+                                       id="bankruptcyDate"
+                                       name="bankruptcyDate"
+                                       value=""
+                                       placeholder="MM/DD/YYYY">
+                            </div>
+                            <div class="input-group col-md-6 mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Zip code</span>
+                                </div>
+                                <input type="text"
+                                       class="form-control"
+                                       id="zipCode"
+                                       name="zipCode"
+                                       value="12345"
+                                       placeholder="Zip code">
+                            </div>
+                            <div class="input-group col-md-6 mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Bankruptcy chapter</span>
+                                </div>
+                                <input type="text"
+                                       class="form-control"
+                                       id="bankruptcyChapter"
+                                       name="bankruptcyChapter"
+                                       value=""
+                                       placeholder="integer">
+                            </div>
+                            <div class="input-group col-md-6 mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">SSN code</span>
+                                </div>
+                                <input type="text"
+                                       class="form-control"
+                                       id="SSNCode"
+                                       name="SSNCode"
+                                       value="123121234"
+                                       placeholder="SSN code">
+                            </div>
+                            <div class="input-group col-md-6 mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Bankruptcy reason</span>
+                                </div>
+                                <input type="text"
+                                       class="form-control"
+                                       id="bankruptcyReason"
+                                       name="bankruptcyReason"
+                                       value="" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade"
+                 id="execution-details-tab-pane"
+                 role="tabpanel"
+                 aria-labelledby="execution-details-tab"
+                 tabindex="0">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Decision and runtime details</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-check col-md-6 mb-3">
+                                    <label>
+                                        <input type="checkbox"
+                                               name="trace"
+                                               id="trace">
+                                        Trace enabled
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group col-md-6 mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Host name</span>
+                                    </div>
+                                    <input id="server"
+                                           type="text"
+                                           class="form-control"
+                                           name="server"
+                                           placeholder="Host name">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group col-md-6 mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Space Id</span>
+                                    </div>
+                                    <input id="spaceId"
+                                           type="text"
+                                           class="form-control"
+                                           name="spaceId"
+                                           placeholder="Space Id">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group col-md-4 mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">User name</span>
+                                    </div>
+                                    <input id="user"
+                                           type="text"
+                                           class="form-control"
+                                           name="user"
+                                           placeholder="user">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group col-md-6 mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Password</span>
+                                    </div>
+                                    <input id="password"
+                                           type="password"
+                                           class="form-control"
+                                           name="password"
+                                           placeholder="Password">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group col-md-6 mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">DecisionService id</span>
+                                    </div>
+                                    <input id="decisionServiceId"
+                                           type="text"
+                                           class="form-control"
+                                           name="decisionServiceId"
+                                           value="TO BE SET"
+                                           placeholder="DecisionService id">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group col-md-6 mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">Decision operation</span>
+                                    </div>
+                                    <input id="operation"
+                                           type="text"
+                                           class="form-control"
+                                           name="operation"
+                                           value="approval"
+                                           placeholder="Decision operation">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="input-group col-md-6 mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">(Marjor version)</span>
+                                    </div>
+                                    <input id="majorVersion"
+                                           type="number"
+                                           class="form-control"
+                                           name="majorVersion"
+                                           value="">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group col-md-6 mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">(Minor version)</span>
+                                    </div>
+                                    <input id="minorVersion"
+                                           type="number"
+                                           class="form-control"
+                                           name="minorVersion"
+                                           value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3 mt-3 mx-auto" style="width: 200px;">
+            <button class="btn btn-primary" type="submit">
+                <span class="glyphicon glyphicon-ok"></span>
+                <span>Request loan</span>
+            </button>
+        </div>
+    </form>
 
-  	<ul  id="response" class="nav nav-tabs">
- 		   <li class="nav-item"><a data-toggle="tab" href="#output" class="nav-link active ">Formatted output</a></li>
-  		   <li class="nav-item"><a data-toggle="tab" href="#jsonResponse" class="nav-link">JSON response</a></li>
-   	</ul>
+    <ul id="response" class="nav nav-tabs">
+        <li class="nav-item">
+            <button class="nav-link active"
+                    id="response-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#response-tab-pane"
+                    type="button"
+                    role="tab"
+                    aria-controls="response-tab-pane"
+                    aria-selected="true">
+                Formatted output
+            </button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link"
+                    id="json-response-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#json-response-tab-pane"
+                    type="button"
+                    role="tab"
+                    aria-controls="json-response-tab-pane"
+                    aria-selected="false">
+                JSON response
+            </button>
+        </li>
+    </ul>
     <div class="tab-content">
-      <div id="output" class="tab-pane active">
-        <div id="info-panel" class="card">
-           <div id="info-header" class="card-header">Formatted output</div>
-           <div id="info-text" class="card-body" > </div>
+        <div id="response-tab-pane"
+             class="tab-pane fade show active"
+             role="tabpanel"
+             aria-labelledby="response-tab"
+             tabindex="0">
+            <div id="info-panel" class="card">
+                <div id="info-header" class="card-header">Formatted output</div>
+                <div id="info-text" class="card-body"></div>
+            </div>
         </div>
-      </div>
-      <div id="jsonResponse" class="tab-pane">
-        <div id="info-json-panel" class="card">
-           <div id="info-json-header" class="card-header">JSON output</div>
-           <div id="info-json-text" class="card-body" > </div>
+        <div id="json-response-tab-pane"
+             class="tab-pane fade"
+             role="tabpanel"
+             aria-labelledby="json-response-tab"
+             tabindex="0">
+            <div id="info-json-panel" class="card">
+                <div id="info-json-header" class="card-header">JSON output</div>
+                <div id="info-json-text" class="card-body"></div>
+            </div>
         </div>
-      </div>
-     </div>  <!-- Tabcontent  -->
+    </div>
 </div>
 </body>
 </html>
