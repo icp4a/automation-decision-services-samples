@@ -5,7 +5,7 @@
     <parent>
         <artifactId>externalLibrary</artifactId>
         <groupId>ads.samples</groupId>
-        <version>2401.2.1</version>
+        <version>2401.4.0</version>
     </parent>
 
     <artifactId>sampleLibrary</artifactId>

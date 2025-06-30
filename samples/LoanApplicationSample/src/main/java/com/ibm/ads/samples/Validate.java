@@ -1,7 +1,7 @@
 /*
  * Licensed Materials - Property of IBM
  * 5737-I23 5900-AUD
- * Copyright IBM Corp. 2018 - 2021. All Rights Reserved.
+ * Copyright IBM Corp. 2018 - 2025. All Rights Reserved.
  * U.S. Government Users Restricted Rights:
  * Use, duplication or disclosure restricted by GSA ADP Schedule
  * Contract with IBM Corp.
@@ -112,16 +112,12 @@ public class Validate extends HttpServlet {
 					userName, password, payload.toString());
 			System.out.println("**Response status" + response.status + " payload " + response.payload);
 		} catch (ParseException e) {
-			e.printStackTrace();
 			return parseErrorToJSON(e);
 		} catch (ClassCastException e) {
-			e.printStackTrace();
 			return castErrorToJSON(e);
 		} catch (RuntimeException e) {
-			e.printStackTrace();
 			return runtimeErrorToJSON(e);
 		} catch (Exception e) {
-			e.printStackTrace();
 			return errorToJSON(e);
 		}
 		return decodeResponse(response, showTrace, jsonInput);

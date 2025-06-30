@@ -79,9 +79,9 @@ Each repository contains a `pom.xml` file to build and deploy the library. Open 
 You check if the sample library has already been deployed to your repository manager.
 
 1. Open your **Artifact repository manager** release repository where the external library will be stored.
-2. Look for `ads/samples/adsSampleLibrary/2401.2.1`. If it exists, the sample library is already deployed. You can go to Task 2 directly. If the file does not exist, you must deploy it.
+2. Look for `ads/samples/adsSampleLibrary/2401.4.0`. If it exists, the sample library is already deployed. You can go to Task 2 directly. If the file does not exist, you must deploy it.
 
-**Note**: If you want to deploy another version, change the version from `2401.2.1` to the version number that you want to use, for example, `1.myInitials`, in the following XML files:
+**Note**: If you want to deploy another version, change the version from `2401.4.0` to the version number that you want to use, for example, `1.myInitials`, in the following XML files:
 - `automation-decision-services-samples/samples/ExternalLibraryStartTutorial/pom.xml` 
 - `automation-decision-services-samples/samples/ExternalLibraryStartTutorial/sampleLibrary/pom.xml` 
 - `automation-decision-services-samples/samples/ExternalLibraryStartTutorial/adsSampleLibrary/pom.xml` 
@@ -106,7 +106,7 @@ To be able to deploy the library, you must have the release URL of the repositor
 1. Open **automation-decision-services-samples/samples/ExternalLibraryStartTutorial/pom.xml**.
 2. Look at the property definitions:
     * `archive.repository.release.url`: The URL in which you deploy releases. This value is used in the distribution management part. 
-    * `ads-mojo.version` The version that is used to build the library. (**Note:** This sample was tested with Mojo 14.2.0.2)
+    * `ads-mojo.version` The version that is used to build the library. (**Note:** This sample was tested with Mojo 14.2.0.3)
     * `ads-annotations.version` The version that is used to build the library. (**Note:** This sample was tested with annotations 2.0.13.01)
 
 3. Replace the instances of `TO BE SET` by the appropriate values:
@@ -114,7 +114,7 @@ To be able to deploy the library, you must have the release URL of the repositor
 ```
    <properties>
        <archive.repository.release.url>RELEASE URL TO BE SET</archive.repository.release.url>
-       <ads-mojo.version>14.2.0.2</ads-mojo.version>
+       <ads-mojo.version>14.2.0.3</ads-mojo.version>
        <ads-annotations.version>2.0.13.01</ads-annotations.version>
    </properties>
 ```
@@ -182,7 +182,7 @@ To look at the credentials, you should have the permission `Administer platform 
 5. Enter the following values:
   - Group ID: ads.samples
   - Artifact ID: adsSampleLibrary
-  - Version: 2401.2.1 (This is the version you want to use. It might be different if you deployed a new version.)
+  - Version: 2401.4.0 (This is the version you want to use. It might be different if you deployed a new version.)
   
 6. Click **OK** and wait for the library to be imported. You see the library description and that it is defined in many languages.
 
