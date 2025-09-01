@@ -7,7 +7,7 @@
   <version>1.0.0-SNAPSHOT</version>
   <properties>
     <sample.main>com.ibm.ads.samples.LoanApproval</sample.main>
-    <ads.execution-api.version>3.0.6</ads.execution-api.version>
+    <ads.execution-api.version>3.0.7</ads.execution-api.version>
     <maven.compiler.release>21</maven.compiler.release>
     <ml.certificat><!--blank by default --></ml.certificat>
     <ml.deployment.id>TO_BE_SET</ml.deployment.id>
