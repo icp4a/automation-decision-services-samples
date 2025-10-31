@@ -81,18 +81,18 @@ You deploy it to a Kubernetes container, and then, you test it by using cURL.
 1. Open the `WebMicroServiceSample/pom.xml` file to check the used versions. They are defined as properties at the beginning of the file:
 ```
     <ads.samples.version>1.0.0</ads.samples.version>
-    <ads.execution-api.version>3.0.7</ads.execution-api.version> 
+    <ads.execution-api.version>3.0.12</ads.execution-api.version> 
 ```
 `ads.samples.version` is the version of the decision service archive `loanApproval` that you previously installed. 
 This sample was tested with the version `ads.execution-api.version` of the artifact `execution-api`.<br> 
-The POM file excludes compiling the classes that contain `withML` in their package. They are used in the web microservice that uses machine learning.
+The POM file contains a `decision` Maven profile to only compile the classes that contain `simple` in their package. They are for the web microservice that does not use machine learning.
 
 _Note_: The name of the web microservice is the artifact ID given in this POM file. The decision service archive is embedded in the web microservice because this POM file contains a dependency for the `loanApproval` artifact.
 
 2. Run the following command in the `WebMicroServiceSample/` directory to create the docker image, and create a Kubernetes descriptor for the
    web microservice.
 ```
-  mvn clean package -Dquarkus.container-image.build=true -s settings.xml 
+  mvn clean package -Pdecision -s settings.xml
 ```
 The image is ready to be pushed when you see the message ``` BUILD SUCCESS```.
 
@@ -105,11 +105,11 @@ You can also use the Quarkus plug-in to automate the deployment to a Kubernetes 
 
    * To push the image to the docker image registry:
   ```sh
-mvn clean package -Dquarkus.container-image.push=true -Dquarkus.container-image.registry=<IMAGE_REGISTRY_URL> -s settings.xml
+mvn clean package -Pdecision -Dquarkus.container-image.push=true -Dquarkus.container-image.registry=<IMAGE_REGISTRY_URL> -s settings.xml
 ```
    * To create the containers in your Kubernetes cluster, use the `-Dquarkus.kubernetes.deploy=true` option:
    ```sh
-mvn clean package -Dquarkus.kubernetes.deploy=true -Dquarkus.container-image.push=true -Dquarkus.container-image.registry=<IMAGE_REGISTRY_URL> -s settings.xml
+mvn clean package -Pdecision -Dquarkus.kubernetes.deploy=true -Dquarkus.container-image.push=true -Dquarkus.container-image.registry=<IMAGE_REGISTRY_URL> -s settings.xml
  ```
 
 _Note_: the `kubectl` client must be installed and configured to access your Kubernetes cluster.
@@ -162,14 +162,14 @@ For more information about the metadata for machine learning, see [Decision serv
 
 ### Building and running the web microservice with approvalWithML
 
-1. Open the `WebMicroServiceSample/pomML.xml` file to check the used versions. They are defined as properties at the beginning of the file:
+1. Open the `WebMicroServiceSample/pom.xml` file to check the used versions. They are defined as properties at the beginning of the file:
 ```
     <ads.samples.version>1.0.0</ads.samples.version>
-    <ads.execution-api.version>3.0.7</ads.execution-api.version> 
+    <ads.execution-api.version>3.0.12</ads.execution-api.version> 
 ```
 `ads.samples.version` is the version of the decision service archive `approvalWithML` that you previously installed. 
 This sample was tested with the artifact  `execution-api` with the version `ads.execution-api.version`.<br>
-The POM file excludes compiling the classes that contain `simple` in their package. They were used for the web microservice that does not use machine learning.
+The POM file contains a `withML` Maven profile to only compile the classes that contain `withML` in their package. They are for the web microservice that uses machine learning.
 
 **Note**: The two decision service archives are embedded in the web microservice because this POM file contains dependencies for the `loanApproval` and  `approvalWithML` artifacts.
 
@@ -192,9 +192,9 @@ To add the certificate:
 `WebMicroServiceSample/src/main/resources/adsSamplesQuarkus/ads-ml.pem`. It is used at execution time to validate the certificate.
 
 5. Run the following command in the `WebMicroServiceSample/` directory to create the docker image and a Kubernetes descriptor for the
-      web microservice. You use the `pomML.xml` configuration file.
+      web microservice. You use the `withML` Maven profile.
       ```sh
-     mvn clean package -Dquarkus.container-image.build=true -s settings.xml -f pomML.xml
+     mvn clean package -PwithML -s settings.xml
       ```
        
    The docker image is ready to be deployed when you see the message ``` BUILD SUCCESS```.
@@ -203,7 +203,7 @@ To add the certificate:
       the container on your Kubernetes cluster. Get the hostname and port number for testing.
 
 You can also follow the previous section to use the Quarkus plug-in to automate the deployment.
-In this case, add the parameter `-f pomML.xml` when calling Maven to use the image embedding the two archives.
+In this case, replace the parameter `-Pdecision` by `-PwithML` when calling Maven to use the image embedding the two archives.
 
 ### Testing the web microservice
 

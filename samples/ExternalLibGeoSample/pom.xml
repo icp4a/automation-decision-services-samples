@@ -5,16 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <ads-mojo.version>16.0.3</ads-mojo.version>
-        <ads-annotations.version>2.0.16</ads-annotations.version>
-        <ads-sample.version>2500.0.6</ads-sample.version>
+        <ads-mojo.version>16.0.6</ads-mojo.version>
+        <ads-annotations.version>2.0.17</ads-annotations.version>
+        <ads-sample.version>2500.2.0</ads-sample.version>
         <jackson.version>2.15.2</jackson.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <groupId>ads.samples</groupId>
     <artifactId>externalLibraryGeo</artifactId>
-    <version>2500.0.6</version>
+    <version>2500.2.0</version>
     <packaging>pom</packaging>
 
     <modules>

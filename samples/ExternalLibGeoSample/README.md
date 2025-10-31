@@ -43,7 +43,7 @@ The sample refers to **automation-decision-services-samples** as the directory w
 - Open the settings of your project to define the external library:
   - Group ID: ads.samples
   - Artifact ID: adsGeoLibrary
-  - Version: 2500.0.6
+  - Version: 2500.2.0
   
 # Sample details
 

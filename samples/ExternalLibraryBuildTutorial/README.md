@@ -98,11 +98,11 @@ This command:
 - Deploys the two JAR files in the repository manager.
 When you see the message BUILD SUCCESS, you can proceed to the next task to import the external library.
 
-**Note**: if you don't get the BUILD SUCCESS message, it means the sample library has not been deployed to your repository manager. This could be because it was already deployed with the version number `2500.0.6`. To check, follow these steps:
+**Note**: if you don't get the BUILD SUCCESS message, it means the sample library has not been deployed to your repository manager. This could be because it was already deployed with the version number `2500.2.0`. To check, follow these steps:
 
 1. Open your ***Artifact repository manager** release repository, as provided in the previous step.
-2. Look for `ads/samples/adsSampleLibrary/2500.0.6`. If it exists, the sample library has already been deployed. 
-3. If you want to deploy another version, change the version from `2500.0.6` to your desired version, for example, `1.myInitials`, in the following XML files:
+2. Look for `ads/samples/adsSampleLibrary/2500.2.0`. If it exists, the sample library has already been deployed. 
+3. If you want to deploy another version, change the version from `2500.2.0` to your desired version, for example, `1.myInitials`, in the following XML files:
 - `automation-decision-services-samples/samples/ExternalLibraryBuildTutorial/pom.xml` 
 - `automation-decision-services-samples/samples/ExternalLibraryBuildTutorial/sampleLibrary/pom.xml` 
 - `automation-decision-services-samples/samples/ExternalLibraryBuildTutorial/adsSampleLibrary/pom.xml` 
@@ -145,7 +145,7 @@ You check that Automation Decision Services is configured to search the reposito
 5. Enter the following values:
   - Group ID: ads.samples
   - Artifact ID: adsSampleLibrary
-  - Version: 2500.0.6 (This is the version number you deployed in the previous task. If you deployed a different version, use that version number instead.)
+  - Version: 2500.2.0 (This is the version number you deployed in the previous task. If you deployed a different version, use that version number instead.)
   
 6. Click **OK** and wait for the library to be imported. You see the library description from the `adsSampleLibrary/pom.xml` file, and that the library is available in many languages.
 7. Click **adsSampleLibrary** to open the library. You see the library types and verbalization.
