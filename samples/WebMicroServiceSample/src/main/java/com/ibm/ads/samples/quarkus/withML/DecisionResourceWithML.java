@@ -1,7 +1,7 @@
 /*
  * Licensed Materials - Property of IBM
  * 5737-I23 5900-AUD
- * Copyright IBM Corp. 2018 - 2022. All Rights Reserved.
+ * Copyright IBM Corp. 2018 - 2025. All Rights Reserved.
  * U.S. Government Users Restricted Rights:
  * Use, duplication or disclosure restricted by GSA ADP Schedule
  * Contract with IBM Corp.
@@ -18,14 +18,14 @@ import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
 import javax.net.ssl.TrustManagerFactory;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.Consumes;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.QueryParam;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 
 import com.ibm.decision.run.DecisionServiceProvider;
 import com.ibm.decision.run.JSONDecisionRunner;
@@ -49,7 +49,7 @@ import java.security.NoSuchAlgorithmException;
 @Path("/decision")
 public class DecisionResourceWithML {
 
-    private static final String ML_PROVIDER_INFO_KEY = "ADS Sample Machine Learning Provider13"; // taken from ../archives/README.md
+    private static final String ML_PROVIDER_INFO_KEY = "ADS Sample Machine Learning Provider33"; // taken from ../archives/README.md
     private static final String ML_DEPLOYMENT_ID = "TO BE SET"; // TO BE SET WHEN THE ML model is deployed
     private static final String ML_PROVIDER_URL = "TO BE SET";
     private static boolean ML_CODE_CERTIFICATE_REQUIRED = true; // TO CHANGE to false IF the trusted certificate is already added to the keystore.

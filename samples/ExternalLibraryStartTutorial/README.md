@@ -27,7 +27,7 @@ Prepare by completing the tutorial `Getting started in Automation Decision Servi
 
 Ensure that the external library has been built and deployed by an integrator. 
 For details on how the integrator proceeds,  refer to the [External library build tutorial](../ExternalLibraryBuildTutorial/README.md).
-Get the deployed version number from the integrator. This tutorial uses the version 2500.0.6.
+Get the deployed version number from the integrator. This tutorial uses the version 2500.2.0.
 
 You must have the following environment:
 - **Decision Designer**: The web-based user interface for developing decision services in Automation Decision Services. You work with a sample decision service by importing it into a project and opening it in Decision Designer.
@@ -54,7 +54,7 @@ In this task, you will:
 5. Enter the following values:
   - Group ID: ads.samples
   - Artifact ID: adsSampleLibrary
-  - Version: 2500.0.6 (This is the version you want to use. It might be different if you deployed a new version.)
+  - Version: 2500.2.0 (This is the version you want to use. It might be different if you deployed a new version.)
   
 6. Click **OK** and wait for the library to be imported. You see the library description and that it is available in multiple languages.
 

@@ -1,7 +1,7 @@
 /*
  * Licensed Materials - Property of IBM
  * 5737-I23 5900-AUD
- * Copyright IBM Corp. 2018 - 2022. All Rights Reserved.
+ * Copyright IBM Corp. 2018 - 2025. All Rights Reserved.
  * U.S. Government Users Restricted Rights:
  * Use, duplication or disclosure restricted by GSA ADP Schedule
  * Contract with IBM Corp.
@@ -13,9 +13,9 @@ import com.ibm.decision.run.JSONDecisionRunner;
 import com.ibm.decision.run.provider.ClassLoaderDecisionRunnerProvider;
 import com.ibm.decision.run.provider.NoSuchDecisionRunnerException;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;

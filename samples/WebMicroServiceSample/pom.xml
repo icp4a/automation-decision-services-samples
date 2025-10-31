@@ -6,22 +6,22 @@
   <artifactId>ads-sample-micro-service</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <properties>
-    <ads.samples.version>1.0.0</ads.samples.version>
-    <compiler-plugin.version>3.8.1</compiler-plugin.version>
+    <ads.execution-api.version>3.0.12</ads.execution-api.version>
     <maven.compiler.release>21</maven.compiler.release>
+    <ads.samples.version>1.0.0</ads.samples.version>
+    <!-- ${package.folder.name} depends on the activated profile -->
+    <java.classes.include.pattern>**/com/ibm/ads/samples/quarkus/${package.folder.name}/*.java</java.classes.include.pattern>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
-    <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-    <quarkus.platform.version>2.8.1.Final</quarkus.platform.version>
-    <surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
-    <ads.execution-api.version>3.0.7</ads.execution-api.version>
+    <quarkus.container-image.build>true</quarkus.container-image.build>
+    <!-- Docker file at default location contains a property reference, so use generated Docker file instead -->
+    <quarkus.docker.dockerfile-jvm-path>${project.build.directory}/Dockerfile.jvm</quarkus.docker.dockerfile-jvm-path>
+    <quarkus.platform.version>3.27.0</quarkus.platform.version>
   </properties>
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>${quarkus.platform.group-id}</groupId>
-        <artifactId>${quarkus.platform.artifact-id}</artifactId>
+        <groupId>io.quarkus.platform</groupId>
+        <artifactId>quarkus-bom</artifactId>
         <version>${quarkus.platform.version}</version>
         <type>pom</type>
         <scope>import</scope>
@@ -29,108 +29,177 @@
      </dependencies>
   </dependencyManagement>
   <dependencies>
+    <!-- compile dependencies -->
     <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-arc</artifactId>
+      <groupId>com.ibm.decision.execution</groupId>
+      <artifactId>execution-api</artifactId>
+      <version>${ads.execution-api.version}</version>
+      <scope>compile</scope>
     </dependency>
     <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy</artifactId>
+      <groupId>jakarta.ws.rs</groupId>
+      <artifactId>jakarta.ws.rs-api</artifactId>
+      <scope>compile</scope>
     </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-container-image-docker</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-junit5</artifactId>
-      <scope>test</scope>
-    </dependency>
+    <!-- test dependencies -->
     <dependency>
       <groupId>io.rest-assured</groupId>
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>com.ibm.decision.execution</groupId>
-      <artifactId>execution-api</artifactId>
-      <version>${ads.execution-api.version}</version>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-junit5</artifactId>
+      <scope>test</scope>
     </dependency>
+    <!-- runtime dependencies -->
     <dependency>
       <groupId>ads.samples</groupId>
       <artifactId>loanApproval</artifactId>
       <version>${ads.samples.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-arc</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-container-image-docker</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-kubernetes</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-resteasy</artifactId>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy-jackson</artifactId>
+      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-openapi</artifactId>
-  </dependency>
-    <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-kubernetes</artifactId>
+      <scope>runtime</scope>
     </dependency>
-       <dependency>
-        <groupId>org.bouncycastle</groupId>
-        <artifactId>bcpkix-jdk18on</artifactId>
-        <version>1.78</version>
-     </dependency>
-     <dependency>
-         <groupId>org.bouncycastle</groupId>
-         <artifactId>bcprov-jdk18on</artifactId>
-         <version>1.78</version>
-      </dependency>
-      <dependency>
-          <groupId>org.bouncycastle</groupId>
-          <artifactId>bcprov-ext-jdk18on</artifactId>
-          <version>1.78</version>
-     </dependency>
+    <dependency>
+      <groupId>org.bouncycastle</groupId>
+      <artifactId>bcpkix-jdk18on</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.bouncycastle</groupId>
+      <artifactId>bcprov-jdk18on</artifactId>
+      <scope>runtime</scope>
+    </dependency>
   </dependencies>
   <build>
-    <plugins>
-      <plugin>
-        <groupId>${quarkus.platform.group-id}</groupId>
-        <artifactId>quarkus-maven-plugin</artifactId>
-        <version>${quarkus.platform.version}</version>
-        <extensions>true</extensions>
-        <executions>
-          <execution>
-            <goals>
-              <goal>build</goal>
-              <goal>generate-code</goal>
-              <goal>generate-code-tests</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>${compiler-plugin.version}</version>
-        <configuration>
-          <compilerArgs>
-            <arg>-parameters</arg>
-          </compilerArgs>
-          <excludes>
-            <exclude>**/com/ibm/ads/samples/quarkus/withML/*.java</exclude>
-          </excludes>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>${surefire-plugin.version}</version>
-        <configuration>
-          <systemPropertyVariables>
-            <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-            <maven.home>${maven.home}</maven.home>
-          </systemPropertyVariables>
-            <excludes>
-              <exclude>**/com/ibm/ads/samples/quarkus/withML/*.java</exclude>
-            </excludes>
-        </configuration>
-      </plugin>
-    </plugins>
+    <resources>
+      <resource>
+        <!-- Docker file contains a property reference that needs to be interpolated during the build -->
+        <directory>src/main/docker</directory>
+        <!-- generate file in target/ dir (ie ${project.build.directory}) instead of default dir (ie target/classes/) so that Docker file is not included in the jar -->
+        <targetPath>..</targetPath>
+        <!-- interpolate property reference -->
+        <filtering>true</filtering>
+      </resource>
+      <!-- because of previous resource definition, default resources dir needs to be specified, otherwise it's not processed -->
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>io.quarkus.platform</groupId>
+          <artifactId>quarkus-maven-plugin</artifactId>
+          <version>${quarkus.platform.version}</version>
+          <extensions>true</extensions>
+          <executions>
+            <execution>
+              <goals>
+                <goal>build</goal>
+                <goal>generate-code</goal>
+                <goal>generate-code-tests</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.13.0</version>
+          <configuration>
+            <compilerArgs>
+              <arg>-parameters</arg>
+            </compilerArgs>
+            <includes>
+              <include>${java.classes.include.pattern}</include>
+            </includes>
+          </configuration>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.2.5</version>
+          <configuration>
+            <systemPropertyVariables>
+              <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+              <maven.home>${maven.home}</maven.home>
+            </systemPropertyVariables>
+            <includes>
+              <include>${java.classes.include.pattern}</include>
+            </includes>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
+  <profiles>
+    <profile>
+      <id>decision</id>
+      <properties>
+        <package.folder.name>simple</package.folder.name>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>io.quarkus.platform</groupId>
+            <artifactId>quarkus-maven-plugin</artifactId>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>withML</id>
+      <properties>
+        <package.folder.name>withML</package.folder.name>
+        <!-- used for jar filename and Docker image name -->
+        <ml.artifact.name>ads-sample-service-with-ml</ml.artifact.name>
+        <quarkus.container-image.name>${ml.artifact.name}</quarkus.container-image.name>
+      </properties>
+      <dependencies>
+        <dependency>
+          <groupId>ads.samples</groupId>
+          <artifactId>approvalWithML</artifactId>
+          <version>${ads.samples.version}</version>
+          <scope>runtime</scope>
+        </dependency>
+      </dependencies>
+      <build>
+        <finalName>${ml.artifact.name}-${project.version}</finalName>
+        <plugins>
+          <plugin>
+            <groupId>io.quarkus.platform</groupId>
+            <artifactId>quarkus-maven-plugin</artifactId>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
  </project>
