@@ -43,9 +43,9 @@
 			<MiningField name="Usage" missingValueReplacement="76.1390909090909" missingValueTreatment="asMean"/>
 			<MiningField name="RatePlan" missingValueReplacement="2.52648790058862" missingValueTreatment="asMean"/>
 		</MiningSchema>
-		<Output>
-			<OutputField name="predicted_LTV" optype="continuous" dataType="double"/>
-		</Output>
+		<Targets>
+			<Target field="LTV" rescaleConstant="0.5"/>
+		</Targets>
 		<LocalTransformations>
 			<DerivedField name="float(Children)" optype="continuous" dataType="float">
 				<FieldRef field="Children"/>

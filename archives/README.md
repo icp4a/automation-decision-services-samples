@@ -2,7 +2,7 @@
 
 This directory contains decision services archives that can be run in your Automation Decision Services runtime or using the execution api. 
 They were built from the decision services that can be loaded in Designer using the 
-samples wizard (see `Creating decision services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=services-creating-decision)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=services-creating-decision)).
+samples wizard (see `Creating decision services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=services-creating-decision)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=services-creating-decision)).
 
 Here is the correspondance between the archive and the decision service:
 
@@ -44,7 +44,7 @@ The `approvalWithML` archive is used by the following samples:
 
 You use the Swagger UI of your runtime instance to execute the archives. 
 For an archive containing a predictive model, you first deploy the machine learning model.
-For more information, see `Executing decision services with decision runtime documentation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=services-executing-decision-decision-runtime)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=services-executing-decision-decision-runtime).
+For more information, see `Executing decision services with decision runtime documentation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=services-executing-decision-decision-runtime)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=services-executing-decision-decision-runtime).
 
 ## Prerequisites
 - Automation Decision Services: Your instance of the services must have a runtime. You must have the credentials allowing management and execution in this runtime. 
@@ -141,7 +141,7 @@ To run an archive using a Machine Learning model, you have first to deploy the c
 
 The ML archives require a deployment of the ML models they use. PMML files are provided in the `archives/models` directory. Download them to use the corresponding archives. 
 The ML archives also embed a provider info key, you have to set it in the decision metadata. 
-For more information about the Machine Learning metadata, see `Decision service metadata`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=services-decision-service-metadata)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=services-decision-service-metadata).
+For more information about the Machine Learning metadata, see `Decision service metadata`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=services-decision-service-metadata)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=services-decision-service-metadata).
 Here are the required information for the archives:
 
 | **Archive name** | **Model name** | **File containing the provider info id**                                                                                                  |
@@ -187,4 +187,4 @@ Then you use the Swagger UI of your runtime instance to add the required informa
 ```   
    * Click on Execute, the response code is 200. You can now run the archive it will be able to invoke the Machine Learning model.
  
-For more information, see  `Swagger UI documentation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=runtime-swagger-ui-decision-api)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=runtime-swagger-ui-decision-api).
+For more information, see  `Swagger UI documentation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=runtime-swagger-ui-decision-api)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=runtime-swagger-ui-decision-api).

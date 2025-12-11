@@ -6,7 +6,7 @@
   <artifactId>ads-sample-micro-service</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <properties>
-    <ads.execution-api.version>3.0.12</ads.execution-api.version>
+    <ads.execution-api.version>3.1.4</ads.execution-api.version>
     <maven.compiler.release>21</maven.compiler.release>
     <ads.samples.version>1.0.0</ads.samples.version>
     <!-- ${package.folder.name} depends on the activated profile -->

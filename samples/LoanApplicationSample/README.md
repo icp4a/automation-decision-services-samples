@@ -20,11 +20,11 @@ This sample is for anyone who wants to execute a decision service archive built 
 
 ## Prerequisites
 - Automation Decision Services: Your instance of the services must have a runtime that supports basic authentication. You must have the host name and login credentials (user name and password) allowing management and execution in the runtime. 
-For more information on the roles see `User roles and access control`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=runtime-user-permissions-authentication-modes)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=runtime-user-permissions-authentication-modes)
-- Websphere Application Server Liberty: A Java application server that you can download from [Download WAS Liberty](https://developer.ibm.com/wasdev/downloads/). This sample was tested on **WebSphere Liberty Web Profile 8 25.0.0.4**.
+For more information on the roles see `User roles and access control`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=runtime-user-permissions-authentication-modes)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=runtime-user-permissions-authentication-modes)
+- Websphere Application Server Liberty: A Java application server that you can download from [Download WAS Liberty](https://developer.ibm.com/wasdev/downloads/). This sample was tested on **WebSphere Liberty Web Profile 8 25.0.1.4**.
 - Apache Maven: A software project management tool that you can download from [Welcome to Apache Maven](https://maven.apache.org).
 
-It is recommended that you do the tutorial `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=resources-getting-started) before using this sample.
+It is recommended that you do the tutorial `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=resources-getting-started) before using this sample.
 
 # Setting up the sample
 The web application defined in this sample calls a decision service archive that gives a decision about approving or not a loan. It relies on the decision service `Loan Approval` defined in the Banking 
@@ -58,7 +58,7 @@ You use the Swagger UI tool of the runtime to deploy the decision service archiv
     - deploymentSpaceId `ADSsample`.
     - decisionId `loanApproval`.
 8. Click on Execute.<br>
-   Note: Execution may fail as the cache used by the Automation Decision Services runtime is out of date. Retry an execution afterward (see the parameter `decision_selection.update_interval` at `Decision runtime parameters`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=parameters-decision-runtime)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=parameters-decision-runtime) )
+   Note: Execution may fail as the cache used by the Automation Decision Services runtime is out of date. Retry an execution afterward (see the parameter `decision_selection.update_interval` at `Decision runtime parameters`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=parameters-decision-runtime)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=parameters-decision-runtime) )
 9. In the response body, locate and keep the value of property `decisionServiceId`, it will be used afterward.
 
 You can have a look at the operation name of the decision service by its semantic version.

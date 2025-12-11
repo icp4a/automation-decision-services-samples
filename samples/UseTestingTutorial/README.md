@@ -18,7 +18,7 @@ This tutorial is for technical and business users who want to learn how to add u
 
 ## Prerequisites
 
-To get more familiar with Automation Decision Services (ADS), we recommend you to start by following the `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=resources-getting-started) tutorial. 
+To get more familiar with Automation Decision Services (ADS), we recommend you to start by following the `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=resources-getting-started) tutorial. 
 
 You must have the following environments:
 - **Decision Designer**: A web-based user interface for developing decision services. You work with a sample decision service by importing it into a project and opening it in Decision Designer.
@@ -35,7 +35,7 @@ In this task, you...
   ## Step 1: Exploring a decision service
   In this step, you create a new automation, and import and explore a sample decision service to be ready to add unit tests to it. 
   You import the `Loan Approval` sample, which validates loans by using data from a borrower, and computes insurance rates for the requested loan amount.
-  If you need more guidance to follow the instructions below, you can refer to the `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=resources-getting-started) tutorial.
+  If you need more guidance to follow the instructions below, you can refer to the `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=resources-getting-started) tutorial.
  
  **Procedure**
  
@@ -113,7 +113,7 @@ In this task, you...
 - Run those unit tests locally to debug them.
 
 You use Maven to build and test the project. You use Designer as a maven repository.
-For more information, see the `Using Decision Designer as a Maven repository`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=environment-using-decision-designer-as-maven-repository)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=environment-using-decision-designer-as-maven-repository) 
+For more information, see the `Using Decision Designer as a Maven repository`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=environment-using-decision-designer-as-maven-repository)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=environment-using-decision-designer-as-maven-repository) 
 documentation for more details.                                   
 
 ## Step 1: Building your decision service
@@ -126,8 +126,8 @@ In this step, you first clone your Git repository and define your Maven settings
 3. Make sure your Maven settings file is configured to access Automation Decision Services artifacts to be able to build the decision service. 
  If the Maven settings file is not configured as expected, use the settings.xml template provided with this sample.
  To access the Automation Decision Services artifacts to build the decision service, replace the following placeholders:
-    * %ADS_MAVEN_REPOSITORY_TO_BE_SET%: The URL of your ADS Maven repository (for more information, see[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=environment-using-decision-designer-as-maven-repository)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=environment-using-decision-designer-as-maven-repository)).
-  * %YOUR_API_KEY_TO_BE_SET%: Your encoded ZEN API key (For more information about getting the API key, see this [topic] (https://www.ibm.com/docs/en/cloud-paks/1.0?topic=users-generating-api-keys-authentication). You must encode this key as described in this [documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=administering-authorizing-http-requests-by-using-zen-api-key)).
+    * %ADS_MAVEN_REPOSITORY_TO_BE_SET%: The URL of your ADS Maven repository (for more information, see[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=environment-using-decision-designer-as-maven-repository)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=environment-using-decision-designer-as-maven-repository)).
+  * %YOUR_API_KEY_TO_BE_SET%: Your encoded ZEN API key (For more information about getting the API key, see this [topic] (https://www.ibm.com/docs/en/cloud-paks/1.0?topic=users-generating-api-keys-authentication). You must encode this key as described in this [documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=administering-authorizing-http-requests-by-using-zen-api-key)).
    *  Copy the `settings.xml` file in the `Loan Approval` directory opened in point 2.
 4. Enable Maven to use the ADS remote repository stored in HTTPS servers (more information is available [here](https://maven.apache.org/guides/mini/guide-repository-ssl.html)). <br>
    Note: Alternatively, for test purpose only, SSL validation can be disabled using the following command: 
@@ -153,7 +153,7 @@ In this step, you first clone your Git repository and define your Maven settings
  ## Step 2: Adding unit tests
 
  In this step, you add unit tests in the decision model. Those unit tests are described in JSON format, providing the input and expected output of each run.
- A Java file is also required to add a JUnit test browsing those JSON files. You can find detailed information about writing unit tests in the `Unit testing documentation` [![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=services-unit-testing)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=services-unit-testing)
+ A Java file is also required to add a JUnit test browsing those JSON files. You can find detailed information about writing unit tests in the `Unit testing documentation` [![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=services-unit-testing)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=services-unit-testing)
 
 **Procedure**
 

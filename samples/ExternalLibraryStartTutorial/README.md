@@ -5,7 +5,7 @@ This tutorial shows you how to use an external library in a decision service.
 This decision service is obtained by following the Getting Started tutorial and has been customized to use an external library that defines a **Person** custom type.
 
 In Automation Decision Services, external libraries can be used in decision services to extend rule authoring with custom data types and functions from Java libraries.
-For more information on decision models and external libraries, see `Working with external libraries`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=data-working-external-libraries)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=data-working-external-libraries).
+For more information on decision models and external libraries, see `Working with external libraries`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=data-working-external-libraries)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=data-working-external-libraries).
 
 For another example of an external library, see [External library giving geo localization facilities](../ExternalLibGeoSample/README.md).
 
@@ -23,11 +23,11 @@ This sample is intended for a business user who wants to use a Java library in A
 
 ## Prerequisites
 
-Prepare by completing the tutorial `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=resources-getting-started). It introduces you to Automation Decision Services.
+Prepare by completing the tutorial `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=resources-getting-started). It introduces you to Automation Decision Services.
 
 Ensure that the external library has been built and deployed by an integrator. 
 For details on how the integrator proceeds,  refer to the [External library build tutorial](../ExternalLibraryBuildTutorial/README.md).
-Get the deployed version number from the integrator. This tutorial uses the version 2500.2.0.
+Get the deployed version number from the integrator. This tutorial uses the version 2600.0.0.
 
 You must have the following environment:
 - **Decision Designer**: The web-based user interface for developing decision services in Automation Decision Services. You work with a sample decision service by importing it into a project and opening it in Decision Designer.
@@ -45,7 +45,7 @@ In this task, you will:
   
  ## Step 1: Creating a new project that uses the external library
 
- In this step, you create a project that uses the external library. If you need more details to follow the instructions, please refer to the `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=resources-getting-started) tutorial.
+ In this step, you create a project that uses the external library. If you need more details to follow the instructions, please refer to the `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=resources-getting-started) tutorial.
 
 1. Use the credentials provided for your instance to sign in to Decision Designer.
 2. Create a new project. In this documentation, we use `Library Sample` as the project name.
@@ -54,7 +54,7 @@ In this task, you will:
 5. Enter the following values:
   - Group ID: ads.samples
   - Artifact ID: adsSampleLibrary
-  - Version: 2500.2.0 (This is the version you want to use. It might be different if you deployed a new version.)
+  - Version: 2600.0.0 (This is the version you want to use. It might be different if you deployed a new version.)
   
 6. Click **OK** and wait for the library to be imported. You see the library description and that it is available in multiple languages.
 
@@ -230,7 +230,7 @@ then
 `"Salut Dominique Dupond! Cold day! Take a coat."`
 
 # (Optional) Task 3: Executing a decision service using an external library
-In this task you run a decision service that includes an external library in the same way as any other decision service. These steps are more detailed than those in task 6 of `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=resources-getting-started).
+In this task you run a decision service that includes an external library in the same way as any other decision service. These steps are more detailed than those in task 6 of `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=resources-getting-started).
 
 **About this task**
 

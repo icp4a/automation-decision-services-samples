@@ -4,11 +4,13 @@
 
 
 
-This tutorial shows you how to connect an existing predictive model to a machine learning model deployed with a PMML file in an Automation Decision Services Machine Learning Service, and use it in a decision service that validates loans. The decision service uses a decision model to apply policies and incorporate a risk prediction. These tutorial tasks are illustrated in the following diagram.
+This tutorial shows you how to connect an existing predictive model to a machine learning model and use it in a decision service that validates loans. The decision service uses a decision model to apply policies and incorporate a risk prediction. 
+The machine learning model is described in a PMML file that is directly deployed in a Machine Learning Provider embedded in Automation Decision Service.
+This tutorial tasks are illustrated in the following diagram.
 
 ![Image summarize the tutorial steps](images/MLQuickTutorial.png)
 
-For more information on decision models and predictive models, see `Modeling decisions`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=services-developing-decision)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=services-developing-decision) and `Integrating machine learning`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=artifacts-integrating-machine-learning)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=artifacts-integrating-machine-learning).
+For more information on decision models and predictive models, see `Modeling decisions`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=services-developing-decision)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=services-developing-decision) and `Integrating machine learning`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=artifacts-creating-predictive-models)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=artifacts-creating-predictive-models).
 
 For more tutorials about machine learning in Automation Decision Services see:
    - [Machine learning short tutorial](../MachineLearningShortTutorial/README.md) to learn how to connect a predictive model to a Watson Machine Learning Model. 
@@ -17,7 +19,7 @@ For more tutorials about machine learning in Automation Decision Services see:
    
 ## Learning objectives
 
-   - Define a machine learning provider using Open Prediction Service.
+   - Define a machine learning provider using an embedded Machine Learning provider.
    - Import a PMML model directly in Decision Designer and connect it to an existing predictive model.
    - Run a decision model using this predictive model.
 
@@ -32,16 +34,14 @@ This sample is for technical and business users who want to apply predictive ana
 ## Prerequisites
 
 Prepare with the following resources:
-- `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=resources-getting-started): This tutorial introduces you to Automation Decision Services.
-- [Open Prediction Service API (OPS)](https://github.com/IBM/open-prediction-service-hub): This service allows to discover, manage and run models and deployments of a Machine Learning provider.
+- `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=resources-getting-started): This tutorial introduces you to Automation Decision Services.
 
-You must have the following environments:
+You must have the following environment:
 - **Decision Designer**: A web-based user interface for developing decision services. You work with the sample decision service by importing it into a project and opening it in Decision Designer.
-- **Automation Decision Services Machine Learning Service**: A Machine Learning service implementation based on IBM Open Prediction Service API.
 
 In this tutorial, you...
 - Define a machine learning provider in a project.
-- Upload a machine learning model by uploading a PMML file. 
+- Upload a machine learning model using a PMML file. 
 - Connect a predictive model to a machine learning model.
 
 
@@ -51,7 +51,7 @@ In this tutorial, you...
 
 In this task, you...
 - Import and explore a sample decision service.
-- Define a machine learning provider using Open Prediction Service.
+- Define a machine learning provider of type embedded. 
 
 ## Step 1: Importing the sample decision service in Decision Designer
 
@@ -81,21 +81,22 @@ Next you will define a machine learning provider to connect the predictive model
 
 ## Step 2: Defining a machine learning provider
 
-You create a machine learning provider to get your model deployment into your project. See `Managing machine learning providers`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=learning-managing-local-machine-providers)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=learning-managing-local-machine-providers) for more information.
+You create a machine learning provider to get your model deployment into your project. You use the embedded provider: it allows you to import any type of Predictive Model Markup Language (PMML) file and run it directly in your automation. See `Managing machine learning providers`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=models-managing-local-machine-learning-providers)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=models-managing-local-machine-learning-providers) for more information.
+
 
 **Procedure**
 
 1. Go back to the diagram and click in the diagram outside any node or link.
 2. Click on the **Configure** button. You see that no provider is defined.
-3. By default, **Remote Machine Learning Model** is selected. Click on **Next** 
+3. By default, **Remote Machine Learning Model** is selected. Click on **Next**.
 4. Click on **New provider** to define one.
 5. Click on **New +** to open the Machine Learning provider wizard:
-   * Select `Open Prediction Service` as the type.
-   * Set `ops-quick` as the name.
+   * Select `Embedded machine learning` as the type.
+   * Set `embedded-quick` as the name.
    * Enter the description: `Provider for the machine learning quick tutorial`.
-   * Enter the URL of your Open Prediction Service instance. Click on the `Test connection` button. It should successfully connect.
+   * Click on the `Test connection` button. It successfully connects.
    * Click on **Save** to add this provider. Wait for the Status to be Running to have this provider ready to be used in your project.
-6. In the Navigation history click on `loan risk score` to go back to the predictive model.
+6. In the Navigation history click on `loan risk score` to go back to the predictive model configuration page.
 
 Next you will connect your predictive model.
 
@@ -109,14 +110,18 @@ In this task, you...
 
 ## Step 1: Uploading a PMML file 
 
-You upload a PMML file to create a machine learning model deployment.
+First you explore the PMML file describing the Machine Learning model. Then you upload it to create a machine learning model deployment to be used in the predictive model.
 
 **Procedure**
 
-1. Following Task 1, you are in the **Configure predictive model** wizard.
-2. Click on **Select provider** and select the `ops-quick` provider you defined in Task 1. You can see all the machine learning models deployed on this provider.
-3. Click Upload and select the PMML file provided in [`automation-decision-services-samples/samples/MachineLearningQuickTutorial/model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml`](model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml). 
-4. Click on Upload. A new machine learning model deployment is added: Click **Back**, expand `SGDClassifier` a deployment `SGDClassifier` is ready to be used. 
+1. Browse the the PMML file provided in [`automation-decision-services-samples/samples/MachineLearningQuickTutorial/model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml`](model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml):
+   * The input schema composed of 7 fields is described in the `DataDictionary` part.
+   * The output schema composed of 3 fields is described in the `Output`part. Note that this part is optional. 
+   * It uses a Regression model.
+2. Back in Designer, following Task 1, you are in the **Configure predictive model** wizard. Click **Next** to go to the **Select provider and deployment** page.
+3. Click on **Select provider** and select the `embedded-quick` provider you defined in Task 1. 
+4. Click Upload and select the PMML file provided in [`automation-decision-services-samples/samples/MachineLearningQuickTutorial/model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml`](model/ML-Sample-SGDClassifier-StandardScaler-pmml.xml). 
+5. Click on Upload. A new machine learning model deployment is added ready to be used to configure the predictive model.
 
 Next you connect the predictive model to this machine learning model deployment.
 
@@ -126,21 +131,11 @@ You go on connecting the predictive model.
 
 **Procedure**
 
-1. Following Step 1, you are in the **Configure predictive model** wizard.
-2. In the `Select machine learning model deployment` part select the deployment `SGDClassifier`.
-3. Click **Next** to define the model input schema: it is complete, just browse it.
-4. Click **Next** to define the test invocation. Click **Run** at the right of the wizard to validate the model. You get the following output:
-```json
-{
-    "result": {
-        "predicted_paymentDefault": 1,
-        "probability_0": 0.17825993285555797,
-        "probability_1": 0.821740067144442
-    }
-}
-```
-5. Click **Next** to define the model output schema. Select **Generate from test output**. Wait for the output schema to be generated and click on **OK**.
-6. Click **Apply** to connect the predictive model to this machine learning model deployment. 
+1. Following Step 1, you are in the **Configure predictive model** wizard in the define input schema page.
+2. The model input schema taken from the PMML file is complete, just browse it.
+3. Click **Next** to check the test invocation. This step allows to invoke the model and get an output example that can be used to define the output schema. Since the output schema is defined in the PMML file you skip this step.
+4. Click **Next** to check the model output schema. The model output schema taken from the PMML file is complete, just browse it.
+5. Click **Apply** to connect the predictive model to this machine learning model deployment. The predictive model diagram opens, it is now configured with an embedded provider and the model deployment you just loaded.
 
 Next you run your predictive model and the decision model that calls it.
 
@@ -188,6 +183,3 @@ For more tutorials about machine learning in Automation Decision Services see:
    - [Machine learning short tutorial](../MachineLearningShortTutorial/README.md) to learn how to connect a predictive model to a Watson Machine Learning Model. 
    - [Machine learning complete tutorial](../MachineLearningCompleteTutorial/README.md) to learn how to create predictive model, connect it to a Watson Machine Learning Model, deploy and execute the decision.
    - [Machine learning sample](../MachineLearningCustomerLoyaltySample/README.md) to get another example using two predictive models.
-
-Note that the [**Open Prediction Service Hub repository**](https://github.com/IBM/open-prediction-service-hub) contains material and guidelines related to implementing Open Prediction Service API services.
-For instance, you can use the [Build a Loan default score model with OPS.ipynb](https://github.com/IBM/open-prediction-service-hub/blob/main/notebooks/OPS/Build%20a%20Loan%20default%20score%20model%20with%20OPS.ipynb) notebook to deploy a model in OPS and use it in a predictive model in Decision Designer.

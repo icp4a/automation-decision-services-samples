@@ -2,7 +2,7 @@
 
 ## Description
 This sample defines an external library that provides geolocalization functions that are ready for use in Automation Decision Services.
-For more information about decision models and external libraries, see `Working with external libraries`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.0?topic=data-working-external-libraries)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.0?topic=data-working-external-libraries).
+For more information about decision models and external libraries, see `Working with external libraries`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=data-working-external-libraries)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=data-working-external-libraries).
 
 ## Learning objectives
 - Build an external library from a Java library.
@@ -43,7 +43,7 @@ The sample refers to **automation-decision-services-samples** as the directory w
 - Open the settings of your project to define the external library:
   - Group ID: ads.samples
   - Artifact ID: adsGeoLibrary
-  - Version: 2500.2.0
+  - Version: 2600.0.0
   
 # Sample details
 
