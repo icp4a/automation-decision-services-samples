@@ -66,11 +66,11 @@ In this step, you take a moment to explore the imported sample decision service.
 For more details about prompt fields see `Creating prompts` [![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=models-creating-prompts)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=models-creating-prompts).
 3. Click **Assisted Pricing** in the breadcrumbs and open **Part number** decision model. Click on **Part number** node then click on **Logic** and open **Part number table**. It defines the part number of a product based on its name. If the product is not in the decision table than the **output-default-setting** rule is applied. Open the Run tab and test with the **Laptop** dataset. The output is **"OF-028"**. Update the product value to **laptop** and click **Run**. The output is **"N/A"**.
 4. Click **Assisted Pricing** in the breadcrumbs and open **[Main] Pricing** task model. 
-Click the **[Main] Pricing** ruleflow in the Artifacts list to open it. It contains three subflows:
+Click the **Automated pricing** ruleflow in the Artifacts list to open it. It contains three subflows:
    - **Analyse email**: It calls the **Email analysis** generative AI model to extract data from customer emails and get product names.
    - **Build product list**: It builds a list of product names and quantities by parsing the text returned by the generative AI model. It also calls the **Part number** decision model to get the part number of products.
    - **Price products**: It calls the **Unit price** decision model to get the unit price for specific products and calculate the total price for all detected products.
-5. Open the Run tab to test the **[Main] Pricing** ruleflow.There are four functions, one for the **[Main] Princing** ruleflow and the three others for the subflows. Select **Pricing** function and click **Run**. Switch to **Realistic email** test data and click Run.
+5. Open the Run tab to test the **[Main] Pricing** ruleflow. Click **Run**. Switch to **Realistic email** test data and click Run.
 
 Depending on the email used as input, some products might show a price of 0 because their part number could not be identified. If the product name does not exactly match the spelling used in the **Part number** decision table, the part number is set to to N/A and a price of 0 is returned.
  This limitation can be avoided by using a generative AI model instead of a decision table to get the part number of a product.

@@ -18,7 +18,7 @@ This tutorial is for technical and business users who want to learn how to add u
 
 ## Prerequisites
 
-To get more familiar with Automation Decision Services (ADS), we recommend you to start by following the `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=resources-getting-started) tutorial. 
+To get more familiar with Automation Decision Services (ADS), we recommend you to start by following the `Getting started in Automation Decision Services`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=resources-getting-started)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=resources-getting-started) tutorial.
 
 You must have the following environments:
 - **Decision Designer**: A web-based user interface for developing decision services. You work with a sample decision service by importing it into a project and opening it in Decision Designer.

@@ -10,7 +10,7 @@ This tutorial shows you how to create a predictive model in Automation Decision 
 For more information on decision models and predictive models, see `Modeling decisions`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=services-developing-decision)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=services-developing-decision) and `Integrating machine learning`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=artifacts-creating-predictive-models)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=artifacts-creating-predictive-models).
 
 For more tutorials about machine learning in Automation Decision Services see:
-   - [Machine learning quick tutorial](../MachineLearningQuickTutorial/README.md) to learn how to connect a predictive model to a Machine Learning Model deployed in a Machine Learning Provider embedded in Automation Decision Service.
+   - [Machine learning quick tutorial](../MachineLearningQuickTutorial/README.md) to learn how to import a Machine Learning Model as PMML file in an Automation Decision Services Machine Learning Service and how to connect it to a predictive model.
    - [Machine learning short tutorial](../MachineLearningShortTutorial/README.md) to learn how to connect a predictive model to a Watson Machine Learning Model. 
    - [Machine learning customer loyalty sample](../MachineLearningCustomerLoyaltySample/README.md) to get another example using two predictive models.
 
@@ -71,9 +71,10 @@ In this task, you...
  [![Video covers how to run a notebbok in Watson Studio.](images/ml_sample.png)](https://youtu.be/bbEZk4ypRQU&ab_channel=IBMSupportandTraining)
 
  *Note*
- There are some minor changes in the graphic user interface in this video compared to the latest version of Watson Studio. The actions remain the sames.
+ There are some minor changes in the graphic user interface in this video compared to the latest version of Watson Studio. The actions remain the same.
 
- 1.You create a new asset using the notebook provided in [`automation-decision-services-samples/samples/MachineLearningCompleteTutorial/model/Predict loan default with PMML in WML.ipynb`](model/Predict%20loan%20default%20with%20PMML%20in%20WML.ipynb). 
+ 1. You create a new asset using the notebook provided in [`automation-decision-services-samples/samples/MachineLearningCompleteTutorial/model/Predict loan default with PMML in WML.ipynb`](model/Predict%20loan%20default%20with%20PMML%20in%20WML.ipynb). 
+
  2. You read the notebook then you update the following values inside:
    - url: your Watson Machine Learning API endpoint URL.
    - apikey: see below for more information on how to get it.
@@ -87,7 +88,7 @@ You get the data from Watson Studio that is required to define a machine learnin
 * the URL where the model is deployed. For instance `https://<location>.ml.cloud.ibm.com/ml/v4`.
 * the authentication URL. For instance `https://iam.bluemix.net/identity/token`.
 
-You also require an API key that you take from the [cloud](https://cloud.ibm.com/iam/apikeys).
+You also require an API key that you take from the [IBM Cloud Identity and Access Management](https://cloud.ibm.com/iam/apikeys).
 
 # Task 2: Defining a machine learning provider in Decision Designer
 
@@ -129,7 +130,7 @@ You associate to your project a new machine learning provider to get your model 
 2. Click on the **Settings** icon at the page top right corner.
 3. Open the Machine learning providers tab. 
 4. Click on **New +** to define a provider:
-   * Keep `WatsonX Machine Learning` as the type.
+   * Keep `WatsonX Machine Learning (IAM)` as the type.
    * Set `wml-complete` as the name.
    * Enter the description: `Provider for the machine learning complete tutorial`.
    * Enter the following service credentials you obtained in Task 1 from Watson Studio to authenticate with your Watson Machine Learning service instance:
@@ -208,17 +209,17 @@ In this step, you...
     b. In the rule editor, enter the following code:
     ```
     definitions
-    set 'duration' to the number of monthly payments of Loan ;
-    set 'rate' to the rate of Loan ;
-    set 'yearlyreimbursement' to  'rate'  * the amount of Loan  / (1 - pow ( 1 + 'rate' , -duration));
-    then
-        set decision to a new ML model input where
-            the creditscore is the credit score of Borrower , 
-            the income is the yearly income of Borrower , 
-            the loanamount is the amount of Loan , 
-            the monthduration is the number of monthly payments of Loan , 
-            the rate is 'rate' , 
-            the yearlyreimbursement is 'yearlyreimbursement' ;
+      set 'duration' to the number of monthly payments of Loan ;
+      set 'rate' to the rate of Loan ;
+      set 'yearlyreimbursement' to 'rate' * the amount of Loan / (1 - pow ( 1 + 'rate' , -duration));
+      then
+          set decision to a new ML model input where
+              the creditscore is the credit score of Borrower,
+              the income is the yearly income of Borrower ,
+              the loanamount is the amount of Loan,
+              the monthduration is the number of monthly payments of Loan ,
+              the rate is 'rate' ,
+              the yearlyreimbursement is 'yearlyreimbursement' ;
     ```   
     c. Go back to the diagram.
     
@@ -289,13 +290,13 @@ You edit the decision model to replace an input node with a prediction node call
 **Procedure**
 
 1. In the Navigation history, select **Loan Validation Decision Model** to open the decision model.
-2. Remove the **Loan Risk Score** node.
+2. Remove the **Loan Risk Score** input node.
 3. Hover on the `Risk score` node and click on  **Add prediction**. Click **Select a prediction** to select `Loan risk score`.
 4. Select the **Risk Score** node. Go to the **Logic** tab and edit the **loan risk score** rule. Enter the following rule:
     ```
     set decision to the loan risk score computed from 
-    Borrower being Borrower , 
-    Loan being Loan;
+        Loan being Loan , 
+        Borrower being Borrower;
     ```
 5. Go back to the diagram. Here is the new model:
     ![Image shows the decision model.](images/scrn_dmodel.png)
@@ -310,7 +311,7 @@ You deploy the decision service archive, then invoke your decision using the Swa
 
 In this task, you...
 - Deploy your decision service archive.
-- Invoke the decision service archive by using the Open Api generated by the runtime.
+- Invoke the decision service archive by using the open API generated by the runtime.
 - Check the metadata defined for your archive.
 
 ### Step 1: Deploying the decision service
@@ -347,6 +348,7 @@ You execute the decision service archive using Swagger UI.
      "amount": 520000,
      "rate": 0.7
    }
+}
 ```
 3. Click on **Execute**. You get the following response body:
 ```json
@@ -405,6 +407,7 @@ In the response body, you get the description of the machine learning provider:
 ```
 You've completed this tutorial.
 For more tutorials about machine learning in Automation Decision Services see:
-   - [Machine learning quick tutorial](../MachineLearningQuickTutorial/README.md) to learn how to connect a predictive model to a Machine Learning Model deployed in a Machine Learning Provider embedded in Automation Decision Service.
+   - [Machine learning quick tutorial](../MachineLearningQuickTutorial/README.md) to learn how to import a Machine Learning Model as PMML file in an Automation Decision Services Machine Learning Service and how to connect it to a predictive model.
    - [Machine learning short tutorial](../MachineLearningShortTutorial/README.md) to learn how to connect a predictive model to a Watson Machine Learning Model. 
    - [Machine learning customer loyalty sample](../MachineLearningCustomerLoyaltySample/README.md) to get another example using two predictive models.
+

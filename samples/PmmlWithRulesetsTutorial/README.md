@@ -5,9 +5,10 @@
  ## Using a PMML file with rulesets
 
  In this first part, you use the `Telecom` sample. It contains three decision services that decide how to retain customers and prevent churn:
-    * `Customer retention` uses decision models based on rules.
-    * `Transparent ML retention` uses transparent predictive models.
-    * `Retention with ML`uses predictive models associated to a ML provider.
+
+   - `Customer retention` uses decision models based on rules.
+   - `Transparent ML retention` uses transparent predictive models.
+   - `Retention with ML`uses predictive models associated to a ML provider.
 
  You work on the `Customer retention` decision service to replace a decision model that computes a churn rate based on rules by a transparent predictive model built with the `churn.pmml` file.
  For more details, see the `documentation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/24.0.1?topic=model-importing-transparent-machine-learning)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/24.0.1?topic=model-importing-transparent-machine-learning).
@@ -15,33 +16,38 @@
  ### Step1: Exploring the decision service and the PMML file
 
  In this step, you load the sample and explore the decision service.
-    * Open Decision Designer to import the `Telecom` sample from the list of Industry samples.
-    * Explore the data model to see which types are defined.
-    * Explore the `Churn` decision model: it uses rules to calculate a customer churn probability.
-    * Explore the `Retention offer`model: it relies on the `Churn` decision model to decides which offer is appropriate.
-    * Download and explore the [churn.pmml](./churn.pmml) to see what data is required in the data dictionary part. This ruleset was built using the [churn.csv](datasets/churn.csv) data set.
+
+ 1. Open Decision Designer to import the `Telecom` sample from the list of Industry samples.
+ 2. Explore the data model to see which types are defined.
+ 3. Explore the `Churn` decision model: it uses rules to calculate a customer churn probability.
+ 4. Explore the `Retention offer`model: it relies on the `Churn` decision model to decides which offer is appropriate.
+ 5.  Download and explore the [churn.pmml](./churn.pmml) to see what data is required in the data dictionary part. This ruleset was built using the [churn.csv](datasets/churn.csv) data set.
 
  ### Step2: Creating a transparent predictive model
 
  In this step, you create a predictive model and configure it using a PMML file. 
 
-    * Open `Customer retention` decision service. 
-    * Create a predictive model, e.g. `Transparent churn` in this decision service using the existing data model (i.e. Data) as data source.
-    * Click `Configure`.
-    * Select `Local machine learning` as the configuration method and click `Next`.
-    * Browse to the PMML file `churn.pmml`you downloaded in the previous step.
-    * Choose the decision logic generation method: by default it uses business rules. In some cases decision tables are more readable. Then click `Next`.
-    * Map the input data from the pmml with the types defined in the data model when it is possible. Note that you cannot map the `RatePlan`data field to the corresponding type in the data model because it is different. You will define a mapping rule in the next step. Then click `Apply`.
+1.  Open `Customer retention` decision service. 
+2. Create a predictive model, e.g. `Transparent churn` in this decision service using the existing data model (i.e. Data) as data source.
+3. Click `Configure`.
+4.  Select `Local machine learning` as the configuration method and click `Next`.
+5.  Browse to the PMML file `churn.pmml`you downloaded in the previous step.
+6.  Choose the decision logic generation method: by default it uses business rules. In some cases decision tables are more readable. Then click `Next`.
+7. Map the input data from the pmml with the types defined in the data model when it is possible. Note that you cannot map the `RatePlan`data field to the corresponding type in the data model because it is different. You will define a mapping rule in the next step. Then click `Apply`.
+
     ![Image rule mapInputData](images/data-mapping.png)
-    * Explore the created predictive model: click the `Prediction` node and open the `Logic` tab to see the generated rules. 
-    * Go back to the diagram.
+8. Explore the created predictive model: click the `Prediction` node and open the `Logic` tab to see the generated rules. 
+9. Go back to the diagram.
 
  ### Step3: Mapping input data
  In this step, you check what input data is required and create a mapping rule or/and a decision table. Only `RatePlan` type is not mapped to a Customer retention data model type.
-    * Define all the required input nodes and assign the correct data type to each one of them. The following screenshot shows the diagram complete with input nodes:
+
+1. Define all the required input nodes and assign the correct data type to each one of them. The following screenshot shows the diagram complete with input nodes:
      ![Image diagram](images/final-diagram.png)
-    * Click the `Input mapping` node and create a decision table named `rate plan mapping`. Select under Subscription drop list the rate plan of 'Subscription' as a condition column and click Create.
-    * In the `Customer retention` data model `rate plan` is an enumeration compared to double in the PMML churn model. The generated decision table should be as follows:
+     
+2. Click the `Input mapping` node and create a decision table named `rate plan mapping`. Select under Subscription drop list the rate plan of 'Subscription' as a condition column and click Create.
+3. In the `Customer retention` data model `rate plan` is an enumeration compared to double in the PMML churn model. The generated decision table should be as follows:
+
      ![Image rule mapInputData](images/mapInputData.png)
 
  **Note**: The `ML model input` type is automatically generated from the PMML dictionary when the rules are imported. You can look at the content of the  `DataDictionary` section in the PMML file to see how it is defined. 
@@ -49,8 +55,9 @@
  ### Step4: Mapping output data
  In this step, you create the output mapping rule.
 
-    * Go back to the diagram and open the `Output mapping` node. In the `Details` tab, edit the Output type to number.
-    * Go to the `Logic` tab, create a rule named `mapOutputData` and edit it in order to return the probability of churn being True. For example:
+1. Go back to the diagram and open the `Output mapping` node. In the `Details` tab, edit the Output type to number.
+2. Go to the `Logic` tab, create a rule named `mapOutputData` and edit it in order to return the probability of churn being True. For example:
+
  ```
  if the predicted of 'Weight Comparison' is "T" 
   then
@@ -58,11 +65,14 @@
   else
   set decision to (1 - the confidence of 'Weight Comparison');
  ````
+ 
  ### Step5: Testing the predictive model
 
  You run the predictive model to make sure it works as expected.
-    * Open the `Run` tab and create a test data set. For example :
-    ```
+
+1. Open the `Run` tab and create a test data set. For example :
+
+```
  {
    "customerRecord": {
      "age": 35,
@@ -82,23 +92,23 @@
      "ratePlan": "Basic",
      "usage": 50
    }
- }
-  
+ }  
  ```
-    * Run the model. It returns a prediction number: the probability of the custormer to churn.
+2. Run the model. It returns a prediction number: the probability of the custormer to churn.
 
  ### Step6: Using the transparent predictive model
  In this step, you use your newly created `Transparent churn` predictive model in the `Retention offer` decision model.
-    * Open to `Retention offer` decision model. Delete `churn` function node.
-    * Create a new predictive node and set its type to `Transparent churn`. Link it to the `Retention monthly budget` decision node.
-    * Select `Retention monthly budget` decision node, go to the Logic tab and edit size importance rule. Modify the part in error to use the `Transparent churn` predictive model instead of the churn decision model:
-  ```
+1. Open to `Retention offer` decision model. Delete `churn` function node.
+2. Create a new predictive node and set its type to `Transparent churn`. Link it to the `Retention monthly budget` decision node.
+3. Select `Retention monthly budget` decision node, go to the Logic tab and edit size importance rule. Modify the part in error to use the `Transparent churn` predictive model instead of the churn decision model:
+
+```
  -- Get churn prediction from predictive model
  set Churn to the transparent churn computed from 
  	Subscription being Subscription , 
  	CustomerRecord being Customer;
  ```
-    * Run the model with the different datasets to get which offers are proposed according to the predictive churn.
+4. Run the model with the different datasets to get which offers are proposed according to the predictive churn.
 
  ## Other PMML files
 

@@ -1,0 +1,173 @@
+{
+  "GettingStarted": {
+    "displayName": "Getting started",
+    "description": "Learn how to build a decision service.",
+    "type": "tutorials",
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "Education",
+    "iconColor": "teal"
+  },
+  "Training": {
+    "displayName": "Training",
+    "description": "Learn the basics of Automation Decision Services through practical examples.",
+    "type": "tutorials",
+    "nbProjects": 6,
+    "level": 0,
+    "iconName": "Education",
+    "iconColor": "warm-gray"
+  },
+  "MachineLearningQuick": {
+    "displayName": "Machine learning quick tutorial - Loan approval",
+    "description": "Import a machine learning model (PMML format), and store and invoke it through Open Prediction Service.",
+    "type": "tutorials",
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "WatsonMachineLearning",
+    "iconColor": "yellow"
+  },
+  "MachineLearningShort": {
+    "displayName": "Machine learning short tutorial - Loan approval",
+    "description": "Connect a predictive model to a machine learning model (PMML format) hosted on Watson Machine Learning.",
+    "type": "tutorials",
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "WatsonMachineLearning",
+    "iconColor": "yellow"
+  },
+  "MachineLearningComplete": {
+    "displayName": "Machine learning complete tutorial - Loan approval",
+    "description": "Build a predictive model, connect it to a machine learning model hosted on Watson Machine Learning, and deploy it.",
+    "type": "tutorials",
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "WatsonMachineLearning",
+    "iconColor": "yellow"
+  },
+  "MachineLearningCustomerLoyalty": {
+    "displayName": "Machine learning sample - Customer loyalty",
+    "description": "Use machine learning to reduce customer churn rate.",
+    "type": "tutorials",
+    "nbProjects": 1,
+    "level": 1,
+    "iconName": "WatsonMachineLearning",
+    "iconColor": "yellow"
+  },
+  "Portuguese": {
+    "displayName": "Brazilian Portuguese - Português brasileiro",
+    "description": "Decisões em português brasileiro.",
+    "type": "localization",
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "Education",
+    "iconColor": "blue"
+  },
+  "French": {
+    "displayName": "French - Français",
+    "description": "Decisions en français.",
+    "type": "localization",
+    "nbProjects": 2,
+    "level": 0,
+    "iconName": "Education",
+    "iconColor": "blue"
+  },
+  "German": {
+    "displayName": "German - Deutsch",
+    "description": "Entscheidungen in deutscher Sprache.",
+    "type": "localization",
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "Education",
+    "iconColor": "blue"
+  },
+  "Italian": {
+    "displayName": "Italian - Italiano",
+    "description": "Decisioni in italiano.",
+    "type": "localization",
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "Education",
+    "iconColor": "blue"
+  },
+  "Japanese": {
+    "displayName": "Japanese - 日本語",
+    "description": "日本語の意思決定",
+    "type": "localization",
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "Education",
+    "iconColor": "blue"
+  },
+  "Chinese": {
+    "displayName": "Simplified Chinese - 简体中文",
+    "description": "用简体中文写的决定",
+    "type": "localization",
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "Education",
+    "iconColor": "blue"
+  },
+  "Spanish": {
+    "displayName": "Spanish - Español",
+    "description": "Decisiones en Español.",
+    "type": "localization",
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "Education",
+    "iconColor": "blue"
+  },
+  "Banking": {
+    "displayName": "Banking",
+    "description": "Validate loans and compute insurance rates for the requested loan.",
+    "type": "business",
+    "nbProjects": 4,
+    "level": 0,
+    "iconName": "Finance",
+    "iconColor": "purple"
+  },
+  "Compensation": {
+    "displayName": "Compensation",
+    "description": "Calculate sales commissions based on compensation policies.",
+    "type": "business",
+    "nbProjects": 1,
+    "level": 0,
+    "iconName": "Receipt",
+    "iconColor": "magenta"
+  },
+  "Pricing": {
+    "displayName": "Pricing",
+    "description": "Calculate shipping price after applicable discount.",
+    "type": "business",
+    "nbProjects": 1,
+    "level": 1,
+    "iconName": "Money",
+    "iconColor": "cool-gray"
+  },
+  "Retail": {
+    "displayName": "Retail",
+    "description": "Calculate loyalty discount and shopping cart total.",
+    "type": "business",
+    "nbProjects": 2,
+    "level": 1,
+    "iconName": "ShoppingCart",
+    "iconColor": "cyan"
+  },
+  "Telecom": {
+    "displayName": "Telecom",
+    "description": "Determine the best offer to make to customers to reduce churn rate.",
+    "type": "business",
+    "nbProjects": 3,
+    "level": 2,
+    "iconName": "PhoneFilled",
+    "iconColor": "red"
+  },
+  "Transportation": {
+    "displayName": "Transportation",
+    "description": "Provide maintenance recommendations, determine baggage compliance, and clean an address record.",
+    "type": "business",
+    "nbProjects": 3,
+    "level": 1,
+    "iconName": "Bus",
+    "iconColor": "green"
+  }
+}

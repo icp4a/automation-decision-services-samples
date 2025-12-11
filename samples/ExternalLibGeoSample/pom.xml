@@ -7,14 +7,14 @@
     <properties>
         <ads-mojo.version>16.1.0</ads-mojo.version>
         <ads-annotations.version>2.0.19</ads-annotations.version>
-        <ads-sample.version>2600.0.0</ads-sample.version>
+        <ads-sample.version>2501.0.1</ads-sample.version>
         <jackson.version>2.15.2</jackson.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <groupId>ads.samples</groupId>
     <artifactId>externalLibraryGeo</artifactId>
-    <version>2600.0.0</version>
+    <version>2501.0.1</version>
     <packaging>pom</packaging>
 
     <modules>

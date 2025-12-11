@@ -37,10 +37,10 @@ the external library and its dependencies. For more information, see `Using an e
 
 - **Apache Maven**: You can download Maven from https://maven.apache.org. This sample requires Maven 3.9.x and was tested with version 3.9.10.
 - Enable Maven to access remote repositories hosted on HTTPS servers. For more information, see ([more](https://maven.apache.org/guides/mini/guide-repository-ssl.html)). <br>
-   **Note**: (For testing only) You can disable SSL validation by using the following option:
-   ```
-   -Daether.connector.https.securityMode=insecure
-   ```
+  **Note**: (For testing only) You can disable SSL validation by using the following option: 
+  ```
+  -Daether.connector.https.securityMode=insecure
+  ```
 
 Download a compressed file of the `automation-decision-services-samples` Git repository to your machine.
 Open this [link](/../../) and choose `Download Zip` in the `Code` menu.
@@ -81,7 +81,6 @@ You complete the provided template Maven settings file to access your artifact r
    * %PASSWORD TO BE SET%: The username's password to access this repository manager.
 3. Save the `settings.xml` file.
 
-
 ## Step 3: Building and deploying the library
 
 In this step, you build and deploy the external library to a repository manager.
@@ -99,11 +98,11 @@ This command:
 - Deploys the two JAR files in the repository manager.
 When you see the message BUILD SUCCESS, you can proceed to the next task to import the external library.
 
-**Note**: if you don't get the BUILD SUCCESS message, it means the sample library has not been deployed to your repository manager. This could be because it was already deployed with the version number `2600.0.0`. To check, follow these steps:
+**Note**: if you don't get the BUILD SUCCESS message, it means the sample library has not been deployed to your repository manager. This could be because it was already deployed with the version number `2501.0.1`. To check, follow these steps:
 
 1. Open your ***Artifact repository manager** release repository, as provided in the previous step.
-2. Look for `ads/samples/adsSampleLibrary/2600.0.0`. If it exists, the sample library has already been deployed. 
-3. If you want to deploy another version, change the version from `2600.0.0` to your desired version, for example, `1.myInitials`, in the following XML files:
+2. Look for `ads/samples/adsSampleLibrary/2501.0.1`. If it exists, the sample library has already been deployed. 
+3. If you want to deploy another version, change the version from `2501.0.1` to your desired version, for example, `1.myInitials`, in the following XML files:
 - `automation-decision-services-samples/samples/ExternalLibraryBuildTutorial/pom.xml` 
 - `automation-decision-services-samples/samples/ExternalLibraryBuildTutorial/sampleLibrary/pom.xml` 
 - `automation-decision-services-samples/samples/ExternalLibraryBuildTutorial/adsSampleLibrary/pom.xml` 
@@ -115,7 +114,7 @@ mvn clean deploy -s settings.xml
 ```
 **Note**: The `pom.xml` file provided in this sample, used to build and deploy the external library, can be generated using a Maven command.
 For more information about this feature, see the `documentation`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=library-creating-pom-file-external)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=library-creating-pom-file-external).
- 
+
 # Task 2: Importing an external library
 
 You ensure that a business user can import the external library in Decision Designer.
@@ -146,7 +145,7 @@ You check that Automation Decision Services is configured to search the reposito
 5. Enter the following values:
   - Group ID: ads.samples
   - Artifact ID: adsSampleLibrary
-  - Version: 2600.0.0 (This is the version number you deployed in the previous task. If you deployed a different version, use that version number instead.)
+  - Version: 2501.0.1 (This is the version number you deployed in the previous task. If you deployed a different version, use that version number instead.)
   
 6. Click **OK** and wait for the library to be imported. You see the library description from the `adsSampleLibrary/pom.xml` file, and that the library is available in many languages.
 7. Click **adsSampleLibrary** to open the library. You see the library types and verbalization.
