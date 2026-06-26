@@ -5,7 +5,7 @@
     <parent>
         <artifactId>externalLibraryGeo</artifactId>
         <groupId>ads.samples</groupId>
-        <version>2401.4.0</version>
+        <version>2401.8.0</version>
     </parent>
 
     <artifactId>geoLibrary</artifactId>

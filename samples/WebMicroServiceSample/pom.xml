@@ -6,16 +6,19 @@
   <artifactId>ads-sample-micro-service</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <properties>
-    <ads.execution-api.version>2.6.14</ads.execution-api.version>
+    <ads.execution-api.version>2.6.15</ads.execution-api.version>
     <maven.compiler.release>17</maven.compiler.release>
     <ads.samples.version>1.0.0</ads.samples.version>
+    <ads.samples.groupId>ads.samples</ads.samples.groupId>
+    <loan.approval.artifactId>loanApproval</loan.approval.artifactId>
+    <approval.ml.artifactId>approvalWithML</approval.ml.artifactId>
     <!-- ${package.folder.name} depends on the activated profile -->
     <java.classes.include.pattern>**/com/ibm/ads/samples/quarkus/${package.folder.name}/*.java</java.classes.include.pattern>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <quarkus.container-image.build>true</quarkus.container-image.build>
     <!-- Docker file at default location contains a property reference, so use generated Docker file instead -->
     <quarkus.docker.dockerfile-jvm-path>${project.build.directory}/Dockerfile.jvm</quarkus.docker.dockerfile-jvm-path>
-    <quarkus.platform.version>3.27.2</quarkus.platform.version>
+    <quarkus.platform.version>3.27.4.1</quarkus.platform.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -54,8 +57,8 @@
     </dependency>
     <!-- runtime dependencies -->
     <dependency>
-      <groupId>ads.samples</groupId>
-      <artifactId>loanApproval</artifactId>
+      <groupId>${ads.samples.groupId}</groupId>
+      <artifactId>${loan.approval.artifactId}</artifactId>
       <version>${ads.samples.version}</version>
       <scope>runtime</scope>
     </dependency>
@@ -134,7 +137,7 @@
         </plugin>
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.13.0</version>
+          <version>3.15.0</version>
           <configuration>
             <compilerArgs>
               <arg>-parameters</arg>
@@ -146,7 +149,7 @@
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.2.5</version>
+          <version>3.5.6</version>
           <configuration>
             <systemPropertyVariables>
               <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
@@ -161,6 +164,51 @@
     </pluginManagement>
   </build>
   <profiles>
+    <profile>
+      <id>install-archives</id>
+      <properties>
+        <ads.archives.folder>../../archives</ads.archives.folder>
+        <ads.archives.suffix>-24.0.1</ads.archives.suffix>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-install-plugin</artifactId>
+            <version>3.1.4</version>
+            <configuration>
+              <groupId>${ads.samples.groupId}</groupId>
+              <version>${ads.samples.version}</version>
+              <packaging>jar</packaging>
+              <generatePom>true</generatePom>
+            </configuration>
+            <executions>
+              <execution>
+                <id>install-archive1</id>
+                <phase>validate</phase>
+                <goals>
+                  <goal>install-file</goal>
+                </goals>
+                <configuration>
+                  <file>${ads.archives.folder}/${loan.approval.artifactId}${ads.archives.suffix}.jar</file>
+                  <artifactId>${loan.approval.artifactId}</artifactId>
+                </configuration>
+              </execution>
+              <execution>
+                <id>install-archive2</id>
+                <phase>validate</phase>
+                <goals>
+                  <goal>install-file</goal>
+                </goals>
+                <configuration>
+                  <file>${ads.archives.folder}/${approval.ml.artifactId}${ads.archives.suffix}.jar</file>
+                  <artifactId>${approval.ml.artifactId}</artifactId>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
     <profile>
       <id>decision</id>
       <properties>
@@ -185,8 +233,8 @@
       </properties>
       <dependencies>
         <dependency>
-          <groupId>ads.samples</groupId>
-          <artifactId>approvalWithML</artifactId>
+          <groupId>${ads.samples.groupId}</groupId>
+          <artifactId>${approval.ml.artifactId}</artifactId>
           <version>${ads.samples.version}</version>
           <scope>runtime</scope>
         </dependency>
