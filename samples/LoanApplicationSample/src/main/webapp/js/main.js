@@ -175,8 +175,8 @@ function hide_panels() {
 }
 
 function default_initialize() {
-    $('input[name="user"]').val(ADSUSERNAME);
-    $('input[name="password"]').val(ADSPASSWORD);
+    $('input[name="user"]').val(DIUSERNAME);
+    $('input[name="password"]').val(DIPASSWORD);
     $('input[name="server"]').val(SERVERNAME);
     $('input[name="decisionServiceId"]').val(DECISIONSERVICEID);
     $('input[name="majorVersion"]').val('');

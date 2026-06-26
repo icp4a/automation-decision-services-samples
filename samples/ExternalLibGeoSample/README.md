@@ -1,8 +1,8 @@
 # Sample: External library of geolocalization functions
 
 ## Description
-This sample defines an external library that provides geolocalization functions that are ready for use in Automation Decision Services.
-For more information about decision models and external libraries, see `Working with external libraries`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=data-working-external-libraries)[![ADS](/resources/ads.svg "IBM Automation Decision Services")](https://www.ibm.com/docs/en/ads/25.0.1?topic=data-working-external-libraries).
+This sample defines an external library that provides geolocalization functions that are ready for use in Decision Intelligence Client Managed Software.
+For more information about decision models and external libraries, see `Working with external libraries`[![CP4BA](/resources/cloudpak4ba.svg "IBM Cloud Pak for Business Automation")](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/26.0.0?topic=data-working-external-libraries)[![ADS](/resources/ads.svg "IBM Decision Intelligence Client Managed Software")](https://www.ibm.com/docs/en/dicms/26.0.0?topic=data-working-external-libraries).
 
 ## Learning objectives
 - Build an external library from a Java library.
@@ -12,7 +12,7 @@ For more information about decision models and external libraries, see `Working 
 
 ## Audience
 
-This sample is for anyone who wants to use a Java library in Automation Decision Services.
+This sample is for anyone who wants to use a Java library in Decision Intelligence.
 
 ## Time required
 
@@ -27,12 +27,12 @@ To become familiar with external libraries, complete the following tutorials:
 Some basic knowledge of Java is required.
 
 You must have the following environments:
-- **Decision Designer**: The web-based user interface for developing decision services in Automation Decision Service. You work with a sample decision service by importing it into a project and opening it in Decision Designer.
+- **Decision Designer**: The web-based user interface for developing decision services in Decision Intelligence. You work with a sample decision service by importing it into a project and opening it in Decision Designer.
 - **Deployment services**: Your IT developers must provide a repository manager where you can deploy the external library.
 - **Apache Maven**: You can download Maven from https://maven.apache.org. This sample requires Maven 3.9.x and was tested with version 3.9.10.
 
 Download a compressed file of the `automation-decision-services-samples` Git repository to your computer.
-Open [Automation Decision Services samples](/../../), click `Code` and select `Download Zip` in the menu.
+Open [Decision Intelligence samples](/../../), click `Code` and select `Download Zip` in the menu.
 The sample refers to **automation-decision-services-samples** as the directory where you decompress the repository.
 
 # Setting up the sample
@@ -43,7 +43,7 @@ The sample refers to **automation-decision-services-samples** as the directory w
 - Open the settings of your project to define the external library:
   - Group ID: ads.samples
   - Artifact ID: adsGeoLibrary
-  - Version: 2501.0.1
+  - Version: 2600.0.3
   
 # Sample details
 

@@ -6,9 +6,9 @@
  * Use, duplication or disclosure restricted by GSA ADP Schedule
  * Contract with IBM Corp.
 */
-package com.ibm.ads.samples;
+package com.ibm.dicms.samples;
 
-public class AdsResponse {
+public class DIResponse {
     public int status;
     public String payload;
 

@@ -1,13 +1,13 @@
 /*
  * Licensed Materials - Property of IBM
  * 5737-I23 5900-AUD
- * Copyright IBM Corp. 2018 - 2025. All Rights Reserved.
+ * Copyright IBM Corp. 2018 - 2026. All Rights Reserved.
  * U.S. Government Users Restricted Rights:
  * Use, duplication or disclosure restricted by GSA ADP Schedule
  * Contract with IBM Corp.
 */
 
-package com.ibm.ads.samples;
+package com.ibm.dicms.samples;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringReader;
@@ -94,7 +94,7 @@ public class Validate extends HttpServlet {
 	 *
 	 */
 	public String validate(JsonObject jsonInput) {
-		AdsResponse response = null;
+		DIResponse response = null;
 		boolean showTrace  = (boolean) jsonInput.getBoolean("showTrace");
 		try {
 			JsonObject payload = getJSONPayload(jsonInput, showTrace);
@@ -238,9 +238,9 @@ public class Validate extends HttpServlet {
 
 	/****       D E C O D E  T H E  R E S P O N S E         *****/
 
-	private String decodeResponse(AdsResponse response, boolean showTrace, JsonObject jsonInput) {
+	private String decodeResponse(DIResponse response, boolean showTrace, JsonObject jsonInput) {
 		JsonObject decodedResponse;
-		if (response.status == AdsResponse.SUCCESS) {
+		if (response.status == DIResponse.SUCCESS) {
 			JsonReader jsonReader = Json.createReader(new StringReader(response.payload));
 			JsonObject jsonResponse = jsonReader.readObject();
 			JsonObject output = jsonResponse.getJsonObject("output");
@@ -257,7 +257,7 @@ public class Validate extends HttpServlet {
 					.add("jsonOutputContent", jsonResponse)
 					.add("trace", trace)
 				.build();
-		} else if (response.status == AdsResponse.NOTFOUND)  {
+		} else if (response.status == DIResponse.NOTFOUND)  {
 			JsonReader jsonReader = Json.createReader(new StringReader(response.payload));
 			try {
 				JsonObject jsonResponse = jsonReader.readObject();

@@ -1,13 +1,13 @@
 /*
  * Licensed Materials - Property of IBM
  * 5737-I23 5900-AUD
- * Copyright IBM Corp. 2018 - 2025. All Rights Reserved.
+ * Copyright IBM Corp. 2018 - 2026. All Rights Reserved.
  * U.S. Government Users Restricted Rights:
  * Use, duplication or disclosure restricted by GSA ADP Schedule
  * Contract with IBM Corp.
  */
 
-package com.ibm.ads.samples;
+package com.ibm.dicms.samples;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -30,7 +30,7 @@ public class RestJavaClient {
         logger = Logger.getAnonymousLogger();
     }
 
-    public  AdsResponse executeDecision(String host, String spaceId, String decisionServiceId, int majorVersion, int minorVersion,
+    public  DIResponse executeDecision(String host, String spaceId, String decisionServiceId, int majorVersion, int minorVersion,
                                         String operationName, String user,
                                         String password, String requestBody) throws Exception {
         // method to be used to send request : POST
@@ -42,7 +42,7 @@ public class RestJavaClient {
         //
         //Server response
         //Code	Details
-        AdsResponse result = new AdsResponse();
+        DIResponse result = new DIResponse();
 
         String stringUrl = null;
         try {

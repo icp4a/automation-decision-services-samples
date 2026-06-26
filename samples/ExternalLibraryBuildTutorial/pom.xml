@@ -5,16 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <properties>
-        <ads-mojo.version>16.1.0</ads-mojo.version>
-        <ads-annotations.version>2.0.19</ads-annotations.version>
+        <ads-mojo.version>16.5.1</ads-mojo.version>
+        <ads-annotations.version>2.0.21</ads-annotations.version>
         <jackson.version>2.15.2</jackson.version>
-        <ads-sample.version>2501.0.1</ads-sample.version>
+        <ads-sample.version>2600.0.3</ads-sample.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <groupId>ads.samples</groupId>
     <artifactId>externalLibrary</artifactId>
-    <version>2501.0.1</version>
+    <version>2600.0.3</version>
     <packaging>pom</packaging>
 
     <modules>

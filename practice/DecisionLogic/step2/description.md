@@ -4,7 +4,7 @@ A decision logic has to determine a value for its decision node for each case th
 
 How can an incomplete rule set be made complete? There are two fundamentally different ways to solve this problem. You can either specify a default value that is used as a fallback when no rule is applicable, or refine the decision logic by computing missing rules.
 
-In ADS, default values are defined with default rules. A decision logic cannot have more than one default rule. A default rule has no condition and is applied if none of the regular rules or decision tables are applicable. Its action sets the value of the decision node to the default value.
+In Decision Intelligence, default values are defined with default rules. A decision logic cannot have more than one default rule. A default rule has no condition and is applied if none of the regular rules or decision tables are applicable. Its action sets the value of the decision node to the default value.
 
 Consider the incomplete decision table from [Step 1](../step1/description.md).
 
@@ -29,11 +29,11 @@ This new decision table has two families of missing cases:
 
 Suppose that default value APS-C is suitable for the first case, but not for the second case for which Micro Fourth Third should be chosen. Therefore, it is not sufficient to specify a default value. The decision logic needs to be refined by missing rules.
 
-As indicated in [Step 1](../step1/description.md), finding missing rules is a difficult problem, even for small rule sets. ADS provides a tool for computing missing rules based on a logical rule analysis. Clicking on the magic wand in the Logic view launches this computation. For the decision table with two missing cases, three missing rules are generated.
+As indicated in [Step 1](../step1/description.md), finding missing rules is a difficult problem, even for small rule sets. Decision Intelligence provides a tool for computing missing rules based on a logical rule analysis. Clicking on the magic wand in the Logic view launches this computation. For the decision table with two missing cases, three missing rules are generated.
 
 > Note: the completeness analyzer computes missing rules for the whole decision logic, which may consist of multiple rules and decision tables. Therefore, the generated missing rules are not associated with a particular decision table and are not integrated as additional rows.
 
-The first missing rule covers budgets less than zero and can be ignored. Budgets cannot be negative. However, ADS does not provide a way to specify this information.
+The first missing rule covers budgets less than zero and can be ignored. Budgets cannot be negative. However, Decision Intelligence does not provide a way to specify this information.
 
 ```
 if
@@ -43,7 +43,7 @@ then
     set decision to APS-C ;
 ```
 
-The second missing rule describes the second case listed above (photographers in portrait photography with low budget). The generated missing rule has a meaningful condition, but no meaningful action. ADS simply puts in the default value of the type of the decision node. For sensor format, this is APS-C. The generated rule has a comment inviting the rule author to choose a meaningful value:
+The second missing rule describes the second case listed above (photographers in portrait photography with low budget). The generated missing rule has a meaningful condition, but no meaningful action. Decision Intelligence simply puts in the default value of the type of the decision node. For sensor format, this is APS-C. The generated rule has a comment inviting the rule author to choose a meaningful value:
 
 ```
 if
@@ -122,7 +122,7 @@ A decision logic based on an _overlap-free rule set and default value_ has the f
 2. At most, one rule is applicable in each case.
 3. The default value is used if no rule is applicable.
 
-ADS allows the generation of missing rules if the default value cannot be used for all missing cases.
+Decision Intelligence allows the generation of missing rules if the default value cannot be used for all missing cases.
 
 #### Limitations
 

@@ -68,7 +68,7 @@ namely an APS-C camera.
 
 #### Exercise 2
 
-Define an Automation Decision Services decision table that directly maps each case to a decision:
+Define a Decision Intelligence decision table that directly maps each case to a decision:
 
  - Create a data model with enumeration types for budget, subject,
    level, and sensor format.
@@ -114,5 +114,5 @@ This approach is suited if the number of cases is relatively
 small. Filling out a row for each case is laborious. The [next step](quiz/quiz.md)
 examines how it can be improved.
 
-[Back to ADS concepts step by step](../README.md)
+[Back to Decision Intelligence concepts step by step](../README.md)
 

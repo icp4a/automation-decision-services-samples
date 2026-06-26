@@ -23,13 +23,13 @@ into a ranking of the given alternatives. For example, the customer might prefer
 full-frame camera to an APS-C camera and an APS-C camera to a
 Micro Four Thirds camera.
 
-In Automation Decision Services, it is possible to introduce a decision node that requires the choice of one of the
+In Decision Intelligence Client Managed Software, it is possible to introduce a decision node that requires the choice of one of the
 three alternatives. However, it does not provide any direct means to evaluate these alternatives
 to determine a ranking among them. Moreover, no built-in mechanism is present to choose the best decision according to
 an arbitrary ranking. The ranking can help you craft the decision logic, 
 which is shown in the next step. This first step is included to explain the difference 
 and relationship between traditional decision making and the decision making supported
-by Automation Decision Services.
+by Decision Intelligence.
 
 #### Exercise
 
@@ -48,4 +48,4 @@ of the alternatives can be chosen in each case. The [next step](../step2/descrip
 examines what happens if the available alternatives depend on the
 specific case.
 
-[Back to ADS concepts step by step](../README.md)
+[Back to Decision Intelligence concepts step by step](../README.md)

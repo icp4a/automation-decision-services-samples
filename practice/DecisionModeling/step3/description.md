@@ -132,4 +132,4 @@ It means that the number of rows might grow exponentially with the
 number of columns. The [next step](quiz/quiz.md) examines a method to address this issue.
 
 
-[Back to ADS concepts step by step](../README.md)
+[Back to Decision Intelligence concepts step by step](../README.md)

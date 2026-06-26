@@ -222,4 +222,4 @@ represent the results of the recommendation. A [final
 step](quiz/quiz.md)
 shows how to combine them into a single decision node.
 
-[Back to ADS concepts step by step](../README.md)
+[Back to Decision Intelligence concepts step by step](../README.md)

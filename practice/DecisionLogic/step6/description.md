@@ -2,13 +2,13 @@
 
 A complex decision logic as described in the [last section](../step5/description.md) involves a sequence of rule applications. This provides a convenient way for describing the construction of a composite value step by step. First the main object is created and then the values of its attributes are determined one after the other. The author of the decision logic has to keep in mind which attribute values are needed when determining the value of some other attribute. For example, the `fixed focus lens` attribute is needed for determining name, focal length, and aperture of lens models. Therefore, rules for setting the values of attribute `fixed focus lens` need to precede rules for setting these other attribute values.
 
-Whereas the original author of the decision logic may have these dependencies between attributes in mind, they are documented nowhere and another ADS user may change the order of rules for some reason and inadvertently break the unwritten dependencies. Moreover, this other user may have a difficult time to understand which rule modifies which attributes as all kinds of rules are mixed together in a single rule set.
+Whereas the original author of the decision logic may have these dependencies between attributes in mind, they are documented nowhere and another Decision Intelligence user may change the order of rules for some reason and inadvertently break the unwritten dependencies. Moreover, this other user may have a difficult time to understand which rule modifies which attributes as all kinds of rules are mixed together in a single rule set.
 
 The great advantage of rule-based systems is to break a complex behavior into simple pieces, namely the rules. This works well if the rules are independent of each other within the given setting, but not if there are implicit dependencies between rules. In presence of hidden dependencies, the maintenance of a larger rule set may become an impossible tasks. Many early rule-based systems failed and were abandoned due to maintenance problems. The example from the last section has shown that such maintenance problems can already arise for small rule sets if the `Rules are applied in sequence` policy is used. For rule sets with hundreds or thousands of rules, the risk of introducing errors by a bad rule ordering appears to be very high. Maintaining such a rule set will be a very tedious task.
 
-Could a complex decision logic be transformed into a form that reveals the dependencies between attributes and avoids an incorrect ordering of the rules? If rules are organized by attributes, then those dependencies will impose important constraints on the rule ordering: if an attribute depends on some other attribute then its rules need to succeed the rules of this other attribute in the rule ordering. Does ADS provide a means to organize rules in this way?
+Could a complex decision logic be transformed into a form that reveals the dependencies between attributes and avoids an incorrect ordering of the rules? If rules are organized by attributes, then those dependencies will impose important constraints on the rule ordering: if an attribute depends on some other attribute then its rules need to succeed the rules of this other attribute in the rule ordering. Does Decision Intelligence provide a means to organize rules in this way?
 
-There will be a surprising answer to this question. It will be revealed after two steps. The first step consists in identifying dependencies between attributes. The second step proposes a transformation of the decision logic such that these dependencies are clearly declared in ADS.
+There will be a surprising answer to this question. It will be revealed after two steps. The first step consists in identifying dependencies between attributes. The second step proposes a transformation of the decision logic such that these dependencies are clearly declared in Decision Intelligence.
 
 #### Analyze dependencies between attributes 
 
@@ -39,7 +39,7 @@ The diagram showing all the fine-grained dependencies between attributes is not 
 
 #### Transform model and declare dependencies
 
-The second step consists in transforming the diagram such that it can be represented in ADS. It involves several simplifications and transformations.
+The second step consists in transforming the diagram such that it can be represented in Decision Intelligence. It involves several simplifications and transformations.
 
 The attribute-dependency diagram can be simplified by regrouping nodes that have the same ingoing dependencies and by introducing a composite type for the grouped node. This follows the idea that has been explained in Section [Composite types](../../DecisionModeling/step5/description.md). Attributes for minimum and maximum aperture, minimum and maximum focal length, and name of `lens models with details` have all the same ingoing dependencies as their values are modified by the same rule. Therefore, it is possible to replace these five nodes by a single node and choose a suitable type for it. This may require the definition of a new data type. In this particular example, a data type for these five attributes has already been introduced, namely the type `lens model` (without details). The simplified diagram indicates the regrouped node as `lens model`. This node receives dependencies from `lens type`, `fixed focus lens`, and `sensor format`. Moreover, it receives an ownership link from `lens models with details`. Hence, all ingoing links of any of the five regrouped attributes are redirected to the grouped node.
 
@@ -74,7 +74,7 @@ As decision node `lens models with details` of the submodel is single-valued, it
 	    the lens type is 'lens type',
 	    the fixed focus lens is 'fixed focus lens' ;
 
-The resulting diagram no longer contains ownership links. It has the form of an ADS decision model with a submodel. All attributes have been converted into decision nodes and rules have been re-organized according to these decision nodes. Dependencies between attributes appear as dependencies between the corresponding decision nodes. This new diagram clearly depicts all intermediate decisions made by the complex rule set and documents their dependencies. This solves the maintenance problem by leveraging the existing ADS modeling capabilities.
+The resulting diagram no longer contains ownership links. It has the form of an Decision Intelligence decision model with a submodel. All attributes have been converted into decision nodes and rules have been re-organized according to these decision nodes. Dependencies between attributes appear as dependencies between the corresponding decision nodes. This new diagram clearly depicts all intermediate decisions made by the complex rule set and documents their dependencies. This solves the maintenance problem by leveraging the existing Decision Intelligence modeling capabilities.
 
 ![Final diagrams ](resources/Final-diagrams.png)
 

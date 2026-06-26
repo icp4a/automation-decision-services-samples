@@ -30,7 +30,7 @@ composite value that consists of two components. These components are
    `1000 g`.
  - a Boolean value that indicates whether a tilt screen is wanted or not.
  
-To use such a composite value in Automation Decision Services, a composite type needs
+To use such a composite value in Decision Intelligence Client Managed Software, a composite type needs
 to be defined. A composite type can have one or more attributes, which
 are used to describe the components of the composite value. Each
 attribute has a type. For example, you can introduce a composite type
@@ -105,7 +105,7 @@ Adapt the decision table of the camera decision node:
  
 #### Lessons learned
  
-It is possible to express sophisticated decision models in Automation Decision Services
+It is possible to express sophisticated decision models in Decision Intelligence
 with primitive types alone. So far, the main reason for using
 composite types is to regroup nodes with the same predecessors and
 successors. Hence, those composite types are not defined before you
@@ -137,4 +137,4 @@ introduces methods to address problems that involve an unknown number
 of components.
 
 
-[Back to ADS concepts step by step](../README.md)
+[Back to Decision Intelligence concepts step by step](../README.md)

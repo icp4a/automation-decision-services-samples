@@ -2,7 +2,7 @@
 
 ## Description
 
-This tutorial shows you how to use a decision service in an automation service. It requires an installation of Automation Decision Services on the platform IBM Cloud Pak for Business Automation.
+This tutorial shows you how to use a decision service in an automation service. It requires an installation of Decision Intelligence Client Managed Software on the platform IBM Cloud Pak for Business Automation.
 
 ## Learning objectives
 - Deploy a decision service archive to the embedded runtime.
@@ -11,7 +11,7 @@ This tutorial shows you how to use a decision service in an automation service. 
  
 ## Audience
 
-This tutorial is for business users who want to run an application that uses a decision service built in Automation Decision Services.
+This tutorial is for business users who want to run an application that uses a decision service built in Decision Intelligence.
 Some knowledge of Business Automation Studio is required.
 
 ## Time required
@@ -24,8 +24,8 @@ You must have access to  the following environments in Business Automation Studi
 - **Decision Designer**: A web-based user interface for developing decision services in Business Automation Studio. You work with a sample decision service that you import into a project and open in Decision Designer.
 - **Application Designer**:  A web-based user interface for developing applications in Business Automation Studio.
  
-If you do not have access to these environments, see [Managing access to Business Automation Studio projects documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=services-managing-access-decision-automations).
-For more information about Business Automation Studio and the designers it integrates, see the [Business Automation Studio documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=cpbaf-business-automation-studio).
+If you do not have access to these environments, see [Managing access to decision automations](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/26.0.0?topic=decisions-managing-access-decision-automations).
+For more information about Business Automation Studio and the designers it integrates, see the [Business Automation Studio documentation](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/26.0.0?topic=cpbaf-business-automation-studio).
 # Task 1: Creating and deploying a decision service
 **About this task**
 
@@ -63,8 +63,8 @@ In this step, you import the decision service that you later deploy. You import 
 
 ## Step 3: Deploying your decision service
 
-In this step, you deploy your decision service within your instance of Automation Decision Services. The instructions are summarized, but you can find more detailed instructions in the
-[Getting started in Automation Decision Services Task 6](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/25.0.1?topic=started-task-6-deploying-running-decision).
+In this step, you deploy your decision service within your instance of Decision Intelligence. The instructions are summarized, but you can find more detailed instructions in the
+[Getting started in Decision Intelligence Task 6](https://www.ibm.com/docs/en/cloud-paks/cp-biz-automation/26.0.0?topic=started-task-6-deploying-running-decision).
 
 **Procedure**
 

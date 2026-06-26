@@ -97,7 +97,7 @@ possible to express them by universal rules. As all three
 subproblems have the same form, they can be formulated in a more compact
 way.
 
-Automation Decision Services has elegant and simple ways to represent multiple versions of a
+Decision Intelligence Client Managed Software has elegant and simple ways to represent multiple versions of a
 subproblem in a compact way. Instead of using multiple input data
 nodes for lens types, it is possible to use a single input data
 node, called `lens requirements`, that has multiple values. If a
@@ -107,7 +107,7 @@ wants a standard lens, a super-telephoto lens, and a
 wide-angle lens, then this node has these three lens types
 as values.
 
-Indeed there are two kinds of nodes and attributes in Automation Decision Services:
+Indeed there are two kinds of nodes and attributes in Decision Intelligence:
 
  - Single-valued nodes and attributes: They have a single value. The type of
    this value is the type of the node or attribute.
@@ -139,7 +139,7 @@ decision is made by the following action:
             the maximum is 5.6
      to decision;
     
-Automation Decision Services also has elegant and simple ways to express universal
+Decision Intelligence also has elegant and simple ways to express universal
 rules. It is achieved by using quantifiers in the rule language. For
 example, you can write
 
@@ -270,7 +270,7 @@ while its other components are ignored.
 
 If these conditions are met, the decision logic can be expressed in
 terms of universal rules, applied to the values of a multi-valued
-node. In Automation Decision Services, those rules are formulated with the help of quantifiers.
+node. In Decision Intelligence, those rules are formulated with the help of quantifiers.
 
 #### Limitations
 

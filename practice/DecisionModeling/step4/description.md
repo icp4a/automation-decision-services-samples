@@ -128,4 +128,4 @@ easy to read and understand. The [next
 step](quiz/quiz.md)
 presents an easy method to reduce a diagram in size.
 
-[Back to ADS concepts step by step](../README.md)
+[Back to Decision Intelligence concepts step by step](../README.md)

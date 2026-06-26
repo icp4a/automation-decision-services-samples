@@ -56,4 +56,4 @@ Interestingly, this property holds even if some input data nodes such as `level`
 
 The properties listed above imply that each decision node must have a mathematical function that maps values of its direct predecessors to the value of the decision node. This function is called a _decision logic_. In ADS, a decision logic is specified in terms of a rule set. Not every rule set will be able to determine a unique value of the decision node given the values of its direct predecessors. The [next tutorial](../../DecisionLogic/README.md) will discuss what is needed to meet the requirements of a decision logic.
 
-[Back to ADS concepts step by step](../README.md)
+[Back to Decision Intelligence concepts step by step](../README.md)

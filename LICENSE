@@ -1,4 +1,4 @@
-The translated license terms can be viewed here: https://www14.software.ibm.com/cgi-bin/weblap/lap.pl?li_formnum=L-FJVU-23GPQ2
+The translated license terms can be viewed here: https://www14.software.ibm.com/cgi-bin/weblap/lap.pl?li_formnum=L-SZMY-MNQTXH
 
 IMPORTANT: READ CAREFULLY
 
@@ -24,7 +24,7 @@ LICENSE INFORMATION
 The Programs listed below are licensed under the following License Information terms and conditions in addition to the Program license terms previously agreed to by Client and IBM. If Client does not have previously agreed to license terms in effect for the Program, the International License Agreement for Evaluation of Programs (i125-5543-06) applies.
 
 Program Name (Program Number):
-IBM Automation Decision Services 25.0.1 (Evaluation)
+IBM Decision Intelligence Client Managed Software 26.0.0 (Evaluation)
 
 The following standard terms apply to Licensee's use of the Program.
 
@@ -35,13 +35,6 @@ The evaluation period begins on the date that Licensee agrees to the terms of th
 Multi-Product Install Image
 
 The Program is provided as part of a multi-product install image. Licensee is authorized to install and use only the Program (and its Bundled or Supporting Programs, if any) for which a valid entitlement is obtained and may not install or use any of the other software included in the image unless Licensee has acquired separate entitlements for that other software.
-
-Supporting Programs
-
-Licensee is authorized to install and use the Supporting Programs identified below only to support Licensee's use of the Principal Program under this Agreement. The phrase "to support Licensee's use" would only include those uses that are necessary or otherwise directly related to a licensed use of the Principal Program or another Supporting Program. The Supporting Programs may not be used for any other purpose. A Supporting Program may be accompanied by license terms, and those terms, if any, apply to Licensee's use of that Supporting Program. In the event of conflict, the terms in this License Information document supersede the Supporting Program's terms. Licensee must obtain sufficient entitlements to the Program, as a whole, to cover Licensee's installation and use of all of the Supporting Programs, unless separate entitlements are provided within this License Information document. For example, if this Program were licensed on a VPC (Virtual Processor Core) basis and Licensee were to install the Principal Program or a Supporting Program on a 10 VPC machine and another Supporting Program on a second 10 VPC machine, Licensee would be required to obtain 20 VPC entitlements to the Program.
-
-Supporting Programs:
-IBM WebSphere Application Server Liberty
 
 Modifiable Third Party Code
 
@@ -73,20 +66,13 @@ LICENSE INFORMATION
 The Programs listed below are licensed under the following License Information terms and conditions in addition to the Program license terms previously agreed to by Client and IBM. If Client does not have previously agreed to license terms in effect for the Program, the International Program License Agreement (i125-3301-15) applies.
 
 Program Name (Program Number):
-IBM Automation Decision Services 25.0.1 (5900-AUD)
+IBM Decision Intelligence Client Managed Software 26.0.0 (5900-AUD)
 
 The following standard terms apply to Licensee's use of the Program.
 
 Multi-Product Install Image
 
 The Program is provided as part of a multi-product install image. Licensee is authorized to install and use only the Program (and its Bundled or Supporting Programs, if any) for which a valid entitlement is obtained and may not install or use any of the other software included in the image unless Licensee has acquired separate entitlements for that other software.
-
-Supporting Programs
-
-Licensee is authorized to install and use the Supporting Programs identified below only to support Licensee's use of the Principal Program under this Agreement. The phrase "to support Licensee's use" would only include those uses that are necessary or otherwise directly related to a licensed use of the Principal Program or another Supporting Program. The Supporting Programs may not be used for any other purpose. A Supporting Program may be accompanied by license terms, and those terms, if any, apply to Licensee's use of that Supporting Program. In the event of conflict, the terms in this License Information document supersede the Supporting Program's terms. Licensee must obtain sufficient entitlements to the Program, as a whole, to cover Licensee's installation and use of all of the Supporting Programs, unless separate entitlements are provided within this License Information document. For example, if this Program were licensed on a VPC (Virtual Processor Core) basis and Licensee were to install the Principal Program or a Supporting Program on a 10 VPC machine and another Supporting Program on a second 10 VPC machine, Licensee would be required to obtain 20 VPC entitlements to the Program.
-
-Supporting Programs:
-IBM WebSphere Application Server Liberty
 
 Non-Production Limitation
 
@@ -136,10 +122,22 @@ Use of Usage Metering Data
 
 The Program enables use of a usage metering dashboard (the "Dashboard") that enables the display and monitoring of certain data and metrics regarding Licensee's deployment and usage of IBM and non-IBM software programs, as well as the computing environment on which they are deployed ("Usage Metering Data"). Usage of the Dashboard requires registration on either the Red Hat Marketplace or IBM Software Central. Licensee's usage of the Dashboard and IBM's use and sharing of Usage Metering Data are governed by the terms of the Service Description for the Red Hat Marketplace, Operated by IBM, available here: https://www.ibm.com/support/customer/csol/terms?id=i126-8719, and if Licensee enables or uses the Dashboard, Licensee agrees to those terms.
 
+Deployment and Usage Data
 
-L/N: L-FJVU-23GPQ2
-D/N: L-FJVU-23GPQ2
-P/N: L-FJVU-23GPQ2
+The Program may by default collect certain data and metrics regarding Licensee's deployment or usage of the Program and/or the Bundled Programs ("Deployment and Usage Data"). Deployment and Usage Data may include, for example, quantitative license metric-related information (e.g. the number of VPCs, resources, users or other license metric deployed, consumed or managed by the Program or Bundled Program), and other quantitative metrics relating to usage of the Program or Bundled Program or their features (e.g. API calls, events, storage, user interface interactions). Deployment and Usage Data may also include information regarding the environment on which the Program or Bundled Program is deployed, such as architecture, operating system, cloud provider, location, cluster information, number of nodes. Deployment and Usage Data does not include personal information or the contents of Licensee’s data managed by the Program or Bundled Program. Each Bundled Program may also collect other deployment and usage data under its own license terms.
+ 
+Unless Licensee disables the Deployment and Usage Data feature in the Program, IBM may receive Deployment and Usage Data from the Program deployed by Licensee. In all such cases, the Deployment and Usage Data may be sent to IBM servers and/or data collection and analytics services provided to IBM by one or more third parties, and IBM may use such Deployment and Usage Data for IBM's internal business purposes, including management, planning, supporting, improving and enhancing IBM products and services, and to support and advise Licensee regarding Licensee's use of IBM software programs (e.g. performance, deployment and capacity planning) and to offer other IBM products and services to Licensee, and may share such Deployment and Usage Data with its affiliates, contractors and business partners worldwide for these purposes.
+
+Licensee may disable the Deployment and Usage Data feature at any time by referring to the Program’s documentation at https://www.ibm.com/docs/en/dicms/26.0.0?topic=central-disabling-usage-metering-service for detailed instructions on how to disable the feature.
+
+
+
+
+
+
+L/N: L-SZMY-MNQTXH
+D/N: L-SZMY-MNQTXH
+P/N: L-SZMY-MNQTXH
 
 IMPORTANT: READ CAREFULLY
 

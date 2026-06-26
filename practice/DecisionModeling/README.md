@@ -9,8 +9,8 @@ address the complexity in the right way.
 
 The first two steps
 cover general problems and are given as background. The third
-step introduces the specific problems that Automation Decision Services can solve. 
-It helps you understand where Automation Decision Services fits into the vast landscape of 
+step introduces the specific problems that Decision Intelligence Client Managed Software can solve. 
+It helps you understand where Decision Intelligence fits into the vast landscape of 
 decision-making software.
 
 Each step has one or more exercises. When you solve the exercise, you can proceed to the next step. 
@@ -68,7 +68,7 @@ folder in [/practice/DecisionModeling/step{stepNumber}/solution]().
    model for the components and applying this decision model 
    to make a decision for this component. [Continue the tutorial](step6/quiz/quiz.md)
 
-You have now learned how to define hierarchical decision-making problems with the help of ADS decision models. These decision models have some fundamental properties, which are important for the next tutorial. You can learn more about them in this [Discussion of decision models](wrapup/description.md).
+You have now learned how to define hierarchical decision-making problems with the help of Decision Intelligence decision models. These decision models have some fundamental properties, which are important for the next tutorial. You can learn more about them in this [Discussion of decision models](wrapup/description.md).
 
 [Back to main page](./..)
 

@@ -77,7 +77,7 @@ A decision logic based on an _overlapping rule set and default value_ has the fo
 2. The default value is used if no rule is applicable.
 3. An interaction policy selects or aggregates decisions made by the applicable rules if there is at least one such rule.
 
-Unlike the DMN standard, these different kinds of decision logic are descriptive rather than normative. In ADS, there is no completeness indicator enforcing completeness and no unique policy requiring rules to be overlap-free. Whereas DMN defines hit policies at the decision table level, interaction policies in ADS are defined at the decision logic level and can be applied to multiple rules and decision tables.
+Unlike the DMN standard, these different kinds of decision logic are descriptive rather than normative. In Decision Intelligence, there is no completeness indicator enforcing completeness and no unique policy requiring rules to be overlap-free. Whereas DMN defines hit policies at the decision table level, interaction policies in Decision Intelligence are defined at the decision logic level and can be applied to multiple rules and decision tables.
 
 #### Limitations
 

@@ -33,4 +33,4 @@ service:
 
 
 
-[Back to ADS concepts step by step](../README.md)
+[Back to Decision Intelligence concepts step by step](../README.md)
