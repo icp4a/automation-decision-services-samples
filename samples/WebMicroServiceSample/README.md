@@ -63,10 +63,10 @@ You deploy two archives: `loanApproval` and `approvalWithML`, and they are used 
   
 Follow these steps to deploy the decision service archives:
    
-1. Browse your local Maven repository, and check the installed versions of `ads/samples/loanApproval` and `ads/samples/approvalWithML`. If the version 1.0.0 is already installed, increase the version number in the script.
-3. Run the following command in the `WebMicroServiceSample/archive` directory:
+1. Browse your local Maven repository, and check the installed versions of `ads/samples/loanApproval` and `ads/samples/approvalWithML`. If the version 1.0.0 is already installed, increment the value of the `ads.samples.version` property in the pom.xml file.
+2. Run the following command in the `WebMicroServiceSample/` directory:
    ```sh
-   ./install-archives.sh
+   mvn clean validate -Pinstall-archives -s settings.xml
    ```
     
 This command installs the two decision service archives with the version specified in `SERVICE_VERSION` to your local Maven repository. You can go to the next step when you see the message ``` BUILD SUCCESS```.
@@ -81,7 +81,7 @@ You deploy it to a Kubernetes container, and then, you test it by using cURL.
 1. Open the `WebMicroServiceSample/pom.xml` file to check the used versions. They are defined as properties at the beginning of the file:
 ```
     <ads.samples.version>1.0.0</ads.samples.version>
-    <ads.execution-api.version>3.0.16</ads.execution-api.version> 
+    <ads.execution-api.version>3.0.17</ads.execution-api.version> 
 ```
 `ads.samples.version` is the version of the decision service archive `loanApproval` that you previously installed. 
 This sample was tested with the version `ads.execution-api.version` of the artifact `execution-api`.<br> 
@@ -165,7 +165,7 @@ For more information about the metadata for machine learning, see [Decision serv
 1. Open the `WebMicroServiceSample/pom.xml` file to check the used versions. They are defined as properties at the beginning of the file:
 ```
     <ads.samples.version>1.0.0</ads.samples.version>
-    <ads.execution-api.version>3.0.16</ads.execution-api.version> 
+    <ads.execution-api.version>3.0.17</ads.execution-api.version> 
 ```
 `ads.samples.version` is the version of the decision service archive `approvalWithML` that you previously installed. 
 This sample was tested with the artifact  `execution-api` with the version `ads.execution-api.version`.<br>
