@@ -18,7 +18,7 @@
     <quarkus.container-image.build>true</quarkus.container-image.build>
     <!-- Docker file at default location contains a property reference, so use generated Docker file instead -->
     <quarkus.docker.dockerfile-jvm-path>${project.build.directory}/Dockerfile.jvm</quarkus.docker.dockerfile-jvm-path>
-    <quarkus.platform.version>3.33.3</quarkus.platform.version>
+    <quarkus.platform.version>3.33.3.1</quarkus.platform.version>
   </properties>
   <dependencyManagement>
     <dependencies>
